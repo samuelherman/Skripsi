@@ -1,24 +1,19 @@
 %_____________________________________________________________________________
 %=============================================================================
-% data.tex v5 (10-11-2013) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
+% data.tex v1.1 (21-10-2012) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
 %
-% Perubahan pada versi 5 (10-11-2013)
-% - Perbaikan pada memasukkan bab : tidak perlu menuliskan apapun untuk 
-%	memasukkan seluruh bab (bagian V)
-% - Perbaikan pada memasukkan lampiran : tidak perlu menuliskan apapun untuk
-%	memasukkan seluruh lampiran atau -1 jika tidak memasukkan apapun
+% Perubahan pada versi 1.1 (06-08-2012)
+% - Data dosen dipindah ke dosen.tex agar jika ada perubahan/update data dosen
+%   mahasiswa tidak perlu mengubah data.tex
+% - Perubahan pada keterangan dosen 
 %
 % Perubahan pada versi sebelumnya
-%	versi 4 (21-10-2012)
-%	- Data dosen dipindah ke dosen.tex agar jika ada perubahan/update data dosen
-%   mahasiswa tidak perlu mengubah data.tex
-%	- Perubahan pada keterangan dosen	
-% 	versi 3 (06-08-2012)
-% 	- Perubahan pada beberapa keterangan 
-% 	versi 2 (09-07-2012):
-% 	- Menambahkan data judul dalam bahasa inggris
-% 	- Membuat bagian khusus untuk judul (bagian VIII)
-% 	- Perbaikan pada gelar dosen
+% Versi 1.0 (06-08-2012)
+% - Perubahan pada beberapa keterangan 
+% versi 0.9b (09-07-2012):
+% - Menambahkan data judul dalam bahasa inggris
+% - Membuat bagian khusus untuk judul (bagian VIII)
+% - Perbaikan pada gelar dosen
 %_____________________________________________________________________________
 %=============================================================================
 % 								BAGIAN -
@@ -38,6 +33,7 @@
 \usepackage[table]{xcolor}
 \usepackage{longtable}
 \usepackage{amsmath}
+\usepackage{listings}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -56,11 +52,11 @@
 % Jika tidak ingin mencetak daftar tabel/gambar (misalkan karena tidak ada 
 % isinya), edit manual di baris 439 dan 440 pada file main.tex
 %=============================================================================
-% \mode{kosong}
-% \mode{cover}
-% \mode{sidang}
+%\mode{kosong}
+%\mode{cover}
+\mode{sidang}
 %\mode{sidang_akhir}
-\mode{final} 
+%\mode{final} 
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -87,9 +83,9 @@
 % - double : jarak yang lebih lebar lagi, jika pembimbing berniat memberi 
 %            catatan yg banyak di antara baris (dianjurkan untuk bimbingan)
 %=============================================================================
-\linespacing{single}
-% \linespacing{onehalf}
-%\linespacing{double}
+%\linespacing{single}
+%\linespacing{onehalf}
+\linespacing{double}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -100,11 +96,11 @@
 % untuk mencetak hanya 1 atau beberapa bab saja
 % Jika lebih dari 1 bab, pisahkan dengan ',', bab akan dicetak terurut sesuai 
 % urutan bab.
-% Untuk mencetak seluruh bab, kosongkan parameter (i.e. \bab{ })  
+% Untuk mencetak seluruh bab, kosongkan parameter (i.e. \bab{})  
 % Catatan: Jika ingin menambahkan bab ke-10 dan seterusnya, harus dilakukan 
 % secara manual
 %=============================================================================
-\bab{ }
+\bab{1,2}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -115,12 +111,13 @@
 % digunakan untuk mencetak hanya 1 atau beberapa lampiran saja
 % Jika lebih dari 1 lampiran, pisahkan dengan ',', lampiran akan dicetak 
 % terurut sesuai urutan lampiran
-% Jika tidak ingin mencetak lampiran apapun, isi dengan -1 (i.e. \lampiran{-1})
-% Untuk mencetak seluruh mapiran, kosongkan parameter (i.e. \lampiran{ })  
+% Jika tidak ingin mencetak lampiran apapun, kosongkan parameter 
+% (i.e. \lampiran{}). Tidak ada opsi mencetak seluruh lampiran, anda harus
+% menuliskan semuanya sendiri (i.e. \lampiran{A,B,C,D,E,F,G,H,I}) 
 % Catatan: Jika ingin menambahkan lampiran ke-J dan seterusnya, harus 
 % dilakukan secara manual
 %=============================================================================
-\lampiran{ }
+\lampiran{}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -143,10 +140,10 @@
 % - penguji : isi dengan para penguji anda, lihat daftar dosen di file dosen.tex
 %				(e.g. \penguji{\JHD}{\JCD} )
 %=============================================================================
-\namanpm{Lionov}{1997730020}
-\tanggal{1}{7}{2002}
-\pembimbing{\OSS}{\TAB}     %Lihat singkatan pembimbing anda di file dosen.tex
-\penguji{\NIS}{\CEN} 		%Lihat singkatan penguji anda di file dosen.tex
+\namanpm{Samuel Herman}{2010730013}
+\tanggal{10}{02}{2015}
+\pembimbing{\PAS}{}     %Lihat singkatan pembimbing anda di file dosen.tex
+\penguji{}{} 		%Lihat singkatan penguji anda di file dosen.tex
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -162,9 +159,9 @@
 %			 - Judul TIDAK ditulis dengan menggunakan huruf besar seluruhnya !!
 %=============================================================================
 
-\judulINA{Mengikuti Mayoritas: \texorpdfstring{\\}{} Sebuah Algoritma Baru Untuk Menghitung \texorpdfstring{\\}{} Median Trajectory}
+\judulINA{Sistem Informasi Riwayat Mahasiswa}
 
-\judulENG{Following The Majority: \texorpdfstring{\\}{} a New Algorithm for Computing \texorpdfstring{\\}{} a Median Trajectory}
+\judulENG{History Student Information System}
 
 %_____________________________________________________________________________
 %=============================================================================
@@ -177,41 +174,23 @@
 %			 bawahnya
 %=============================================================================
 
-\abstrakINA{Kami mengembangkan dua algoritma baru untuk menghitung lintasan dari median set lintasan.
-	Algoritma pertama adalah $O(1.2108^{m} + m^{5}n^{5})$ terburuk waktu algoritma, dengan menggunakan konsep Jarak Fr\'{e}chet.
-	Algoritma kedua menggunakan metode penyangga.
-	Dalam situasi praktis, algoritma ini dapat menghitung median lintasan di $O((mn)^{2} \log mn)$ waktu.
-	Untuk kedua algoritma, $m$ adalah jumlah lintasan dalam mengatur dan lintasan masing-masing memiliki segmen $n$.
-	Kami membandingkan algoritma buffer dengan dua algoritma lain, salah satu dari mereka menggunakan konsep homotopy.
-	Hasil kami menunjukkan bahwa algoritma penyangga melakukan agak lebih baik.
-
-	Kami mengembangkan dua algoritma baru untuk menghitung lintasan dari median set lintasan.
-	Algoritma pertama adalah $O(1.2108^{m} + m^{5}n^{5})$ terburuk waktu algoritma, dengan menggunakan konsep Jarak Fr\'{e}chet.
-	Algoritma kedua menggunakan metode penyangga.
-	Dalam situasi praktis, algoritma ini dapat menghitung median lintasan di $O((mn)^{2} \log mn)$ waktu.
-	Untuk kedua algoritma, $m$ adalah jumlah lintasan dalam mengatur dan lintasan masing-masing memiliki segmen $n$.
-	Kami membandingkan algoritma buffer dengan dua algoritma lain, salah satu dari mereka menggunakan konsep homotopy.
-	Hasil kami menunjukkan bahwa algoritma penyangga melakukan agak lebih baik.
+\abstrakINA{Penelitian ini akan mengembangkan CAPTCHA yang memiliki kualitas yang baik.
+Kualitas yang baik akan didapat apabila CAPTCHA yang dikembangkan dapat diselesaikan oleh manusia dan tidak dapat diselesaikan oleh komputer.
+Gambar CAPTCHA yang dibangkitkan akan menggunakan tiga efek distorsi untuk meningkatkan kualitas CAPTCHA.
+Efek distorsi pertama adalah merotasi karakter yang akan diacak dari 0^{\circ}$ sampai 360^{\circ}$.
+Efek distorsi kedua adalah membalik karakter secara horisontal maupun vertikal.
+Dan efek distorsi yang terakhir adalah menambahan garis yang ditambahkan pada gambar secara acak.
+Ketiga efek distorsi tersebut akan digabungkan sehingga menghasilkan CAPTCHA dengan kualitas yang baik.
 }
 
-\abstrakENG{We develop two new algorithms to compute a median trajectory from a
-	set of trajectories.
-	The first algorithm is an $O(1.2108^{m} + m^{5}n^{5})$ worst-case time algorithm, using the concept of Fr\'{e}chet Distance.
-	The second algorithm uses a buffer method.
-	In practical situations, this algorithm can compute the median trajectory in $O((mn)^{2} \log mn)$ time. 
-	For both algorithms, $m$ is the number of trajectories in the set and each trajectory has $n$ segments.
-	We compare the buffer algorithm with two other algorithms, one of them using the homotopy concept.
-	Our results suggest that the buffer algorithm performs somewhat better.
-	
-	We develop two new algorithms to compute a median trajectory from a
-	set of trajectories.
-	The first algorithm is an $O(1.2108^{m} + m^{5}n^{5})$ worst-case time algorithm, using the concept of Fr\'{e}chet Distance.
-	The second algorithm uses a buffer method.
-	In practical situations, this algorithm can compute the median trajectory in $O((mn)^{2} \log mn)$ time. 
-	For both algorithms, $m$ is the number of trajectories in the set and each trajectory has $n$ segments.
-	We compare the buffer algorithm with two other algorithms, one of them using the homotopy concept.
-	Our results suggest that the buffer algorithm performs somewhat better.
-} 
+\abstrakENG{This research will develop a CAPTCHA that has good quality.
+Good quality will be obtained if the CAPTCHA which is developed can be solved by humans and cannot be solved by a computer.
+A picture captcha raised will use of three effects of distortion to improve the quality of captcha.
+The first distortion effects is a rotation of characters that will be scrambled from 0^{\circ}$ to 360^{\circ}$.
+The second distortion effects to flip characters to the horizontal as well as vertical.
+And the effects of distortion that last one is add a line that is added in figure at random.
+The third effect of the distortion will be combined so as to generate a CAPTCHA with a good quality.
+}
 
 %=============================================================================
 
@@ -223,9 +202,9 @@
 % - kunciINA: kata-kata kunci dalam bahasa indonesia
 % - kunciENG: keywords in english
 %=============================================================================
-\kunciINA{Lintasan, Homotopy, Fr\'{e}chet, Lintasan Median, Penyangga}
+\kunciINA{CAPTCHA, Distorsi, Merotasi, Membalik, Menambah Garis, Kualitas Yang Baik}
 
-\kunciENG{Trajectory, Homotopy, Fr\'{e}chet, Median Trajectory, Buffer}
+\kunciENG{CAPTCHA, Distortion, Rotation, Flip, Add A Line, Good Quality}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -244,7 +223,7 @@
 % Kata Pengantar: tempat anda menuliskan kata pengantar dan ucapan terima 
 % kasih kepada yang telah membantu anda bla bla bla ....  
 %=============================================================================
-\prakata{\lipsum}
+\prakata{\lipsum[1]}
 %=============================================================================
 
 %_____________________________________________________________________________
