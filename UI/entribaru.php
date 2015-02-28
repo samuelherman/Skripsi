@@ -47,7 +47,7 @@
 			<div class="row">
 				<ul class="button-group">
 					<li><a href="pilihmahasiswa.php" class="button">Kembali</a></li>
-					<li><input class="button" type="submit" name="submit" value="Submit"></li>
+					<li><input class="button" type="submit" name="submit" value="Simpan"></li>
 				</ul>
 			</div>
 			<div class="small-8 columns">

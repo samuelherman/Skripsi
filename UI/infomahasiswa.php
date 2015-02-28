@@ -13,8 +13,8 @@
 		</div>
 		<div class="row">
 			<ul class="button-group">
-				<li><a href="#" class="button">Edit</a></li>
-				<li><a href="#" class="button">Lihat Histori</a></li>
+				<li><a href="editmahasiswa.php" class="button">Edit</a></li>
+				<li><a href="lihathistori.php" class="button">Lihat Histori</a></li>
 			</ul>
 		</div>
 		<hr/>

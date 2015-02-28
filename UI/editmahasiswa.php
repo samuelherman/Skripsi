@@ -15,8 +15,8 @@
 		</div>
 		<div class="row">
 			<ul class="button-group">
-				<li><a href="#" class="button">Kembali</a></li>
-				<li><a href="#" class="button">Simpan</a></li>
+				<li><a href="infomahasiswa.php" class="button">Kembali</a></li>
+				<li><input class="button" type="submit" name="submit" value="Simpan"></li>
 			</ul>
 		</div>
 		<form>

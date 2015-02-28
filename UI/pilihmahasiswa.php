@@ -60,7 +60,7 @@
 		while($row = mysql_fetch_array($hasil))
 		{
 		echo "<tr>";
-		echo "<td>" . $row['npm'] . "</td>";
+		echo "<td><a href='infomahasiswa.php'>" . $row['npm'] . "</a></td>";
 		echo "<td>" . $row['nama'] . "</td>";
 		echo "<td>" . $row['log'] . "</td>";
 		echo "</tr>";
