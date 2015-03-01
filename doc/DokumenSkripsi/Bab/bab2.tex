@@ -4,7 +4,7 @@
 
 Bab ini terdiri atas empat bagian, yaitu Google Authentication, Markdown Syntax, StrapdownJS dan Zurb Foundation. Empat bagian terebut akan membahas mengenai dasar-dasar teori mengenai Google Authentication, Markdown Syntax, StrapdownJS dan Zurb Foundation yang akan digunakan dalam penelitian ini untuk membangun perangkat lunak Sistem Informasi Riwayat Mahasiswa.
 
-\section{Google Authentication \cite{Oauth:2014}}
+\section{Google Authentication \cite{Oauth:2013}}
 \label{sec:googleauthentication}
 
 API Google menggunakan protokol OAuth 2.0 untuk otentikasi dan otorisasi. OAuth 2.0 adalah protokol yang relatif sederhana. Untuk memulainya cukup dengan mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\footnotemark[1]. Maka aplikasi akan meminta suatu token akses dari Google Authorization Server, ekstrak token akses yang merupakan jawaban dari server, dan mengirim token akses ke Google API yang akan diakses.
@@ -17,7 +17,7 @@ Sub bab berikut memberikan gambaran skenario otorisasi OAuth 2.0 yang merupakan 
 \subsection{Langkah Dasar}
 Semua aplikasi akan mengikuti pola dasar ketika menggakses Google API menggunakan Oauth 2.0. Terdapat empat langkah yang harus diikuti :
 
-\begin{itemize}
+\begin{enumerate}
 \item
 Mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\\
 Berkunjung ke Google Developers Console untuk mendapatkan kepercayaan OAuth 2.0 seperti klien id dan kerahasiaan klien yang keduanya dikenal oleh Google dan aplikasi yang dibuat. Set nilai-nilai yang bervariasi sesuai dengan jenis aplikasi apa yang sedang dibuat. Misalnya, sebuah aplikasi javascript tidak memerlukan sebuah rahasia, tapi apakah aplikasi web server memerlukannya.
@@ -33,7 +33,7 @@ Token akses hanya berlaku untuk set operasi dan sumber daya yang dijelaskan pada
 \item
 Memperbaharui token akses jika diperlukan\\
 Token akses memiliki daya tahan yang terbatas. Jika aplikasi yang dibangun membutuhkan akses ke Google API melebihi masa aktif token akses, maka dapat memperbaharui token akses tersebut. Hal ini memungkinkan untuk memdapatkan token akses yang baru.
-\end{itemize}
+\end{enumerate}
 
 \subsection{Skenario Aplikasi Web Server}
 Google OAuth 2.0 mendukung aplikasi web server yang menggunakan bahasa dan kerangka kerja seperti PHP, Java, Python, Ruby, dan ASP.NET.
@@ -134,7 +134,7 @@ On July 2, an alien mothership entered Earth's orbit and deployed several dozen 
 
 On July 3, the Black Knights, a squadron of Marine Corps F/A-18 Hornets, participated in an assault on a destroyer near the city of Los Angeles.
 \end{lstlisting}
-\item Titel\\
+\item Judul Sub Bab\\
 Titel dapat dibuat dengan menambahkan satu atau lebih simbol \# sebelum teks titel. Jumlah \# yang digunakan akan menentukan ukuran titel.
 \begin{lstlisting}
 # The largest heading (an <h1> tag)
@@ -160,7 +160,7 @@ Gaya teks yang dapat dibuat adalah teks tebal atau miring.
 \end{enumerate}
 
 \subsection{Daftar}
-Terdapat tiga macam daftar yang dapat dibuat. Tiga macam daftar dapat dilihat dibawah ini.
+Terdapat tiga macam daftar yang dapat dibuat. Tiga macam daftar tersebut dapat dilihat dibawah ini.
 
 \begin{enumerate}
 \item Daftar tidak berurutan\\
@@ -259,7 +259,7 @@ Strapdonw.js juga memiliki beberapa fitur :
 \item Dapat menggunakan tema
 \end{enumerate}
 
-\section{Zurb Foundation \cite{Zurb:2014}}
+\section{Zurb Foundation \cite{Zurb:2015}}
 \label{sec:zurbfoundation}
 
 Zurb Foundation merupakan alat bantu dalam membuat aplikasi baru maupun membuat website yang responsif. Jutaan desainer dan teknisi menggunakan Foundation sebagai bagian dari alur kerja mereka. Zurb Foundation adalah {\it framework} pertama yang memperkenalkan konsep responsif, semantik, mobile dan parsial. Zurb Foundation juga kompatibel dengan kebanyakan mesin pencari dan perangkat. Maka dari itu Zurb Foundation merupakan pilihan profesional bagi para desainer dan teknisi.
@@ -267,6 +267,8 @@ Zurb Foundation merupakan alat bantu dalam membuat aplikasi baru maupun membuat 
 \subsection{Kompatibilitas}
 Zurb Foundation dirancang dan diuji pada berbagai browser dan perangkat. Daftar pengujian pada berbagai browser dan perangkat dapat dilihat pada Tabel \ref{tab:kompatibilitas}.
 
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 \begin{center}
 \begin{table}
 \caption[Tabel 2-1 Daftar Pengujian Zurb Foundation]{Daftar Pengujian Zurb Foundation\footnotemark[1]}\\
@@ -276,33 +278,33 @@ Zurb Foundation dirancang dan diuji pada berbagai browser dan perangkat. Daftar 
 \hline
 Browser/OS & The Grid & Layout/UI & JS\\
 \hline
-Chrome & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Chrome & \cmark & \cmark & \cmark\\
 \hline
-Firefox & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Firefox & \cmark & \cmark & \cmark\\
 \hline
-Safari & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Safari & \cmark & \cmark & \cmark\\
 \hline
-IE10 & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+IE10 & \cmark & \cmark & \cmark\\
 \hline
-IE11 & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+IE11 & \cmark & \cmark & \cmark\\
 \hline
-IE9 & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+IE9 & \cmark & \cmark & \cmark\\
 \hline
-IE8 & \includegraphics[scale=0.5]{Gambar/silang.png} & \includegraphics[scale=0.5]{Gambar/silang.png} & \includegraphics[scale=0.5]{Gambar/silang.png}\\
+IE8 & \xmark & \xmark & \xmark\\
 \hline
-IE7 & \includegraphics[scale=0.5]{Gambar/silang.png} & \includegraphics[scale=0.5]{Gambar/silang.png} & \includegraphics[scale=0.5]{Gambar/silang.png}\\
+IE7 & \xmark & \xmark & \xmark\\
 \hline
-iOS (iPhone) & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+iOS (iPhone) & \cmark & \cmark & \cmark\\
 \hline
-iOS (iPad) & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+iOS (iPad) & \cmark & \cmark & \cmark\\
 \hline
-Android 2, 4 (Phone) & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Android 2, 4 (Phone) & \cmark & \cmark & \cmark\\
 \hline
-Android 2, 4 (Tablet) & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Android 2, 4 (Tablet) & \cmark & \cmark & \cmark\\
 \hline
-Windows Phone 7+ & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Windows Phone 7+ & \cmark & \cmark & \cmark\\
 \hline
-Surface & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png} & \includegraphics[scale=0.5]{Gambar/ceklist.png}\\
+Surface & \cmark & \cmark & \cmark\\
 \hline
 \end{tabular}
 \end{center}
