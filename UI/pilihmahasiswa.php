@@ -8,6 +8,26 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
+	<?php
+		session_start();
+		require_once 'google-api-php-client-master/autoload.php';
+		
+		$client_id = '568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com';
+		$client_secret = '-cSZ-AUmeQ9PaWWry_IpiBBi';
+		//$redirect_uri = 'http://localhost/pilihmahasiswa.php';
+		
+		$client = new Google_Client();
+		$client->setClientId($client_id);
+		$client->setClientSecret($client_secret);
+		//$client->setRedirectUri($redirect_uri);
+		$client->addScope("https://www.googleapis.com/auth/plus.login");
+		
+		$activity = $plus->people->get('me');
+		print "ID: {$client['id']}\n";
+		print "Display Name: {$client['displayName']}\n";
+		print "Image Url: {$client['image']['url']}\n";
+		print "Url: {$client['url']}\n";
+	?>
 	<div class="row">
 		<h5>Masukan NPM yang ingin dicari / tambah baru.</h5>
 	</div>

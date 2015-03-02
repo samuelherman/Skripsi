@@ -18,7 +18,7 @@
 			</ul>
 		</div>
 		<hr/>
-		<xmp style="display:none;">		
+<xmp style="display:none;">
 ### NPM
 
 2010730013
@@ -38,7 +38,7 @@ Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia a
 * 1 September 2014, perwalian
 * 1 September 2014, pertama kali dibuat
 
-		</xmp>
+</xmp>
 		<script src="js/0.2/strapdown.js"></script>
 	</body>
 </html>
