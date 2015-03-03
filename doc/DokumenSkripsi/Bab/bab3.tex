@@ -1,210 +1,377 @@
 \chapter{Analisis}
 \label{chap:analisis}
 
-Bab ini terdiri atas tiga bagian, yaitu Analisis CAPTCHA Yang akan Digunakan Berdasarkan Pedoman Untuk CAPTCHA, Analisis OCR yang Digunakan, dan Analisi Berorientasi Objek. Bagian Analisis CAPTCHA Yang akan Digunakan Berdasarkan Pedoman Untuk CAPTCHA berisi penjelasan analisis CAPTCHA yang akan dikembangan pada penelitian ini. Bagian Analisis OCR yang Digunakan berisi penjelasan analisis OCR yang akan digunakan pada penelitian ini. Sedangkan bagian Analisi Berorientasi Objek berisi use case diagram dan skenario perangkat lunak yang akan dibangun.
+Bab ini terdiri atas lima bagian, yaitu Analisis Google Authentication, Analisis Markdown, Analisis StrapdownJS, Analisis Zurb dan Analisis Berorientasi Objek. Bagian Analisis Google Authentication berisi penjelasan analisis Google Authentication yang akan digunakan pada penelitian ini. Bagian Analisis Markdown berisi penjelasan analisis Markdown yang akan digunakan pada penelitian ini. Bagian Analisis StrapdownJS berisi penjelasan analisis StrapdownJS yang akan digunakan pada penelitian ini. Bagian Analisis Zurb Foundation berisi penjelasan analisis Zurb Foundation yang akan digunakan pada penelitian ini. Sedangkan bagian Analisi Berorientasi Objek berisi use case diagram dan skenario perangkat lunak yang akan dibangun.
 
-\section{Analisis CAPTCHA Yang akan Digunakan Berdasarkan Pedoman Untuk CAPTCHA}
-\label{sec:analisisCAPTCHA}
+\section{Analisis Google Authentication}
+\label{sec:analisisGoogleAuthentication}
 
-Berdasarkan pedoman untuk CAPTCHA yang terdapat pada bab 2, maka beberapa hal yang akan digunakan untuk memenuhi pedoman tersebut dalam implementasi CAPTCHA pada perangkat lunak yang akan dikembangkan sebagai berikut :
+Peda penelitian ini untuk otentikasi fitur login akan menggunakan teknologi Google authentication atau dikenal OAuth 2.0. Untuk langkah-langkah penggunaan OAuth 2.0 dapat dilihat pada sub bab berikutnya.
 
+\subsection{Langkah Dasar Penggunaan OAuth 2.0}
+Berdasarkan langkah dasar yang terdapat pada bab 2, maka terdapat empat langkah yang akan diikuti untuk menggunakan OAuth 2.0 pada penelitian ini. Empat langkah yang diikuti:
 \begin{enumerate}
-\item
-Aksesbilitas : Untuk memenuhi pedoman ini, perlu ditambah pilihan untuk CAPTCHA berbasis audio. Agar CAPTCHA tetap dapat diakses oleh orang yang memiliki gangguan pada penglihatannya. Namun pada perangkat lunak yang akan dibuat pada penelitian ini tidak menggunakan CAPTCHA berbasis audio karena tidak sesuai dengan batasan masalah.
-
-\item
-Keamanan Gambar : Untuk memenuhi pedoman ini, maka gambar yang akan dibangkitkan pada penelitian ini akan ditambah efek distorsi. Efek distorsi yang akan digunakan adalah rotasi, {\it flip}, dan {\it warp}. Ketiga efek distorsi tersebut akan dibahas pada sub bab berikut.
-
-\item
-Keamanan Skrip : Untuk menjaga keamanan skrip, maka pada pembangunan perangakat lunak ini {\it value} dari CAPTCHA yang dibangkitkan tidak akan muncul didalam skrip. Namun {\it value} masih dapat digunakan untuk memvalidasi CAPTCHA yang telah dibangkitkan. Cara yang digunakan untuk mengatasi kemanan skrip yaitu menggunakan \verb+$_SESSION+.
-
-\item
-Keamanan Tetap Terjamin Walaupun Telah Digunakan Dengan Luas : CAPTCHA yang dibangkitkan harus terjamin dari segi kualitas maupun keamanan walaupun CAPTCHA telah digunakan dengan luas. CAPTCHA yang tidak terjamin adalah CAPTCHA yang memiliki pola seperti soal matematika (penjumlahan, pengurangan, perkalian, dan pembagian). Contohnya seperti 'berapakah hasil dari 1 + 1?'. Pada penelitan ini tidak menggunakan pola yang seperti soal matematika tersebut, karena CAPTCHA yang akan dibangkitkan adalah CAPTCHA berbasis teks yang akan ditambah efek distorsi secara acak.
-
-\item
-Haruskah Membuat CAPTCHA Versi Sendiri? : Menurut pedoman yang ada, membuat CAPTCHA versi sendiri merupakan hal yang buruk. Namun hal tersebut tidak berlaku pada penelitian ini karena hasil penelitian ini tidak akan digunakan pada situs web tertentu. Dengan penelitian ini akan dibuktikan dalam pengembangan perangkat lunak bahwa membuat CAPTCHA versi sendiri tidaklah buruk, bahkan dapat menghasilkan CAPTCHA dengan kualitas yang baik.
+\item Mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\\
+    \begin{enumerate}
+    \item Mengunjungi Google Developers Console. Dapat dilihat pada Gambar \ref{fig:gdc}.
+    \item Buat sebuah proyek baru. Dapat dilihat pada Gambar \ref{fig:newproject}.
+    \item Masuk ke proyek yang telah dibuat dan masuk ke menu 'Credentials'. Dapat dilihat pada Gambar \ref{fig:credentials}.
+    \item Membuat client ID yang baru. Dapat dilihat pada Gambar \ref{fig:newclientid}.
+    \item Pilih tipe aplikasi sesuai aplikasi yang dibangun, pada penelitian ini menggunakan tipe aplikasi web. Dapat dilihat pada Gambar \ref{fig:tipeaplikasi}.
+    \item Isi bagian AUTHORIZED JAVASCRIPT ORIGINS (merupakan path dimana javasript otorisasi akan dijalankan) dan AUTHORIZED REDIRECT URIS (merupakan pengarah jika otorisasi sudah berhasil). Dapat dilihat pada Gambar \ref{fig:tipeaplikasisudahdiisi}.
+    \item Setelah langkah-langkah diatas terpenuhi maka akan mendapatkan client id dan client secret. Dapat dilihat pada Gambar \ref{fig:clientid}.
+    \end{enumerate}
+\item Memperoleh token akses dari Google Authorization Server\\
+Untuk memperoleh token akses akan menggunakan izin dari pihak pengguna. Jadi pada saat melakukan login, pengguna diharuskan login menggunakan akun Google sendiri. Setelah login pengguna akan ditanya dan akan memberi respon untuk memberi izin atau tidak pada aplikasi yang telah melakukan permintaan tersebut. Untuk gambar izin dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izinpengguna}.
+\item Kirim token ke API\\
+Setelah mendapatkan token akses, maka untuk mengirimkan ke API diperlukan scope. Karena sesuai dengan landasan teori, jika token akses dikeluarkan untuk Google+ API maka token akses tersebut tidak berlaku untuk mengakses Google Contact API. Scope yang akan digunakan pada penelitan ini adalah:
+\begin{lstlisting}
+https://www.googleapis.com/auth/urlshortener
+https://www.googleapis.com/auth/userinfo.profile
+\end{lstlisting}
+\item Memperbaharui token akses jika diperlukan\\
+Pada penelitian ini tidak akan menggunakan tahap memperbaharui token akses karena token akses hanya digunakan selama penelitian ini berlangsung.
 \end{enumerate}
 
-\subsection{Efek Rotasi Pada Karakter}
-Efek rotasi pada karakter yang akan digunakan adalah rotasi dari $0^{\circ}$ sampai $360^{\circ}$ secara acak. Fungsi PHP GD yang digunakan untuk efek ini adalah
-\begin{verbatim}
-imagerotate ( $image , $derajat , $bgd_color )
-\end{verbatim}
-\verb+$image+ merupakan sumber gambar dan dikeluarkan sebagai hasil, \verb+$derajat+ merupakan parameter yang diisi $0^{\circ}$ sampai $360^{\circ}$ secara acak, \verb+$bgd_color+ merupakan parameter yang menentukan warna latar belakang yang akan menggunakan \verb+$white+ dimana \verb+$white = imagecolorallocate($image, 255, 255, 255)+. Untuk contoh penggunaan fungsi tersebut dapat dilihat pada tabel \ref{tab:rotasi}.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.6]{Gambar/GDC.png}
+\caption[Google Developers Console]{Google Developers Console} 
+\label{fig:gdc}
+\end{figure}
 
-\begin{center}
-\begin{table}
-\caption[Tabel 3-1 Efek Rotasi Pada Karakter]{Efek Rotasi Pada Karakter}\\
-\label{tab:rotasi}
-\begin{center}
-\begin{tabular}{|l|l|1|l|}
-\hline
-Karakter yang Diuji & Derajat & Gambar yang Diuji & Hasil OCR\\
-\hline
-Y & 66 & \includegraphics[scale=0.5]{Gambar/horG.png} & A.\\
-\hline
-2 & 102 & \includegraphics[scale=0.5]{Gambar/horm.png} & :4\\
-\hline
-H & 195 & \includegraphics[scale=0.5]{Gambar/hor2.png} & H\\
-\hline
-x & 265 & \includegraphics[scale=0.5]{Gambar/verH.png} & x\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/newproject.png}
+\caption[Membuat Proyek Baru]{Membuat Proyek Baru} 
+\label{fig:newproject}
+\end{figure}
 
-\subsection{Efek Pembalikkan Karakter}
-Efek pembalikkan karakter merupakan efek yang dihasilkan dari karakter yang dibalikkan terhadap sumbu x atau sumbu y atau keduanya. Jadi seolah-olah karakter yang dihasilkan oleh efek ini seperti efek yang dihasilkan oleh cermin. Fugsi PHP GD yang digunakan untuk efek ini adalah
-\begin{verbatim}
-imageflip ( $image , $mode )
-\end{verbatim}
-\verb+$image+ merupakan sumber gambar, \verb+$mode+ merupakan parameter yang yang menentukan karakter akan dibalik terhadap horisontal (\verb+IMG_FLIP_HORIZONTAL+) atau vertikal (\verb+IMG_FLIP_VERTICAL+) atau keduanya (\verb+IMG_FLIP_BOTH+). Untuk beberapa contoh penggunaan fungsi tersebut dapat dilihat pada tabel \ref{tab:flip}.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/credentials.png}
+\caption[Menu Credentials]{Menu Credentials} 
+\label{fig:credentials}
+\end{figure}
 
-\begin{center}
-\begin{table}
-\caption[Tabel 3-2 Efek Pembalikkan Karakter]{Efek Pembalikkan Karakter}\\
-\label{tab:flip}
-\begin{center}
-\begin{tabular}{|l|l|l|}
-\hline
-Karakter yang Diuji & Gambar yang Diuji & Hasil OCR\\
-\hline
-G & \includegraphics[scale=0.5]{Gambar/horG.png} & 0\\
-\hline
-m & \includegraphics[scale=0.5]{Gambar/horm.png} & -\\
-\hline
-2 & \includegraphics[scale=0.5]{Gambar/hor2.png} & g\\
-\hline
-H & \includegraphics[scale=0.5]{Gambar/verH.png} & H\\
-\hline
-c & \includegraphics[scale=0.5]{Gambar/verc.png} & c\\
-\hline
-2 & \includegraphics[scale=0.5]{Gambar/ver2.png} & S\\
-\hline
-E & \includegraphics[scale=0.5]{Gambar/bothE.png} & 3\\
-\hline
-a & \includegraphics[scale=0.5]{Gambar/botha.png} & 2\\
-\hline
-7 & \includegraphics[scale=0.5]{Gambar/both7.png} & 4\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/newclientid.png}
+\caption[Membuat Client ID yang Baru]{Membuat Client ID yang Baru} 
+\label{fig:newclientid}
+\end{figure}
 
-\subsection{Menambah Efek Garis Pada Karakter}
-Efek distorsi terakhir yang akan digunakan pada perangkat lunak adalah menambah efek garis pada karakter. Fungsi yang digunakan untuk efek distorsi ini adalah
-\begin{verbatim}
-imageline ($image, $x1, $y1, $x2, $y2, $color)
-\end{verbatim}
-\verb"$image" merupakan sumber gambar yang akan ditambahkan efek garis. Lalu untuk \verb"$x1" yang digunakan adalah 0 sebagai batas awal dari gambar pada sumbu x dan \verb"$x2" yang digunakan adalah 200 sebagai batas akhir dari gambar terhadap sumbu x. Dan yang terakhir untuk \verb"$y1, $y2" akan diacak dari 0 hingga 50 sebagai batas gambar awal dan akhir terhadap sumbu y. Untuk beberapa contoh penggunaan fungsi tersebut dapat dilihat pada tabel \ref{tab:line}.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/tipeaplikasi.png}
+\caption[Tipe Aplikasi]{Tipe Aplikasi} 
+\label{fig:tipeaplikasi}
+\end{figure}
 
-\begin{center}
-\begin{table}
-\caption[Tabel 3-3 Efek Garis Pada Karakter]{Efek Garis Pada Karakter}\\
-\label{tab:line}
-\begin{center}
-\begin{tabular}{|l|l|1|l|}
-\hline
-Karakter yang Diuji & Banyak Garis & Gambar yang Diuji & Hasil OCR\\
-\hline
-V & 1 & \includegraphics[scale=0.5]{Gambar/11.png} & V\\
-\hline
-j & 1 & \includegraphics[scale=0.5]{Gambar/12.png} & /a/\\
-\hline
-9 & 1 & \includegraphics[scale=0.5]{Gambar/13.png} & /\\
-\hline
-P & 2 & \includegraphics[scale=0.5]{Gambar/21.png} & P\\
-\hline
-F & 2 & \includegraphics[scale=0.5]{Gambar/22.png} & 7\\
-\hline
-8 & 2 & \includegraphics[scale=0.5]{Gambar/23.png} & tr\\
-\hline
-M & 3 & \includegraphics[scale=0.5]{Gambar/31.png} & I\\
-\hline
-c & 3 & \includegraphics[scale=0.5]{Gambar/32.png} & \backslash\\
-\hline
-Y & 3 & \includegraphics[scale=0.5]{Gambar/33.png} & V\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/tipeaplikasisudahdiisi.png}
+\caption[Pengisian Tipe Aplikasi]{Pengisian Tipe Aplikasi} 
+\label{fig:tipeaplikasisudahdiisi}
+\end{figure}
 
-\subsection{Mengukur Kemungkinan Kemunculan Karakter Pada CAPTCHA}
-CAPTCHA yang akan dibangkitkan pada perangkat lunak yang sedang dikembangkan ini terdiri dari beberapa karakter, antara lain :
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/clientid.png}
+\caption[Client ID]{Client ID} 
+\label{fig:clientid}
+\end{figure}
 
-\begin{enumerate}
-\item
-Huruf kapital (A-Z) berjumlah 26 karakter.
-\item
-Huruf kecil (a-z) berjumlah 26 karakter.
-\item
-Angka desimal (0-9) berjumlah 10 karakter.
-\end{enumerate}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/izinpengguna.png}
+\caption[Izin Pihak Pengguna]{Izin Pihak Pengguna} 
+\label{fig:izinpengguna}
+\end{figure}
 
-Total kemungkinan karakter yang dapat digunakan pada satu karakter di CAPTCHA yang akan dibangkitkan adalah 62 karakter. Untuk menjabarkan jumlah kemungkinan karakter menggunakan kaidah perkalian, rumus yang digunakan adalah $62^n$, dimana n adalah panjang karakter yang digunakan. Penjabaran jumlah karakter, jumlah kemungkinan, dan waktu yang dibutuhkan untuk memecahkan dengan komputer yang memiliki kecepatan rata-rata 1GHz dapat dilihat pada tabel \ref{tab:kemungkinankarakter}. Kecepatan rata-rata sebuah komputer saat ini adalah 1GHZ sama dengan 1 miliar hertz atau siklus per detik. Hal tersebut berarti bahwa komputer yang memiliki kecepatan 1GHz mampu melaksanakan 1 miliar perhitungan setiap detik. Maka dari itu jumlah karakter yang akan dibangkitkan harus memiliki waktu yang cukup lama jika dipecahkan oleh komputer. Dapat dilihat jika yang jumlah karakter yang dibangkitkan adalah 1, maka waktu yang diperlukan untuk memecahkan CAPTCHA dengan panjang satu karakter yaitu $(62 / 1000000000) \times 3600 = 0.0002232$ jam. Tidak mencapai satu jam bahkan tidak memeperlukan setengah jam untuk memecahkan CAPTCHA dengan panjang satu karakter.
-Untuk memenuhi keamanan, menurut penulis CAPTCHA yang akan dibangkitkan setidaknya harus memiliki minimal setengah jam untuk waktu memecahkan CAPTCHA tersebut. Dengan demikian CAPTCHA yang akan dibangkitkan minimal memiliki 3 panjang karakter.   
+\subsection{Skenario Aplikasi}
+Berdasarkan landasan teori skenario yang ada pada bab 2 dan berdasarkan perangkat lunak yang akan dibangun, maka skenario yang akan digunakan pada penelitian ini adalah skenario aplikasi web server. Aplikasi SIRM akan melakukan permintaan token ke Server Google. Dosen sebagai pengguna akan melakukan login dan memberikan izin. Server Google akan memberikan balasan berupa kode otorisasi. Kemudian aplikasi akan menukarkan kode tersebut untuk mendapatkan token akses. Server Google memberikan token akses sebagai respon penukaran kode otorisasi dengan token akses. Setelah aplikasi mendapatkan token akses, maka apliksi dapat memanggil Google API dengan menggukan token akses. Untuk skenario aplikasi SIRM dapat dilihat pada Gambar \ref{fig:skenarioaplikasisirm}.
 
-\begin{center}
-\begin{table}
-\caption[Tabel 3-4 Kemungkinan Karakter]{Kemungkinan Karakter}\\
-\label{tab:kemungkinankarakter}
-\begin{center}
-\begin{tabular}{|l|l|1|}
-\hline
-Panjang Karakter & Jumlah Kemungkinan & Waktu Yang Dibutuhkan (1GHz)\\
-\hline
-1 & ${62}^{1} = 62$ & $0.00022$ jam\\
-\hline
-2 & ${62}^{2} = 3.84 \times 10^3$ & $0.01383$ jam\\
-\hline
-3 & ${62}^{3} = 2.38 \times 10^5$ & $0.85798$ jam\\
-\hline
-4 & ${62}^{4} = 1.47 \times 10^7$ & $53.19480$ jam\\
-\hline
-5 & ${62}^{5} = 9.16 \times 10^8$ & $32.98078 \times 10^{2}$ jam\\
-\hline
-6 & ${62}^{6} = 5.68 \times 10^{10}$ & $20.44808 \times 10^{4}$ jam\\
-\hline
-7 & ${62}^{7} = 3.52 \times 10^{12}$ & $12.67781 \times 10^{6}$ jam\\
-\hline
-8 & ${62}^{8} = 2.18 \times 10^{14}$ & $78.60243 \times 10^{7}$ jam\\
-\hline
-9 & ${62}^{9} = 1.35 \times 10^{16}$ & $48.73351 \times 10^{9}$ jam\\
-\hline
-10 & ${62}^{10} = 8.39 \times 10^{18}$ & $30.21477 \times 10^{11}$ jam\\
-\hline
-11 & ${62}^{11} = 5.20 \times 10^{19}$ & $18.73316 \times 10^{13}$ jam\\
-\hline
-12 & ${62}^{12} = 3.22 \times 10^{21}$ & $11.61456 \times 10^{15}$ jam\\
-\hline
-13 & ${62}^{13} = 2 \times 10^{23}$ & $72.01027 \times 10^{16}$ jam\\
-\hline
-14 & ${62}^{14} = 1.24 \times 10^{25}$ & $44.64636 \times 10^{18}$ jam\\
-\hline
-15 & ${62}^{15} = 7.68 \times 10^{26}$ & $27.68074 \times 10^{20}$ jam\\
-\hline
-\end{tabular}
-\end{center}
-\end{table}
-\end{center}
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/skenarioaplikasisirm.png}
+\caption[Skenario Aplikasi SIRM]{Skenario Aplikasi SIRM} 
+\label{fig:skenarioaplikasisirm}
+\end{figure}
 
-\section{Analisis OCR yang Digunakan}
-\label{sec:analisisOCR}
+\section{Analisis Markdown}
+\label{sec:analisisMarkdown}
+Sintaks Markdown yang akan digunakan sesuai dengan landasan teori pada bab 2. Sintaks Markdown akan digunakan pada bagian keterangan mahasiswa agar seragam dalam penulisannya. Keterangan mahasiswa yang akan ditampilkan antara lain; NPM, nama, deskripsi umum, catatan. Maka dari itu sintaks Markdown yang akan digunakan adalah Cetak Tebal dan Cetak Miring, Judul Bab, Batas Baris, Paragraf, Link, dan Daftar.
 
-Dari beberapa perangkat lunak OCR yang terdapat pada bab 2. Perangkat lunak OCR yang dipilih untuk mengukur kualitas CAPTCHA adalah Tesseract OCR. Tesseract OCR dipilih karena merupakan perangkat lunak open source yang memiliki lisensi Apache versi 2.0 dan disponsori oleh Google. Alasan utama memilih Tesseract OCR karena adanya lisensi Apache yang akan menunjang penelitian ini yang berbasis PHP. Tesseract OCR dianggap sebagai salah satu perangkat lunak OCR yang paling akurat untuk saat ini.
+\begin{itemize}
+\item Sintask Cetak Tebal dan Cetak Miring\\
+Sintaks ini akan digunakan untuk memberikan penekanan pada satu kata dalam satu kalimat. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar \ref{fig:cetaktebal}.
+\begin{lstlisting}
+**NPM** - *2010730013*
+\end{lstlisting}
+\item Sintaks Judul Bab\\
+Sintaks ini akan digunakan untuk menampilkan judul setiap bagian (NPM, nama, umum, dan catatan). Berikut penggunaan sintasks dan hasilnya dapat dilihat pada Gambar \ref{fig:judul}.
+\begin{lstlisting}
+# Judul 1
+## Judul 2
+### Judul 3
+#### Judul 4
+##### Judul 5
+###### Judul 6
+\end{lstlisting}
+\item Sintaks Batas Baris\\
+Sintaks ini digunakan pada penulisan paragraf jika diperlukan untuk mengakhiri sebuah baris atau ingin membuat baris baru. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar \ref{fig:batasbaris}.
+\begin{lstlisting}
+Baris ini dengan   
+batas baris
+
+Baris ini tanpa
+batas baris
+\end{lstlisting}
+\item Sintaks Paragraf\\
+Sintaks ini akan digunakan untuk menulis deskripsi umum mahasiswa. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar \ref{fig:paragraf}.
+\begin{lstlisting}
+Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia aktif di himpunan sebagai ketua divisi pelayanan masyarakat.
+
+Grady adalah seorang mahasiswa yang memiliki jiwa pemimpin. Dia aktif di UKM  sebagai ketua divisi logistik.
+\end{lstlisting}
+\item Link\\
+Sintaks ini akan digunakan untuk menampilakan website mahasiswa jika mahasiswa yang bersangkutan memiliki sebuah website maupun blog. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar \ref{fig:link}.
+\begin{lstlisting}
+Yang bersangkutan memiliki blog di [http://bletack.blogspot.com/](http://bletack.blogspot.com/).
+\end{lstlisting}
+\item Daftar\\
+Sintaks ini akan digunakan untuk menampilkan daftar catatan. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar \ref{fig:daftar}.
+\begin{lstlisting}
+* 9 Oktober 2014, bimbingan skripsi
+* 3 Oktober 2014, bimbingan skripsi
+* 1 September 2014, perwalian
+* 1 September 2014, pertama kali dibuat
+\end{lstlisting}
+\end{itemize}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/cetaktebal.png}
+\caption[Output Sintaks Cetak Tebal dan Cetak Miring]{Output Sintaks Cetak Tebal dan Cetak Miring} 
+\label{fig:cetaktebal}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/judul.png}
+\caption[Output Sintaks Judul Bab]{Output Sintaks Judul Bab} 
+\label{fig:judul}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/batasbaris.png}
+\caption[Output Sintaks Batas Baris]{Output Sintaks Batas Baris} 
+\label{fig:batasbaris}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/paragraf.png}
+\caption[Output Sintaks Paragraf]{Output Sintaks Paragraf} 
+\label{fig:paragraf}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/link.png}
+\caption[Output Sintaks Link]{Output Sintaks Link} 
+\label{fig:link}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=1]{Gambar/daftar.png}
+\caption[Output Sintaks Daftar]{Output Sintaks Daftar} 
+\label{fig:daftar}
+\end{figure}
+
+Berikut penggunaan sintaks Markdown secara keseluruan untuk bagian keterangan mahasiswa. Berikut penggunaan sintaks dan hasilnya dapat dilihat pada Gambar
+\begin{lstlisting}
+### NPM
+
+2010730013
+
+### Nama
+
+Samuel
+			
+### Umum
+			
+Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia aktif di himpunan sebagai ketua divisi pelayanan masyarakat. Yang bersangkutan memiliki blog di [http://bletack.blogspot.com/](http://bletack.blogspot.com/).
+			
+### Catatan
+			
+* 9 Oktober 2014, bimbingan skripsi
+* 3 Oktober 2014, bimbingan skripsi
+* 1 September 2014, perwalian
+* 1 September 2014, pertama kali dibuat
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/overall.png}
+\caption[Output Keterangan Mahasiswa]{Output Keterangan Mahasiswa} 
+\label{fig:overall}
+\end{figure}
+
+\section{Analisis StrapdownJS}
+\label{sec:analisisStrapdownJS}
+StrapdownJS digunakan untuk menampilkan sintaks Markdown ke halaman HTML. Pada penelitan ini strapdown.js terlebih dahulu diunduh dan untuk menggunakannya menggunakan path seperti di bawah ini.
+\begin{lstlisting}
+<script src="js/0.2/strapdown.js"></script>
+\end{lstlisting}
+Skrip tersebut disisipkan pada skrip infomahasiswa.php yang berfungsi untuk menampilkan info mahasiswa yang dimana info tersebut ditulis menggunakan sintaks Markdown. Berikut skrip infomahasiswa.php yang menggunakan strapdown.js.
+\begin{lstlisting}
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SIRM | Welcome</title>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<script src="js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+		<div class="row">
+			<h5>Anda melihat catatan mahasiswa ini sebagai test@unpar.ac.id.</h5>
+		</div>
+		<div class="row">
+			<ul class="button-group">
+				<li><a href="editmahasiswa.php" class="button">Edit</a></li>
+				<li><a href="lihathistori.php" class="button">Lihat Histori</a></li>
+			</ul>
+		</div>
+		<hr/>
+<xmp style="display:none;">
+### NPM
+
+2010730013
+
+### Nama
+
+Samuel
+			
+### Umum
+			
+Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia aktif di himpunan sebagai ketua divisi pelayanan masyarakat. Yang bersangkutan memiliki blog di [http://bletack.blogspot.com/](http://bletack.blogspot.com/).
+			
+### Catatan
+			
+* 9 Oktober 2014, bimbingan skripsi
+* 3 Oktober 2014, bimbingan skripsi
+* 1 September 2014, perwalian
+* 1 September 2014, pertama kali dibuat
+
+</xmp>
+		<script src="js/0.2/strapdown.js"></script>
+	</body>
+</html>
+\end{lstlisting}
+
+\section{Analisis Zurb Foundation}
+\label{sec:analisisZurbFoundation}
+Zurb Foundation digunakan untuk membuat tampilan antarmuka aplikasi yang akan dibangun. Sesuai landasan teori pada bab 2, pada aplikasi ini menggunakan tiga bagian yaitu Grid, Tabel dan Tombol. Grid digunakan untuk mengatur pembagian tata letak komples sehingga terlihat rapih. Tabel digunakan untuk menampilkan data yang berasal dari database. Tombol digunakan untuk merubah tombol yang biasa menjadi lebih enak untuk dilihat. Berikut sintaks penggunaan Grid, Tabel, dan Tombol pada pilihmahasiswa.php dan untuk gambar dapat dilihat pada Gambar \ref{fig:pilihmahasiswa}.
+
+\begin{lstlisting}
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SIRM | Welcome</title>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<script src="js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+	<div class="row">
+		<h5>Masukan NPM yang ingin dicari / tambah baru.</h5>
+	</div>
+	<form>
+		<div class="row">
+			<div class="large-12 columns">
+				<div class="row collapse">
+					<div class="small-8 columns">
+						<input type="text" placeholder="NPM">
+					</div>
+					<div class="small-2 columns">
+						<a href="#" class="button postfix">Search</a>
+					</div>
+					<div class="small-2 columns">
+						<a href="entribaru.php" class="button postfix">Add</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</form>
+	<div class="row">
+	<?php
+		$pemakai="admin";
+		$pass="admin";
+		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
+			
+		if(! $id_mysql){
+			die("Database tidak bisa dibuka");
+		}
+			
+		if(! mysql_select_db("sirm", $id_mysql)){
+			die("Database tidak bisa dipilih");
+		}
+			
+		$hasil = mysql_query("SELECT * FROM info_mahasiswa", $id_mysql);
+		
+		if(! $hasil){
+			die("Permintaan gagal");
+		}
+
+		echo "<table>
+		<thead>
+		<tr>
+		<th width='250'>NPM</th>
+		<th width='500'>Nama</th>
+		<th width='250'>Last Update</th>
+		</tr>
+		</thead>";
+
+		while($row = mysql_fetch_array($hasil))
+		{
+		echo "<tr>";
+		echo "<td><a href='infomahasiswa.php'>" . $row['npm'] . "</a></td>";
+		echo "<td>" . $row['nama'] . "</td>";
+		echo "<td>" . $row['log'] . "</td>";
+		echo "</tr>";
+		}
+		echo "</table>";
+
+		mysql_close($id_mysql);
+	?> 
+	</div>
+	</body>
+</html>
+\end{lstlisting}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pilihmahasiswa.png}
+\caption[Tampilan pilihmahasiswa.php Dengan Zurb Foundation]{Tampilan pilihmahasiswa.php Dengan Zurb Foundation} 
+\label{fig:pilihmahasiswa}
+\end{figure}
 
 \section{Analisis Berorientasi Objek}
 \label{sec:analisisberorientasiobjek}
 
-Pembahasan use case diagram, skenario, dan modul yang akan digunakan pada penelitian.
+Pembahasan use case diagram dan skenario yang akan digunakan pada penelitian.
 
 \subsection{Use Case Diagram}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{Gambar/usecase.jpg}
+\includegraphics[scale=1]{Gambar/usecase.png}
 \caption[Use Case Diagram]{Use Case Diagram} 
 \label{fig:usecase}
 \end{figure}
@@ -212,100 +379,147 @@ Pembahasan use case diagram, skenario, dan modul yang akan digunakan pada peneli
 Use case diagram merupakan pemodelan yang menunjukkan kegiatan apa saja yang dapat dilakukan pengguna dan kegiatan yang dilakukan sistem. Berikut adalah deskripsi dari use case pada gambar \ref{fig:usecase}.
 
 \begin{itemize}
-\item Menguji CAPTCHA
-Use case ini memungkinkan pengguna dapat menguji CAPTCHA yang dibangkitkan secara otomatis secara langsung.
-\item Menguji dengan OCR
-Use case ini memungkinkan perangkat lunak untuk melakukan pengujian CAPTCHA dengan OCR secara otomatis.
-\item Melihat hasil
-Use case ini memungkinkan pengguna untuk melihat hasil setelah melakukan pengujian terhadap CAPTCHA baik dari pengujian yang dilakukannya maupun hasil pengujian dengan OCR.
+\item Login\\
+Use case ini memungkinkan pengguna untuk login via Google OAuth.
+\item Pilih Mahasiswa\\
+Use case ini memungkinkan pengguna untuk memilih mahasiswa yang ingin dilihat infonya. Selain itu pengguna juga bisa nemenkan tombol "Add" untuk menambah entri baru.
+\item Melihat Info Mahasiswa\\
+Use case ini memungkinkan pengguna untuk melihat info mahasiswa. Selain itu pengguna bisa menekan tombol "Edit" untuk mengedit info mahasiswa dan pengguna juga bisa menekan tombol "Lihat Histori" untuk melihat histori.
+\item Edit Mahasiswa\\
+Use case ini memungkinkan pengguna untuk mengedit info mahasiswa yang sudah ada.
+\item Lihat Histori\\
+Use case ini memungkinkan pengguna untuk melihat histori untuk setiap perubahan dan aksi view.
+\item Membuat Entri Baru\\
+Use case ini memungkinkan pengguna untuk membuat entri baru dengan memasukan inputan pada form yang telah disediakan.
 \end{itemize}
 
 \subsection{Skenario}
-\subsubsection{Menguji CAPTCHA}
+\subsubsection{Login}
 
 \begin{table}
 \centering
-\caption[Tabel 3-5 Skenario Menguji CAPTCHA]{Skenario Menguji CAPTCHA}
-\label{tab:skenariomengujicaptcha}
+\caption[Tabel 3-1 Skenario Login]{Skenario Login}
+\label{tab:skenariologin}
 \begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-Nama & \multicolumn{5}{p{8cm}|}{Menguji CAPTCHA} \\ \hline
-Aktor & \multicolumn{5}{p{8cm}|}{User} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Menguji CAPTCHA yang dibangkitkan secara otomatis} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Belum ada gamabar CAPTCHA yang dibangkitkan} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Hasil jawaban user ditampilkan beserta keterangan benar atau salah} \\ \hline
+Nama & \multicolumn{5}{p{8cm}|}{Login} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Melakukan login via Google OAuth} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Masih berada pada login.php} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Sudah berada pada pilihmahasiswa.php} \\ \hline
 \multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
- & 1 & \multicolumn{2}{p{4cm}|}{Aktor harus memilih panjang karakter yang akan diuji} & \multicolumn{2}{p{4cm}|}{Sistem akan menampilkan pilihan untuk panjang karakter} \\ \cline{2-6} 
- & 2 & \multicolumn{2}{p{4cm}|}{Aktor mengklik panjang karakter yang akan dipilih} & \multicolumn{2}{p{4cm}|}{Sistem akan membangkitkan gambar CAPTCHA secara otomatis} \\ \cline{2-6} 
- & 3 & \multicolumn{2}{p{4cm}|}{Aktor memasukan jawaban dari gambar CAPTCHA} & \multicolumn{2}{p{4cm}|}{Sistem akan memeriksa jawaban dari user} \\ \hline
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna melakukan login} & \multicolumn{2}{p{4cm}|}{Server akan mengirimkan pertanyaan untuk izin} \\ \cline{2-6} 
+ & 2 & \multicolumn{2}{p{4cm}|}{Pengguna memberikan izin} & \multicolumn{2}{p{4cm}|}{Aplilasi mendapatkan otorisasi kode} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{Pengguna harus memiliki email yang diakhiri @unpar.ac.id dan username bukan angka semua} \\ \hline
+\end{tabular}
+\end{table}
+
+Untuk use case Login, skenarionya dapat dilihat pada Tabel \ref{tab:skenariologin}.
+
+\subsubsection{Pilih Mahasiswa}
+
+\begin{table}
+\centering
+\caption[Tabel 3-2 Skenario Pilih Mahasiswa]{Skenario Pilih Mahasiswa}
+\label{tab:skenariopilih}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Pilih Mahasiswa} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Pengguna dapat memilih dan mencari mahasiswa bedasarkan NPM} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Sebuah form dengan tabel yang berisi data mahasiswa} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Salah satu mahasiswa terpilih} \\ \hline
+\multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna mencari mahasiswa berdasarkan NPM} & \multicolumn{2}{p{4cm}|}{Sistem seleksi mahasiswa berdasarkan NPM} \\ \cline{2-6} 
+ & 2 & \multicolumn{2}{p{4cm}|}{Pengguna mengklik NPM mahasiswa yang dipilih} & \multicolumn{2}{p{4cm}|}{Pindah ke halaman infomahasiswa.php} \\ \hline
 Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \end{tabular}
 \end{table}
 
-%\begin{center}
-%\begin{table}
-%\caption[Tabel 3-6 Skenario Menguji CAPTCHA]{Tabel 3-6 Skenario %Menguji CAPTCHA}\\
-%\begin{center}
-%\begin{tabular}{|l|l|l|l|l|l|}
-%\hline
-%Nama & \multicolumn{5}{l|}{Menguji CAPTCHA} \\ \hline
-%Aktor & \multicolumn{5}{l|}{User} \\ \hline
-%Deskripsi & \multicolumn{5}{l|}{Menguji CAPTCHA yang dibangkitkan secara otomatis} \\ \hline
-%Kondisi Awal & \multicolumn{5}{l|}{Belum ada gamabar CAPTCHA yang dibangkitkan} \\ \hline
-%Kondisi Akhir & \multicolumn{5}{l|}{Hasil jawaban user ditampilkan beserta keterangan benar atau salah} \\ \hline
-%\multirow{Skenario Utama} & No & \multicolumn{2}{l|}{Aksi Aktor} & \multicolumn{2}{l|}{Reaksi Sistem} \\ \cline{2-6} 
-% & 1 & \multicolumn{2}{l|}{Aktor harus memilih panjang karakter yang akan diuji} & \multicolumn{2}{l|}{Sistem akan menampilkan pilihan-pilihan untuk panjang karakter} \\ \cline{2-6} 
-% & 2 & \multicolumn{2}{l|}{Aktor mengklik panjang karakter yang akan dipilih} & \multicolumn{2}{l|}{Sistem akan membangkitkan gambar CAPTCHA secara otomatis} \\ \cline{2-6} 
-% & 3 & \multicolumn{2}{l|}{Aktor memasukan jawaban dari gambar CAPTCHA} & \multicolumn{2}{l|}{Sistem akan memeriksa jawaban dari user} \\ \hline
-%Eksepsi & \multicolumn{5}{l|}{-} \\ \hline
-%\end{tabular}
-%\end{center}
-%\end{table}
-%\end{center}
+Untuk use case Pilih Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenariopilih}.
 
-Untuk use case \textquotedblleft Menguji CAPTCHA\textquotedblleft, skenarionya dapat dilihat pada Tabel \ref{tab:skenariomengujicaptcha}.
-
-\subsubsection{Menguji dengan OCR}
+\subsubsection{Melihat Info Mahasiswa}
 
 \begin{table}
 \centering
-\caption[Tabel 3-6 Skenario Menguji dengan OCR]{Skenario Menguji dengan OCR}
-\label{tab:skenariomengujicaptchadenganocr}
+\caption[Tabel 3-3 Skenario Melihat Info Mahasiswa]{Skenario Melihat Info Mahasiswa}
+\label{tab:skenarioinfo}
 \begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-Nama & \multicolumn{5}{p{8cm}|}{Menguji dengan OCR} \\ \hline
-Aktor & \multicolumn{5}{p{8cm}|}{Komputer} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Menguji CAPTCHA yang dibangkitkan dengan OCR secara otomatis} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Gambar CAPTCHA yang telah dibangkitkan} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Hasil jawaban OCR ditampilkan beserta keterangan benar atau salah} \\ \hline
+Nama & \multicolumn{5}{p{8cm}|}{Melihat Info Mahasiswa} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Melihat info mahasiswa yang telah dipilih pada pilihmahasiswa.php} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan info yang dimiliki mahasiswa} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Jika pengguna mengklik "Edit" maka pindah ke editmahasiswa.php. Jika pengguna mengklik "Lihat Histori" maka pindah ke lihathistori.php} \\ \hline
 \multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
- & 1 & \multicolumn{2}{p{4cm}|}{Gambar CAPTCHA yang dibangkitkan diambil untuk dipecahkan} & \multicolumn{2}{p{4cm}|}{Sistem akan mengambil gambar CAPTCHA dan menguji dengan OCR} \\ \cline{2-6} 
- & 2 & \multicolumn{2}{p{4cm}|}{Gambar CAPTCHA akan diproses dengan OCR} & \multicolumn{2}{p{4cm}|}{Sistem akan mendapatkan jawaban CAPTCHA dari OCR} \\ \cline{2-6} 
- & 3 & \multicolumn{2}{p{4cm}|}{Komputer akan mengambil jawaban CAPTCHA dari OCR} & \multicolumn{2}{p{4cm}|}{Sistem akan menampilkan dan memeriksa jawaban dari OCR} \\ \hline
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna melihat info mahasiswa} & \multicolumn{2}{p{4cm}|}{Sistem menampilkan info mahasiswa} \\ \hline
 Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \end{tabular}
 \end{table}
 
-Untuk use case \textquotedblleft Menguji dengan OCR\textquotedblleft, skenarionya dapat dilihat pada Tabel \ref{tab:skenariomengujicaptchadenganocr}.
+Untuk use case Melihat Info Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenarioinfo}.
 
-\subsubsection{Melihat Hasil}
-
+\subsubsection{Edit Mahasiswa}
 
 \begin{table}
 \centering
-\caption[Tabel 3-7 Skenario Melihat hasil]{Skenario Melihat hasil}
-\label{tab:skenariomelihathasil}
+\caption[Tabel 3-4 Skenario Edit Mahasiswa]{Skenario Edit Mahasiswa}
+\label{tab:skenarioedit}
 \begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-Nama & \multicolumn{5}{p{8cm}|}{Melihat Hasil} \\ \hline
-Aktor & \multicolumn{5}{p{8cm}|}{User} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Melihat hasil pengujian CAPTCHA dari sisi user dan komputer} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan tabel untuk memuat data hasil uji} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Hasil jawaban user dan komputer ditampilkan dalam tabel beserta isi, tebakan, jawaban, dan keterangan} \\ \hline
+Nama & \multicolumn{5}{p{8cm}|}{Edit Mahasiswa} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Mengedit info mahasiswa yang sudah ada di database} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form dengan data yang sudah ada pada database} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Form dengan data yang telah diedit} \\ \hline
 \multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
- & 1 & \multicolumn{2}{p{4cm}|}{Aktor selesai menjalankan menguji CAPTCHA dan telah melewati menguji dengan OCR} & \multicolumn{2}{p{4cm}|}{Sistem akan menampilkan tabel hasil} \\ \hline
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna mengedit data yang sudah ada} & \multicolumn{2}{p{4cm}|}{Sistem menampilkan data yang sudah ada} \\ \cline{2-6} 
+ & 2 & \multicolumn{2}{p{4cm}|}{Pengguna menyimpan perubahan} & \multicolumn{2}{p{4cm}|}{Sistem akan merekan perubahan ke dalam database} \\ \hline
 Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \end{tabular}
 \end{table}
 
-Untuk use case \textquotedblleft Melihat hasil\textquotedblleft, skenarionya dapat dilihat pada Tabel \ref{tab:skenariomelihathasil}.
+Untuk use case Edit Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenarioedit}.
+
+\subsubsection{Lihat Histori}
+
+\begin{table}
+\centering
+\caption[Tabel 3-5 Skenario Lihat Histori]{Skenario Lihat Histori}
+\label{tab:skenariohistori}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Lihat Histori} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Melihat histori perubahan dan aksi melihat yang dilakukan pengguna} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan log histori perubahan dan aksi melihat} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Terus bertambah sesuai aksi yang dilakukan} \\ \hline
+\multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna melihat log histori} & \multicolumn{2}{p{4cm}|}{Sistem akan menampilkan loh hisotri} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+\end{tabular}
+\end{table}
+
+Untuk use case Lihat Histori, skenarionya dapat dilihat pada Tabel \ref{tab:skenariohistori}.
+
+\subsubsection{Membuat Entri Baru}
+
+\begin{table}
+\centering
+\caption[Tabel 3-6 Skenario Membuat Entri Baru]{Skenario Membuat Entri Baru}
+\label{tab:skenarioentribaru}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Membuat Entri Baru} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Membuat entri baru yang belum ada pada database} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form untuk menambah entri baru} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Input pada form akan dimasukan kedalam database} \\ \hline
+\multirow{Skenario Utama} & No & \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem} \\ \cline{2-6} 
+ & 1 & \multicolumn{2}{p{4cm}|}{Pengguna mengisi form entri baru} & \multicolumn{2}{p{4cm}|}{Sistem menampilkan form entri baru} \\ \cline{2-6} 
+ & 2 & \multicolumn{2}{p{4cm}|}{Pengguna menyimpan inputan dari form entri baru} & \multicolumn{2}{p{4cm}|}{Sistem akan merekan inputan pengguna ke dalam database} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+\end{tabular}
+\end{table}
+
+Untuk use case Membuat Entri Baru, skenarionya dapat dilihat pada Tabel \ref{tab:skenarioentribaru}.
