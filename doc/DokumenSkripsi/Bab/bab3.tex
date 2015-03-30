@@ -33,9 +33,9 @@ Untuk memperoleh token akses akan menggunakan izin dari pihak pengguna. Jadi pad
 \item Kirim token ke API\\
 Setelah mendapatkan token akses, maka untuk mengirimkan ke API diperlukan scope. Karena sesuai dengan landasan teori, jika token akses dikeluarkan untuk Google+ API maka token akses tersebut tidak berlaku untuk mengakses Google Contact API. Scope yang akan digunakan pada penelitan ini adalah:
 \begin{lstlisting}
-https://www.googleapis.com/auth/urlshortener
-https://www.googleapis.com/auth/userinfo.profile
+https://www.googleapis.com/auth/plus.login
 \end{lstlisting}
+karena pada penelitian ini dibutuhkan email pengguna dan nama pengguna, keduanya itu dapat diperoleh dengan menggunakan scope tersebut.
 \item Memperbaharui token akses jika diperlukan\\
 Pada penelitian ini tidak akan menggunakan tahap memperbaharui token akses karena token akses hanya digunakan selama penelitian ini berlangsung.
 \end{enumerate}

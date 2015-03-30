@@ -8,19 +8,20 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
+	<?php
+		$npm = $_GET["npm"];
+	?>
 	<div class="row">
 			<h5>Anda melihat catatan mahasiswa ini sebagai test@unpar.ac.id.</h5>
 		</div>
 		<div class="row">
 			<ul class="button-group">
-				<li><a href="editmahasiswa.php" class="button">Edit</a></li>
+				<li><a href="editmahasiswa.php?npm=<?php echo $npm?>" class="button">Edit</a></li>
 				<li><a href="lihathistori.php" class="button">Lihat Histori</a></li>
 			</ul>
 		</div>
 		<hr/>
 	<?php
-		$npm = $_GET["npm"];
-		
 		$pemakai="admin";
 		$pass="admin";
 		$id_mysql=mysql_connect("localhost", $pemakai, $pass);

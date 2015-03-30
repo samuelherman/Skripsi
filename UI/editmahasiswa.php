@@ -8,6 +8,26 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
+	<?php
+		$npm = $_GET["npm"];
+		$pemakai="admin";
+		$pass="admin";
+		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
+			
+		if(! $id_mysql){
+			die("Database tidak bisa dibuka");
+		}
+			
+		if(! mysql_select_db("sirm", $id_mysql)){
+			die("Database tidak bisa dipilih");
+		}
+			
+		$cari = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+		while($row = mysql_fetch_array($cari))
+		{
+			$carinpm = $row['npm'];
+			$carinama =  $row['nama'];
+	?>
 		<div class="row">
 			<h5>Anda mengedit catatan mahasiswa ini sebagai test@unpar.ac.id.<br/>
 			NPM 2010730013 Nama Samuel Herman
