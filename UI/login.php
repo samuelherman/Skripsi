@@ -61,13 +61,12 @@
 if (isset($authUrl)) {
   echo "<a class='login' href='" . $authUrl . "'>Login with Google</a>";
 } else {
-  echo <<<END
-    <form id="url" method="GET" action="{$_SERVER['PHP_SELF']}">
+  echo
+    /*<form id="url" method="GET" action="{$_SERVER['PHP_SELF']}">
       <input name="url" class="url" type="text">
       <input type="submit" value="Shorten">
-    </form>
-    <a class='logout' href='?logout'>Logout</a>
-END;
+    </form>*/
+    "<a class='logout' href='?logout'>Logout</a>";
 }
 ?>
   </div>

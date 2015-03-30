@@ -8,7 +8,7 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
-		<div class="row">
+	<div class="row">
 			<h5>Anda melihat catatan mahasiswa ini sebagai test@unpar.ac.id.</h5>
 		</div>
 		<div class="row">
@@ -18,27 +18,35 @@
 			</ul>
 		</div>
 		<hr/>
+	<?php
+		$npm = $_GET["npm"];
+		
+		$pemakai="admin";
+		$pass="admin";
+		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
+			
+		if(! $id_mysql){
+			die("Database tidak bisa dibuka");
+		}
+			
+		if(! mysql_select_db("sirm", $id_mysql)){
+			die("Database tidak bisa dipilih");
+		}
+			
+		$cari = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+		while($row = mysql_fetch_array($cari))
+		{
+			echo "NPM : " ; echo $row['npm']; echo "<br>";
+			echo "Nama : " ; echo $row['nama']; echo "<br>";
+	?>
 <xmp style="display:none;">
-### NPM
-
-2010730013
-
-### Nama
-
-Samuel
-			
-### Umum
-			
-Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia aktif di himpunan sebagai ketua divisi pelayanan masyarakat. Yang bersangkutan memiliki blog di [http://bletack.blogspot.com/](http://bletack.blogspot.com/).
-			
-### Catatan
-			
-* 9 Oktober 2014, bimbingan skripsi
-* 3 Oktober 2014, bimbingan skripsi
-* 1 September 2014, perwalian
-* 1 September 2014, pertama kali dibuat
-
+<?php
+echo $row['keterangan'];
+?>
 </xmp>
+	<?php
+		}
+	?>
 		<script src="js/0.2/strapdown.js"></script>
 	</body>
 </html>

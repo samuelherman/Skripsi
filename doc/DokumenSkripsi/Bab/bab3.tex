@@ -13,13 +13,20 @@ Berdasarkan langkah dasar yang terdapat pada bab 2, maka terdapat empat langkah 
 \begin{enumerate}
 \item Mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\\
     \begin{enumerate}
-    \item Mengunjungi Google Developers Console. Dapat dilihat pada Gambar \ref{fig:gdc}.
+    \item Mengunjungi Google Developers Console. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:gdc}.
     \item Buat sebuah proyek baru. Dapat dilihat pada Gambar \ref{fig:newproject}.
-    \item Masuk ke proyek yang telah dibuat dan masuk ke menu 'Credentials'. Dapat dilihat pada Gambar \ref{fig:credentials}.
+    \item Masuk ke proyek yang telah dibuat dan masuk ke menu 'Credentials'. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:credentials}.
     \item Membuat client ID yang baru. Dapat dilihat pada Gambar \ref{fig:newclientid}.
-    \item Pilih tipe aplikasi sesuai aplikasi yang dibangun, pada penelitian ini menggunakan tipe aplikasi web. Dapat dilihat pada Gambar \ref{fig:tipeaplikasi}.
-    \item Isi bagian AUTHORIZED JAVASCRIPT ORIGINS (merupakan path dimana javasript otorisasi akan dijalankan) dan AUTHORIZED REDIRECT URIS (merupakan pengarah jika otorisasi sudah berhasil). Dapat dilihat pada Gambar \ref{fig:tipeaplikasisudahdiisi}.
-    \item Setelah langkah-langkah diatas terpenuhi maka akan mendapatkan client id dan client secret. Dapat dilihat pada Gambar \ref{fig:clientid}.
+    \item Pilih tipe aplikasi sesuai aplikasi yang dibangun, pada penelitian ini menggunakan tipe aplikasi web karena aplikasi yang akan dibangun berbasis web. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:tipeaplikasi}.
+    \item Isi bagian AUTHORIZED JAVASCRIPT ORIGINS (merupakan path dimana javasript otorisasi akan dijalankan) pada penelitian ini bagian AUTHORIZED JAVASCRIPT ORIGINS akan diisi dengan http://localhost/ karena aplikasi yang akan dibangun pada penelitian ini terletak pada localhost dan AUTHORIZED REDIRECT URIS (merupakan pengarah jika otorisasi sudah berhasil) pada penelitian ini bagian AUTHORIZED REDIRECT URIS akan diisi dengan http://localhost/pilihmahasiswa.php karena setelah menjalankan aplikasi dan berhasil melakukan otoritasi maka yang halaman pertama yang akan dituju adalah pilihmahasiswa.php. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:tipeaplikasisudahdiisi}.
+    \item Setelah langkah-langkah diatas terpenuhi maka akan mendapatkan client id dan client secret. Client id dan client secret yang didapat dapat dilihat di bawah ini.
+\begin{lstlisting}
+Client id:
+568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com
+Client secret:
+-cSZ-AUmeQ9PaWWry_IpiBBi
+\end{lstlisting}
+Agar lebih jelas dapat dilihat pada Gambar \ref{fig:clientid}.
     \end{enumerate}
 \item Memperoleh token akses dari Google Authorization Server\\
 Untuk memperoleh token akses akan menggunakan izin dari pihak pengguna. Jadi pada saat melakukan login, pengguna diharuskan login menggunakan akun Google sendiri. Setelah login pengguna akan ditanya dan akan memberi respon untuk memberi izin atau tidak pada aplikasi yang telah melakukan permintaan tersebut. Untuk gambar izin dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izinpengguna}.
@@ -274,6 +281,7 @@ Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia a
 	</body>
 </html>
 \end{lstlisting}
+Untuk baris 17 sampai baris 37 akan diambil dari database.
 
 \section{Analisis Zurb Foundation}
 \label{sec:analisisZurbFoundation}

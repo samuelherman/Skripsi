@@ -34,7 +34,10 @@ Memperbaharui token akses jika diperlukan\\
 Token akses memiliki daya tahan yang terbatas. Jika aplikasi yang dibangun membutuhkan akses ke Google API melebihi masa aktif token akses, maka dapat memperbaharui token akses tersebut. Hal ini memungkinkan untuk memdapatkan token akses yang baru.
 \end{enumerate}
 
-\subsection{Skenario Aplikasi Web Server}
+\subsection{Skenario Google Authentication}
+Terdapat lima skenario yang dapat digunakan untuk Google Authentication yaitu Skenario Aplikasi Web Server, Skenario Aplikasi yang Terinstal, Skenario Aplikasi Sisi Klien (JavaScript), Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas, dan Skenario Layanan Akun. Untuk penjelasan lebih lanjut dapat dilihat pada sub-sub-bab berikut.
+
+\subsubsection{Skenario Aplikasi Web Server}
 Google OAuth 2.0 mendukung aplikasi web server yang menggunakan bahasa dan kerangka kerja seperti PHP, Java, Python, Ruby, dan ASP.NET.
 
 Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL tersebut termasuk parameter permintaan yang menunjukkan jenis akses yang diminta. Google menangani otentikasi pengguna, pemilihan sesi, dan izin dari pihak pengguna. Hasilnya adalah sebuah kode otorisasi, dimana aplikasi dapat bertukar untuk token akses dan memperbaharui token akses.
@@ -48,7 +51,7 @@ Aplikasi harus menyimpan pembaharuan token akses untuk penggunaan kedepannya dan
 \label{fig:skenarioaplikasiwebserver}
 \end{figure}
 
-\subsection{Skenario Aplikasi yang Terinstal}
+\subsubsection{Skenario Aplikasi yang Terinstal}
 Google OAuth 2.0 mendukung aplikasi yang diinstal pada perangkat seperti komputer, perangkat mobile, dan tablet. Ketika membuat klien id melalui Google Developers Console, menentukan aplikasi yang terinstal kemudian pilih Android, Chrome, iOS, atau "{\it Other}" sebagai jenis aplikasi.
 
 Hasil proses klien id dan kerahasiaan klien dalam beberapa kasus dimasukkan dalam kode sumber aplikasi. (Dalam konteks ini, kerahasiaan klien jelas tidak diperlakukan sebagai rahasia.)
@@ -64,7 +67,7 @@ Aplikasi harus menyimpan token yang diperbaharui untuk penggunaan masa depan dan
 \label{fig:skenarioaplikasiyangterinstal}
 \end{figure}
 
-\subsection{Skenario Aplikasi Sisi Klien (JavaScript)}
+\subsubsection{Skenario Aplikasi Sisi Klien (JavaScript)}
 Google OAuth 2.0 mendukung aplikasi JavaScript yang berjalan di mesin pencari. Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL termasuk parameter permintaan yang menunjukkan jenis akses yang diminta. Google menangani otentikasi pengguna, pemilihan sesi, dan izin pengguna. Hasilnya adalah token akses dimana klien harus memvalidasi sebelum memasukkannya ke dalam permintaan Google API. Ketika masa token berakhir, aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasisisiklien}.
 
 \begin{figure}[H]
@@ -74,7 +77,7 @@ Google OAuth 2.0 mendukung aplikasi JavaScript yang berjalan di mesin pencari. U
 \label{fig:skenarioaplikasisisiklien}
 \end{figure}
 
-\subsection{Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}
+\subsubsection{Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}
 Google OAuth 2.0 mendukung aplikasi yang berjalan pada perangkat dengan masukan yang terbatas seperti konsol game, kamera video, dan printer. Urutan otorisasi dimulai dengan aplikasi membuat permintaan layanan web ke URL Google untuk kode otorisasi. Tanggapan berisi beberapa parameter, termasuk URL dan kode bahwa aplikasi menunjukkan kepada pengguna. Pengguna memperoleh URL dan kode dari perangkat, kemudian beralih ke perangkat terpisah atau komputer dengan kemampuan masukan yang lebih. Pengguna membuka mesin pencari, menavigasi ke URL tertentu, melakukan log in, dan memasukan kode.
 
 Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu. Setelah pengguna menyetujui akses, respon dari server Google berisi token akses dan memperbaharui token. Aplikasi harus menyimpan token yang baru untuk penggunaan masa depan dan menggunakan token akses untuk mengakses Google API. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasimasukanterbatas}.
@@ -86,7 +89,7 @@ Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu. S
 \label{fig:skenarioaplikasimasukanterbatas}
 \end{figure}
 
-\subsection{Skenario Layanan Akun}
+\subsubsection{Skenario Layanan Akun}
 Google API seperti Prediction API dan Google Cloud Storage dapat bertindak atas nama aplikasi yang dibuat tanpa mengakses informasi pengguna. Dalam situasi ini aplikasi perlu membuktikan identitasnya sendiri ke API, tapi tidak diperlukan izin dari pihak pengguna. Demikian pula, dalam skenario perusahaan, aplikasi dapat meminta akses didelegasikan ke beberapa sumber daya.
 
 Untuk jenis interaksi antara server memerlukan layanan akun, dimana akun tersebut terdapat pada aplikasi yang dibuat, bukan individu ke pengguna akhir. Aplikasi memanggil Google API atas nama layanan akun, dan izin dari pihak pengguna tidak diperlukan. (Dalam skenario tanpa layanan akun, aplikasi memanggil Google API atas nama pengguna akhir, dan izin dari pihak pengguna kadang-kadang diperlukan.)
@@ -116,6 +119,92 @@ Akun pengguna telah melampaui jumlah tertentu permintaan token.
 
 Saat ini batas untuk setiap akun Google adalah 25 token. Jika pengguna akun telah memiliki 25 token, permintaan otentikasi untuk token ke-26 akan berhasil tapi token yang paling tua atau token ke-1 akan dibuat tidak berlaku tanpa sepengetahuan pengguna.
 Jika perlu untuk mengotorisasi beberapa program, mesin, atau perangkat, salah satu solusi adalah untuk membatasi jumlah klien dimana harus mengotorisasi per pengguna akun antara 15 atau 20. Jika Anda adalah admin Google Apps, Anda dapat membuat admin tambahan untuk mengizinkan beberapa klien.
+
+\subsection{Lingkup Otorisasi}
+Lingkup disini merupakan sebuah string yang memungkinkan akses ke sumber daya tertentu, misalnya akses ke data pengguna. Dengan memasukan lingkup tertentu pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh pengguna untuk diakses.
+
+Sebuah aplikasi yang dibuat tanpa permintaan otentikasi (tidak ada lingkup yang diminta) hanya dapat mengakses data pengguna yang umum di Google+. Contoh, jika sebuah aplikasi mencari postingan publik, respon dari pencarian akan menampilkan id pengguna yang telah diposting secara publik dan aplikasi dapat mengakses nama dan URL foto pengguna yang dimana keduanya selalu diposting secara publik. Dapat juga mengakses tanggal ulang tahun atau jenis kelamin pengguna jika pengguna telah mempostinng secara publik. Untuk daftar lingkup otorisasi dapat dilihat pada sub-sub-bab berikut.
+
+\subsubsection{Lingkup Profil}
+Lingkup ini merupakan lingkup dasar dimana lingkup ini melakukan beberapa hal seperti berikut:
+\begin{itemize}
+\item
+Meminta agar aplikasi diberikan akses ke informasi profil dasar bagi pengguna yang terotentikasi.
+\item
+Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan mengganti id pengguna dengan "me" yang mewakilkan pengguna yang telah terotentikasi disetiap permintaan yang dilakukan.
+\item
+Memungkinkan aplikasi diakses melalui aplikasi android.
+\end{itemize}
+\begin{lstlisting}
+https://www.googleapis.com/auth/plus.login
+\end{lstlisting}
+Lingkup login disarankan menyediakan akses ke fitur sosial. Lingkup ini secara implisit mencakup lingkup profil dan juga meminta aplikasi diberikan akses ke:
+\begin{itemize}
+\item
+Rentang usia pengguna yang telah terotentikasi.
+\item
+Daftar teman yang telah diberikan akses oleh pengguna.
+\item
+Metode untuk membaca, menulis dan menghapus kegiatan app ke Google atas nama pengguna.
+\end{itemize}
+Memungkinkan lintas platform dengan pendaftaran tunggal.
+
+\subsubsection{Lingkup Email}
+Lingkup ini meminta agar aplikasi diberikan akses ke:
+\begin{itemize}
+\item
+Alamat email akun Google dari pengguna. Mengakses alamat email dengan memanggil people.get yang akan mengeluarkan array email atau dengan memanggil people.getOpenIdConnect yang akan mengeluarkan email dengan format OIDC.
+\item
+Nama domain Google Apps jika ada yang dimiliki pengguna. Nama domain dikembalikan sebagai kepemilikan domain dari people.get atau properti hd dari getOpenIdConnect.
+\end{itemize}
+Lingkup email ini setara dengan lingkup yang lain:
+https://www.googleapis.com/auth/plus.me.
+
+\subsubsection{Lingkup yang lain}
+Lingkup openid menginformasikan server otorisasi bahwa klien membuat permintaan OpenID Connect dan meminta akses ke id pengguna yang terotentikasi tersebut. Lingkup ini harus disertakan lingkup OpenId Connect.
+
+Metode getOpenIdConnect mengembalikan profil pengguna dengan format OIDC mengikuti jalur permintaan HTTP:
+https://www.googleapis.com/plus/v1/people/me/openIdConnect.
+
+\begin{lstlisting}
+https://www.googleapis.com/plus/v1/people/me/openIdConnect
+\end{lstlisting}
+Untuk keperluan login menggunakan profil atau lingkup
+\begin{lstlisting}
+https://www.googleapis.com/auth/plus.login
+\end{lstlisting}
+karena lingkup
+\begin{lstlisting}
+https://www.googleapis.com/auth/plus.me
+\end{lstlisting}
+tidak dianjurkan sebagai lingkup login dikarenakan pengguna yang belum upgrade ke Google+ tidak akan mengembalikan nama atau alamat email pengguna.
+
+Lingkup ini melakukan hal berikut:
+\begin{itemize}
+\item
+Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan mengganti id pengguna dengan "me" yang mewakilkan pengguna yang telah terotentikasi disetiap permintaan yang dilakukan.
+\end{itemize}
+
+\subsubsection{Lingkup yang tidak dipakai lagi}
+\begin{lstlisting}
+https://www.googleapis.com/auth/userinfo.profile
+\end{lstlisting}
+Ganti dengan lingkup yang setara yaitu lingkup profil. Lingkup ini setara dengan lingkup profil dan meminta akses data yang sama.
+
+Catatan: lingkup ini tidak dipakai lagi namun tetap dipertahankan dan terus tersedia untuk kompatibilitas.
+
+\begin{lstlisting}
+https://www.googleapis.com/auth/userinfo.email
+\end{lstlisting}
+Ganti dengan lingkup yang setara yaitu lingkup email. Lingkup ini meminta akses ke alamat email akun Google pengguna.
+Google menghasilkan token baru dengan lingkup ini untuk titik akhir people.get. Lingkup ini juga meminta akses dari pengguna ke titik akhir userinfo unutk kompatibilitas.
+
+Lihat juga lingkup terkait:
+\begin{lstlisting}
+https://www.googleapis.com/auth/plus.profile.emails.read
+\end{lstlisting}
+
+Catatan: lingkup ini tidak dipakai lagi namun tetap dipertahankan dan terus tersedia untuk kompatibilitas.
 
 \section{Markdown}
 \label{sec:markdown}
