@@ -20,7 +20,7 @@
 		
 		$client_id = '568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com';
 		$client_secret = '-cSZ-AUmeQ9PaWWry_IpiBBi';
-		$redirect_uri = 'http://localhost/pilihmahasiswa.php';
+		$redirect_uri = 'http://localhost/list.php';
 		
 		$client = new Google_Client();
 		$client->setClientId($client_id);

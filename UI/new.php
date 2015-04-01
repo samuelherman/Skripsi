@@ -30,7 +30,7 @@
 			
 			if ($id_mysql->query($sql) === TRUE) 
 			{
-				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=pilihmahasiswa.php">';
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 			} else {
 					echo "Error: " . $sql . "<br>" . $id_mysql->error;
 			}
@@ -46,8 +46,10 @@
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 			<div class="row">
 				<ul class="button-group">
-					<li><a href="pilihmahasiswa.php" class="button">Kembali</a></li>
+					<li><a href="list.php" class="button">Kembali</a></li>
 					<li><input class="button" type="submit" name="submit" value="Simpan"></li>
+					<li><a href="list.php" class="button">Menu Utama</a></li>
+					<li><a href="" class="button">Logout</a></li>
 				</ul>
 			</div>
 			<div class="small-8 columns">

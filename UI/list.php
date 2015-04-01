@@ -19,7 +19,7 @@
 	// oauth2_client_id, oauth2_client_secret, and to register your oauth2_redirect_uri.
 	$client->setClientId('568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com');
 	$client->setClientSecret('-cSZ-AUmeQ9PaWWry_IpiBBi');
-	$client->setRedirectUri('http://localhost/pilihmahasiswa.php'); 
+	$client->setRedirectUri('http://localhost/list.php'); 
 	$client->setDeveloperKey('AIzaSyDRoDJAzUR_TsNUNRUeTYsBb7dFBQKZy7M');
 	$client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
 	$plus = new Google_Service_Oauth2($client);
@@ -79,7 +79,10 @@
 						<input class="button postfix" type="cari" name="cari" value="Search">
 					</div>
 					<div class="small-2 columns">
-						<a href="entribaru.php" class="button postfix">Add</a>
+						<a href="new.php" class="button postfix">Add</a>
+					</div>
+					<div class="small-2 columns">
+						<a href="" class="button postfix">Logout</a>
 					</div>
 				</div>
 			</div>
@@ -119,7 +122,7 @@
 		while($row = mysql_fetch_array($hasil))
 		{
 		echo "<tr>";
-		echo "<td><a href='infomahasiswa.php?npm=". $row['npm'] ."'>" . $row['npm'] . "</a></td>";
+		echo "<td><a href='view.php?npm=". $row['npm'] ."'>" . $row['npm'] . "</a></td>";
 		echo "<td>" . $row['nama'] . "</td>";
 		echo "<td>" . $row['pembaruan_terakhir'] . "</td>";
 		echo "</tr>";

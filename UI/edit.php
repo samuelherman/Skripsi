@@ -47,8 +47,10 @@
 		</div>
 		<div class="row">
 			<ul class="button-group">
-				<li><a href="infomahasiswa.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
+				<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
 				<li><input class="button" type="submit" name="submit" value="Simpan"></li>
+				<li><a href="list.php" class="button">Menu Utama</a></li>
+				<li><a href="" class="button">Logout</a></li>
 			</ul>
 		</div>
 		<form>

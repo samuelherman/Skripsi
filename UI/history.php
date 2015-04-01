@@ -40,6 +40,13 @@
 		mysql_close($id_mysql);
 	?> 
 		<div class="row">
+			<ul class="button-group">
+				<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
+				<li><a href="list.php" class="button">Menu Utama</a></li>
+				<li><a href="" class="button">Logout</a></li>
+			</ul>
+		</div>
+		<div class="row">
 			<h5>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?></h5>
 			<ul class="disc">
 				<li>9 Okt 2014 9:13 AM pascal@unpar.ac.id melihat 2010730013</li>
