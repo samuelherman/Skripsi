@@ -26,7 +26,6 @@
 		$client->setClientId($client_id);
 		$client->setClientSecret($client_secret);
 		$client->setRedirectUri($redirect_uri);
-		$client->addScope("https://www.googleapis.com/auth/urlshortener");
 		
 		$service = new Google_Service_Urlshortener($client);
 		

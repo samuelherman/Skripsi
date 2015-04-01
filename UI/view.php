@@ -17,7 +17,7 @@
 		<div class="row">
 			<ul class="button-group">
 				<li><a href="editmahasiswa.php?npm=<?php echo $npm?>" class="button">Edit</a></li>
-				<li><a href="lihathistori.php" class="button">Lihat Histori</a></li>
+				<li><a href="lihathistori.php?npm=<?php echo $npm?>" class="button">Lihat Histori</a></li>
 			</ul>
 		</div>
 		<hr/>

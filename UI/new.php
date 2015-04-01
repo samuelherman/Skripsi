@@ -70,7 +70,15 @@
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<textarea name="keterangan" placeholder="Masukan info"></textarea>
+					<textarea name="keterangan">
+# Umum
+
+Isilah deskripsi umum mahasiswa disini.
+
+# Catatan
+
+* 9 Oktober 2014, pertama kali dibuat
+					</textarea>
 				</div>
 			</div>
 		</form>

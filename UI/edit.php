@@ -22,27 +22,39 @@
 			die("Database tidak bisa dipilih");
 		}
 			
-		$cari = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
-		while($row = mysql_fetch_array($cari))
+		$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+		
+		
+		if(! $hasil){
+			die("Permintaan gagal");
+		}
+
+
+		while($row = mysql_fetch_array($hasil))
 		{
 			$carinpm = $row['npm'];
-			$carinama =  $row['nama'];
-	?>
+			$carinama = $row['nama'];
+			$cariketerangan = $row['keterangan'];
+		}
+
+		mysql_close($id_mysql);
+	?> 
+
 		<div class="row">
 			<h5>Anda mengedit catatan mahasiswa ini sebagai test@unpar.ac.id.<br/>
-			NPM 2010730013 Nama Samuel Herman
+			NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
 			</h5>
 		</div>
 		<div class="row">
 			<ul class="button-group">
-				<li><a href="infomahasiswa.php" class="button">Kembali</a></li>
+				<li><a href="infomahasiswa.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
 				<li><input class="button" type="submit" name="submit" value="Simpan"></li>
 			</ul>
 		</div>
 		<form>
 			<div class="row">
 				<div class="small-12 columns">
-					<textarea placeholder="Info Mahasiswa yang Akan Diedit"></textarea>
+					<textarea placeholder="<?php echo $cariketerangan; ?>"><?php echo $cariketerangan; ?></textarea>
 				</div>
 			</div>
 		</form>

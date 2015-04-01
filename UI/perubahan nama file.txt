@@ -1,0 +1,6 @@
+login.php			>	index.php
+pilihmahasiswa.php	> 	list.php
+infomahasiswa.php	> 	view.php
+editmahasiswa.php	> 	edit.php
+lihathistori.php	> 	history.php
+entribaru.php		> 	new.php

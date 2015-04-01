@@ -21,7 +21,7 @@
 	$client->setClientSecret('-cSZ-AUmeQ9PaWWry_IpiBBi');
 	$client->setRedirectUri('http://localhost/pilihmahasiswa.php'); 
 	$client->setDeveloperKey('AIzaSyDRoDJAzUR_TsNUNRUeTYsBb7dFBQKZy7M');
-	$client->setScopes(array('https://www.googleapis.com/auth/userinfo.email','https://www.googleapis.com/auth/userinfo.profile'));
+	$client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
 	$plus = new Google_Service_Oauth2($client);
 
 	if (isset($_REQUEST['logout'])) {
@@ -121,7 +121,7 @@
 		echo "<tr>";
 		echo "<td><a href='infomahasiswa.php?npm=". $row['npm'] ."'>" . $row['npm'] . "</a></td>";
 		echo "<td>" . $row['nama'] . "</td>";
-		echo "<td>" . $row['log'] . "</td>";
+		echo "<td>" . $row['pembaruan_terakhir'] . "</td>";
 		echo "</tr>";
 		}
 		echo "</table>";
