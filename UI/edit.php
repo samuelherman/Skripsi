@@ -46,7 +46,10 @@
 		//print_r($npm);
 		//echo implode("",$npm);
 		$npm = isset($_GET['npm']) ? $_GET['npm'] : FALSE;
-		echo $npm;
+		//$npm = implode("|",$_GET['npm']);
+		//echo $npm;
+		//$npmbaru = implode(', ', (array)$npm);
+		$npmbaru = intval($npm,0);
 		$pemakai="admin";
 		$pass="admin";
 		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
