@@ -9,7 +9,40 @@
 	</head>
 	<body>
 	<?php
-		$npm = $_GET["npm"];
+	include_once "google-api-php-client-master/src/Google/Client.php";
+	include_once "google-api-php-client-master/src/Google/Service/Oauth2.php";
+
+	session_start();
+
+	$client = new Google_Client();
+	// Visit https://code.google.com/apis/console to generate your
+	// oauth2_client_id, oauth2_client_secret, and to register your oauth2_redirect_uri.
+	$client->setClientId('568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com');
+	$client->setClientSecret('-cSZ-AUmeQ9PaWWry_IpiBBi');
+	$client->setRedirectUri('http://localhost/list.php'); 
+	$client->setDeveloperKey('AIzaSyDRoDJAzUR_TsNUNRUeTYsBb7dFBQKZy7M');
+	$client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
+	$plus = new Google_Service_Oauth2($client);
+
+	if (isset($_GET['code'])) {
+	  $client->authenticate($_GET['code']);
+	  $_SESSION['access_token'] = $client->getAccessToken();
+	  header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
+	}
+
+	if (isset($_SESSION['access_token'])) {
+	  $client->setAccessToken($_SESSION['access_token']);
+	}
+
+	if ($client->getAccessToken()) 
+	{
+			$info = $plus->userinfo;
+			$userinfo = $info->get();
+			$email = ($userinfo['email']);
+	}
+	?>
+	<?php
+		$npm = $_GET['npm'];
 		$pemakai="admin";
 		$pass="admin";
 		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
@@ -32,33 +65,65 @@
 
 		while($row = mysql_fetch_array($hasil))
 		{
-			$carinpm = $row['npm'];
+			//$carinpm = $row['npm'];
 			$carinama = $row['nama'];
 			$cariketerangan = $row['keterangan'];
 		}
 
-		mysql_close($id_mysql);
-	?> 
+		//mysql_close($id_mysql);
+
+		//submit dan update
+		if(isset($_POST['submit']))
+			{
+				$pemakai="admin";
+				$pass="admin";
+				$id_mysql = new mysqli('localhost', $pemakai, $pass, 'sirm');
+				// Check connection
+				if ($id_mysql->connect_error) 
+				{
+					die("Connection failed: " . $id_mysql->connect_error);
+				}
+
+				$keteranganbaru = "";
+				$keteranganbaru = $_POST['keteranganbaru'];
+				//untuk field id dan tgl_reg tidak diisi karena otomatis akan diisi oleh database  
+
+				// insert data ke tabel info_mahasiswa  
+				$sql = ("UPDATE info_mahasiswa SET keterangan='". mysql_real_escape_string($keteranganbaru)  ."' WHERE npm=('".mysql_real_escape_string($_GET['npm'])."')");
+
+				if ($id_mysql->query($sql) === TRUE) 
+				{
+					echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
+				} else {
+						echo "Error: " . $sql . "<br>" . $id_mysql->error;
+				}
+			}
+			else
+			{
+		?>
 
 		<div class="row">
-			<h5>Anda mengedit catatan mahasiswa ini sebagai test@unpar.ac.id.<br/>
-			NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
-			</h5>
+			<h3>Anda mengedit catatan mahasiswa ini sebagai <?php echo $email?>.<br/>
+			NPM <?php echo $npm; ?> Nama <?php echo $carinama; ?>
+			</h3>
 		</div>
-		<div class="row">
-			<ul class="button-group">
-				<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
-				<li><input class="button" type="submit" name="submit" value="Simpan"></li>
-				<li><a href="list.php" class="button">Menu Utama</a></li>
-				<li><a href="" class="button">Logout</a></li>
-			</ul>
-		</div>
-		<form>
+		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+			<div class="row">
+				<ul class="button-group">
+					<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
+					<li><input class="button" type="submit" name="submit" value="Simpan"></li>
+					<li><a href="list.php" class="button">Menu Utama</a></li>
+					<li><a href="index.php?logout" class="button">Logout</a></li>
+				</ul>
+			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<textarea placeholder="<?php echo $cariketerangan; ?>"><?php echo $cariketerangan; ?></textarea>
+					<textarea placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
 				</div>
 			</div>
 		</form>
+		<?php
+		}
+		?>
 	</body>
 </html>

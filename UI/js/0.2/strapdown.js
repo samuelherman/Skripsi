@@ -399,7 +399,7 @@ var PR=win['PR']={'createSimpleLexer':createSimpleLexer,'registerLangHandler':re
   document.body.replaceChild(newNode, markdownEl);
 
   // Insert navbar if there's none
-  var newNode = document.createElement('div');
+  /* var newNode = document.createElement('div');
   newNode.className = 'navbar navbar-fixed-top';
   if (!navbarEl && titleEl) {
     newNode.innerHTML = '<div class="navbar-inner"> <div class="container"> <div id="headline" class="brand"> </div> </div> </div>';
@@ -408,7 +408,7 @@ var PR=win['PR']={'createSimpleLexer':createSimpleLexer,'registerLangHandler':re
     var headlineEl = document.getElementById('headline');
     if (headlineEl)
       headlineEl.innerHTML = title;
-  }
+  } */
 
   //////////////////////////////////////////////////////////////////////
   //

@@ -34,7 +34,7 @@
 		{
 			$carinpm = $row['npm'];
 			$carinama = $row['nama'];
-			$carilog = $row['log'];
+			$carilog = $row['pembaruan_terakhir'];
 		}
 
 		mysql_close($id_mysql);
@@ -43,11 +43,11 @@
 			<ul class="button-group">
 				<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
 				<li><a href="list.php" class="button">Menu Utama</a></li>
-				<li><a href="" class="button">Logout</a></li>
+				<li><a href="index.php?logout" class="button">Logout</a></li>
 			</ul>
 		</div>
 		<div class="row">
-			<h5>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?></h5>
+			<h3>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
 			<ul class="disc">
 				<li>9 Okt 2014 9:13 AM pascal@unpar.ac.id melihat 2010730013</li>
 				<li>9 Okt 2014 9:10 AM pascal@unpar.ac.id mengedit 2010730013</li>
@@ -55,6 +55,7 @@
 				<li>7 Okt 2014 8:31 PM chandra@unpar.ac.id melihat 2010730013</li>
 				<li>1 Sep 2014 9:13 AM chandra@unpar.ac.id membuat entri 2010730013</li>
 			</ul>
+			</h3>
 		</div>
 	</body>
 </html>
