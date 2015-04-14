@@ -120,12 +120,15 @@ Akun pengguna telah melampaui jumlah tertentu permintaan token.
 Saat ini batas untuk setiap akun Google adalah 25 token. Jika pengguna akun telah memiliki 25 token, permintaan otentikasi untuk token ke-26 akan berhasil tapi token yang paling tua atau token ke-1 akan dibuat tidak berlaku tanpa sepengetahuan pengguna.
 Jika perlu untuk mengotorisasi beberapa program, mesin, atau perangkat, salah satu solusi adalah untuk membatasi jumlah klien dimana harus mengotorisasi per pengguna akun antara 15 atau 20. Jika Anda adalah admin Google Apps, Anda dapat membuat admin tambahan untuk mengizinkan beberapa klien.
 
-\subsection{Lingkup Otorisasi}
+\subsection{Lingkup Otorisasi \cite{Scope:2013}}
 Lingkup disini merupakan sebuah string yang memungkinkan akses ke sumber daya tertentu, misalnya akses ke data pengguna. Dengan memasukan lingkup tertentu pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh pengguna untuk diakses.
 
 Sebuah aplikasi yang dibuat tanpa permintaan otentikasi (tidak ada lingkup yang diminta) hanya dapat mengakses data pengguna yang umum di Google+. Contoh, jika sebuah aplikasi mencari postingan publik, respon dari pencarian akan menampilkan id pengguna yang telah diposting secara publik dan aplikasi dapat mengakses nama dan URL foto pengguna yang dimana keduanya selalu diposting secara publik. Dapat juga mengakses tanggal ulang tahun atau jenis kelamin pengguna jika pengguna telah mempostinng secara publik. Untuk daftar lingkup otorisasi dapat dilihat pada sub-sub-bab berikut.
 
 \subsubsection{Lingkup Profil}
+\begin{lstlisting}
+profile
+\end{lstlisting}
 Lingkup ini merupakan lingkup dasar dimana lingkup ini melakukan beberapa hal seperti berikut:
 \begin{itemize}
 \item
@@ -138,7 +141,7 @@ Memungkinkan aplikasi diakses melalui aplikasi android.
 \begin{lstlisting}
 https://www.googleapis.com/auth/plus.login
 \end{lstlisting}
-Lingkup login disarankan menyediakan akses ke fitur sosial. Lingkup ini secara implisit mencakup lingkup profil dan juga meminta aplikasi diberikan akses ke:
+Lingkup login disarankan untuk aplikasi yang menyediakan akses ke fitur sosial. Lingkup ini secara implisit mencakup lingkup profil dan juga meminta aplikasi diberikan akses ke:
 \begin{itemize}
 \item
 Rentang usia pengguna yang telah terotentikasi.
@@ -147,29 +150,51 @@ Daftar teman yang telah diberikan akses oleh pengguna.
 \item
 Metode untuk membaca, menulis dan menghapus kegiatan app ke Google atas nama pengguna.
 \end{itemize}
-Memungkinkan lintas platform dengan pendaftaran tunggal.
+Lingkup ini juga memungkinkan lintas platform dengan pendaftaran tunggal.
 
 \subsubsection{Lingkup Email}
+\begin{lstlisting}
+email
+\end{lstlisting}
 Lingkup ini meminta agar aplikasi diberikan akses ke:
 \begin{itemize}
 \item
-Alamat email akun Google dari pengguna. Mengakses alamat email dengan memanggil people.get yang akan mengeluarkan array email atau dengan memanggil people.getOpenIdConnect yang akan mengeluarkan email dengan format OIDC.
+Alamat email Google dari pengguna. Mengakses alamat email dengan memanggil people.get yang akan mengeluarkan array email atau dengan memanggil
+\begin{lstlisting}
+people.getOpenIdConnect
+\end{lstlisting}
+yang akan mengeluarkan email dengan format OIDC (OpenID Connect).
 \item
 Nama domain Google Apps jika ada yang dimiliki pengguna. Nama domain dikembalikan sebagai kepemilikan domain dari people.get atau properti hd dari getOpenIdConnect.
+\item
+Lingkup email ini setara dan menggantikan lingkup di bawah ini.
+\begin{lstlisting}
+https://www.googleapis.com/auth/userinfo.email
+\end{lstlisting}
 \end{itemize}
-Lingkup email ini setara dengan lingkup yang lain:
-https://www.googleapis.com/auth/plus.me.
+\begin{lstlisting}
+https://www.googleapis.com/auth/plus.profile.emails.read
+\end{lstlisting}
+Lingkup ini meminta aplikasi agar diberikan akses ke:
+\begin{itemize}
+\item
+Alamat email Google pengguna yang telah diverifikasi di profile Google+. Mengakses email dengan memanggil people.get dan mengembailakan hasil email dalam array.
+\item
+Nama domain yang telah didaftarkan di Google jika pengguna memiliki fitur tersebut.
+\end{itemize}
 
 \subsubsection{Lingkup yang lain}
+\begin{lstlisting}
+openid
+\end{lstlisting}
 Lingkup openid menginformasikan server otorisasi bahwa klien membuat permintaan OpenID Connect dan meminta akses ke id pengguna yang terotentikasi tersebut. Lingkup ini harus disertakan lingkup OpenId Connect.
 
 Metode getOpenIdConnect mengembalikan profil pengguna dengan format OIDC mengikuti jalur permintaan HTTP:
-https://www.googleapis.com/plus/v1/people/me/openIdConnect.
-
 \begin{lstlisting}
 https://www.googleapis.com/plus/v1/people/me/openIdConnect
 \end{lstlisting}
-Untuk keperluan login menggunakan profil atau lingkup
+
+Untuk keperluan login menggunakan lingkup profil atau lingkup
 \begin{lstlisting}
 https://www.googleapis.com/auth/plus.login
 \end{lstlisting}

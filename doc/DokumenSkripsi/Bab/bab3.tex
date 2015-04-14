@@ -18,7 +18,7 @@ Berdasarkan langkah dasar yang terdapat pada bab 2, maka terdapat empat langkah 
     \item Masuk ke proyek yang telah dibuat dan masuk ke menu 'Credentials'. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:credentials}.
     \item Membuat client ID yang baru. Dapat dilihat pada Gambar \ref{fig:newclientid}.
     \item Pilih tipe aplikasi sesuai aplikasi yang dibangun, pada penelitian ini menggunakan tipe aplikasi web karena aplikasi yang akan dibangun berbasis web. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:tipeaplikasi}.
-    \item Isi bagian AUTHORIZED JAVASCRIPT ORIGINS (merupakan path dimana javasript otorisasi akan dijalankan) pada penelitian ini bagian AUTHORIZED JAVASCRIPT ORIGINS akan diisi dengan http://localhost/ karena aplikasi yang akan dibangun pada penelitian ini terletak pada localhost dan AUTHORIZED REDIRECT URIS (merupakan pengarah jika otorisasi sudah berhasil) pada penelitian ini bagian AUTHORIZED REDIRECT URIS akan diisi dengan http://localhost/pilihmahasiswa.php karena setelah menjalankan aplikasi dan berhasil melakukan otoritasi maka yang halaman pertama yang akan dituju adalah pilihmahasiswa.php. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:tipeaplikasisudahdiisi}.
+    \item Isi bagian AUTHORIZED JAVASCRIPT ORIGINS (merupakan path dimana javasript otorisasi akan dijalankan) pada penelitian ini bagian AUTHORIZED JAVASCRIPT ORIGINS akan diisi dengan http://localhost/ karena aplikasi yang akan dibangun pada penelitian ini terletak pada localhost dan AUTHORIZED REDIRECT URIS (merupakan pengarah jika otorisasi sudah berhasil) pada penelitian ini bagian AUTHORIZED REDIRECT URIS akan diisi dengan http://localhost/oauth.php karena setelah menjalankan aplikasi dan berhasil melakukan otoritasi maka yang halaman pertama yang akan dituju adalah oauth.php untuk pembatasan user. Agar lebih jelas dapat dilihat pada Gambar \ref{fig:tipeaplikasisudahdiisi}.
     \item Setelah langkah-langkah diatas terpenuhi maka akan mendapatkan client id dan client secret. Client id dan client secret yang didapat dapat dilihat di bawah ini.
 \begin{lstlisting}
 Client id:
@@ -34,8 +34,10 @@ Untuk memperoleh token akses akan menggunakan izin dari pihak pengguna. Jadi pad
 Setelah mendapatkan token akses, maka untuk mengirimkan ke API diperlukan scope. Karena sesuai dengan landasan teori, jika token akses dikeluarkan untuk Google+ API maka token akses tersebut tidak berlaku untuk mengakses Google Contact API. Scope yang akan digunakan pada penelitan ini adalah:
 \begin{lstlisting}
 https://www.googleapis.com/auth/plus.login
+dan
+email
 \end{lstlisting}
-karena pada penelitian ini dibutuhkan email pengguna dan nama pengguna, keduanya itu dapat diperoleh dengan menggunakan scope tersebut.
+karena pada penelitian ini dibutuhkan email pengguna dan nama pengguna, keduanya itu dapat diperoleh dengan menggunakan kedua scope tersebut. Scope pertama untuk mendapatkan info dari pengguna dan scope kedua untuk mendapatkan email dari pengguna.
 \item Memperbaharui token akses jika diperlukan\\
 Pada penelitian ini tidak akan menggunakan tahap memperbaharui token akses karena token akses hanya digunakan selama penelitian ini berlangsung.
 \end{enumerate}

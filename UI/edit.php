@@ -42,7 +42,11 @@
 	}
 	?>
 	<?php
-		$npm = $_GET['npm'];
+		//$npm = $_GET['npm'];
+		//print_r($npm);
+		//echo implode("",$npm);
+		$npm = isset($_GET['npm']) ? $_GET['npm'] : FALSE;
+		echo $npm;
 		$pemakai="admin";
 		$pass="admin";
 		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
@@ -86,16 +90,19 @@
 
 				$keteranganbaru = "";
 				$keteranganbaru = $_POST['keteranganbaru'];
+
 				//untuk field id dan tgl_reg tidak diisi karena otomatis akan diisi oleh database  
 
 				// insert data ke tabel info_mahasiswa  
-				$sql = ("UPDATE info_mahasiswa SET keterangan='". mysql_real_escape_string($keteranganbaru)  ."' WHERE npm=('".mysql_real_escape_string($_GET['npm'])."')");
+				$sql = ("UPDATE info_mahasiswa SET keterangan='$keteranganbaru' WHERE npm='2010730002'");
 
 				if ($id_mysql->query($sql) === TRUE) 
 				{
+					echo "<script>alert('Update Berhasil Boss')</script>";
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 				} else {
-						echo "Error: " . $sql . "<br>" . $id_mysql->error;
+					echo "<script>alert('Update Gagal Boss')</script>";
+					echo "Error: " . $sql . "<br>" . $id_mysql->error;
 				}
 			}
 			else
