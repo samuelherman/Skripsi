@@ -6,39 +6,20 @@
 		<title>SIRM | Welcome</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
+	<style>
+	.button1 {
+		background-color: Transparent;
+		background-repeat:no-repeat;
+		border: none;
+		cursor:pointer;
+		overflow: hidden;
+		outline:none;
+	}
+	</style>
 	</head>
 	<body>
 	<?php
-	include_once "google-api-php-client-master/src/Google/Client.php";
-	include_once "google-api-php-client-master/src/Google/Service/Oauth2.php";
-
 	session_start();
-
-	$client = new Google_Client();
-	$client->setClientId('568951368854-ufmbistn0pcaq0khubafo1a133orfgve.apps.googleusercontent.com');
-	$client->setClientSecret('-cSZ-AUmeQ9PaWWry_IpiBBi');
-	$client->setRedirectUri('http://localhost/list.php'); 
-	$client->setDeveloperKey('AIzaSyDRoDJAzUR_TsNUNRUeTYsBb7dFBQKZy7M');
-	$client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
-	$plus = new Google_Service_Oauth2($client);
-
-
-	if (isset($_GET['code'])) {
-		$client->authenticate($_GET['code']);
-		$_SESSION['access_token'] = $client->getAccessToken();
-		header('Location: http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);
-	}
-
-	if (isset($_SESSION['access_token'])) {
-		$client->setAccessToken($_SESSION['access_token']);
-	}
-
-	if ($client->getAccessToken()) 
-	{	
-		$info = $plus->userinfo;
-		$userinfo = $info->get();
-		$email = ($userinfo['email']);
-	}
 	?>	
 	<div class="row">
 		<h3>Masukan NPM yang ingin dicari / tambah baru.</h3>
@@ -97,6 +78,7 @@
 		while($row = mysql_fetch_array($hasil))
 		{
 		echo "<tr>";
+		//echo "<td><input class='button1' type='submit' name='submit' value=". $row['npm'] ."></td>";
 		echo "<td><a href='view.php?npm=". $row['npm'] ."'>" . $row['npm'] . "</a></td>";
 		echo "<td>" . $row['nama'] . "</td>";
 		echo "<td>" . $row['pembaruan_terakhir'] . "</td>";

@@ -37,7 +37,8 @@
 			$info = $plus->userinfo;
 			$userinfo = $info->get();
 			$email = ($userinfo['email']);
-			echo "Email: $email";
+			$_SESSION['email'] = $email;
+			echo "Email: ". $_SESSION['email'] ."";
 		}
 		
 		$status="";
@@ -53,13 +54,14 @@
 		$status = is_valid_email($email);
 		
 		if($status == "valid email"){
-				header("Location: list.php");
-				exit;
-			}else{
-				unset($_SESSION['access_token']);
-				header("Location: index.php");
-				exit;
-				
+			//echo "<script>alert('Update Berhasil Boss')</script>";
+			header("Location: list.php");
+			exit;
+		}else{
+			echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM.')</script>";
+			unset($_SESSION['access_token']);
+			header("Location: index.php");
+			exit;
 		}
 	?>
 	<?= is_valid_email($email); ?>

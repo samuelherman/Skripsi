@@ -50,11 +50,7 @@
 		} else {
 			$authUrl = $client->createAuthUrl();
 		}
-		?>
 		
-
-		
-		<?php 
 		if (isset($authUrl)) {
 		  echo "<a class='login' href='" . $authUrl . "'>Login with Google</a>";
 		}
