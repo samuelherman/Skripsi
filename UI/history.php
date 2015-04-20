@@ -46,7 +46,7 @@
 				
 				while($row = mysql_fetch_array($hasil))
 				{
-					echo "<li>" . $row['tanggal_pembaruan'] . " " . $row['pengguna'] . " " . $row['status'] . " " . $row['npm'] . "</li>";
+					echo "<li>" . $row['tanggal_pembaruan'] . " " . $row['pengguna'] . " " . $row['status'] . " " . $row['npm'] . " " . ($row['keterangan'] != "" ? '<a href="past.php?id= '. $row['id_histori'] .'">[lihat versi ini]</a>' : "") . "</li>";
 					/* $caripengguna = $row['nama'];
 					$caristatus = $row['pembaruan_terakhir'];
 					$carinpm = $row['nama'];

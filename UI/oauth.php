@@ -56,7 +56,7 @@
 		}else{
 			echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM.')</script>";
 			unset($_SESSION['access_token']);
-			header("Location: index.php");
+			header("Location: index.php?logout");
 			exit;
 		}
 	?>
