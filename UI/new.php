@@ -14,15 +14,8 @@
 
 	if(isset($_POST['submit']))
 	{
-		$pemakai="admin";
-		$pass="admin";
-		$id_mysql = new mysqli('localhost', $pemakai, $pass, 'sirm');
-
-		if ($id_mysql->connect_error) 
-		{
-			die("Connection failed: " . $id_mysql->connect_error);
-		}
-		
+		include_once "configDatabase.php";
+			
 		$npm = $nama = $keterangan = "";
 		
 		$npm = $_POST['npm'];
@@ -32,7 +25,7 @@
 		$sql1 = "INSERT INTO info_mahasiswa (npm, nama, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '". mysql_real_escape_string($nama)  ."', '". mysql_real_escape_string($keterangan)  ."')";
 		$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'membuat entri', now(), '". mysql_real_escape_string($keterangan)  ."')";
 		
-		if ($id_mysql->query($sql1) & $id_mysql->query($sql2) === TRUE) 
+		if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
 		{
 			echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 		} else {

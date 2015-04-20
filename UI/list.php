@@ -47,20 +47,9 @@
 	
 	<div class="row">
 	<?php
-		$pemakai="admin";
-		$pass="admin";
-		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
-			
-		if(! $id_mysql){
-			die("Database tidak bisa dibuka");
-		}
-			
-		if(! mysql_select_db("sirm", $id_mysql)){
-			die("Database tidak bisa dipilih");
-		}
-			
+		include_once "configDatabase.php";
+
 		$hasil = mysql_query("SELECT * FROM info_mahasiswa", $id_mysql);
-		
 		
 		if(! $hasil){
 			die("Permintaan gagal");

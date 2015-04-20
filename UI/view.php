@@ -11,6 +11,10 @@
 	<?php
 	session_start();
 	$npm = $_GET["npm"];
+	
+	//include_once "cofigDatabase.php";
+	
+	
 	?>
 	<div class="row">
 			<h3>Anda melihat catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
@@ -26,18 +30,16 @@
 		<hr/>
 	<div class="row">
 	<?php
-		$pemakai="admin";
-		$pass="admin";
-		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
-			
-		if(! $id_mysql){
-			die("Database tidak bisa dibuka");
+		include_once "configDatabase.php";
+		
+		$lihat = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'melihat', now(), '')";
+		if (mysql_query($lihat) === TRUE) 
+		{
+			/* echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=view.php?<?php echo $npm?>">'; */
+		} else {
+			echo "Error: " . $lihat . "<br>" . $id_mysql->error;
 		}
-			
-		if(! mysql_select_db("sirm", $id_mysql)){
-			die("Database tidak bisa dipilih");
-		}
-			
+		
 		$cari = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
 		while($row = mysql_fetch_array($cari))
 		{

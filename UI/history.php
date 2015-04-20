@@ -10,34 +10,22 @@
 	<body>
 	<?php
 		$npm = $_GET["npm"];
-		$pemakai="admin";
-		$pass="admin";
-		$id_mysql=mysql_connect("localhost", $pemakai, $pass);
-			
-		if(! $id_mysql){
-			die("Database tidak bisa dibuka");
-		}
-			
-		if(! mysql_select_db("sirm", $id_mysql)){
-			die("Database tidak bisa dipilih");
-		}
+		
+		include_once "configDatabase.php";
 			
 		$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
-		
 		
 		if(! $hasil){
 			die("Permintaan gagal");
 		}
 
-
 		while($row = mysql_fetch_array($hasil))
 		{
 			$carinpm = $row['npm'];
 			$carinama = $row['nama'];
-			$carilog = $row['pembaruan_terakhir'];
 		}
 
-		mysql_close($id_mysql);
+		//mysql_close($id_mysql);
 	?> 
 		<div class="row">
 			<ul class="button-group">
@@ -49,11 +37,22 @@
 		<div class="row">
 			<h3>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
 			<ul class="disc">
-				<li>9 Okt 2014 9:13 AM pascal@unpar.ac.id melihat 2010730013</li>
-				<li>9 Okt 2014 9:10 AM pascal@unpar.ac.id mengedit 2010730013</li>
-				<li>9 Okt 2014 9:07 AM pascal@unpar.ac.id melihat 2010730013</li>
-				<li>7 Okt 2014 8:31 PM chandra@unpar.ac.id melihat 2010730013</li>
-				<li>1 Sep 2014 9:13 AM chandra@unpar.ac.id membuat entri 2010730013</li>
+				<?php
+				$hasil = mysql_query("SELECT * FROM histori WHERE npm='$npm' ORDER BY id_histori DESC", $id_mysql);
+		
+				if(! $hasil){
+					die("Permintaan gagal");
+				}
+				
+				while($row = mysql_fetch_array($hasil))
+				{
+					echo "<li>" . $row['tanggal_pembaruan'] . " " . $row['pengguna'] . " " . $row['status'] . " " . $row['npm'] . "</li>";
+					/* $caripengguna = $row['nama'];
+					$caristatus = $row['pembaruan_terakhir'];
+					$carinpm = $row['nama'];
+					$cariketerangan = $row['pembaruan_terakhir']; */
+				}
+				?>
 			</ul>
 			</h3>
 		</div>

@@ -13,18 +13,8 @@
 
 	$npm = $_GET['npm'];
 	
-	$pemakai="admin";
-	$pass="admin";
-	$id_mysql=mysql_connect("localhost", $pemakai, $pass);
-		
-	if(! $id_mysql){
-		die("Database tidak bisa dibuka");
-	}
-		
-	if(! mysql_select_db("sirm", $id_mysql)){
-		die("Database tidak bisa dipilih");
-	}
-		
+	include_once "configDatabase.php";
+
 	$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
 	
 	
@@ -43,27 +33,22 @@
 	//submit dan update
 	if(isset($_POST['submit']))
 		{
-			$pemakai="admin";
-			$pass="admin";
-			$id_mysql = new mysqli('localhost', $pemakai, $pass, 'sirm');
-
-			if ($id_mysql->connect_error) 
-			{
-				die("Connection failed: " . $id_mysql->connect_error);
-			}
+			include_once "configDatabase.php";
 
 			$keteranganbaru = "";
 			$keteranganbaru = $_POST['keteranganbaru'];
 
-			$sql = ("UPDATE info_mahasiswa SET keterangan='$keteranganbaru', pembaruan_terakhir=now() WHERE npm='$npm'");
-
-			if ($id_mysql->query($sql) === TRUE) 
+			$sql1 = "UPDATE info_mahasiswa SET keterangan='$keteranganbaru', pembaruan_terakhir=now() WHERE npm='$npm'";
+			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'mengedit', now(), '". mysql_real_escape_string($keteranganbaru)  ."')";
+			
+			if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
 			{
 				echo "<script>alert('Update Berhasil Boss')</script>";
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 			} else {
 				echo "<script>alert('Update Gagal Boss')</script>";
-				echo "Error: " . $sql . "<br>" . $id_mysql->error;
+				echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
+				echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
 			}
 		}
 		else
