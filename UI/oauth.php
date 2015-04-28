@@ -34,29 +34,28 @@
 			$userinfo = $info->get();
 			$email = ($userinfo['email']);
 			$_SESSION['email'] = $email;
-			echo "Email: ". $_SESSION['email'] ."";
+			//echo "Email: ". $_SESSION['email'] ."";
 		}
 		
 		$status="";
 		function is_valid_email($email) {
 			$result = 'valid email';
-			if(!preg_match("^[a-zA-Z0-9_.+-]+@student.unpar.ac.id+$^", $email)) {
+			if(!preg_match("^[a-zA-Z0-9_.+-]+@unpar.ac.id+$^", $email) && !preg_match("^[a-zA-Z0-9_.+-]+@student.unpar.ac.id+$^", $email)) {
 				$result = 'invalid email';
 			}
 			return $result;
-			echo $result;
+			//echo $result;
 			
 		}
 		$status = is_valid_email($email);
 		
 		if($status == "valid email"){
-			//echo "<script>alert('Update Berhasil Boss')</script>";
 			header("Location: list.php");
 			exit;
 		}else{
-			echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM.')</script>";
-			unset($_SESSION['access_token']);
-			header("Location: index.php?logout");
+			echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM. Email yang dapat digunakan untuk mengakses SIRM adalah email yang diakhiri @unpar.ac.id atau @student.unpar.ac.id.');window.location.href='index.php?logout';</script>";
+			//unset($_SESSION['access_token']);
+			//header("Location: index.php?logout");
 			exit;
 		}
 	?>

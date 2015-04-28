@@ -23,7 +23,6 @@
 		$client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
 		$plus = new Google_Service_Oauth2($client);
 
-
 		if (isset($_REQUEST['logout'])) {
 			unset($_SESSION['access_token']);
 			header('Location: https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://' . $_SERVER['HTTP_HOST'] . $_SERVER['PHP_SELF']);

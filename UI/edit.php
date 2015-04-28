@@ -43,10 +43,8 @@
 			
 			if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
 			{
-				echo "<script>alert('Update Berhasil Boss')</script>";
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 			} else {
-				echo "<script>alert('Update Gagal Boss')</script>";
 				echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
 				echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
 			}
@@ -67,6 +65,7 @@
 					<li><a href="list.php" class="button">Menu Utama</a></li>
 					<li><a href="index.php?logout" class="button">Logout</a></li>
 				</ul>
+				<hr/>
 			</div>
 			<div class="row">
 				<div class="small-12 columns">

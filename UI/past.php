@@ -13,22 +13,21 @@
 	$id = $_GET["id"];
 	?>
 	<div class="row">
-	</div>
-		<div class="row">
-			<ul class="button-group">
-				<li><a href="javascript:history.back(1)" class="button">Kembali</a></li>
-				<li><a href="index.php?logout" class="button">Logout</a></li>
-			</ul>
-		</div>
+		<div class="small-11 small-centered columns">
+		<ul class="button-group">
+			<li><a href="javascript:history.back(1)" class="button">Kembali</a></li>
+			<li><a href="index.php?logout" class="button">Logout</a></li>
+		</ul>
 		<hr/>
-	<div class="row">
 	<?php
+
 		include_once "configDatabase.php";
 		
 		$cari = mysql_query("SELECT keterangan FROM histori WHERE id_histori='$id'", $id_mysql);
 		while($row = mysql_fetch_array($cari))
 		{
 	?>
+		</div>
 	</div>
 <xmp style="display:none;">
 <?php

@@ -38,7 +38,7 @@
 	{
 	?>
 		<div class="row">
-			<h3>Anda mengedit catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
+			<h3>Anda membuat catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
 		</div>
 		
 		<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -49,6 +49,7 @@
 					<li><a href="list.php" class="button">Menu Utama</a></li>
 					<li><a href="index.php?logout" class="button">Logout</a></li>
 				</ul>
+				<hr/>
 			</div>
 			<div class="small-8 columns">
 				<div class="row">

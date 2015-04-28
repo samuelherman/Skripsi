@@ -17,18 +17,15 @@
 	
 	?>
 	<div class="row">
+		<div class="small-11 small-centered columns">
 			<h3>Anda melihat catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
-	</div>
-		<div class="row">
 			<ul class="button-group">
 				<li><a href="edit.php?npm=<?php echo $npm?>" class="button">Edit</a></li>
 				<li><a href="history.php?npm=<?php echo $npm?>" class="button">Lihat Histori</a></li>
 				<li><a href="list.php" class="button">Menu Utama</a></li>
 				<li><a href="index.php?logout" class="button">Logout</a></li>
 			</ul>
-		</div>
 		<hr/>
-	<div class="row">
 	<?php
 		include_once "configDatabase.php";
 		
@@ -46,6 +43,7 @@
 			echo "NPM : " ; echo $row['npm']; echo "<br>";
 			echo "Nama : " ; echo $row['nama']; echo "<br>";
 	?>
+		</div>
 	</div>
 <xmp style="display:none;">
 <?php

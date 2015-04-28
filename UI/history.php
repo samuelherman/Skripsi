@@ -33,9 +33,11 @@
 				<li><a href="list.php" class="button">Menu Utama</a></li>
 				<li><a href="index.php?logout" class="button">Logout</a></li>
 			</ul>
+			
 		</div>
 		<div class="row">
 			<h3>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
+			<hr/>
 			<ul class="disc">
 				<?php
 				$hasil = mysql_query("SELECT * FROM histori WHERE npm='$npm' ORDER BY id_histori DESC", $id_mysql);
