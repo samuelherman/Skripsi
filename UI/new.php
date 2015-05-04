@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Welcome</title>
+		<title>SIRM | New</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -22,6 +22,16 @@
 		$nama = $_POST['nama'];
 		$keterangan = $_POST['keterangan']; 
 
+		$cek = "SELECT npm from info_mahasiswa where npm='". mysql_real_escape_string($npm)  ."'";
+		$found = mysql_query($cek) or die(mysql_error());
+		if(mysql_num_rows($found)>0)
+		{
+			echo "<script>alert('Data telah terdaftar. Silahkan diulangi dengan data yang lain.');window.location.href='new.php';</script>";
+		}
+		else
+		{
+			
+		
 		$sql1 = "INSERT INTO info_mahasiswa (npm, nama, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '". mysql_real_escape_string($nama)  ."', '". mysql_real_escape_string($keterangan)  ."')";
 		$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'membuat entri', now(), '". mysql_real_escape_string($keterangan)  ."')";
 		
@@ -32,7 +42,7 @@
 			echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
 			echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
 		}
-
+		}
 	}
 	else
 	{

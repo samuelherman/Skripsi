@@ -11,7 +11,8 @@
 	</head>
 	<body>
 		<div class="row">
-		<h1>WELCOME to SIRM</h1>
+		<h1>WELCOME to SIRM <h4>(Sistem Informasi Riwayat Mahasiswa)</h4></h1>
+		<hr/>
 		
 		<?php
 		include_once "google-api-php-client-master/src/Google/Client.php";
