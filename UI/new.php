@@ -81,7 +81,7 @@
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<textarea name="keterangan">
+					<textarea style="height: 300px;" name="keterangan">
 # Umum
 
 Isilah deskripsi umum mahasiswa disini.

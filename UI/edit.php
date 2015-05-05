@@ -69,7 +69,7 @@
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<textarea placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
+					<textarea style="height: 300px;" placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
 				</div>
 			</div>
 		</form>
