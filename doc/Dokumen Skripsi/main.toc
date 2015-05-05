@@ -1,0 +1,101 @@
+\select@language {bahasa}
+\contentsline {chapter}{Daftar Isi}{v}{section*.1}
+\contentsline {chapter}{Daftar Gambar}{vii}{section*.2}
+\contentsline {chapter}{Daftar Tabel}{x}{section*.3}
+\contentsline {chapter}{\numberline {1}Pendahuluan}{1}{chapter.1}
+\contentsline {section}{\numberline {1.1}Latar Belakang}{1}{section.1.1}
+\contentsline {section}{\numberline {1.2}Rumusan Masalah}{1}{section.1.2}
+\contentsline {section}{\numberline {1.3}Tujuan}{2}{section.1.3}
+\contentsline {section}{\numberline {1.4}Batasan Masalah}{2}{section.1.4}
+\contentsline {section}{\numberline {1.5}Metodologi Penelitian}{3}{section.1.5}
+\contentsline {section}{\numberline {1.6}Sistematika Pembahasan}{3}{section.1.6}
+\contentsline {chapter}{\numberline {2}Landasan Teori}{5}{chapter.2}
+\contentsline {section}{\numberline {2.1}Google Authentication \cite {Oauth:2013}}{5}{section.2.1}
+\contentsline {subsection}{\numberline {2.1.1}Langkah Dasar}{5}{subsection.2.1.1}
+\contentsline {subsection}{\numberline {2.1.2}Skenario Google Authentication}{7}{subsection.2.1.2}
+\contentsline {subsubsection}{\numberline {2.1.2.1}Skenario Aplikasi Layanan Web}{7}{subsubsection.2.1.2.1}
+\contentsline {subsubsection}{\numberline {2.1.2.2}Skenario Aplikasi yang Terinstal}{8}{subsubsection.2.1.2.2}
+\contentsline {subsubsection}{\numberline {2.1.2.3}Skenario Aplikasi Sisi Klien (JavaScript)}{9}{subsubsection.2.1.2.3}
+\contentsline {subsubsection}{\numberline {2.1.2.4}Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}{10}{subsubsection.2.1.2.4}
+\contentsline {subsubsection}{\numberline {2.1.2.5}Skenario Layanan Akun}{11}{subsubsection.2.1.2.5}
+\contentsline {subsection}{\numberline {2.1.3}Masa Habis Berlaku Token}{12}{subsection.2.1.3}
+\contentsline {subsection}{\numberline {2.1.4}Lingkup Otorisasi \cite {Scope:2013}}{13}{subsection.2.1.4}
+\contentsline {subsubsection}{\numberline {2.1.4.1}Lingkup Profil}{13}{subsubsection.2.1.4.1}
+\contentsline {subsubsection}{\numberline {2.1.4.2}Lingkup Email}{14}{subsubsection.2.1.4.2}
+\contentsline {subsubsection}{\numberline {2.1.4.3}Lingkup yang lain}{15}{subsubsection.2.1.4.3}
+\contentsline {subsubsection}{\numberline {2.1.4.4}Lingkup yang tidak dipakai lagi}{15}{subsubsection.2.1.4.4}
+\contentsline {section}{\numberline {2.2}Markdown}{16}{section.2.2}
+\contentsline {subsection}{\numberline {2.2.1}Apa itu Markdown? \cite {Markguide:2015}}{16}{subsection.2.2.1}
+\contentsline {subsection}{\numberline {2.2.2}Sintaks yang Berguna \cite {Markguide:2015}}{16}{subsection.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.1}Cetak Tebal dan Cetak Miring}{16}{subsubsection.2.2.2.1}
+\contentsline {subsubsection}{\numberline {2.2.2.2}Judul Bab}{17}{subsubsection.2.2.2.2}
+\contentsline {subsubsection}{\numberline {2.2.2.3}Batas Baris}{18}{subsubsection.2.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.2.4}Paragraf}{18}{subsubsection.2.2.2.4}
+\contentsline {subsubsection}{\numberline {2.2.2.5}Gambar}{19}{subsubsection.2.2.2.5}
+\contentsline {subsubsection}{\numberline {2.2.2.6}Link}{19}{subsubsection.2.2.2.6}
+\contentsline {subsubsection}{\numberline {2.2.2.7}Kode}{20}{subsubsection.2.2.2.7}
+\contentsline {subsubsection}{\numberline {2.2.2.8}Kutipan}{21}{subsubsection.2.2.2.8}
+\contentsline {subsubsection}{\numberline {2.2.2.9}Garis Horisontal}{21}{subsubsection.2.2.2.9}
+\contentsline {subsubsection}{\numberline {2.2.2.10}Daftar}{22}{subsubsection.2.2.2.10}
+\contentsline {subsection}{\numberline {2.2.3}GitHub Flavored Markdown \cite {Markdown:2015}}{23}{subsection.2.2.3}
+\contentsline {subsubsection}{\numberline {2.2.3.1}Beberapa Garis Bawah Pada Kalimat}{24}{subsubsection.2.2.3.1}
+\contentsline {subsubsection}{\numberline {2.2.3.2}Taut Otomatis URL}{24}{subsubsection.2.2.3.2}
+\contentsline {subsubsection}{\numberline {2.2.3.3}Tanda Coret}{24}{subsubsection.2.2.3.3}
+\contentsline {subsubsection}{\numberline {2.2.3.4}Blok Kode}{25}{subsubsection.2.2.3.4}
+\contentsline {subsubsection}{\numberline {2.2.3.5}Penandaan Sintaks}{25}{subsubsection.2.2.3.5}
+\contentsline {subsubsection}{\numberline {2.2.3.6}Tabel}{25}{subsubsection.2.2.3.6}
+\contentsline {section}{\numberline {2.3}StrapdownJS \cite {Strapdownjs:2014}}{27}{section.2.3}
+\contentsline {section}{\numberline {2.4}Zurb Foundation \cite {Zurb:2015}}{29}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}Kompatibilitas}{29}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Apa Saja yang Dapat Dibuat Dengan Foundation?}{29}{subsection.2.4.2}
+\contentsline {chapter}{\numberline {3}Analisis}{41}{chapter.3}
+\contentsline {section}{\numberline {3.1}Analisis Google Authentication}{41}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Langkah Dasar Penggunaan OAuth 2.0}{41}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Skenario Aplikasi}{46}{subsection.3.1.2}
+\contentsline {section}{\numberline {3.2}Analisis Markdown}{47}{section.3.2}
+\contentsline {section}{\numberline {3.3}Analisis StrapdownJS}{50}{section.3.3}
+\contentsline {section}{\numberline {3.4}Analisis Zurb Foundation}{51}{section.3.4}
+\contentsline {section}{\numberline {3.5}Analisis Kebutuhan Perangkat Lunak}{53}{section.3.5}
+\contentsline {subsection}{\numberline {3.5.1}Use Case Diagram}{54}{subsection.3.5.1}
+\contentsline {subsection}{\numberline {3.5.2}Skenario}{55}{subsection.3.5.2}
+\contentsline {subsubsection}{\numberline {3.5.2.1}Login}{55}{subsubsection.3.5.2.1}
+\contentsline {subsubsection}{\numberline {3.5.2.2}Pilih Mahasiswa}{55}{subsubsection.3.5.2.2}
+\contentsline {subsubsection}{\numberline {3.5.2.3}Melihat Info Mahasiswa}{57}{subsubsection.3.5.2.3}
+\contentsline {subsubsection}{\numberline {3.5.2.4}Edit Mahasiswa}{57}{subsubsection.3.5.2.4}
+\contentsline {subsubsection}{\numberline {3.5.2.5}Lihat Histori}{57}{subsubsection.3.5.2.5}
+\contentsline {subsubsection}{\numberline {3.5.2.6}Membuat Entri Baru}{57}{subsubsection.3.5.2.6}
+\contentsline {subsection}{\numberline {3.5.3}Entity Relationship Diagram (ERD)}{58}{subsection.3.5.3}
+\contentsline {subsection}{\numberline {3.5.4}Data Flow Diagram}{58}{subsection.3.5.4}
+\contentsline {chapter}{\numberline {4}Perancangan}{63}{chapter.4}
+\contentsline {section}{\numberline {4.1}Perancangan Tampilan Web Yang Digunakan}{63}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Tampilan Halaman Awal}{63}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Tampilan Web Pilih Mahasiswa}{63}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Tampilan Web Info Mahasiswa}{64}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Tampilan Web Edit Mahasiswa}{64}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Tampilan Web Lihat Histori}{65}{subsection.4.1.5}
+\contentsline {subsection}{\numberline {4.1.6}Tampilan Web Lihat Versi Ini}{66}{subsection.4.1.6}
+\contentsline {subsection}{\numberline {4.1.7}Tampilan Web Entri Baru}{66}{subsection.4.1.7}
+\contentsline {section}{\numberline {4.2}Perancangan Modul}{67}{section.4.2}
+\contentsline {subsection}{\numberline {4.2.1}Modul Login}{67}{subsection.4.2.1}
+\contentsline {subsection}{\numberline {4.2.2}Modul Pilih Mahasiswa}{67}{subsection.4.2.2}
+\contentsline {subsection}{\numberline {4.2.3}Modul Info Mahasiswa}{67}{subsection.4.2.3}
+\contentsline {subsection}{\numberline {4.2.4}Modul Edit Mahasiswa}{67}{subsection.4.2.4}
+\contentsline {subsection}{\numberline {4.2.5}Modul Lihat Histori}{68}{subsection.4.2.5}
+\contentsline {subsection}{\numberline {4.2.6}Modul Entri Baru}{68}{subsection.4.2.6}
+\contentsline {section}{\numberline {4.3}Perancangan Tabel Sistem Informasi Riwayat Mahasiswa}{68}{section.4.3}
+\contentsline {subsection}{\numberline {4.3.1}Perancangan Tabel Info Mahasiswa}{68}{subsection.4.3.1}
+\contentsline {subsection}{\numberline {4.3.2}Perancangan Tabel Histori}{69}{subsection.4.3.2}
+\contentsline {section}{\numberline {4.4}Diagram Sekuens}{69}{section.4.4}
+\contentsline {chapter}{\numberline {5}Implementasi dan Pengujian Perangkat Lunak}{73}{chapter.5}
+\contentsline {section}{\numberline {5.1}Implementasi Perangkat Lunak}{73}{section.5.1}
+\contentsline {subsection}{\numberline {5.1.1}Lingkungan Implementasi Perangkat Keras}{73}{subsection.5.1.1}
+\contentsline {subsection}{\numberline {5.1.2}Lingkungan Implementasi Perangkat Lunak}{74}{subsection.5.1.2}
+\contentsline {subsection}{\numberline {5.1.3}Hasil Implementasi Perangkat Lunak}{74}{subsection.5.1.3}
+\contentsline {section}{\numberline {5.2}Pengujian Perangkat Lunak}{74}{section.5.2}
+\contentsline {subsection}{\numberline {5.2.1}Lingkungan Pengujian Perangkat Keras}{74}{subsection.5.2.1}
+\contentsline {subsection}{\numberline {5.2.2}Lingkungan Pengujian Perangkat Lunak}{75}{subsection.5.2.2}
+\contentsline {subsection}{\numberline {5.2.3}Pengujian Fungsional}{75}{subsection.5.2.3}
+\contentsline {subsection}{\numberline {5.2.4}Hasil Pengujian Fungsional}{85}{subsection.5.2.4}
+\contentsline {subsection}{\numberline {5.2.5}Pengujian Eksperimental}{86}{subsection.5.2.5}
+\contentsline {chapter}{Daftar Referensi}{91}{chapter*.4}
+\renewcommand {\cftchappresnum }{\bf \scshape }
