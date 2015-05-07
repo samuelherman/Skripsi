@@ -8,35 +8,45 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
-	<?php
-	session_start();
-	$id = $_GET["id"];
-	?>
-	<div class="row">
-		<div class="small-11 small-centered columns">
-		<ul class="button-group">
-			<li><a href="javascript:history.back(1)" class="button">Kembali</a></li>
-			<li><a href="index.php?logout" class="button">Logout</a></li>
-		</ul>
-		<hr/>
-	<?php
+		<?php
+		session_start();
+		$id = $_GET["id"];
+		?>
+		<div class="row">
+			<div class="small-11 small-centered columns">
+			<ul class="button-group">
+				<li><a href="javascript:history.back(1)" class="button secondary">Kembali</a></li>
+				<li><a href="index.php?logout" class="button secondary">Logout</a></li>
+			</ul>
+			<hr/>
+			<?php
 
-		include_once "configDatabase.php";
-		
-		$cari = mysql_query("SELECT keterangan FROM histori WHERE id_histori='$id'", $id_mysql);
-		while($row = mysql_fetch_array($cari))
-		{
-	?>
+				include_once "configDatabase.php";
+				
+				if(! $id_mysql)
+				{
+					die("Database tidak bisa dibuka");
+				}
+					
+				if(! mysql_select_db("sirm", $id_mysql))
+				{
+					die("Database tidak bisa dipilih");
+				}
+				
+				$cari = mysql_query("SELECT keterangan FROM histori WHERE id_histori='$id'", $id_mysql);
+				while($row = mysql_fetch_array($cari))
+				{
+			?>
+			</div>
 		</div>
-	</div>
 <xmp style="display:none;">
 <?php
 echo $row['keterangan'];
 ?>
 </xmp>
-	<?php
-		}
-	?>
+			<?php
+				}
+			?>
 		<script src="js/0.2/strapdown.js"></script>
 	</body>
 </html>

@@ -40,7 +40,7 @@
 \lstset{
     literate={~} {$\sim$}{1}
 }
-
+\usepackage{tikz}
 %\titleformat{\paragraph}
 %{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
 %\titlespacing*{\paragraph}
@@ -65,8 +65,8 @@
 %=============================================================================
 %\mode{kosong}
 %\mode{cover}
-\mode{sidang}
-%\mode{sidang_akhir}
+%\mode{sidang}
+\mode{sidang_akhir}
 %\mode{final} 
 %=============================================================================
 
@@ -95,8 +95,8 @@
 %            catatan yg banyak di antara baris (dianjurkan untuk bimbingan)
 %=============================================================================
 %\linespacing{single}
-%\linespacing{onehalf}
-\linespacing{double}
+\linespacing{onehalf}
+%\linespacing{double}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -111,7 +111,7 @@
 % Catatan: Jika ingin menambahkan bab ke-10 dan seterusnya, harus dilakukan 
 % secara manual
 %=============================================================================
-\bab{1,2,3,4,5}
+\bab{1,2,3,4,5,6}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -128,7 +128,7 @@
 % Catatan: Jika ingin menambahkan lampiran ke-J dan seterusnya, harus 
 % dilakukan secara manual
 %=============================================================================
-\lampiran{}
+\lampiran{A,B}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -185,7 +185,17 @@
 %			 bawahnya
 %=============================================================================
 
-\abstrakINA{Penelitian ini akan mengembangkan CAPTCHA yang memiliki kualitas yang baik.
+\abstrakINA{Penelitian ini akan membangun perangkat lunak Sistem Informasi
+Riwayat Mahasiswa (SIRM). SIRM dibangun dengan tujuan untuk membantu para dosen
+dalam mengingat riwayat mahasiswa. SIRM dibangun menggunakan empat teknologi,
+yaitu Google Authentication, Markdown, StrapdownJS, dan Zurb Foundation. Google
+Authentication akan digunakan untuk membangun fungsi login yang akan membatasi
+lingkup pengguna. Markdown akan digunakan dalam format penulisan riwayat
+mahasiswa. StrapdownJS akan digunakan untuk menampilkan teks yang ditulis
+menggunakan sintakas Markdown ke HTML. Zurb Foundation akan digunakan untuk
+membuat User Interface (UI) SIRM.
+
+Penelitian ini akan mengembangkan CAPTCHA yang memiliki kualitas yang baik.
 Kualitas yang baik akan didapat apabila CAPTCHA yang dikembangkan dapat diselesaikan oleh manusia dan tidak dapat diselesaikan oleh komputer.
 Gambar CAPTCHA yang dibangkitkan akan menggunakan tiga efek distorsi untuk meningkatkan kualitas CAPTCHA.
 Efek distorsi pertama adalah merotasi karakter yang akan diacak dari 0^{\circ}$ sampai 360^{\circ}$.
@@ -213,9 +223,9 @@ The third effect of the distortion will be combined so as to generate a CAPTCHA 
 % - kunciINA: kata-kata kunci dalam bahasa indonesia
 % - kunciENG: keywords in english
 %=============================================================================
-\kunciINA{CAPTCHA, Distorsi, Merotasi, Membalik, Menambah Garis, Kualitas Yang Baik}
+\kunciINA{Google Authentication, Markdown, StrapdownJS, Zurb Foundation}
 
-\kunciENG{CAPTCHA, Distortion, Rotation, Flip, Add A Line, Good Quality}
+\kunciENG{Google Authentication, Markdown, StrapdownJS, Zurb Foundation}
 %=============================================================================
 
 %_____________________________________________________________________________

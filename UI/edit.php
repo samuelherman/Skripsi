@@ -8,33 +8,37 @@
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
 	<body>
-	<?php
-	session_start();
+		<?php
+		session_start();
+		$npm = $_GET['npm'];
+		
+		include_once "configDatabase.php";
 
-	$npm = $_GET['npm'];
-	
-	include_once "configDatabase.php";
-
-	$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
-	
-	
-	if(! $hasil){
-		die("Permintaan gagal");
-	}
-
-
-	while($row = mysql_fetch_array($hasil))
-	{
-		//$carinpm = $row['npm'];
-		$carinama = $row['nama'];
-		$cariketerangan = $row['keterangan'];
-	}
-
-	//submit dan update
-	if(isset($_POST['submit']))
+		if(! $id_mysql)
 		{
-			include_once "configDatabase.php";
+			die("Database tidak bisa dibuka");
+		}
+			
+		if(! mysql_select_db("sirm", $id_mysql))
+		{
+			die("Database tidak bisa dipilih");
+		}
+			
+		$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+		
+		if(! $hasil)
+		{
+			die("Permintaan gagal");
+		}
+		
+		while($row = mysql_fetch_array($hasil))
+		{
+			$carinama = $row['nama'];
+			$cariketerangan = $row['keterangan'];
+		}
 
+		if(isset($_POST['submit']))
+		{
 			$keteranganbaru = "";
 			$keteranganbaru = $_POST['keteranganbaru'];
 
@@ -44,14 +48,16 @@
 			if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
 			{
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
-			} else {
+			} 
+			else
+			{
 				echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
 				echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
 			}
 		}
 		else
 		{
-	?>
+		?>
 		<div class="row">
 			<h3>Anda mengedit catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.<br/>
 			NPM <?php echo $npm; ?> Nama <?php echo $carinama; ?>
@@ -60,10 +66,10 @@
 		<form method="post" action="edit.php?npm=<?php echo $npm?>">
 			<div class="row">
 				<ul class="button-group">
-					<li><a href="view.php?npm=<?php echo $npm?>" class="button">Kembali</a></li>
+					<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
 					<li><input class="button" type="submit" name="submit" value="Simpan"></li>
-					<li><a href="list.php" class="button">Menu Utama</a></li>
-					<li><a href="index.php?logout" class="button">Logout</a></li>
+					<li><a href="list.php" class="button secondary">Menu Utama</a></li>
+					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
 				</ul>
 				<hr/>
 			</div>

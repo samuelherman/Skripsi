@@ -1,98 +1,101 @@
 \select@language {bahasa}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Gambar Skenario Aplikasi Layanan Web}}{8}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Gambar Skenario Aplikasi yang Terinstal}}{9}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Gambar Skenario Aplikasi Sisi Klien (JavaScript)}}{10}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Gambar Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}}{11}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Gambar Skenario Layanan Akun}}{12}{figure.2.5}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Gambar Markdown Cetak Tebal dan Cetak Miring}}{17}{figure.2.6}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Gambar Markdown Judul Bab}}{17}{figure.2.7}
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Gambar Markdown Batas Baris Dengan Tiga Spasi}}{18}{figure.2.8}
-\contentsline {figure}{\numberline {2.9}{\ignorespaces Gambar Markdown Batas Baris Tanpa Tiga Spasi}}{18}{figure.2.9}
-\contentsline {figure}{\numberline {2.10}{\ignorespaces Gambar Markdown Paragraf}}{19}{figure.2.10}
-\contentsline {figure}{\numberline {2.11}{\ignorespaces Gambar Markdown Menampilkan Gambar}}{19}{figure.2.11}
-\contentsline {figure}{\numberline {2.12}{\ignorespaces Gambar Markdown Link}}{20}{figure.2.12}
-\contentsline {figure}{\numberline {2.13}{\ignorespaces Gambar Markdown Kode}}{20}{figure.2.13}
-\contentsline {figure}{\numberline {2.14}{\ignorespaces Gambar Markdown Kutipan}}{21}{figure.2.14}
-\contentsline {figure}{\numberline {2.15}{\ignorespaces Gambar Markdown Garis Horisontal}}{22}{figure.2.15}
-\contentsline {figure}{\numberline {2.16}{\ignorespaces Gambar Markdown Daftar Tidak Berurutan}}{23}{figure.2.16}
-\contentsline {figure}{\numberline {2.17}{\ignorespaces Gambar Markdown Daftar Berurutan}}{23}{figure.2.17}
-\contentsline {figure}{\numberline {2.18}{\ignorespaces Gambar GFM Garis Bawah}}{24}{figure.2.18}
-\contentsline {figure}{\numberline {2.19}{\ignorespaces Gambar GFM Taut Otomatis URL}}{24}{figure.2.19}
-\contentsline {figure}{\numberline {2.20}{\ignorespaces Gambar GFM Tanda Coret}}{24}{figure.2.20}
-\contentsline {figure}{\numberline {2.21}{\ignorespaces Gambar GFM Blok Kode}}{25}{figure.2.21}
-\contentsline {figure}{\numberline {2.22}{\ignorespaces Gambar GFM Penandaan Sintaks}}{25}{figure.2.22}
-\contentsline {figure}{\numberline {2.23}{\ignorespaces Gambar GFM Tabel 1}}{26}{figure.2.23}
-\contentsline {figure}{\numberline {2.24}{\ignorespaces Gambar GFM Tabel 2}}{26}{figure.2.24}
-\contentsline {figure}{\numberline {2.25}{\ignorespaces Gambar GFM Tabel 3}}{26}{figure.2.25}
-\contentsline {figure}{\numberline {2.26}{\ignorespaces Gambar GFM Tabel 4}}{27}{figure.2.26}
-\contentsline {figure}{\numberline {2.27}{\ignorespaces Gambar GFM Tabel 5}}{27}{figure.2.27}
-\contentsline {figure}{\numberline {2.28}{\ignorespaces Gambar Contoh Grid}}{30}{figure.2.28}
-\contentsline {figure}{\numberline {2.29}{\ignorespaces Gambar Grid Utama}}{31}{figure.2.29}
-\contentsline {figure}{\numberline {2.30}{\ignorespaces Gambar Grid Kecil}}{31}{figure.2.30}
-\contentsline {figure}{\numberline {2.31}{\ignorespaces Gambar Grid Menengah}}{32}{figure.2.31}
-\contentsline {figure}{\numberline {2.32}{\ignorespaces Gambar Grid Tingkat Lanjut}}{32}{figure.2.32}
-\contentsline {figure}{\numberline {2.33}{\ignorespaces Gambar Grid Dengan Offset}}{33}{figure.2.33}
-\contentsline {figure}{\numberline {2.34}{\ignorespaces Gambar Grid Dengan Baris yang Tidak Lengkap}}{33}{figure.2.34}
-\contentsline {figure}{\numberline {2.35}{\ignorespaces Gambar Grid Dengan Baris yang Mengempis/Tidak Mengempis}}{34}{figure.2.35}
-\contentsline {figure}{\numberline {2.36}{\ignorespaces Gambar Grid Dengan Kolom yang Berpusat}}{35}{figure.2.36}
-\contentsline {figure}{\numberline {2.37}{\ignorespaces Gambar Grid Dengan Sumber yang Terurut}}{35}{figure.2.37}
-\contentsline {figure}{\numberline {2.38}{\ignorespaces Gambar Contoh Tombol}}{36}{figure.2.38}
-\contentsline {figure}{\numberline {2.39}{\ignorespaces Gambar Tombol Dasar}}{36}{figure.2.39}
-\contentsline {figure}{\numberline {2.40}{\ignorespaces Gambar Ukuran dan Bentuk Tombol}}{37}{figure.2.40}
-\contentsline {figure}{\numberline {2.41}{\ignorespaces Gambar Warna-warna Tombol}}{37}{figure.2.41}
-\contentsline {figure}{\numberline {2.42}{\ignorespaces Gambar Aksesbilitas Tombol}}{38}{figure.2.42}
-\contentsline {figure}{\numberline {2.43}{\ignorespaces Gambar Tabel Foundation}}{39}{figure.2.43}
-\contentsline {figure}{\numberline {2.44}{\ignorespaces Gambar Contoh Navigasi}}{39}{figure.2.44}
-\contentsline {figure}{\numberline {2.45}{\ignorespaces Gambar Contoh Plugins}}{40}{figure.2.45}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Gambar Skenario Aplikasi Layanan Web}}{7}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Gambar Skenario Aplikasi yang Terinstal}}{8}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Gambar Skenario Aplikasi Sisi Klien (JavaScript)}}{9}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Gambar Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}}{10}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Gambar Skenario Layanan Akun}}{11}{figure.2.5}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Gambar Markdown Cetak Tebal dan Cetak Miring}}{14}{figure.2.6}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Gambar Markdown Judul Bab}}{15}{figure.2.7}
+\contentsline {figure}{\numberline {2.8}{\ignorespaces Gambar Markdown Batas Baris Dengan Tiga Spasi}}{15}{figure.2.8}
+\contentsline {figure}{\numberline {2.9}{\ignorespaces Gambar Markdown Batas Baris Tanpa Tiga Spasi}}{16}{figure.2.9}
+\contentsline {figure}{\numberline {2.10}{\ignorespaces Gambar Markdown Paragraf}}{16}{figure.2.10}
+\contentsline {figure}{\numberline {2.11}{\ignorespaces Gambar Markdown Menampilkan Gambar}}{17}{figure.2.11}
+\contentsline {figure}{\numberline {2.12}{\ignorespaces Gambar Markdown Link}}{17}{figure.2.12}
+\contentsline {figure}{\numberline {2.13}{\ignorespaces Gambar Markdown Kode}}{18}{figure.2.13}
+\contentsline {figure}{\numberline {2.14}{\ignorespaces Gambar Markdown Kutipan}}{18}{figure.2.14}
+\contentsline {figure}{\numberline {2.15}{\ignorespaces Gambar Markdown Garis Horisontal}}{19}{figure.2.15}
+\contentsline {figure}{\numberline {2.16}{\ignorespaces Gambar Markdown Daftar Tidak Berurutan}}{19}{figure.2.16}
+\contentsline {figure}{\numberline {2.17}{\ignorespaces Gambar Markdown Daftar Berurutan}}{20}{figure.2.17}
+\contentsline {figure}{\numberline {2.18}{\ignorespaces Gambar GFM Garis Bawah}}{20}{figure.2.18}
+\contentsline {figure}{\numberline {2.19}{\ignorespaces Gambar GFM Taut Otomatis URL}}{21}{figure.2.19}
+\contentsline {figure}{\numberline {2.20}{\ignorespaces Gambar GFM Tanda Coret}}{21}{figure.2.20}
+\contentsline {figure}{\numberline {2.21}{\ignorespaces Gambar GFM Blok Kode}}{21}{figure.2.21}
+\contentsline {figure}{\numberline {2.22}{\ignorespaces Gambar GFM Penandaan Sintaks}}{22}{figure.2.22}
+\contentsline {figure}{\numberline {2.23}{\ignorespaces Gambar GFM Tabel 1}}{22}{figure.2.23}
+\contentsline {figure}{\numberline {2.24}{\ignorespaces Gambar GFM Tabel 2}}{22}{figure.2.24}
+\contentsline {figure}{\numberline {2.25}{\ignorespaces Gambar GFM Tabel 3}}{23}{figure.2.25}
+\contentsline {figure}{\numberline {2.26}{\ignorespaces Gambar GFM Tabel 4}}{23}{figure.2.26}
+\contentsline {figure}{\numberline {2.27}{\ignorespaces Gambar GFM Tabel 5}}{23}{figure.2.27}
+\contentsline {figure}{\numberline {2.28}{\ignorespaces Gambar Contoh Grid}}{26}{figure.2.28}
+\contentsline {figure}{\numberline {2.29}{\ignorespaces Gambar Grid Utama}}{27}{figure.2.29}
+\contentsline {figure}{\numberline {2.30}{\ignorespaces Gambar Grid Kecil}}{27}{figure.2.30}
+\contentsline {figure}{\numberline {2.31}{\ignorespaces Gambar Grid Menengah}}{27}{figure.2.31}
+\contentsline {figure}{\numberline {2.32}{\ignorespaces Gambar Grid Tingkat Lanjut}}{28}{figure.2.32}
+\contentsline {figure}{\numberline {2.33}{\ignorespaces Gambar Grid Dengan Offset}}{28}{figure.2.33}
+\contentsline {figure}{\numberline {2.34}{\ignorespaces Gambar Grid Dengan Baris yang Tidak Lengkap}}{29}{figure.2.34}
+\contentsline {figure}{\numberline {2.35}{\ignorespaces Gambar Grid Dengan Baris yang Mengempis/Tidak Mengempis}}{29}{figure.2.35}
+\contentsline {figure}{\numberline {2.36}{\ignorespaces Gambar Grid Dengan Kolom yang Berpusat}}{30}{figure.2.36}
+\contentsline {figure}{\numberline {2.37}{\ignorespaces Gambar Grid Dengan Sumber yang Terurut}}{30}{figure.2.37}
+\contentsline {figure}{\numberline {2.38}{\ignorespaces Gambar Contoh Tombol}}{31}{figure.2.38}
+\contentsline {figure}{\numberline {2.39}{\ignorespaces Gambar Tombol Dasar}}{31}{figure.2.39}
+\contentsline {figure}{\numberline {2.40}{\ignorespaces Gambar Ukuran dan Bentuk Tombol}}{32}{figure.2.40}
+\contentsline {figure}{\numberline {2.41}{\ignorespaces Gambar Warna-warna Tombol}}{32}{figure.2.41}
+\contentsline {figure}{\numberline {2.42}{\ignorespaces Gambar Aksesbilitas Tombol}}{33}{figure.2.42}
+\contentsline {figure}{\numberline {2.43}{\ignorespaces Gambar Tabel Foundation}}{33}{figure.2.43}
+\contentsline {figure}{\numberline {2.44}{\ignorespaces Gambar Contoh Navigasi}}{34}{figure.2.44}
+\contentsline {figure}{\numberline {2.45}{\ignorespaces Gambar Contoh Plugins}}{34}{figure.2.45}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Google Developers Console}}{43}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Membuat Proyek Baru}}{43}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Menu Credentials}}{44}{figure.3.3}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Membuat Client ID yang Baru}}{44}{figure.3.4}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Tipe Aplikasi}}{45}{figure.3.5}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Pengisian Tipe Aplikasi}}{45}{figure.3.6}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Client ID}}{46}{figure.3.7}
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Izin Pihak Pengguna}}{46}{figure.3.8}
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Skenario Aplikasi SIRM}}{47}{figure.3.9}
-\contentsline {figure}{\numberline {3.10}{\ignorespaces Output Sintaks Cetak Tebal dan Cetak Miring}}{48}{figure.3.10}
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Output Sintaks Judul Bab}}{49}{figure.3.11}
-\contentsline {figure}{\numberline {3.12}{\ignorespaces Output Sintaks Batas Baris}}{49}{figure.3.12}
-\contentsline {figure}{\numberline {3.13}{\ignorespaces Output Sintaks Paragraf}}{49}{figure.3.13}
-\contentsline {figure}{\numberline {3.14}{\ignorespaces Output Sintaks Link}}{49}{figure.3.14}
-\contentsline {figure}{\numberline {3.15}{\ignorespaces Output Sintaks Daftar}}{49}{figure.3.15}
-\contentsline {figure}{\numberline {3.16}{\ignorespaces Output Keterangan Mahasiswa}}{50}{figure.3.16}
-\contentsline {figure}{\numberline {3.17}{\ignorespaces Tampilan pilihmahasiswa.php Dengan Zurb Foundation}}{53}{figure.3.17}
-\contentsline {figure}{\numberline {3.18}{\ignorespaces Use Case Diagram Sistem Informasi Riwayat Mahasiswa}}{54}{figure.3.18}
-\contentsline {figure}{\numberline {3.19}{\ignorespaces Entity Relationship Diagram}}{58}{figure.3.19}
-\contentsline {figure}{\numberline {3.20}{\ignorespaces Data Context Diagram Sistem Informasi Riwayat Mahasiswa}}{59}{figure.3.20}
-\contentsline {figure}{\numberline {3.21}{\ignorespaces Data Flow Diagram Sistem Informasi Riwayat Mahasiswa}}{59}{figure.3.21}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Google Developers Console}}{37}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Membuat Proyek Baru}}{37}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Menu Credentials}}{38}{figure.3.3}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Membuat Client ID yang Baru}}{38}{figure.3.4}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Tipe Aplikasi}}{39}{figure.3.5}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Pengisian Tipe Aplikasi}}{39}{figure.3.6}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Client ID}}{40}{figure.3.7}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Izin Pihak Pengguna}}{40}{figure.3.8}
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Skenario Aplikasi SIRM}}{41}{figure.3.9}
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Output Sintaks Cetak Tebal dan Cetak Miring}}{42}{figure.3.10}
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Output Sintaks Judul Bab}}{42}{figure.3.11}
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Output Sintaks Batas Baris}}{43}{figure.3.12}
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Output Sintaks Paragraf}}{43}{figure.3.13}
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Output Sintaks Link}}{43}{figure.3.14}
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Output Sintaks Daftar}}{43}{figure.3.15}
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Output Keterangan Mahasiswa}}{44}{figure.3.16}
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Tampilan pilihmahasiswa.php Dengan Zurb Foundation}}{46}{figure.3.17}
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Use Case Diagram Sistem Informasi Riwayat Mahasiswa}}{46}{figure.3.18}
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Entity Relationship Diagram}}{50}{figure.3.19}
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Data Context Diagram Sistem Informasi Riwayat Mahasiswa}}{51}{figure.3.20}
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Data Flow Diagram Sistem Informasi Riwayat Mahasiswa}}{51}{figure.3.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Desain Antarmuka Halaman Awal}}{63}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Desain Antarmuka Pilih Mahasiswa}}{64}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Desain Antarmuka Info Mahasiswa}}{64}{figure.4.3}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Desain Antarmuka Edit Mahasiswa}}{65}{figure.4.4}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces Desain Antarmuka Lihat Histori}}{65}{figure.4.5}
-\contentsline {figure}{\numberline {4.6}{\ignorespaces Desain Antarmuka Lihat Versi Ini}}{66}{figure.4.6}
-\contentsline {figure}{\numberline {4.7}{\ignorespaces Desain Antarmuka Entri Baru}}{66}{figure.4.7}
-\contentsline {figure}{\numberline {4.8}{\ignorespaces Diagram Sekuens Bagian Satu}}{70}{figure.4.8}
-\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagram Sekuens Bagian Dua}}{70}{figure.4.9}
-\contentsline {figure}{\numberline {4.10}{\ignorespaces Diagram Sekuens Bagian Tiga}}{71}{figure.4.10}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Desain Antarmuka Halaman Awal}}{53}{figure.4.1}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Desain Antarmuka Pilih Mahasiswa}}{54}{figure.4.2}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Desain Antarmuka Info Mahasiswa}}{54}{figure.4.3}
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Desain Antarmuka Edit Mahasiswa}}{55}{figure.4.4}
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Desain Antarmuka Lihat Histori}}{55}{figure.4.5}
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Desain Antarmuka Lihat Versi Ini}}{56}{figure.4.6}
+\contentsline {figure}{\numberline {4.7}{\ignorespaces Desain Antarmuka Entri Baru}}{56}{figure.4.7}
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Diagram Sekuens Bagian Satu}}{59}{figure.4.8}
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Diagram Sekuens Bagian Dua}}{60}{figure.4.9}
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Diagram Sekuens Bagian Tiga}}{60}{figure.4.10}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Membuka Halaman index.php}}{78}{figure.5.1}
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Login Dengan Email yang Diakhiri "@student.unpar.ac.id"}}{78}{figure.5.2}
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Konfirmasi Email yang Dikelola oleh student.unpar.ac.id}}{79}{figure.5.3}
-\contentsline {figure}{\numberline {5.4}{\ignorespaces CAS UNPAR}}{80}{figure.5.4}
-\contentsline {figure}{\numberline {5.5}{\ignorespaces Izin Akses Dari Pihak Pengguna}}{80}{figure.5.5}
-\contentsline {figure}{\numberline {5.6}{\ignorespaces Login Dengan Email yang Diakhiri "@gmail.com"}}{81}{figure.5.6}
-\contentsline {figure}{\numberline {5.7}{\ignorespaces Alert Email yang Digunakan Tidak Dapat Mengakses SIRM}}{81}{figure.5.7}
-\contentsline {figure}{\numberline {5.8}{\ignorespaces Memilih Mahasiswa}}{82}{figure.5.8}
-\contentsline {figure}{\numberline {5.9}{\ignorespaces Melihat Info Mahasiswa}}{82}{figure.5.9}
-\contentsline {figure}{\numberline {5.10}{\ignorespaces Mengedit Info Mahasiswa}}{82}{figure.5.10}
-\contentsline {figure}{\numberline {5.11}{\ignorespaces Melihat Histori}}{83}{figure.5.11}
-\contentsline {figure}{\numberline {5.12}{\ignorespaces Keterangan Versi Pertama}}{83}{figure.5.12}
-\contentsline {figure}{\numberline {5.13}{\ignorespaces Keterangan Versi Kedua}}{84}{figure.5.13}
-\contentsline {figure}{\numberline {5.14}{\ignorespaces Template Entri Baru}}{84}{figure.5.14}
-\contentsline {figure}{\numberline {5.15}{\ignorespaces Membuat Entri Baru}}{85}{figure.5.15}
-\contentsline {figure}{\numberline {5.16}{\ignorespaces Entri Baru Berhasil Dibuat}}{85}{figure.5.16}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Membuka Halaman index.php}}{64}{figure.5.1}
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Login Dengan Email yang Diakhiri "@student.unpar.ac.id"}}{65}{figure.5.2}
+\contentsline {figure}{\numberline {5.3}{\ignorespaces Konfirmasi Email yang Dikelola oleh student.unpar.ac.id}}{65}{figure.5.3}
+\contentsline {figure}{\numberline {5.4}{\ignorespaces CAS UNPAR}}{65}{figure.5.4}
+\contentsline {figure}{\numberline {5.5}{\ignorespaces Izin Akses Dari Pihak Pengguna}}{66}{figure.5.5}
+\contentsline {figure}{\numberline {5.6}{\ignorespaces Login Dengan Email yang Diakhiri "@gmail.com"}}{66}{figure.5.6}
+\contentsline {figure}{\numberline {5.7}{\ignorespaces Alert Email yang Digunakan Tidak Dapat Mengakses SIRM}}{66}{figure.5.7}
+\contentsline {figure}{\numberline {5.8}{\ignorespaces Memilih Mahasiswa}}{67}{figure.5.8}
+\contentsline {figure}{\numberline {5.9}{\ignorespaces Melihat Info Mahasiswa}}{67}{figure.5.9}
+\contentsline {figure}{\numberline {5.10}{\ignorespaces Mengedit Info Mahasiswa}}{67}{figure.5.10}
+\contentsline {figure}{\numberline {5.11}{\ignorespaces Melihat Histori}}{68}{figure.5.11}
+\contentsline {figure}{\numberline {5.12}{\ignorespaces Keterangan Versi Pertama}}{68}{figure.5.12}
+\contentsline {figure}{\numberline {5.13}{\ignorespaces Keterangan Versi Kedua}}{68}{figure.5.13}
+\contentsline {figure}{\numberline {5.14}{\ignorespaces Template Entri Baru}}{69}{figure.5.14}
+\contentsline {figure}{\numberline {5.15}{\ignorespaces Membuat Entri Baru}}{69}{figure.5.15}
+\contentsline {figure}{\numberline {5.16}{\ignorespaces Entri Baru Berhasil Dibuat}}{69}{figure.5.16}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
