@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.12)  12 MAY 2015 01:09
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.12)  12 MAY 2015 01:20
 entering extended mode
 **main.tex
 ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\main.tex"
@@ -2449,7 +2449,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  35535 strings out of 494019
  764148 string characters out of 3143879
- 1792195 words of memory out of 3000000
+ 1792200 words of memory out of 3000000
  35784 multiletter control sequences out of 15000+200000
  22808 words of font info for 51 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
@@ -2476,7 +2476,7 @@ x1440.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
 pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (112 pages, 2359130 bytes).
+Output written on main.pdf (112 pages, 2359151 bytes).
 PDF statistics:
  4429 PDF objects out of 5155 (max. 8388607)
  2282 named destinations out of 2487 (max. 500000)
