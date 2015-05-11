@@ -1,10 +1,10 @@
 \chapter{Implementasi dan Pengujian Perangkat Lunak}
 \label{chap:implementasidanpengujian}
 
-Bab ini terdiri atas dua bagian, yaitu Implementasi Perangkat Lunak dan
-Pengujian Perangkat Lunak. Bagian implementasi berisi penjelasan lingkungan
-pengembangan perangkat lunak. Sedangkan bagian pengujian berisi hasil pengujian
-terhadap perangkat lunak yang telah dibangun.
+Bab ini terdiri atas tiga bagian, yaitu Implementasi Perangkat Lunak,
+Implementasi Basis Data dan Pengujian Perangkat Lunak. Bagian implementasi
+berisi penjelasan lingkungan pengembangan perangkat lunak. Sedangkan bagian
+pengujian berisi hasil pengujian terhadap perangkat lunak yang telah dibangun.
 
 \section{Implementasi Perangkat Lunak}
 \label{sec:implementasiperangkatlunak}
@@ -37,18 +37,59 @@ sebagai berikut:
 \item[(a)] Sistem Operasi: Windows 8.1 Pro 64-bit
 \item[(b)] Bahasa Pemrograman: PHP Version 5.6.3
 \item[(c)] Aplikasi: XAMPP v5.6.3
-\item[(d)] Aplikasi web browser: Google Chrome
-\item[(e)] Library: Google APIs Client Library untuk PHP
-\item[(f)] Javascript: Strapdown.js
-\item[(g)] Framework: Foundation
+\item[(d)] DBMS: MySQL
+\item[(e)] Aplikasi web browser: Google Chrome
+\item[(f)] Library: Google APIs Client Library untuk PHP
+\item[(g)] Javascript: Strapdown.js
+\item[(h)] Framework: Foundation 5
 \end{enumerate}
 
 \subsection{Hasil Implementasi Perangkat Lunak}
 \label{sec:hasilimplementasi}
 
 Kode program perangkat lunak ditulis berdasarkan perancangan yang telah dibahas
-pada bab~\ref{chap:perancangan}. Kode program untuk membangun  menggunakan PHP
-dengan library Google APIs Client.
+pada Bab~\ref{chap:perancangan}. Hasil implementasi perangkat lunak
+menghasilkan kode program berbasis PHP. Kode program yang telah diimplementasi
+dapat dilihat pada Lapiran~\ref{kode_program}.
+
+\section{Implementasi Basis Data}
+\label{sec:implementasibasisdata}
+
+Implementasi basis data dalam sistem informasi riwayat mahasiswa
+dengan membuat basis data dengan nama sirm. Untuk kode dapat dilihat di bawah
+ini.
+\begin{lstlisting}
+CREATE DATABASE 'sirm' ;
+\end{lstlisting}
+
+Basis data sistem informasi riwayat mahasiswa menggunakan dua tabel basis data.
+Tabel-tabel tersebut terdiri dari :
+\begin{itemize}
+  \item Tabel InfoMahasiswa, digunakan untuk menyimpan semua data mahasiswa.
+  Untuk kode dapat dilihat di bawah ini.
+  \begin{lstlisting}
+  CREATE TABLE 'info_mahasiswa' (
+  'npm' varchar(10) NOT NULL,
+  'nama' varchar(60) NOT NULL,
+  'keterangan' text NOT NULL,
+  'pembaruan_terakhir' datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ('npm'),
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+  \end{lstlisting}
+  \item Tabel Histori, digunakan untuk menyimpan semua data histori. Untuk kode
+  dapat dilihat di bawah ini.
+  \begin{lstlisting}
+  CREATE TABLE 'histori' (
+  'id_histori' int(5) NOT NULL AUTO_INCREMENT,
+  'npm' varchar(10) NOT NULL,
+  'pengguna' varchar(60) NOT NULL,
+  'status' text NOT NULL,
+  'tanggal_pembaruan' datetime NOT NULL,
+  'keterangan' text NOT NULL,
+  PRIMARY KEY ('id_histori'),
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+  \end{lstlisting}
+\end{itemize}
 
 \section{Pengujian Perangkat Lunak}
 \label{sec:pengujianperangkatlunak}
@@ -58,10 +99,12 @@ perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian
 fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk
 memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan
 sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan
-untuk menguji eksepsi-eksepsi yang terdapat pada perangkat lunak. Pada bagian
-ini juga terdapat perubahan program pada bagian oauth.php, jadi dapat
+untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian
+pengujian terdapat perubahan program pada bagian oauth.php, jadi dapat
 menjalankan pengujian dengan email yang diakhiri @student.unpar.ac.id
-dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id.
+dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id. Kode
+program untuk pengujian perangkat lunak dapat dilihat pada
+Lampiran~\ref{kode_program_pengujian}.
 
 \subsection{Lingkungan Pengujian Perangkat Keras}
 \label{sec:lingkunganpengujianperangkatkeras}
@@ -87,10 +130,11 @@ sebagai berikut:
 \item[(a)] Sistem Operasi: Windows 8.1 Pro 64-bit
 \item[(b)] Bahasa Pemrograman: PHP Version 5.6.3
 \item[(c)] Aplikasi: XAMPP v5.6.3
-\item[(d)] Aplikasi web browser: Google Chrome
-\item[(e)] Library: Google APIs Client Library untuk PHP
-\item[(f)] Javascript: Strapdown.js
-\item[(g)] Framework: Foundation
+\item[(d)] DBMS: MySQL
+\item[(e)] Aplikasi web browser: Google Chrome
+\item[(f)] Library: Google APIs Client Library untuk PHP
+\item[(g)] Javascript: Strapdown.js
+\item[(h)] Framework: Foundation 5
 \end{enumerate}
 
 \subsection{Pengujian Fungsional}
@@ -100,7 +144,7 @@ dasar. Berikut ini adalah daftar pengujian yang dilakukan:
 \begin{enumerate}[(1)]
 \item Fungsi login\\
 	Pengujian fungsi ini dilakukan untuk memastikan perangkat lunak terhubung ke
-	server google untuk melakukan otentikasi dan otorisasi serta memeriksa apakah
+	server Google untuk melakukan otentikasi dan otorisasi serta memeriksa apakah
 	email yang digunakan untuk login diakhiri "@unpar.ac.id" atau
 	"@student.unpar.ac.id" dikarenakan penulis tidak mempunyai akun dosen. Contoh
 	kasus adalah melakukan login sebanyak dua kali, yang pertama menggunakan email
@@ -119,10 +163,10 @@ dasar. Berikut ini adalah daftar pengujian yang dilakukan:
 	akan dilakukan dengan fungsi memilih mahasiswa yang akan dibahas pada poin
 	berikutnya. Sedangkan pengujian kedua pengguna melakukan login menggunakan
 	email "bletack@gmail.com" dapat dilihat pada Gambar \ref{fig:logindengangmail}.
-	Lalu pengguna akan mendapat alert karena email yang digunakan tidak sesuai
-	dengan ketentuan dapat dilihat pada Gambar \ref{fig:alert}. Setelah pengguna
-	menekan tombol ok pada alert maka pengguna akan dikembalikan ke halaman
-	index.php. Hal ini menunjukkan fungsi login sudah berjalan dengan baik.
+	Lalu pengguna akan mendapat {\it alert} karena email yang digunakan tidak
+	sesuai dengan ketentuan dapat dilihat pada Gambar \ref{fig:alert}. Setelah
+	pengguna menekan tombol ok pada {\it alert} maka pengguna akan dikembalikan ke
+	halaman index.php. Hal ini menunjukkan fungsi login sudah berjalan dengan baik.
 \item Fungsi memilih mahasiswa\\
 	Pengujian fungsi ini dilakukan untuk memastikan pengguna dapat memilih
 	mahasiswa. Pada halaman list.php terdapat tabel yang berisikan npm, nama, dan
@@ -132,25 +176,27 @@ dasar. Berikut ini adalah daftar pengujian yang dilakukan:
 	$view.php?npm=2010730013$ dapat dilihat pada Gambar \ref{fig:memilihmahasiswa}.
 	Hal ini menunjukkan fungsi memilih mahasiswa sudah berjalan dengan baik.
 \item Fungsi melihat info mahasiswa\\
-	Pengujian fungsi ini dilakukan untuk memastikan mahasiswa yang telah dipilih
-	oleh pengguna, dapat dilihat info dari mahasiswa tersebut. Contoh pengujian
-	fungsi merupakan lanjutan dari fungsi memilih mahasiswa, dimana setelah
-	pengguna memilih mahasiswa pada list.php maka akan menampilkan info dari
-	mahasiswa tersebut dapat dilihat pada Gambar \ref{fig:melihatinfomahasiswa}.
-	Hal ini menunjukkan fungsi melihat info mahasiswa sudah berjalan dengan baik.
+	Pengujian fungsi ini dilakukan untuk memastikan pengguna dapat melihat
+	informasi mahasiswa dari mahasiswa yang telah dipilih oleh pengguna. Contoh
+	pengujian fungsi ini merupakan lanjutan dari fungsi memilih mahasiswa, dimana
+	setelah pengguna memilih mahasiswa pada list.php maka sistem akan menampilkan
+	informasi dari mahasiswa tersebut dapat dilihat pada Gambar
+	\ref{fig:melihatinfomahasiswa}. Hal ini menunjukkan fungsi melihat info
+	mahasiswa sudah berjalan dengan baik.
 \item Fungsi mengedit info mahasiswa\\
-	Pengujian fungsi ini dilakukan untuk memastikan info mahasiswa dapat diedit.
-	Contoh pengujian mengambil info dari mahasiswa yang telah dilihat infonya pada
-	fungsi melihat info mahasiswa. Dimana keterangan info mahasiswa yang ada akan
-	ditampilkan dan pengguna dapat mengedit lalu menyimpan perubahan dengan menekan
-	tombol "Simpan" dapat dilihat pada Gambar \ref{fig:mengeditinfomahasiswa}.
-	Setelah menyimpan perubahan pengguna akan dibawa kembali ke halaman list.php.
-	Hal ini menunjukkan fungsi mengedit info mahasiswa sudah berjalan dengan baik.
+	Pengujian fungsi ini dilakukan untuk memastikan informasi mahasiswa dapat
+	diedit. Contoh pengujian mengambil informasi dari mahasiswa yang telah dilihat
+	informasinya pada fungsi melihat info mahasiswa. Dimana keterangan sebagai
+	salah satu informasi mahasiswa yang ada akan ditampilkan dan pengguna dapat
+	melakukan perubahan lalu menyimpan perubahan dengan menekan tombol "Simpan"
+	dapat dilihat pada Gambar \ref{fig:mengeditinfomahasiswa}. Setelah menyimpan
+	perubahan pengguna akan dibawa kembali ke halaman list.php. Hal ini
+	menunjukkan fungsi mengedit info mahasiswa sudah berjalan dengan baik.
 \item Fungsi melihat histori\\
 	Pengujian fungsi ini dilakukan untuk memastikan adanya histori dari mahasiswa
-	yang dipilih lalu dapat melihat versi keterangan yang pertama kali dibuat dan
-	versi-versi berikutnya yang sudah dirubah. Contoh pengujian melihat histori
-	dari mahasiswa dengan npm 2010730013 dapat dilihat pada Gambar
+	yang dipilih dan dapat melihat versi keterangan yang pertama kali dibuat dan
+	versi-versi berikutnya yang sudah dirubah. Contoh pengujian melihat
+	histori dari mahasiswa yang memiliki npm 2010730013 dapat dilihat pada Gambar
 	\ref{fig:melihathistori} dan juga melihat keterangan versi pertama berserta
 	versi berikutnya dapat dilihat pada Gambar \ref{fig:keteranganversipertama} dan
 	Gambar \ref{fig:keteranganversikedua}. Hal ini menunjukkan fungsi melihat
@@ -158,16 +204,16 @@ dasar. Berikut ini adalah daftar pengujian yang dilakukan:
 \item Fungsi membuat entri baru\\
 	Pengujian fungsi ini dilakukan untuk memastikan pada saat membuat entri baru
 	terdapat template markdown dan berhasil menyimpan entri baru tersebut. Contoh
-	pengujian menambahkan entri baru dengan npm 2010730012, nama Kevin PL, dan
-	keterangan sesuai template. Terdapat template markdown pada saat membuka
-	halaman new.php dapat dilihat pada Gambar \ref{fig:templateentribaru}. Mengisi
-	data npm 2010730012 dan nama Kevin PL dapat dilihat pada Gambar
-	\ref{fig:membuatentribaru}. Setelah pengguna menekan tombol "Simpan" maka data
-	yang telah dimasukan akan tersimpan dan pengguna akan dikembalikan ke halaman
-	list.php. Pengguna dapat melihat entri baru dengan npm 2010730012 dan nama
-	Kevin PL telah masuk kedalam tabel dapat dilihat pada Gambar
-	\ref{fig:entribaruberhasil}. Hal ini menunjukkan fungsi membuat entri baru
-	sudah berjalan dengan baik.
+	pengujian menambahkan entri baru untuk mahasiswa yang memiliki npm 2010730014,
+	nama Nadia, dan keterangan sesuai template. Terdapat template markdown pada
+	saat membuka halaman new.php dapat dilihat pada Gambar
+	\ref{fig:templateentribaru}. Mengisi data npm 2010730014 dan nama Nadia dapat
+	dilihat pada Gambar \ref{fig:membuatentribaru}. Setelah pengguna menekan tombol
+	"Simpan" maka data yang telah dimasukan akan tersimpan dan pengguna akan
+	dikembalikan ke halaman list.php. Pengguna dapat melihat entri baru dengan npm
+	2010730014 dan nama Nadia telah masuk kedalam tabel dapat dilihat pada
+	Gambar \ref{fig:entribaruberhasil}. Hal ini menunjukkan fungsi membuat entri
+	baru sudah berjalan dengan baik.
 \end{enumerate}
 
 \begin{figure}[H]
@@ -202,7 +248,7 @@ Email yang Dikelola oleh student.unpar.ac.id}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{Gambar/pengujian5.png}
+\includegraphics[scale=0.4]{Gambar/pengujian5.png}
 \caption[Izin Akses Dari Pihak Pengguna]{Izin Akses Dari Pihak Pengguna} 
 \label{fig:izindaripihakpengguna}
 \end{figure}
@@ -286,57 +332,33 @@ Digunakan Tidak Dapat Mengakses SIRM}
 \label{fig:entribaruberhasil}
 \end{figure}
 
-\subsection{Hasil Pengujian Fungsional}
-\label{sec:hasilpengujianfungsional}
-Hasil pengujian fungsional dapat dilihat pada Tabel \ref{tab:hasilpengujianfungsional}.
-
-\begin{table}[h]
-\centering
-\caption[Tabel 5-1 Hasil Pengujian Fungsional]{Hasil Pengujian Fungsional}
-\label{tab:hasilpengujianfungsional}
-\begin{tabular}{|l|l|l|l|l|}
-\hline
-No & Aksi pengguna & Hasil yang diharapkan & Hasil yang didapatkan &
-Keterangan\\
-\hline
-1 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-2 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-3 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-4 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-5 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-6 & \cmark & \cmark & \cmark & Berhasil\\
-\hline
-\end{tabular}
-\end{table}
-
 \subsection{Pengujian Eksperimental}
 \label{sec:pengujianeksperimantal}
+
 Pengujian eksperimental dilakukan kepada dua kelompok mahasiswa. Kelompok
-pertama adalah mahasiswa jurusan teknik informatika dan kelompok kedua
-adalah mahasiswa jurusan non-teknik informatika. Kepada semua penguji baik
-kelompok pertama maupun kelompok kedua telah dijelaskan terlebih dahulu apa itu
-SIRM (Sistem Informasi Riwayat Mahasiswa), fungsi-fungsi yang terdapat pada
-SIRM, dan mekanisme yang dapat berlaku pada SIRM. Kemudian semua penguji
-diberikan tugas seolah-olah mereka adalah dosen yang menjalankan seluruh fungsi
-yang dimiliki SIRM (login, melihat daftar mahasiswa, melihat info mahasiswa,
+pertama terdiri dari empat mahasiswa jurusan teknik informatika dan kelompok
+kedua terdiri dari empat mahasiswa diluar jurusan teknik informatika. Kepada
+semua penguji baik kelompok pertama maupun kelompok kedua telah dijelaskan terlebih
+dahulu apa itu SIRM (Sistem Informasi Riwayat Mahasiswa), fungsi-fungsi yang
+terdapat pada SIRM, dan mekanisme yang dapat berlaku pada SIRM. Kemudian semua
+penguji diberikan tugas seolah-olah mereka adalah dosen yang menjalankan seluruh
+fungsi yang dimiliki SIRM (login, melihat daftar mahasiswa, melihat info mahasiswa,
 mengedit info mahasiswa, melihat histori mahasiswa, dan membuat entri baru) dan
 memahami SIRM secara keseluruhan. Setelah selesai melakukan pengujian, penguji
-akan diminta untuk mengisi angket. Penulis akan mengukur waktu selama pengujian
-dan mencatat berapa waktu yang dibutuhkan penguji untuk memahami dan menjalankan
-setiap fungsi dengan benar.
+akan diminta untuk mengisi kuesioner. Penulis akan mengukur waktu selama
+pengujian dan mencatat berapa waktu yang dibutuhkan penguji untuk memahami dan
+menjalankan setiap fungsi dengan benar.
+
+\subsubsection{Pengujian Eksperimental Kelompok Pertama}
+\label{kelompokpertama}
 
 Kelompok pertama terdiri dari empat orang mahasiswa jurusan teknik informatika.
 Keempat penguji berhasil menjalankan dan memahami SIRM dengan baik. Untuk
 catatan waktu yang dimiliki oleh kelompok pertama dapat dilihat pada Tabel
 \ref{tab:catatanwaktukelompokpertama}. Rata-rata waktu yang diperlukan
 kelompok pertama untuk menjalankan setiap fungsi dapat dilihat di bawah ini.
-\begin{enumerate}[1]
-  \item Login\\
+\begin{enumerate}[(1)]
+  \item Login
   $$105 + 52 + 93 + 127 / 4 = 377 / 4 = 94.25 detik$$
   \item Melihat Daftar Mahasiswa
   $$31 + 8 + 11 + 7 / 4 = 57 / 4 = 14.25 detik$$
@@ -352,10 +374,10 @@ kelompok pertama untuk menjalankan setiap fungsi dapat dilihat di bawah ini.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 5-2 Catatan Waktu Pengujian Eksperimental Kelompok
+\caption[Tabel Catatan Waktu Pengujian Eksperimental Kelompok
 Pertama]{Catatan Waktu Pengujian Eksperimental Kelompok Pertama}
 \label{tab:catatanwaktukelompokpertama}
-\begin{tabular}{|p{3cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+\begin{tabular}{|p{3cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
 \hline
 Aksi & Penguji 1 & Penguji 2 & Penguji 3 & Penguji 4\\
 \hline
@@ -375,12 +397,15 @@ Membuat Entri Baru & 3 menit 6 detik & 42 detik & 1 menit 43 detik & 1 menit
 \end{tabular}
 \end{table}
 
-Kelompok kedua terdiri dari empat orang mahasiswa jurusan non-teknik
+\subsubsection{Pengujian Eksperimental Kelompok Kedua}
+\label{kelompokkedua}
+
+Kelompok kedua terdiri dari empat orang mahasiswa diluar jurusan teknik
 informatika. Keempat penguji berhasil menjalankan dan memahami SIRM dengan baik.
 Untuk catatan waktu yang dimiliki oleh kelompok kedua dapat dilihat pada Tabel
 \ref{tab:catatanwaktukelompokkedua}. Rata-rata waktu yang diperlukan
 kelompok kedua untuk menjalankan setiap fungsi dapat dilihat di bawah ini.
-\begin{enumerate}[1]
+\begin{enumerate}[(1)]
   \item Login\\
   $$168 + 117 + 99 + 129 / 4 = 513 / 4 = 128.25 detik$$
   \item Melihat Daftar Mahasiswa
@@ -397,10 +422,10 @@ kelompok kedua untuk menjalankan setiap fungsi dapat dilihat di bawah ini.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 5-3 Catatan Waktu Pengujian Eksperimental Kelompok
+\caption[Tabel Catatan Waktu Pengujian Eksperimental Kelompok
 Kedua]{Catatan Waktu Pengujian Eksperimental Kelompok kedua}
 \label{tab:catatanwaktukelompokkedua}
-\begin{tabular}{|p{3cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|p{1.5cm}|}
+\begin{tabular}{|p{3cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|p{1.8cm}|}
 \hline
 Aksi & Penguji 1 & Penguji 2 & Penguji 3 & Penguji 4\\
 \hline
@@ -425,13 +450,17 @@ menit 25 detik\\
 \end{tabular}
 \end{table}
 
-Perbandingan dari rata-rata waktu pengujian eksperimental antara kelompok
-pertama dan kelompok kedua dapat dilihat pada Tabel
-\ref{tab:perbandinganrataratawaktu}.
+\subsubsection{Perbandingan Rata-Rata Waktu Pengujian}
+\label{perbandinganrataratawaktupengujian}
+
+Perbandingan dari rata-rata waktu pengujian eksperimental antara
+kelompok pertama dan kelompok kedua dapat dilihat pada Tabel
+\ref{tab:perbandinganrataratawaktu} dan Gambar
+\ref{fig:diagramperbandinganrataratawaktupengujian}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 5-4 Perbandingan Rata-rata Waktu Pengujian
+\caption[Tabel Perbandingan Rata-rata Waktu Pengujian
 Eksperimental]{Perbandingan Rata-rata Waktu Pengujian Eksperimental}
 \label{tab:perbandinganrataratawaktu}
 \begin{tabular}{|p{3cm}|l|l|p{3cm}|}
@@ -458,3 +487,238 @@ Membuat Entri Baru & 104.25 detik & 133.75 detik & Kelompok pertama lebih cepat
 \hline
 \end{tabular}
 \end{table}
+
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
+
+  % slice
+  \draw[thick,fill=black!10] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
+
+  % outer label
+  \node[label=\midangle:#4] at (\midangle:1) {};
+
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {#3};
+}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Rata-rata waktu pengujian (detik)},
+        symbolic x coords={Kelompok Pertama,Kelompok Kedua},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Kelompok Pertama, 94.25) (Kelompok Kedua,128.25)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 14.25) (Kelompok Kedua,63.75)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 15.25) (Kelompok Kedua,44.5)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 36) (Kelompok Kedua,68.75)};
+        
+        \addplot
+             coordinates {(Kelompok Pertama, 16.25) (Kelompok Kedua,74.75)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 104.25) (Kelompok Kedua,133.75)};
+
+        \legend{Login,Melihat Daftar Mahasiswa,Melihat Info Mahasiswa,Mengedit
+        Info Mahasiswa,Melihat Histori Mahasiswa,Membuat Entri Baru}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Perbandingan Rata-Rata Waktu Pengujian]{Diagram Perbandingan Rata-Rata Waktu Pengujian}
+\label{fig:diagramperbandinganrataratawaktupengujian}
+\end{figure}
+
+Waktu yang diperlukan oleh kelompok pertama lebih sebentar untuk mengerti dan
+menjalankan semua fungsi dengan benar dibandingkan dengan kelompok kedua.
+Dikarenakan kelompok pertama adalah kelompok mahasiswa yang mewakilkan jurusan
+teknik informatika yang lebih sering berinteraksi dengan komputer dibandingkan kelompok
+kedua yang merupakan kelompok mahasiswa diluar jurusan teknik informatika. Namun
+perbedaan waktu untuk mengerti dan menjalankan semua fungsi dengan benar antara kedua
+kelompok masih dalam hitungan detik dan tidak ada yang melebih satu menit. Hal
+tersebut menunjukkan perangkat lunak SIRM mudah dimengerti bagi orang yang lebih
+sering berinteraksi dengan komputer maupun bagi orang yang jarang berinteraksi
+dengan komputer.
+
+\subsubsection{Hasil Kuesioner}
+\label{sec:hasilkuesioner}
+
+Kuesioner yang digunakan pada pengujian eksperimental dapat dilihat pada
+Lampiran~\ref{kuesioner}. Sebelum masuk ke penilai dari data kuesioner, akan
+ditetapkan terlebih dahulu untuk sistem penilaian. Sistem penilaian yang
+akan digunakan untuk penilaian data kuesioner dapat dilihat pada Tabel
+\ref{tab:sistempenilaian}.
+
+Nilai kuesioner dari kelompok pertama dapat dilihat pada Tabel
+\ref{tab:datakuesionerkelompokpertama}. Nilai kuesioner dari kelompok kedua
+dapat dilihat pada Tabel \ref{tab:datakuesionerkelompokkedua}. Perbandingan
+nilai kuesioner antara kelompok pertama dan kelompok kedua dapat dilihat pada
+Gambar \ref{fig:diagramperbandinganhasilkuesionersetiapresponden}. Perbandingan
+rata-rata nilai kuesioner antara kelompok pertama dan kelompok kedua dapat
+dilihat pada Tabel \ref{tab:ratanilaikuesionerkeduakelompok}.
+
+\begin{table}[h]
+\centering
+\caption[Tabel Sistem Penilaian Kuesioner]{Tabel Sistem Penilaian Kuesioner}
+\label{tab:sistempenilaian}
+\begin{tabular}{|l|l|l|}
+\hline
+Jawaban & Nilai & Keterangan\\
+\hline
+SS/SB & 3 & Sangat Setuju/Sangat Baik\\
+\hline
+S/B & 2 & Setuju/Baik\\
+\hline
+TS/TB & 1 & Tidak Setuju/Tidak Baik\\
+\hline
+STS/STB & 0 & Sangat Tidak Setuju/Sangat Tidak Baik\\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption[Tabel Nilai Kuesioner Kelompok Pertama]{Tabel Nilai Kuesioner Kelompok
+Pertama}
+\label{tab:datakuesionerkelompokpertama}
+\begin{tabular}{|l|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|l|}
+\hline
+\multirow{2}{*}{Responden} & \multicolumn{15}{l|}{No Pertanyaan}                             & \multirow{2}{*}{Total} \\ \cline{2-16}
+                           & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 &                        \\ \hline
+1                          & 3 & 2 & 2 & 2 & 1 & 2 & 2 & 1 & 2 & 2  & 2  & 2  & 1  & 2  & 3  & 29                     \\ \hline
+2                          & 2 & 3 & 2 & 2 & 2 & 2 & 3 & 3 & 3 & 2  & 3  & 3  & 3  & 2  & 2  & 37                     \\ \hline
+3                          & 2 & 2 & 3 & 3 & 3 & 3 & 3 & 3 & 3 & 3  & 3  & 2  & 2  & 2  & 2  & 39                     \\ \hline
+4                          & 2 & 3 & 3 & 3 & 2 & 3 & 3 & 3 & 2 & 3  & 3  & 2  & 1  & 2  & 3  & 38                     \\ \hline
+Total & 9 & 10 & 10 & 10 & 8 & 10 & 11 & 10 & 10 & 10  & 11  & 9  &
+7  & 8  & 10  & 143 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\caption[Tabel Nilai Kuesioner Kelompok Kedua]{Tabel Nilai Kuesioner Kelompok
+Kedua}
+\label{tab:datakuesionerkelompokkedua}
+\begin{tabular}{|l|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|p{0.3cm}|l|}
+\hline
+\multirow{2}{*}{Responden} & \multicolumn{15}{l|}{No Pertanyaan}                             & \multirow{2}{*}{Total} \\ \cline{2-16}
+                           & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 &                        \\ \hline
+1                          & 2 & 2 & 2 & 2 & 3 & 2 & 2 & 2 & 2 & 2  & 2  & 1  & 2  & 2  & 2  & 30                     \\ \hline
+2                          & 2 & 3 & 2 & 3 & 3 & 2 & 3 & 2 & 2 & 3  & 3  & 2  & 2  & 3  & 2  & 37                     \\ \hline
+3                          & 3 & 3 & 2 & 2 & 2 & 3 & 3 & 3 & 2 & 2  & 2  & 3  & 1  & 2  & 2  & 35                     \\ \hline
+4                          & 3 & 2 & 2 & 2 & 2 & 2 & 3 & 3 & 3 & 3  & 3  & 2  & 2  & 2  & 2  & 36                     \\ \hline
+Total & 10 & 10 & 8 & 9 & 10 & 9 & 11 & 10 & 9 & 10  & 10  & 8  &
+7  & 9  & 8  & 138 \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Indek},
+        symbolic x coords={Kelompok Pertama,Kelompok Kedua},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Kelompok Pertama, 29) (Kelompok Kedua,30)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 37) (Kelompok Kedua,37)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 39) (Kelompok Kedua,35)};
+
+        \addplot
+             coordinates {(Kelompok Pertama, 38) (Kelompok Kedua,36)};
+        
+        \legend{Responden 1,Responden 2,Responden 3,Responden 4}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Perbandingan Total Nilai Kuesioner Setiap Responden]{Diagram
+Perbandingan Total Nilai Kuesioner Setiap Responden}
+\label{fig:diagramperbandinganhasilkuesionersetiapresponden}
+\end{figure}
+
+Total dari nilai kuesioner yang dimiliki kedua kelompok berdasarkan Gambar
+\ref{fig:diagramperbandinganhasilkuesionersetiapresponden} tidak memiliki
+perbedaan yang signifikan. Hal tersebut membuktikan kedua kelompok sangat setuju
+dengan kinerja, akurasi dan kemudahan dalam menggunakan SIRM.
+
+\begin{table}[h]
+\centering
+\caption[Tabel Rata-Rata Nilai Kuesioner Kedua Kelompok]{Tabel Rata-Rata
+Nilai Kuesioner Kedua Kelompok}
+\label{tab:ratanilaikuesionerkeduakelompok}
+\begin{tabular}{|l|l|l|l|}
+\hline
+\multirow{2}{*}{No} & \multicolumn{2}{l|}{Nilai Rata-Rata} & \multirow{2}{*}{Keterangan} \\ \cline{2-3}
+                    & Kelompok Pertama   & Kelompok Kedua  &                             \\ \hline
+1                   & 2.25               & 2.5             & -                           \\ \hline
+2                   & 2.5                & 2.5             & -                           \\ \hline
+3                   & 2.5                & 2               & -                           \\ \hline
+4                   & 2.5                & 2.25            & -                           \\ \hline
+5                   & 2                  & 2.5             & -                           \\ \hline
+6                   & 2.5                & 2.25            & -                           \\ \hline
+7                   & 2.75               & 2.75            & Rata-rata tertinggi         \\ \hline
+8                   & 2.5                & 2.5             & -                           \\ \hline
+9                   & 2.5                & 2.25            & -                           \\ \hline
+10                  & 2.5                & 2.5             & -                           \\ \hline
+11                  & 2.75               & 2.5             & -                           \\ \hline
+12                  & 2.25               & 2               & -                           \\ \hline
+13                  & 1.75               & 1.75            & Rata-rata terendah          \\ \hline
+14                  & 2                  & 2.25            & -                           \\ \hline
+15                  & 2.5                & 2               & -                           \\ \hline
+Total               & 35.75              & 34.5            &                             \\ \hline
+\end{tabular}
+\end{table}
+
+Berdasarkan Tabel \ref{tab:ratanilaikuesionerkeduakelompok} data rata-rata nilai
+kuesioner dari kedua kelompok, untuk rata-rata tertinggi terdapat pada
+pertanyaan kuesioner nomor 7 dan untuk rata-rata terendah terdapat pada
+pertanyaan kuesioner nomor 13. Rata-rata tertinggi pada pertanyaan kuesioner
+nomor 7 menyatakan kedua kelompok sutuju untuk akurasi yang dimiliki SIRM
+terlebih untuk fungsi login. Rata-rata terendah pada pertanyaan kuesioner nomor
+13 menyatakan kedua kelompok kurang setuju untuk kemudahan yang dimiliki SIRM
+untuk membantu pemahaman pengguna dalam mengelola riwayat mahasiswa.

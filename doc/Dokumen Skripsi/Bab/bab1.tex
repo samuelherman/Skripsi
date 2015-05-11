@@ -4,17 +4,18 @@
 \section{Latar Belakang}
 \label{sec:latarbelakang}
 
-Saat ini jumlah dosen dan jumlah mahasiswa menjadi pemasalahan, disebabkan
-minimnya jumlah dosen. Kurangnya tenaga dosen mengakibatkan seorang dosen harus
-menjadi dosen wali atau dosen pembimbing banyak mahasiswa dalam satu waktu.
-Kesulitan yang dimiliki oleh setiap dosen adalah kesulitan dalam mengingat
-perkembangan setiap mahasiswa serta sejarah setiap mahasiswa.
+Saat ini jumlah dosen dan jumlah mahasiswa menjadi pemasalahan. Permasalahan
+tersebut disebabkan karena minimnya jumlah dosen dengan kata lain kurangnya
+tenaga dosen. Kurangnya tenaga dosen mengakibatkan seorang dosen harus menjadi
+dosen wali atau dosen pembimbing banyak mahasiswa dalam satu waktu. Kesulitan
+yang dimiliki oleh setiap dosen adalah kesulitan dalam mengingat perkembangan
+setiap mahasiswa serta sejarah riwayat setiap mahasiswa.
 
 Maka dari itu berdasarkan jabaran masalah diatas, baik untuk dibuat sebuah
 perangkat lunak yang mencatat riwayat setiap mahasiswa. Dimana semua dosen yang
 telah terautentikasi dapat berkontribusi untuk memantau perkembangan setiap
-mahasiswa. Lalu setiap aksi yang dilakukan pada mahasiswa baik aksi {\it edit}
-maupun aksi {\it view} dicatat sehingga dapat dilihat historinya. Dan yang
+mahasiswa. Lalu setiap aksi yang dilakukan pada data mahasiswa baik aksi {\it
+edit} maupun aksi {\it view} dicatat sehingga dapat dilihat historinya. Dan yang
 terakhir setiap perubahan dicatat revisinya sehingga dapat dipantau apa saja
 yang telah dirubah.
 
@@ -31,8 +32,8 @@ data akan menggunakan PHP dan MySQL.
 Berdasarkan latar belakang maka dapat dirumuskan permasalahan sebagai berikut:
 \begin{itemize}
 	\item Bagaimana mengautentikasi pengguna menggunakan Google Authentication?
-	\item Bagaimana menggunakan teks dengan format Markdown?
-	\item Bagaimana menampilkan teks dengan format Markdown ke halaman website?
+	\item Bagaimana menggunakan teks dengan sintaks Markdown?
+	\item Bagaimana menampilkan teks dengan sintaks Markdown ke halaman website?
 	\item Bagaimana merancang antarmuka Sistem Informasi Riwayat Mahasiswa
 	menggunakan Zurb Foundation?
 	\item Bagaimana mengimplementasikan Sistem Informasi Riwayat Mahasiswa yang
@@ -44,8 +45,8 @@ Berdasarkan rumusan masalah yang ditulis dalam sub bab 2, tujuan utama yang
 ingin dicapai melalui penelitian ini adalah:
 \begin{itemize}
 	\item Mengautentikasi pengguna menggunakan Google Authentication.
-	\item Menggunakan teks dengan format Markdown Syntax.
-	\item Menampilkan teks dengan format Markdown Syntax ke halaman website.
+	\item Menggunakan teks dengan sintaks Markdown.
+	\item Menampilkan teks dengan sintaks Markdown ke halaman website.
 	\item Merancang antarmuka Sistem Informasi Riwayat Mahasiswa menggunakan Zurb
 	Foundation.
 	\item Mengimplementasikan Sistem Informasi Riwayat Mahasiswa yang telah
@@ -57,18 +58,20 @@ Dalam penelitian ini ditetapkan batasan-batasan yang akan menjadi pedoman dalam
 pelaksanaan penelitian:
 \begin{itemize}
 	\item Perangkat lunak akan memiliki 6 fitur yaitu: Login, Pilih mahasiswa,
-	Melihat info mahasiswa, Edit mahasiswa, Lihat histori, dan Membuat entri baru.
+	Melihat info mahasiswa, {\it Edit} mahasiswa, Lihat histori, dan Membuat entri
+	baru.
 	\item Untuk fitur login hanya untuk dosen yang diakhiri dengan @unpar.ac.id dan
 	{\it username} bukan angka semua.
 	\item Untuk fitur pilih mahasiswa, pengguna dapat memilih mahasiswa yang ingin
-	dilihat atau dirubah dan pengguna juga bisa menekan tombol "Add" untuk menambah
-	mahasiswa baru.
+	dilihat atau dirubah dan pengguna juga bisa menekan tombol "{\it Add}" untuk
+	menambah data mahasiswa baru.
 	\item Untuk fitur melihat info mahasiswa, pengguna dapat melihat info terkini
 	dari mahasiswa dan aksi ini dicatat dalam log untuk alasan penjagaan privasi.
 	\item Untuk fitur edit mahasiswa, pengguna dapat mengubah info mahasiswa dan
 	aksi ini juga dicatat dalam log.
 	\item Untuk fitur lihat histori, pengguna dapat melihat histori setiap aksi
-	perubahan atau aksi {\it view}.
+	perubahan atau aksi {\it view}. Pada fitur ini juga pengguna dapat melihat info
+	mahasiswa versi pertama dan versi selanjutnya hingga versi saat ini.
 	\item Untuk fitur membuat entri baru, saat membuat entri baru akan dibuatkan
 	{\it template} sehingga kedepannya isi info setiap mahasiswa seragam.
 \end{itemize}
@@ -82,7 +85,7 @@ Metodologi yang digunakan untuk menyusun penelitian:
 	Sistem Informasi Riwayat Mahasiswa.
 	\item Merancang Sistem Informasi Riwayat Mahasiswa yang akan dibuat.
 	\item Melakukan implementasi untuk Sistem Informasi Riwayat Mahasiswa yang
-	telah dirancang ke dalam PHP.
+	telah dirancang ke dalam {\it script} PHP.
 	\item Melakukan pengujian perangkat lunak yang telah diimplementasikan.
 \end{itemize}
 
@@ -94,12 +97,11 @@ Sistematika pembahasan dalam penelitian ini adalah sebagai berikut:
 	batasan masalah, metodologi penelitian, dan sistematika pembahasan.
 	\item Bab II Dasar Teori\\
 	Bab ini menjelaskan teori-teori dasar mengenai Google Authentication, Markdown
-	Syntax, StrapdownJS, Zurb Foundation, PHP, dan MySQL yang menjadi refrensi
-	utama dalam pelaksanaan penelitian.
+	Syntax, StrapdownJS, dan Zurb Foundation yang menjadi refrensi utama dalam
+	pelaksanaan penelitian.
 	\item Bab III Analisis\\
 	Bab ini berisi analisis mengenai Google Authentication, Markdown Syntax,
-	StrapdownJS, Zurb Foundation, PHP, dan MySQL yang akan digunakan pada
-	penelitian ini.
+	StrapdownJS, dan Zurb Foundation yang akan digunakan pada penelitian ini.
 	\item Bab IV Perancangan\\
 	Bab ini berisi perancangan Sistem Informasi Riwayat Mahasiswa yang akan dibuat.
 	\item Bab V Implementasi dan Pengujian\\

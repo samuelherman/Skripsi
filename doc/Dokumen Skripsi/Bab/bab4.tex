@@ -1,19 +1,20 @@
 \chapter{Perancangan}
 \label{chap:perancangan}
 
-Pada bab ini akan dijelaskan mengenai perancangan Sistem Informasi Riwayat Mahasiswa yang akan dibuat. Mulai dari perancangan tampilan web yang digunakan, perancangan modul, dan perancangan diagram sekuens.
+Pada bab ini akan dijelaskan mengenai perancangan Sistem Informasi Riwayat
+Mahasiswa yang akan dibuat. Mulai dari perancangan tampilan {\it web} yang digunakan,
+perancangan modul, dan perancangan diagram sekuens.
 
-
-\section{Perancangan Tampilan Web Yang Digunakan}
+\section{Perancangan Tampilan {\it Web} Yang Digunakan}
 \label{sec:perancanganantarmuka}
 
-Perancangan tampilan web yang akan dibuat untuk mengimplementasikan Sistem
+Perancangan tampilan {\it web} yang akan dibuat untuk mengimplementasikan Sistem
 Informasi Riwayat Mahasiswa terdapat tujuh buah perancangan yaitu halaman
 awal, pilih mahasiswa, info mahasiswa, edit mahasiswa, lihat histori, lihat
 versi ini dan entri baru.
 
 \subsection{Tampilan Halaman Awal}
-Perancangan tampilan web untuk halaman utama dapat dilihat pada
+Perancangan tampilan {\it web} untuk halaman utama dapat dilihat pada
 Gambar~\ref{fig:pilihmahasiswa}.
 
 \begin{figure}[H]
@@ -31,8 +32,8 @@ Bagian ini merupakan judul yang merupakan keterangan dari perangkat lunak.
 Bagian ini merupakan teks yang dapat diklik untuk melakukan login.
 \end{enumerate}
 
-\subsection{Tampilan Web Pilih Mahasiswa}
-Perancangan tampilan web untuk pilih mahasiswa dapat dilihat pada
+\subsection{Tampilan {\it Web} Pilih Mahasiswa}
+Perancangan tampilan {\it web} untuk pilih mahasiswa dapat dilihat pada
 Gambar~\ref{fig:pilihmahasiswa}.
 
 \begin{figure}[H]
@@ -53,8 +54,8 @@ Bagian ini merupakan tempat menampilkan data mahasiswa dalam bentuk tabel. NPM
 dapat diklik untuk memilih mahasiswa.
 \end{enumerate}
 
-\subsection{Tampilan Web Info Mahasiswa}
-Perancangan tampilan web untuk info mahasiswa dapat dilihat pada Gambar~\ref{fig:infomahasiswa}.
+\subsection{Tampilan {\it Web} Info Mahasiswa}
+Perancangan tampilan {\it web} untuk info mahasiswa dapat dilihat pada Gambar~\ref{fig:infomahasiswa}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Gambar/infomahasiswa.png}
@@ -73,8 +74,8 @@ ke menu utama, dan logout.
 Bagian ini merupakan tempat menampilkan info mahasiswa yang berasal dari database.
 \end{enumerate}
 
-\subsection{Tampilan Web Edit Mahasiswa}
-Perancangan tampilan web untuk edit mahasiswa dapat dilihat pada Gambar~\ref{fig:editmahasiswa}.
+\subsection{Tampilan {\it Web} Edit Mahasiswa}
+Perancangan tampilan {\it web} untuk edit mahasiswa dapat dilihat pada Gambar~\ref{fig:editmahasiswa}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Gambar/editmahasiswa.png}
@@ -98,8 +99,8 @@ Bagian ini merupakan tempat menampilkan catatan mahasiswa yang berasal dari
 database dan dapat diedit (ditulis dengan foramt markdown).
 \end{enumerate}
 
-\subsection{Tampilan Web Lihat Histori}
-Perancangan tampilan web untuk lihat histori dapat dilihat pada Gambar~\ref{fig:lihathistori}.
+\subsection{Tampilan {\it Web} Lihat Histori}
+Perancangan tampilan {\it web} untuk lihat histori dapat dilihat pada Gambar~\ref{fig:lihathistori}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Gambar/lihathistori.png}
@@ -119,8 +120,8 @@ yang telah dipilih untuk dilihat historinya.
 Bagian ini merupakan daftar histori dari mahasiswa yang telah dipilih.
 \end{enumerate}
 
-\subsection{Tampilan Web Lihat Versi Ini}
-Perancangan tampilan web untuk lihat versi ini dapat dilihat pada
+\subsection{Tampilan {\it Web} Lihat Versi Ini}
+Perancangan tampilan {\it web} untuk lihat versi ini dapat dilihat pada
 Gambar~\ref{fig:lihatversiini}.
 \begin{figure}[H]
 \centering
@@ -137,8 +138,8 @@ Bagian ini merupakan tombol untuk melakukan aksi kembali dan logout.
 Bagian ini merupakan daftar histori dari mahasiswa yang telah dipilih.
 \end{enumerate}
 
-\subsection{Tampilan Web Entri Baru}
-Perancangan tampilan web untuk entri baru dapat dilihat pada Gambar~\ref{fig:entribaru}.
+\subsection{Tampilan {\it Web} Entri Baru}
+Perancangan tampilan {\it web} untuk entri baru dapat dilihat pada Gambar~\ref{fig:entribaru}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Gambar/entribaru.png}
@@ -155,8 +156,6 @@ sedang menggunakan Sistem Infomasi Riwayat Mahasiswa.
 Bagian ini merupakan tombol untuk melakukan aksi kembali ke pilih mahasiswa,
 simpan, menu utama, dan logout.
 \item
-Bagian ini merupakan tombol untuk melakukan aksi simpan untuk penambahan entri baru.
-\item
 Bagian ini merupakan form yang terdiri dari area untuk memasukkan NPM mahasiswa,
 nama mahasiswa, dan keterangan mahasiswa yang akan ditambah dengan format yang
 telah disediakan (ditulis dengan format markdown).
@@ -165,40 +164,40 @@ telah disediakan (ditulis dengan format markdown).
 \section{Perancangan Modul}
 \label{sec:perancanganmodul}
 
-Perancangan modul untuk Sistem Informasi Riwayat Mahasiswa yang akan dibuat
+Perancangan modul untuk sistem informasi riwayat mahasiswa yang akan dibuat
 dapat dilihat pada sub bab berikut.
 
 \subsection{Modul Login}
-Modul login yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
+Modul login yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \ref{tab:modullogin}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-1 Modul Login]{Modul Login}
+\caption[Tabel Modul Login]{Modul Login}
 \label{tab:modullogin}
 \begin{tabular}{|c|p{7cm}|}
 \hline
 Nama Modul & login.php\\
 \hline
-Input & username, password\\
+Input & {\it username}, {\it password}\\
 \hline
 Output & -\\
 \hline
-Tabel yang diakses & User\\
+Tabel yang diakses & -\\
 \hline
-Deskripsi & User memasukkan username dan password kemudian sistem akan melakukan
-autentikasi menggunakan Google Oauth.\\
+Deskripsi & Pengguna memasukkan {\it username} dan {\it password} kemudian
+sistem akan melakukan autentikasi menggunakan Google Oauth.\\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Modul Pilih Mahasiswa}
-Modul pilih mahasiswa yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
-\ref{tab:modulpilihmahasiswa}.
+Modul pilih mahasiswa yang dilakukan oleh pengguna (dosen) dapat dilihat pada
+Tabel \ref{tab:modulpilihmahasiswa}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-2 Modul Pilih Mahasiswa]{Modul Pilih Mahasiswa}
+\caption[Tabel Modul Pilih Mahasiswa]{Modul Pilih Mahasiswa}
 \label{tab:modulpilihmahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
@@ -208,22 +207,22 @@ Input & npm\\
 \hline
 Output & Tabel mahasiswa\\
 \hline
-Tabel yang diakses & Mahasiswa\\
+Tabel yang diakses & InfoMahasiswa\\
 \hline
-Deskripsi & User memasukkan npm yang ingin dicari, user juga dapat memilih
-langsung mahasiswa yang ingin dilihat infonya tanpa melakukan pencarian terlebih
-dahulu dan user juga dapat membaut entri baru.\\
+Deskripsi & Pengguna memasukkan npm yang ingin dicari, pengguna juga dapat
+memilih langsung mahasiswa yang ingin dilihat infonya tanpa melakukan pencarian
+terlebih dahulu dan pengguna juga dapat membaut entri baru.\\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Modul Info Mahasiswa}
-Modul info mahasiswa yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
-\ref{tab:modulinfomahasiswa}.
+Modul info mahasiswa yang dilakukan oleh pengguna (dosen) dapat dilihat pada
+Tabel \ref{tab:modulinfomahasiswa}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-3 Modul Info Mahasiswa]{Modul Info Mahasiswa}
+\caption[Tabel Modul Info Mahasiswa]{Modul Info Mahasiswa}
 \label{tab:modulinfomahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
@@ -233,22 +232,22 @@ Input & -\\
 \hline
 Output & Info mahasiswa\\
 \hline
-Tabel yang diakses & Mahasiswa\\
+Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
-Deskripsi & User mendapatkan laporan barupa info mahasiswa yang telah dipilih
-sebelumnya pada modul pilih mahasiswa. User dapat merubah info mahasiswa yang
-ada dan dapat melihat histori setiap mahasiswa.\\
+Deskripsi & Pengguna mendapatkan laporan barupa info mahasiswa yang telah
+dipilih sebelumnya pada modul pilih mahasiswa. Pengguna dapat merubah info
+mahasiswa yang ada dan dapat melihat histori setiap mahasiswa.\\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Modul Edit Mahasiswa}
-Modul edit mahasiswa yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
-\ref{tab:moduleditmahasiswa}.
+Modul {\it edit} mahasiswa yang dilakukan oleh pengguna (dosen) dapat dilihat
+pada Tabel \ref{tab:moduleditmahasiswa}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-4 Modul Edit Mahasiswa]{Modul Edit Mahasiswa}
+\caption[Tabel Modul {\it Edit} Mahasiswa]{Modul {\it Edit} Mahasiswa}
 \label{tab:moduleditmahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
@@ -258,23 +257,23 @@ Input & teks dalam format markdown\\
 \hline
 Output & -\\
 \hline
-Tabel yang diakses & Mahasiswa\\
+Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
-Deskripsi & User memasukkan atau merubah keterangan mahasiswa pada teks area
-yang telah disediakan menggunakan teks dengan format penulisan markdown lalu
-user menyimpan untuk menaruh perubahan yang dilakukan. User dapat kembali ke
-modul info mahasiswa tanpa melakukan perubahan.\\
+Deskripsi & Pengguna memasukkan atau merubah keterangan mahasiswa pada teks area
+yang telah disediakan menggunakan teks dengan sintaks Markdown lalu
+pengguna menyimpan untuk menaruh perubahan yang dilakukan. Pengguna dapat
+kembali ke modul info mahasiswa tanpa melakukan perubahan.\\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Modul Lihat Histori}
-Modul lihat histori yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
-\ref{tab:modullihathistori}.
+Modul lihat histori yang dilakukan oleh pengguna (dosen) dapat dilihat pada
+Tabel \ref{tab:modullihathistori}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-5 Modul Lihat Histori]{Modul Lihat Histori}
+\caption[Tabel Modul Lihat Histori]{Modul Lihat Histori}
 \label{tab:modullihathistori}
 \begin{tabular}{|c|p{7cm}|}
 \hline
@@ -284,21 +283,21 @@ Input & -\\
 \hline
 Output & Daftar histori mahasiswa\\
 \hline
-Tabel yang diakses & Mahasiswa\\
+Tabel yang diakses & Histori\\
 \hline
-Deskripsi & User mendapatkan laporan berupa daftar hostori yang dimiliki setiap
-mahasiswa.\\
+Deskripsi & Pengguna mendapatkan laporan berupa daftar hostori yang dimiliki
+setiap mahasiswa.\\
 \hline
 \end{tabular}
 \end{table}
 
 \subsection{Modul Entri Baru}
-Modul entri baru yang dilakukan oleh user (dosen) dapat dilihat pada Tabel
+Modul entri baru yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \ref{tab:modulentribaru}.
 
 \begin{table}[h]
 \centering
-\caption[Tabel 4-6 Modul Entri Baru]{Modul Entri Baru} 
+\caption[Tabel Modul Entri Baru]{Modul Entri Baru} 
 \label{tab:modulentribaru}
 \begin{tabular}{|c|p{7cm}|}
 \hline
@@ -308,12 +307,11 @@ Input & npm, nama, dan teks dalam format markdown\\
 \hline
 Output & -\\
 \hline
-Tabel yang diakses & Mahasiswa\\
 \hline
-Deskripsi & User memasukkan npm, nama, dan keterangan mahasiswa pada teks area
-yang telah disediakan menggunakan teks dengan format penulisan markdown lalu
-user menyimpan untuk membuat entri baru tersebut. User dapat kembali ke modul
-pilih mahasiswa tanpa melakukan perubahan.\\
+Deskripsi & Pengguna memasukkan npm, nama, dan keterangan mahasiswa pada teks
+area yang telah disediakan menggunakan teks dengan sintaks Markdown lalu
+pengguna menyimpan untuk membuat entri baru tersebut. Pengguna dapat kembali ke
+modul pilih mahasiswa tanpa melakukan perubahan.\\
 \hline
 \end{tabular}
 \end{table}
@@ -326,7 +324,7 @@ Untuk rancangan tabel info mahasiswa dapat dilihat pada Tabel
 \ref{tab:rancangantabelinfomahasiswa}.
 
 \begin{table}[h]
-\caption[Tabel 4-7 Rancangan Tabel Info Mahasiswa]{Rancangan Tabel Info Mahasiswa}
+\caption[Tabel Rancangan Tabel Info Mahasiswa]{Rancangan Tabel Info Mahasiswa}
 \label{tab:rancangantabelinfomahasiswa}
 \begin{tabular}{|l|p{1.5cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{0.8cm}|l|}
 \hline
@@ -348,7 +346,7 @@ Untuk rancangan tabel histori dapat dilihat pada Tabel
 \ref{tab:rancangantabelhistori}.
 
 \begin{table}[h]
-\caption[Tabel 4-8 Rancangan Tabel Histori]{Rancangan Tabel Histori}
+\caption[Tabel Rancangan Tabel Histori]{Rancangan Tabel Histori}
 \label{tab:rancangantabelhistori}
 \begin{tabular}{|l|p{1.5cm}|p{1.2cm}|p{1.2cm}|p{1.2cm}|p{0.8cm}|l|}
 \hline
@@ -374,7 +372,7 @@ keterangan & text & - & no & no & no & -\\
 
 Pembuatan diagram sekuens mengacu pada Gambar~\ref{fig:usecase}. Terdapat
 tiga diagram sekuens yaitu 
-\begin{enumerate}[1]
+\begin{enumerate}[(1)]
   \item Sekuens bagian satu mencakup proses login dapat dilihat pada Gambar
   \ref{fig:ds1}.
   \item Sekuens bagian dua mencakup proses memilih mahasiswa, melihat
@@ -400,7 +398,7 @@ tiga diagram sekuens yaitu
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.5]{Gambar/sekuensview.png}
+\includegraphics[scale=0.4]{Gambar/sekuensview.png}
 \caption[Diagram Sekuens Bagian Tiga]{Diagram Sekuens Bagian Tiga} 
 \label{fig:ds3}
 \end{figure}

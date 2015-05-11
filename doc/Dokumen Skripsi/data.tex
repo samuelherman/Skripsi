@@ -1,19 +1,24 @@
 %_____________________________________________________________________________
 %=============================================================================
-% data.tex v1.1 (21-10-2012) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
+% data.tex v5 (10-11-2013) \ldots dibuat oleh Lionov - Informatika FTIS UNPAR
 %
-% Perubahan pada versi 1.1 (06-08-2012)
-% - Data dosen dipindah ke dosen.tex agar jika ada perubahan/update data dosen
-%   mahasiswa tidak perlu mengubah data.tex
-% - Perubahan pada keterangan dosen 
+% Perubahan pada versi 5 (10-11-2013)
+% - Perbaikan pada memasukkan bab : tidak perlu menuliskan apapun untuk 
+%	memasukkan seluruh bab (bagian V)
+% - Perbaikan pada memasukkan lampiran : tidak perlu menuliskan apapun untuk
+%	memasukkan seluruh lampiran atau -1 jika tidak memasukkan apapun
 %
 % Perubahan pada versi sebelumnya
-% Versi 1.0 (06-08-2012)
-% - Perubahan pada beberapa keterangan 
-% versi 0.9b (09-07-2012):
-% - Menambahkan data judul dalam bahasa inggris
-% - Membuat bagian khusus untuk judul (bagian VIII)
-% - Perbaikan pada gelar dosen
+%	versi 4 (21-10-2012)
+%	- Data dosen dipindah ke dosen.tex agar jika ada perubahan/update data dosen
+%   mahasiswa tidak perlu mengubah data.tex
+%	- Perubahan pada keterangan dosen	
+% 	versi 3 (06-08-2012)
+% 	- Perubahan pada beberapa keterangan 
+% 	versi 2 (09-07-2012):
+% 	- Menambahkan data judul dalam bahasa inggris
+% 	- Membuat bagian khusus untuk judul (bagian VIII)
+% 	- Perbaikan pada gelar dosen
 %_____________________________________________________________________________
 %=============================================================================
 % 								BAGIAN -
@@ -29,22 +34,21 @@
 %=============================================================================
 % Tambahkan package2 lain yang anda butuhkan di sini
 %=============================================================================
-\usepackage{booktabs}
-\usepackage[table]{xcolor}
-\usepackage{longtable}
 \usepackage{amsmath}
+\usepackage{booktabs}
 \usepackage{enumerate}
+\usepackage{longtable}
+\usepackage{multirow}
 \usepackage{pifont}
+\usepackage[table]{xcolor}
+\usepackage{tikz}
 \usepackage{titlesec}
 \setcounter{secnumdepth}{4}
 \lstset{
     literate={~} {$\sim$}{1}
 }
-\usepackage{tikz}
-%\titleformat{\paragraph}
-%{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
-%\titlespacing*{\paragraph}
-%{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\usepackage{pgfplots}
+\pgfplotsset{width=15cm,compat=1.8}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -63,9 +67,9 @@
 % Jika tidak ingin mencetak daftar tabel/gambar (misalkan karena tidak ada 
 % isinya), edit manual di baris 439 dan 440 pada file main.tex
 %=============================================================================
-%\mode{kosong}
-%\mode{cover}
-%\mode{sidang}
+% \mode{kosong}
+% \mode{cover}
+% \mode{sidang}
 \mode{sidang_akhir}
 %\mode{final} 
 %=============================================================================
@@ -107,7 +111,7 @@
 % untuk mencetak hanya 1 atau beberapa bab saja
 % Jika lebih dari 1 bab, pisahkan dengan ',', bab akan dicetak terurut sesuai 
 % urutan bab.
-% Untuk mencetak seluruh bab, kosongkan parameter (i.e. \bab{})  
+% Untuk mencetak seluruh bab, kosongkan parameter (i.e. \bab{ })  
 % Catatan: Jika ingin menambahkan bab ke-10 dan seterusnya, harus dilakukan 
 % secara manual
 %=============================================================================
@@ -122,13 +126,12 @@
 % digunakan untuk mencetak hanya 1 atau beberapa lampiran saja
 % Jika lebih dari 1 lampiran, pisahkan dengan ',', lampiran akan dicetak 
 % terurut sesuai urutan lampiran
-% Jika tidak ingin mencetak lampiran apapun, kosongkan parameter 
-% (i.e. \lampiran{}). Tidak ada opsi mencetak seluruh lampiran, anda harus
-% menuliskan semuanya sendiri (i.e. \lampiran{A,B,C,D,E,F,G,H,I}) 
+% Jika tidak ingin mencetak lampiran apapun, isi dengan -1 (i.e. \lampiran{-1})
+% Untuk mencetak seluruh mapiran, kosongkan parameter (i.e. \lampiran{ })  
 % Catatan: Jika ingin menambahkan lampiran ke-J dan seterusnya, harus 
 % dilakukan secara manual
 %=============================================================================
-\lampiran{A,B}
+\lampiran{A,B,C}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -152,7 +155,7 @@
 %				(e.g. \penguji{\JHD}{\JCD} )
 %=============================================================================
 \namanpm{Samuel Herman}{2010730013}
-\tanggal{10}{02}{2015}
+\tanggal{10}{2}{2015}
 \pembimbing{\PAS}{}     %Lihat singkatan pembimbing anda di file dosen.tex
 \penguji{}{} 		%Lihat singkatan penguji anda di file dosen.tex
 %=============================================================================
@@ -172,7 +175,7 @@
 
 \judulINA{Sistem Informasi Riwayat Mahasiswa}
 
-\judulENG{Student Information History Recording System}
+\judulENG{Student's History Information System}
 
 %_____________________________________________________________________________
 %=============================================================================
@@ -185,33 +188,36 @@
 %			 bawahnya
 %=============================================================================
 
-\abstrakINA{Penelitian ini akan membangun perangkat lunak Sistem Informasi
-Riwayat Mahasiswa (SIRM). SIRM dibangun dengan tujuan untuk membantu para dosen
-dalam mengingat riwayat mahasiswa. SIRM dibangun menggunakan empat teknologi,
-yaitu Google Authentication, Markdown, StrapdownJS, dan Zurb Foundation. Google
-Authentication akan digunakan untuk membangun fungsi login yang akan membatasi
-lingkup pengguna. Markdown akan digunakan dalam format penulisan riwayat
-mahasiswa. StrapdownJS akan digunakan untuk menampilkan teks yang ditulis
+\abstrakINA{Perbandingan jumlah dosen dan jumlah mahasiswa menjadi
+masalah bagi dosen dalam mengingat riwayat setiap mahasiswa. Maka dari
+itu pada tugas akhir ini akan membahas tentang pembangun Sistem Informasi
+Riwayat Mahasiswa dapat disebut SIRM. SIRM dibangun dengan tujuan untuk
+membantu para dosen dalam mengingat riwayat mahasiswa. SIRM dibangun menggunakan
+empat teknologi, yaitu Google Authentication, Markdown, StrapdownJS, dan Zurb
+Foundation.
+
+Google Authentication akan digunakan untuk fungsi login yang akan membatasi
+ruang lingkup pengguna. Markdown akan digunakan sebagai format dalam penulisan
+riwayat mahasiswa. StrapdownJS akan digunakan untuk menampilkan teks yang ditulis
 menggunakan sintakas Markdown ke HTML. Zurb Foundation akan digunakan untuk
-membuat User Interface (UI) SIRM.
-
-Penelitian ini akan mengembangkan CAPTCHA yang memiliki kualitas yang baik.
-Kualitas yang baik akan didapat apabila CAPTCHA yang dikembangkan dapat diselesaikan oleh manusia dan tidak dapat diselesaikan oleh komputer.
-Gambar CAPTCHA yang dibangkitkan akan menggunakan tiga efek distorsi untuk meningkatkan kualitas CAPTCHA.
-Efek distorsi pertama adalah merotasi karakter yang akan diacak dari 0^{\circ}$ sampai 360^{\circ}$.
-Efek distorsi kedua adalah membalik karakter secara horisontal maupun vertikal.
-Dan efek distorsi yang terakhir adalah menambahan garis yang ditambahkan pada gambar secara acak.
-Ketiga efek distorsi tersebut akan digabungkan sehingga menghasilkan CAPTCHA dengan kualitas yang baik.
+membuat tampilan antarmuka SIRM. Dengan pembangunan SIRM, diharapkan dapat
+membantu dosen dalam memfasilitasi mahasiswa.
 }
 
-\abstrakENG{This research will develop a CAPTCHA that has good quality.
-Good quality will be obtained if the CAPTCHA which is developed can be solved by humans and cannot be solved by a computer.
-A picture captcha raised will use of three effects of distortion to improve the quality of captcha.
-The first distortion effects is a rotation of characters that will be scrambled from 0^{\circ}$ to 360^{\circ}$.
-The second distortion effects to flip characters to the horizontal as well as vertical.
-And the effects of distortion that last one is add a line that is added in figure at random.
-The third effect of the distortion will be combined so as to generate a CAPTCHA with a good quality.
-}
+\abstrakENG{The ratio between the number of the lecturers and the students has
+become the main problem for the lecturers to remember every history of their
+students. Therefore, this thesis will discuss about the establishment of the
+Student's History Information System can be called SIRM. SIRM is build by using
+four technology, they are Google Authentication, Markdown, StrapdownJS, dan Zurb
+Foundation.
+
+Google Authentication will be used a login system which limits the scope for the
+users. Markdown functions as a form in recording the student's history.
+Meanwhile, we can use StrapdownJS to feature the text which is written using
+Markdown syntax to HTML. Finally, Zurb Foundation acts as the appearance of SIRM
+interface. It is hoped that SIRM can help the lecturers to facilitate their
+students well.
+} 
 
 %=============================================================================
 
@@ -234,7 +240,8 @@ The third effect of the distortion will be combined so as to generate a CAPTCHA 
 %=============================================================================
 % Persembahan : kepada siapa anda mempersembahkan skripsi ini ...
 %=============================================================================
-\untuk{Dipersembahkan untuk diri sendiri }
+\untuk{Dipersembahkan untuk keluarga, teman-teman, dan semua pihak yang sudah
+membantu dalam tugas akhir ini}
 %=============================================================================
 
 %_____________________________________________________________________________
@@ -244,7 +251,7 @@ The third effect of the distortion will be combined so as to generate a CAPTCHA 
 % Kata Pengantar: tempat anda menuliskan kata pengantar dan ucapan terima 
 % kasih kepada yang telah membantu anda bla bla bla ....  
 %=============================================================================
-\prakata{\lipsum[1]}
+\prakata{\lipsum}
 %=============================================================================
 
 %_____________________________________________________________________________
