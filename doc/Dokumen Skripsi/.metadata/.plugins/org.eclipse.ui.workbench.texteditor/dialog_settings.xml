@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="histori" key="selection"/>
+		<item value="OAuth" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="Authentication"/>
 			<item value="histori"/>
 			<item value="entri"/>
 			<item value="web"/>
@@ -15,9 +16,9 @@
 			<item value="array"/>
 			<item value="log"/>
 			<item value="file"/>
-			<item value="Google Authentication"/>
 		</list>
 		<list key="replacehistory">
+			<item value="OAuth"/>
 			<item value="{\it browser}"/>
 			<item value="{\it array}"/>
 			<item value="{\it log}"/>
@@ -25,7 +26,6 @@
 			<item value="Google OAuth"/>
 			<item value="{\it web}"/>
 			<item value="{\it website}"/>
-			<item value="informasi"/>
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
