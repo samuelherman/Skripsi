@@ -1,0 +1,27 @@
+\chapter{Kesimpulan dan Saran}
+\label{chap:kesimpulandansaran}
+
+Pada bab ini akan diberikan kesimpulan yang didapat dari proses pemodelan dan
+pengujian perangkat lunak yang dibangun, juga saran-saran untuk penelitian ini
+jika ingin dikembangkan di kemudian hari.
+
+\section{Kesimpulan}
+\label{sec:kesimpulan}
+Kesimpulan yang didapat dari pembangunan perangkat lunak Sistem Inforamasi
+Riwayat Mahasiswa (SIRM) anatara lain :
+\begin{enumerate}[1]
+  \item Pada tahap analisis dapat disimpulkan
+  \item Pada tahap pengujian yang menggunakan metode {\it Black - Box Testing}
+  dapat disimpulkan bahwa perangkat lunak Sistem Informasi Riwayat Mahasiswa
+  (SIRM) sudah berjalan dengan baik dan memberikan {\it output} sesuai yang
+  diharapkan pengguna.
+  \item Pada tahap pengujian eksperimental
+\end{enumerate}
+
+\section{Saran}
+\label{sec:saran}
+Saran yang dapat diberikan untuk perbaikan dan pengembangan Sistem Informasi
+Riwayat Mahasiswa (SIRM) antara lain :
+\begin{enumerate}[1]
+  \item 
+\end{enumerate}

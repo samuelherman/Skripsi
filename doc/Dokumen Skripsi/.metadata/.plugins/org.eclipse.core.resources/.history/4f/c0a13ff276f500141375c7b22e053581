@@ -1,0 +1,74 @@
+\chapter{Kuesioner}
+\label{kuesioner}
+
+Identitas Responden
+\begin{enumerate}[1]
+  \item No. Responden	: \ldots\ldots (diisi oleh peneliti)
+  \item Jenis Kelamin	: Pria/Wanita
+  \item Usia			: \ldots\ldots\ldots tahun
+  \item Jurusan			: \ldots\ldots\ldots\ldots\ldots
+  \item Angakatan		: \ldots\ldots\ldots\ldots\ldots
+\end{enumerate}
+Berdasarkan atas pengalaman Sodara menjalankan program SIRM, berilah tanda
+centang pada bobot nilai alternatif jawaban yang paling merefleksikan persepsi
+Sodara pada setiap pertanyaan. (hanya diperbolehkan satu jawaban yang dianggap
+paling sesuai)
+
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+ \multirow{No} & \multirow{Pertanyaan} &
+ \multicolumn{4}{l|}{Alternatif}\\ \cline{3-6}
+  &     & SS/SB & S/B & TS/TB & STS/STB \\ \hline
+1 & Bagaimana program SIRM bekerja di komputer yang Anda gunakan? & & & & \\
+\hline
+2 & Bagaimana kinerja fungsi login yang ada dalam program SIRM? & & & & \\
+\hline
+3 & Bagaimana kinerja fungsi melihat daftar mahasiswa yang ada dalam program
+SIRM? & & & & \\
+\hline
+4 & Bagaimana kinerja fungsi melihat info mahasiswa yang ada dalam program
+SIRM? & & & & \\
+\hline
+5 & Bagaimana kinerja fungsi melihat histori yang ada dalam program SIRM? & & &
+& \\
+\hline
+6 & Bagaimana kinerja fungsi membuat entri baru yang ada dalam program SIRM? & &
+& & \\
+\hline
+7 & Bagaimana akurasi fungsi login yang ada dalam program SIRM? & & & & \\
+\hline
+8 & Bagaimana akurasi fungsi melihat daftar mahasiswa yang ada dalam program
+SIRM? & & & & \\
+\hline
+9 & Bagaimana akurasi fungsi melihat info mahasiswa yang ada dalam program
+SIRM? & & & & \\
+\hline
+10 & Bagaimana akurasi fungsi melihat histori yang ada dalam program SIRM? & & &
+& \\
+\hline
+11 & Bagaimana akurasi fungsi membuat entri baru yang ada dalam program SIRM? &
+& & & \\
+\hline
+12 & Apakah program SIRM sudah cukup mudah dalam penggunaannya? & & & & \\
+\hline
+13 & Apakah program SIRM membantu pemahamana Anda dalam mengelola riwayat
+mahasiswa? & & & & \\
+\hline
+14 & Apakah Anda merasa bekerja dengan program SIRM bisa lebih cepat dalam
+mengingat riwayat mahasiswa? & & & & \\
+\hline
+15 & Apakah Anda merasa bekerja dengan program SIRM bisa lebih akurat dalam
+mengingat riwayat mahasiswa? & & & & \\
+\hline
+\end{tabular}
+\end{table}
+
+Keterangan
+\begin{itemize}
+  \item SS/SB = Sangat Setuju/Sangat Baik
+  \item S/B = Setuju/Baik
+  \item TS/TB = Tidak Setuju/Tidak Baik
+  \item STS/STB = Sangat Tidak Setuju/Sangat Tidak Baik
+\end{itemize}
