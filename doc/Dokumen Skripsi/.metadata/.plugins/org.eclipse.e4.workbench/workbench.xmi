@@ -57,24 +57,32 @@
           <tags>persp.viewSC:org.eclipse.ui.views.ResourceNavigator</tags>
           <tags>persp.actionSet:org.eclipse.php.ui.text.php.actionSet.presentation</tags>
           <children xsi:type="basic:PartSashContainer" xmi:id="_dn48pfFbEeScpMNicuvGOg" selectedElement="_dn48qPFbEeScpMNicuvGOg" horizontal="true">
-            <children xsi:type="basic:PartStack" xmi:id="_dn48pvFbEeScpMNicuvGOg" elementId="topLeft" containerData="1603" selectedElement="_dn48p_FbEeScpMNicuvGOg">
+            <children xsi:type="basic:PartStack" xmi:id="_dn48pvFbEeScpMNicuvGOg" elementId="topLeft" visible="false" containerData="1603" selectedElement="_dn48p_FbEeScpMNicuvGOg">
               <tags>newtablook</tags>
+              <tags>Minimized</tags>
+              <tags>MinimizedByZoom</tags>
               <children xsi:type="advanced:Placeholder" xmi:id="_dn48p_FbEeScpMNicuvGOg" elementId="org.eclipse.php.ui.explorer" ref="_dn4-CvFbEeScpMNicuvGOg"/>
             </children>
             <children xsi:type="basic:PartSashContainer" xmi:id="_dn48qPFbEeScpMNicuvGOg" containerData="8397" selectedElement="_dn48qfFbEeScpMNicuvGOg">
               <children xsi:type="basic:PartSashContainer" xmi:id="_dn48qfFbEeScpMNicuvGOg" containerData="7500" selectedElement="_dn48qvFbEeScpMNicuvGOg" horizontal="true">
-                <children xsi:type="advanced:Placeholder" xmi:id="_dn48qvFbEeScpMNicuvGOg" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_dn49-_FbEeScpMNicuvGOg"/>
-                <children xsi:type="basic:PartStack" xmi:id="_dn48q_FbEeScpMNicuvGOg" elementId="right" containerData="2500" selectedElement="_dn48rPFbEeScpMNicuvGOg">
+                <children xsi:type="advanced:Placeholder" xmi:id="_dn48qvFbEeScpMNicuvGOg" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_dn49-_FbEeScpMNicuvGOg">
+                  <tags>Maximized</tags>
+                </children>
+                <children xsi:type="basic:PartStack" xmi:id="_dn48q_FbEeScpMNicuvGOg" elementId="right" visible="false" containerData="2500" selectedElement="_dn48rPFbEeScpMNicuvGOg">
                   <tags>newtablook</tags>
+                  <tags>Minimized</tags>
+                  <tags>MinimizedByZoom</tags>
                   <children xsi:type="advanced:Placeholder" xmi:id="_dn48rPFbEeScpMNicuvGOg" elementId="org.eclipse.ui.views.ContentOutline" ref="_dn4-OPFbEeScpMNicuvGOg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_dn48rfFbEeScpMNicuvGOg" elementId="org.eclipse.php.ui.projectOutline" toBeRendered="false" ref="_dn5jsfFbEeScpMNicuvGOg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_dn48rvFbEeScpMNicuvGOg" elementId="org.eclipse.php.ui.functions" toBeRendered="false" ref="_dn5jsvFbEeScpMNicuvGOg"/>
                   <children xsi:type="advanced:Placeholder" xmi:id="_dn48r_FbEeScpMNicuvGOg" elementId="org.eclipse.mylyn.tasks.ui.views.tasks" ref="_dn5js_FbEeScpMNicuvGOg"/>
                 </children>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_dn48sPFbEeScpMNicuvGOg" elementId="bottom" containerData="2500" selectedElement="_RNVZEPFeEeSKoNYD20leMA">
+              <children xsi:type="basic:PartStack" xmi:id="_dn48sPFbEeScpMNicuvGOg" elementId="bottom" visible="false" containerData="2500" selectedElement="_RNVZEPFeEeSKoNYD20leMA">
                 <tags>newtablook</tags>
                 <tags>org.eclipse.e4.secondaryDataStack</tags>
+                <tags>Minimized</tags>
+                <tags>MinimizedByZoom</tags>
                 <children xsi:type="advanced:Placeholder" xmi:id="_dn48sfFbEeScpMNicuvGOg" elementId="org.eclipse.ui.views.ProblemView" ref="_dn4-J_FbEeScpMNicuvGOg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_dn48svFbEeScpMNicuvGOg" elementId="org.eclipse.ui.console.ConsoleView" ref="_dn4-LPFbEeScpMNicuvGOg"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_dn48s_FbEeScpMNicuvGOg" elementId="org.eclipse.ui.views.BookmarkView" toBeRendered="false" ref="_dn4-N_FbEeScpMNicuvGOg"/>
@@ -158,7 +166,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_dn49-_FbEeScpMNicuvGOg" elementId="org.eclipse.ui.editorss" selectedElement="_dn49_PFbEeScpMNicuvGOg">
-      <children xsi:type="basic:PartStack" xmi:id="_dn49_PFbEeScpMNicuvGOg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_pC3xMPFmEeSbPdEFF7rsfA">
+      <children xsi:type="basic:PartStack" xmi:id="_dn49_PFbEeScpMNicuvGOg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_41l2cPchEeSUmqTjFL5eRA">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -214,12 +222,10 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_pC3xMPFmEeSbPdEFF7rsfA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bab4.tex" iconURI="platform:/plugin/net.sourceforge.texlipse/icons/texfile.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab4.tex&quot; partName=&quot;bab4.tex&quot; title=&quot;bab4.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab4.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab4.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;12322&quot; selectionTopPixel=&quot;5645&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab4.tex&quot; partName=&quot;bab4.tex&quot; title=&quot;bab4.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab4.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab4.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;12322&quot; selectionTopPixel=&quot;5610&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>net.sourceforge.texlipse.TexEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_p4WAoPFmEeSbPdEFF7rsfA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bab5.tex" iconURI="platform:/plugin/net.sourceforge.texlipse/icons/texfile.gif" closeable="true">
           <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab5.tex&quot; partName=&quot;bab5.tex&quot; title=&quot;bab5.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab5.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab5.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;29726&quot; selectionTopPixel=&quot;480&quot;/>&#xD;&#xA;&lt;/editor>"/>
@@ -234,10 +240,12 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_41l2cPchEeSUmqTjFL5eRA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="data.tex" iconURI="platform:/plugin/net.sourceforge.texlipse/icons/texfile.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;data.tex&quot; partName=&quot;data.tex&quot; title=&quot;data.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/data.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/data.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;2290&quot; selectionTopPixel=&quot;680&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;data.tex&quot; partName=&quot;data.tex&quot; title=&quot;data.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/data.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/data.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;11085&quot; selectionTopPixel=&quot;770&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>net.sourceforge.texlipse.TexEditor</tags>
           <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -382,7 +390,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5jyPFbEeScpMNicuvGOg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_8Ocqx_f0EeSYcOgW1DfdBA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_dn60cfFbEeScpMNicuvGOg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vmswBPgIEeSnPPfjfXNacg" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_dn60cfFbEeScpMNicuvGOg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5j1fFbEeScpMNicuvGOg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -403,7 +411,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5kAvFbEeScpMNicuvGOg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_8Ol0uff0EeSYcOgW1DfdBA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dn6z1PFbEeScpMNicuvGOg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_vm2hCPgIEeSnPPfjfXNacg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dn6z1PFbEeScpMNicuvGOg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5kFfFbEeScpMNicuvGOg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -437,19 +445,19 @@
         <tags>Draggable</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_dn5kK_FbEeScpMNicuvGOg" elementId="org.eclipse.ui.trim.vertical1" toBeRendered="false" side="Left">
+    <trimBars xmi:id="_dn5kK_FbEeScpMNicuvGOg" elementId="org.eclipse.ui.trim.vertical1" side="Left">
       <children xsi:type="menu:ToolControl" xmi:id="_dn5kLPFbEeScpMNicuvGOg" elementId="org.eclipse.ui.ide.perspectivestack(minimized)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_OY0ygPVuEeSzgdjdQhTXmg" elementId="topLeft(org.eclipse.php.perspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_OY0ygPVuEeSzgdjdQhTXmg" elementId="topLeft(org.eclipse.php.perspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
     </trimBars>
-    <trimBars xmi:id="_dn5kLfFbEeScpMNicuvGOg" elementId="org.eclipse.ui.trim.vertical2" toBeRendered="false" side="Right">
-      <children xsi:type="menu:ToolControl" xmi:id="_OZbPcPVuEeSzgdjdQhTXmg" elementId="right(org.eclipse.php.perspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+    <trimBars xmi:id="_dn5kLfFbEeScpMNicuvGOg" elementId="org.eclipse.ui.trim.vertical2" side="Right">
+      <children xsi:type="menu:ToolControl" xmi:id="_OZbPcPVuEeSzgdjdQhTXmg" elementId="right(org.eclipse.php.perspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
-      <children xsi:type="menu:ToolControl" xmi:id="_OZkZYPVuEeSzgdjdQhTXmg" elementId="bottom(org.eclipse.php.perspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
+      <children xsi:type="menu:ToolControl" xmi:id="_OZkZYPVuEeSzgdjdQhTXmg" elementId="bottom(org.eclipse.php.perspective)" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
         <tags>TrimStack</tags>
       </children>
       <children xsi:type="menu:ToolControl" xmi:id="_rWSVgPcdEeSUmqTjFL5eRA" elementId="org.eclipse.ui.editorss(org.eclipse.php.perspective)" toBeRendered="false" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.TrimStack">
