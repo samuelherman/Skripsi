@@ -96,7 +96,7 @@ Isilah deskripsi umum mahasiswa disini.
 
 # Catatan
 
-* 9 Oktober 2014, pertama kali dibuat
+* 27 Mei 2015, pertama kali dibuat
 						</textarea>
 					</div>
 				</div>

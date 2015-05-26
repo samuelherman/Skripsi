@@ -3,7 +3,7 @@
   <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workbench>&#xD;&#xA;&lt;mruList>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;lampC.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Lampiran/lampC.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Lampiran/lampC.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;data.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/data.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/data.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;lampB.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Lampiran/lampB.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Lampiran/lampB.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;lampA.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Lampiran/lampA.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Lampiran/lampA.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab3.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab3.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab3.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;data.aux&quot; tooltip=&quot;DokumenSkripsiSIRM/data.aux&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/data.aux&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;main.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/main.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/main.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab5.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab5.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab5.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab4.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab4.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab4.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab6.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab6.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab6.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab2.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab2.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab2.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;org.eclipse.ui.DefaultTextEditor&quot; name=&quot;main.pdf&quot; tooltip=&quot;DokumenSkripsiSIRM/main.pdf&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/main.pdf&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;file factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab1.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab1.tex&quot;>&#xD;&#xA;&lt;persistable path=&quot;/DokumenSkripsiSIRM/Bab/bab1.tex&quot;/>&#xD;&#xA;&lt;/file>&#xD;&#xA;&lt;/mruList>&#xD;&#xA;&lt;/workbench>"/>
   <tags>activeSchemeId:org.eclipse.ui.defaultAcceleratorConfiguration</tags>
   <tags>ModelMigrationProcessor.001</tags>
-  <children xsi:type="basic:TrimmedWindow" xmi:id="_dn48ofFbEeScpMNicuvGOg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_dn48ovFbEeScpMNicuvGOg" label="%trimmedwindow.label.eclipseSDK" x="683" y="0" width="683" height="728">
+  <children xsi:type="basic:TrimmedWindow" xmi:id="_dn48ofFbEeScpMNicuvGOg" elementId="IDEWindow" contributorURI="platform:/plugin/org.eclipse.platform" selectedElement="_dn48ovFbEeScpMNicuvGOg" label="%trimmedwindow.label.eclipseSDK" x="0" y="0" width="683" height="728">
     <persistedState key="coolBarVisible" value="true"/>
     <persistedState key="perspectiveBarVisible" value="true"/>
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
@@ -166,7 +166,7 @@
       <tags>categoryTag:Help</tags>
     </sharedElements>
     <sharedElements xsi:type="advanced:Area" xmi:id="_dn49-_FbEeScpMNicuvGOg" elementId="org.eclipse.ui.editorss" selectedElement="_dn49_PFbEeScpMNicuvGOg">
-      <children xsi:type="basic:PartStack" xmi:id="_dn49_PFbEeScpMNicuvGOg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_41l2cPchEeSUmqTjFL5eRA">
+      <children xsi:type="basic:PartStack" xmi:id="_dn49_PFbEeScpMNicuvGOg" elementId="org.eclipse.e4.primaryDataStack" selectedElement="_dn4-BvFbEeScpMNicuvGOg">
         <tags>newtablook</tags>
         <tags>org.eclipse.e4.primaryDataStack</tags>
         <tags>EditorStack</tags>
@@ -200,10 +200,12 @@
           <tags>removeOnHide</tags>
         </children>
         <children xsi:type="basic:Part" xmi:id="_dn4-BvFbEeScpMNicuvGOg" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bab3.tex" iconURI="platform:/plugin/net.sourceforge.texlipse/icons/texfile.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab3.tex&quot; partName=&quot;bab3.tex&quot; title=&quot;bab3.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab3.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab3.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;25967&quot; selectionTopPixel=&quot;10940&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab3.tex&quot; partName=&quot;bab3.tex&quot; title=&quot;bab3.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab3.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab3.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;18053&quot; selectionTopPixel=&quot;7365&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>net.sourceforge.texlipse.TexEditor</tags>
           <tags>removeOnHide</tags>
+          <tags>active</tags>
+          <tags>activeOnClose</tags>
           <menus xsi:type="menu:PopupMenu" xmi:id="_dn4-B_FbEeScpMNicuvGOg" elementId="net.sourceforge.texlipse.texEditorScope">
             <tags>menuContribution:popup</tags>
             <tags>popup:net.sourceforge.texlipse.texEditorScope</tags>
@@ -222,7 +224,7 @@
           </menus>
         </children>
         <children xsi:type="basic:Part" xmi:id="_pC3xMPFmEeSbPdEFF7rsfA" elementId="org.eclipse.e4.ui.compatibility.editor" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityEditor" label="bab4.tex" iconURI="platform:/plugin/net.sourceforge.texlipse/icons/texfile.gif" closeable="true">
-          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab4.tex&quot; partName=&quot;bab4.tex&quot; title=&quot;bab4.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab4.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab4.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;12322&quot; selectionTopPixel=&quot;5610&quot;/>&#xD;&#xA;&lt;/editor>"/>
+          <persistedState key="memento" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;editor id=&quot;net.sourceforge.texlipse.TexEditor&quot; name=&quot;bab4.tex&quot; partName=&quot;bab4.tex&quot; title=&quot;bab4.tex&quot; tooltip=&quot;DokumenSkripsiSIRM/Bab/bab4.tex&quot;>&#xD;&#xA;&lt;input factoryID=&quot;org.eclipse.ui.part.FileEditorInputFactory&quot; path=&quot;/DokumenSkripsiSIRM/Bab/bab4.tex&quot;/>&#xD;&#xA;&lt;editorState selectionHorizontalPixel=&quot;0&quot; selectionLength=&quot;0&quot; selectionOffset=&quot;6858&quot; selectionTopPixel=&quot;2727&quot;/>&#xD;&#xA;&lt;/editor>"/>
           <tags>Editor</tags>
           <tags>net.sourceforge.texlipse.TexEditor</tags>
           <tags>removeOnHide</tags>
@@ -244,8 +246,6 @@
           <tags>Editor</tags>
           <tags>net.sourceforge.texlipse.TexEditor</tags>
           <tags>removeOnHide</tags>
-          <tags>active</tags>
-          <tags>activeOnClose</tags>
         </children>
       </children>
     </sharedElements>
@@ -390,7 +390,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5jyPFbEeScpMNicuvGOg" elementId="org.eclipse.ui.workbench.file">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PQ8CR_gLEeSVZO9CffehaA" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_dn60cfFbEeScpMNicuvGOg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PxFrlwOIEeWEguU6PyHTKg" elementId="print" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/print_edit.png" tooltip="Print" enabled="false" command="_dn60cfFbEeScpMNicuvGOg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5j1fFbEeScpMNicuvGOg" elementId="additions" toBeRendered="false">
         <tags>toolbarSeparator</tags>
@@ -411,7 +411,7 @@
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5kAvFbEeScpMNicuvGOg" elementId="org.eclipse.ui.workbench.navigate">
         <tags>Draggable</tags>
-        <children xsi:type="menu:HandledToolItem" xmi:id="_PRFzSfgLEeSVZO9CffehaA" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dn6z1PFbEeScpMNicuvGOg"/>
+        <children xsi:type="menu:HandledToolItem" xmi:id="_PxPcmQOIEeWEguU6PyHTKg" elementId="org.eclipse.ui.window.pinEditor" visible="false" iconURI="platform:/plugin/org.eclipse.ui/icons/full/etool16/pin_editor.png" tooltip="Pin Editor" type="Check" command="_dn6z1PFbEeScpMNicuvGOg"/>
       </children>
       <children xsi:type="menu:ToolBar" xmi:id="_dn5kFfFbEeScpMNicuvGOg" elementId="group.editor" toBeRendered="false">
         <tags>toolbarSeparator</tags>

@@ -177,7 +177,7 @@ Modul login yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \label{tab:modullogin}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & login.php\\
+Nama Modul & index.php\\
 \hline
 Input & {\it username}, {\it password}\\
 \hline
@@ -201,7 +201,7 @@ Tabel \ref{tab:modulpilihmahasiswa}.
 \label{tab:modulpilihmahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & pilihmahasiswa.php\\
+Nama Modul & list.php\\
 \hline
 Input & npm\\
 \hline
@@ -209,9 +209,8 @@ Output & Tabel mahasiswa\\
 \hline
 Tabel yang diakses & InfoMahasiswa\\
 \hline
-Deskripsi & Pengguna memasukkan npm yang ingin dicari, pengguna juga dapat
-memilih langsung mahasiswa yang ingin dilihat infonya tanpa melakukan pencarian
-terlebih dahulu dan pengguna juga dapat membaut entri baru.\\
+Deskripsi & Pengguna memilih npm yang ingin dicari sebagai input yang akan
+diteruskan ke modul info mahasiswa dan pengguna juga dapat membaut entri baru.\\
 \hline
 \end{tabular}
 \end{table}
@@ -226,7 +225,7 @@ Tabel \ref{tab:modulinfomahasiswa}.
 \label{tab:modulinfomahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & infomahasiswa.php\\
+Nama Modul & view.php\\
 \hline
 Input & -\\
 \hline
@@ -251,7 +250,7 @@ pada Tabel \ref{tab:moduleditmahasiswa}.
 \label{tab:moduleditmahasiswa}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & editmahasiswa.php\\
+Nama Modul & edit.php\\
 \hline
 Input & teks dalam format markdown\\
 \hline
@@ -277,7 +276,7 @@ Tabel \ref{tab:modullihathistori}.
 \label{tab:modullihathistori}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & lihathistori.php\\
+Nama Modul & history.php\\
 \hline
 Input & -\\
 \hline
@@ -301,12 +300,13 @@ Modul entri baru yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \label{tab:modulentribaru}
 \begin{tabular}{|c|p{7cm}|}
 \hline
-Nama Modul & entribaru.php\\
+Nama Modul & new.php\\
 \hline
 Input & npm, nama, dan teks dalam format markdown\\
 \hline
 Output & -\\
 \hline
+Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
 Deskripsi & Pengguna memasukkan npm, nama, dan keterangan mahasiswa pada teks
 area yang telah disediakan menggunakan teks dengan sintaks Markdown lalu

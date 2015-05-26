@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.12)  12 MAY 2015 01:27
+This is pdfTeX, Version 3.1415926-1.40.11 (MiKTeX 2.9) (preloaded format=pdflatex 2015.5.26)  26 MAY 2015 21:46
 entering extended mode
 **main.tex
 ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\main.tex"
@@ -1845,6 +1845,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 659--659
  []
 
 
+Underfull \hbox (badness 2293) in paragraph at lines 661--661
+[]|[]\T1/cmr/m/n/10.95 Sistem ak-an me-re-kam
+ []
+
+
+Underfull \hbox (badness 5374) in paragraph at lines 661--661
+\T1/cmr/m/n/10.95 in-put-an peng-gu-na ke
+ []
+
+
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [48] [49] <Gambar/ERD.png, id=1752, 972.63374pt x 326.72063pt>
@@ -1944,6 +1954,9 @@ Overfull \hbox (1.09167pt too wide) in paragraph at lines 331--331
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+Underfull \vbox (badness 1910) has occurred while \output is active []
+
+ [58]
 Overfull \hbox (1.5397pt too wide) in paragraph at lines 353--353
 []|\T1/cmr/m/n/10.95 Ukuran| 
  []
@@ -1963,121 +1976,124 @@ Overfull \hbox (27.53384pt too wide) in paragraph at lines 351--368
 [][][] 
  []
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[58] <Gambar/sekuenslogin.png, id=1848, 666.99188pt x 504.38437pt>
+<Gambar/sekuenslogin.png, id=1848, 666.99188pt x 504.38437pt>
 File: Gambar/sekuenslogin.png Graphic file (type png)
 
 <use Gambar/sekuenslogin.png>
-<Gambar/sekuenslist.png, id=1849, 787.44188pt x 516.42938pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [59]
+<Gambar/sekuenslist.png, id=1857, 787.44188pt x 516.42938pt>
 File: Gambar/sekuenslist.png Graphic file (type png)
 
-<use Gambar/sekuenslist.png> [59 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar
-/sekuenslogin.png>]
-<Gambar/sekuensview.png, id=1859, 931.22906pt x 516.42938pt>
+<use Gambar/sekuenslist.png>
+<Gambar/sekuensview.png, id=1858, 931.22906pt x 516.42938pt>
 File: Gambar/sekuensview.png Graphic file (type png)
 
-<use Gambar/sekuensview.png>) [60 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gamba
-r/sekuenslist.png> <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/sekuensview.p
-ng>] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Bab/bab5.tex"
+<use Gambar/sekuensview.png>)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [60 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/sekuenslogin.png> <E:/Skrip
+si/Skripsi/doc/Dokumen Skripsi/Gambar/sekuenslist.png>] [61 <E:/Skripsi/Skripsi
+/doc/Dokumen Skripsi/Gambar/sekuensview.png>]
+("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Bab/bab5.tex" [62
+
+
+
+]
 Bab 5.
-[61
-
-
-
-] [62] [63] [64]
-<Gambar/pengujian1.png, id=1929, 782.17218pt x 213.04594pt>
+[63] [64] [65] [66]
+<Gambar/pengujian1.png, id=1938, 782.17218pt x 213.04594pt>
 File: Gambar/pengujian1.png Graphic file (type png)
 
 <use Gambar/pengujian1.png>
-<Gambar/pengujian2.png, id=1930, 395.97937pt x 394.47375pt>
+<Gambar/pengujian2.png, id=1939, 395.97937pt x 394.47375pt>
 File: Gambar/pengujian2.png Graphic file (type png)
 
 <use Gambar/pengujian2.png>
-<Gambar/pengujian3.png, id=1931, 457.71pt x 316.93407pt>
+<Gambar/pengujian3.png, id=1940, 457.71pt x 316.93407pt>
 File: Gambar/pengujian3.png Graphic file (type png)
 
 <use Gambar/pengujian3.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [65 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian1.png (PNG copy)> 
+ [67 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian1.png (PNG copy)> 
 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian2.png (PNG copy)>]
-<Gambar/pengujian4.png, id=1937, 339.51843pt x 423.83344pt>
+<Gambar/pengujian4.png, id=1945, 339.51843pt x 423.83344pt>
 File: Gambar/pengujian4.png Graphic file (type png)
 
 <use Gambar/pengujian4.png>
-<Gambar/pengujian5.png, id=1938, 1014.03844pt x 303.38344pt>
+<Gambar/pengujian5.png, id=1946, 1014.03844pt x 303.38344pt>
 File: Gambar/pengujian5.png Graphic file (type png)
 
 <use Gambar/pengujian5.png>
-<Gambar/pengujian6.png, id=1939, 347.04657pt x 447.92343pt>
+<Gambar/pengujian6.png, id=1947, 347.04657pt x 447.92343pt>
 File: Gambar/pengujian6.png Graphic file (type png)
 
 <use Gambar/pengujian6.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [66 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian3.png (PNG copy)> 
+ [68 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian3.png (PNG copy)> 
 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian4.png (PNG copy)> <E:/S
 kripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian5.png (PNG copy)>]
-<Gambar/pengujian7.png, id=1944, 417.05812pt x 207.77625pt>
+<Gambar/pengujian7.png, id=1952, 417.05812pt x 207.77625pt>
 File: Gambar/pengujian7.png Graphic file (type png)
 
 <use Gambar/pengujian7.png>
-<Gambar/pengujian8.png, id=1945, 898.10532pt x 484.05844pt>
+<Gambar/pengujian8.png, id=1953, 898.10532pt x 484.05844pt>
 File: Gambar/pengujian8.png Graphic file (type png)
 
 <use Gambar/pengujian8.png>
-<Gambar/pengujian9.png, id=1946, 706.89093pt x 354.57469pt>
+<Gambar/pengujian9.png, id=1954, 706.89093pt x 354.57469pt>
 File: Gambar/pengujian9.png Graphic file (type png)
 
 <use Gambar/pengujian9.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [67 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian6.png (PNG copy)> 
+ [69 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian6.png (PNG copy)> 
 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian7.png (PNG copy)> <E:/S
 kripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian8.png (PNG copy)>]
-<Gambar/pengujian10.png, id=1951, 762.59906pt x 383.18156pt>
+<Gambar/pengujian10.png, id=1959, 762.59906pt x 383.18156pt>
 File: Gambar/pengujian10.png Graphic file (type png)
 
 <use Gambar/pengujian10.png>
-<Gambar/pengujian11.png, id=1952, 782.17218pt x 361.35pt>
+<Gambar/pengujian11.png, id=1960, 782.17218pt x 361.35pt>
 File: Gambar/pengujian11.png Graphic file (type png)
 
 <use Gambar/pengujian11.png>
-<Gambar/pengujian12.png, id=1953, 677.53125pt x 240.9pt>
+<Gambar/pengujian12.png, id=1961, 677.53125pt x 240.9pt>
 File: Gambar/pengujian12.png Graphic file (type png)
 
 <use Gambar/pengujian12.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [68 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian9.png (PNG copy)> 
+ [70 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian9.png (PNG copy)> 
 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian10.png (PNG copy)> <E:/
 Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian11.png (PNG copy)>]
-<Gambar/pengujian13.png, id=1958, 683.55376pt x 277.78781pt>
+<Gambar/pengujian13.png, id=1966, 683.55376pt x 277.78781pt>
 File: Gambar/pengujian13.png Graphic file (type png)
 
 <use Gambar/pengujian13.png>
-<Gambar/pengujian14.png, id=1959, 770.12718pt x 446.41782pt>
+<Gambar/pengujian14.png, id=1967, 770.12718pt x 446.41782pt>
 File: Gambar/pengujian14.png Graphic file (type png)
 
 <use Gambar/pengujian14.png>
-<Gambar/pengujian15.png, id=1960, 761.09344pt x 432.86719pt>
+<Gambar/pengujian15.png, id=1968, 761.09344pt x 432.86719pt>
 File: Gambar/pengujian15.png Graphic file (type png)
 
 <use Gambar/pengujian15.png>
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [69 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian12.png> <E:/Skrips
+ [71 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian12.png> <E:/Skrips
 i/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian13.png> <E:/Skripsi/Skripsi/doc/D
 okumen Skripsi/Gambar/pengujian14.png (PNG copy)>]
-<Gambar/pengujian16.png, id=1967, 785.18344pt x 351.56343pt>
+<Gambar/pengujian16.png, id=1976, 785.18344pt x 351.56343pt>
 File: Gambar/pengujian16.png Graphic file (type png)
 
 <use Gambar/pengujian16.png>
 Underfull \vbox (badness 1616) has occurred while \output is active []
 
- [70 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian15.png (PNG copy)>
+ [72 <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian15.png (PNG copy)>
  <E:/Skripsi/Skripsi/doc/Dokumen Skripsi/Gambar/pengujian16.png (PNG copy)>]
 Underfull \hbox (badness 10000) in paragraph at lines 386--386
 []|[]\T1/cmr/m/n/10.95 Melihat Daf-tar
@@ -2101,7 +2117,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 394--394
 
 Underfull \vbox (badness 1067) has occurred while \output is active []
 
- [71]
+ [73]
 Underfull \hbox (badness 10000) in paragraph at lines 409--410
 
  []
@@ -2126,7 +2142,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 447--447
 []|[]\T1/cmr/m/n/10.95 Membuat En-tri
  []
 
-[72]
+[74]
 Underfull \hbox (badness 1635) in paragraph at lines 470--472
 []|\T1/cmr/m/n/10.95 Kelompok per-ta-
  []
@@ -2211,7 +2227,7 @@ Underfull \hbox (badness 7326) in paragraph at lines 485--487
 \T1/cmr/m/n/10.95 ma le-bih ce-pat
  []
 
-[73]
+[75]
 Overfull \hbox (2.35197pt too wide) in paragraph at lines 613--613
 []|\T1/cmr/m/n/10.95 10| 
  []
@@ -2365,13 +2381,13 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [74] [75] [76] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Bab/bab6.tex"
+) [76] [77] [78] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Bab/bab6.tex"
 Bab 6.
-) [77
+) [79
 
 
 
-] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\main.bbl" [78
+] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\main.bbl" [80
 
 
 ]
@@ -2386,7 +2402,7 @@ Underfull \hbox (badness 7433) in paragraph at lines 20--22
  ele-gant Mar-kdo-wn do-cu-men-ts\T1/cmr/m/n/10.95 .  ht-
  []
 
-) [79] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampA.tex" [80
+) [81] ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampA.tex" [82
 
 
 ]
@@ -2396,16 +2412,16 @@ File: lstlang1.sty 2014/09/06 1.5e listings language file
 )
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\listings\lstlang2.sty"
 File: lstlang2.sty 2014/09/06 1.5e listings language file
-) [81]
-[82] [83] [84] [85] [86]) [87]
-("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampB.tex" [88
+) [83]
+[84] [85] [86] [87] [88]) [89]
+("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampB.tex" [90
 
 
 
 ]
 Lampiran B.
-[89] [90] [91] [92] [93] [94]) [95]
-("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampC.tex" [96
+[91] [92] [93] [94] [95] [96]) [97]
+("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\Lampiran/lampC.tex" [98
 
 
 
@@ -2429,7 +2445,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 52--52
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) [97] [98]
+) [99] [100]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 551.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 551.
  ("E:\Skripsi\Skripsi\doc\Dokumen Skripsi\main.aux"
@@ -2447,9 +2463,9 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: C11A382B23BC097EBF804DE211C6D7DA;13024.
  ) 
 Here is how much of TeX's memory you used:
- 35535 strings out of 494019
- 764148 string characters out of 3143879
- 1792038 words of memory out of 3000000
+ 35537 strings out of 494019
+ 764167 string characters out of 3143879
+ 1792100 words of memory out of 3000000
  35784 multiletter control sequences out of 15000+200000
  22808 words of font info for 51 fonts, out of 3000000 for 9000
  718 hyphenation exceptions out of 8191
@@ -2476,9 +2492,9 @@ x1440.pk><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi
 pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pf
 b><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy6.pfb><
 C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (112 pages, 2359093 bytes).
+Output written on main.pdf (114 pages, 2359111 bytes).
 PDF statistics:
- 4429 PDF objects out of 5155 (max. 8388607)
- 2282 named destinations out of 2487 (max. 500000)
+ 4437 PDF objects out of 5155 (max. 8388607)
+ 2284 named destinations out of 2487 (max. 500000)
  1065 words of extra memory for PDF output out of 10000 (max. 10000000)
 
