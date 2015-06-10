@@ -1,0 +1,69 @@
+\chapter{Pendahuluan}
+\label{chap:pendahuluan}
+
+\section{Latar Belakang}
+\label{sec:latarbelakang}
+
+Di tahun 2014 terdapat 14 dosen di Falkutas Teknologi Informasi dan Sains \cite{Ftis:2014} yang memiliki tugas untuk mengajar, menjadi dosen wali, dan menjadi dosen pembimbing bagi mahasiswa yang sedang menyusun skripsi. Sedangkan mahasiswa yang berinteraksi dengan dosen pada saat pembelajaran di kelas, perwalian, maupun bimbingan skripsi belum tentu sama. Maka dari itu jumlah dosen dan jumlah mahasiswa menjadi pemasalahan. Permasalahan tersebut disebabkan karena minimnya jumlah dosen yang diharuskan berinteraksi dengan banyak mahasiswa. Minimnya jumlah dosen mengakibatkan seorang dosen kesulitan dalam mengingat perkembangan setiap mahasiswa serta sejarah riwayat setiap mahasiswa, terutama terkaitnya interaksi dengan dosen lain.
+
+Berdasarkan jabaran masalah diatas, maka solusi untuk membantu para dosen adalah membuat sebuah sistem yang dapat mencatat dan membagikan riwayat mahasiswa. Dimana sistem hanya dapat diakses oleh dosen dengan menggunakan akun dosen yang diberikan oleh pihak UNPAR. Dalam sistem ini dosen dapat melakukan beberapa aksi. Pertama, dosen dapat melihat data mahasiswa yang telah terdaftar di basis data. Kedua, dosen dapat melihat data informasi mahasiswa yang ingin dilihat. Ketiga, dosen dapat mengubah data informasi mahasiswa. Keempat, dosen dapat melihat histori yang dimiliki setiap mahasiswa (untuk aksi melihat, mengedit, membuat entri baru yang dilakukan dosen) dan dapat melihat setiap versi data informasi mahasiswa mulai dari pertama kali dibuat sampai yang terakhir. Kelima, dosen dapat membuat entri baru untuk mahasiswa yang belum tercatat pada basis data. 
+
+Untuk membangun sistem tersebut digunakan empat teknologi antara lain; Google OAuth, Markdown Syntax, StrapdownJS, Zurb Foundation. Google OAuth akan digunakan untuk fungsi login dalam mengautentikasi dan mengotorisasi pengguna yang menggunakan akun dosen UNPAR. Markdown Syntax akan digunakan untuk membuat informasi mahasiswa dengan format penulisan yang mudah dibaca dan ditulis oleh dosen sehingga penulisan pada sistem akan seragam. StrapdownJS akan digunakan pada sistem untuk mengkonversi format penulisan yang dibuat menggunakan Markdown Syntax menjadi tampilan HTML. Zurb Foundation akan digunakan untuk membuat tampilan antar muka menjadi responsif.
+
+\section{Rumusan Masalah}
+Berdasarkan latar belakang maka dapat dirumuskan permasalahan sebagai berikut:
+\begin{itemize}
+	\item Bagaimana mengautentikasi akun dosen UNPAR?
+	\item Bagaimana membuat format untuk penulisan teks yang dapat digunakan oleh semua dosen?
+	\item Bagaimana menampilkan teks dengan format yang telah dibuat ke halaman website?
+	\item Bagaimana merancang antarmuka sistem menggunakan Zurb Foundation?
+\end{itemize}
+
+\section{Tujuan}
+Berdasarkan rumusan masalah yang ditulis dalam sub bab 2, tujuan utama yang
+ingin dicapai melalui penelitian ini adalah:
+\begin{itemize}
+	\item Mengautentikasi akun dosen UNPAR.
+	\item Membuat format untuk penulisan teks yang dapat digunakan oleh semua dosen.
+	\item Menampilkan teks dengan format yang telah dibuat ke halaman website.
+	\item Merancang antarmuka sistem menggunakan Zurb Foundation.
+\end{itemize}
+
+\section{Batasan Masalah}
+Dalam penelitian ini ditetapkan batasan-batasan yang akan menjadi pedoman dalam
+pelaksanaan penelitian:
+\begin{itemize}
+    \item Sistem membutuhkan akses internet.
+	\item Sistem tidak terintegrasi dengan Sistem Informasi Akademik.
+\end{itemize}
+
+\section{Metodologi Penelitian}
+Metodologi yang digunakan untuk menyusun penelitian:
+\begin{itemize}
+    \item Melakukan survei kebutuhan pengguna.
+	\item Melakukan studi pustaka mengenai teknologi yang akan digunakan untuk
+	membangun perangkat lunak.
+	\item Menganalisis cara kerja teknologi yang akan digunakan untuk membangun
+	perangkat lunak.
+	\item Merancang perangkat lunak yang akan dibuat.
+	\item Melakukan implementasi untuk perangkat lunak yang
+	telah dirancang ke dalam {\it script} PHP.
+	\item Melakukan pengujian perangkat lunak yang telah diimplementasikan.
+\end{itemize}
+
+\section{Sistematika Pembahasan}
+Sistematika pembahasan dalam penelitian ini adalah sebagai berikut:
+\begin{itemize}
+	\item Bab I Pendahuluan\\
+	Bab ini menjelaskan latar belakang permasalahan, rumusan masalah, tujuan, batasan masalah, metodologi penelitian, dan sistematika pembahasan.
+	\item Bab II Dasar Teori\\
+	Bab ini menjelaskan teori-teori dasar mengenai Google OAuth, Markdown Syntax, StrapdownJS, dan Zurb Foundation yang menjadi refrensi utama dalam pelaksanaan penelitian.
+	\item Bab III Analisis\\
+	Bab ini berisi analisis mengenai kebutuhan pengguna, Google OAuth, Markdown Syntax, StrapdownJS, dan Zurb Foundation yang akan digunakan pada penelitian ini.
+	\item Bab IV Perancangan\\
+	Bab ini berisi perancangan perangkat lunak yang akan dibuat.
+	\item Bab V Implementasi dan Pengujian\\
+	Bab ini berisi pengimplementasian dan pengujian perangkat lunak.
+	\item Bab VI Kesimpulan dan Saran\\
+	Bab ini berisi kesimpulan dari hasil penelitian dan saran untuk pengembangan lebih lanjut.
+\end{itemize}

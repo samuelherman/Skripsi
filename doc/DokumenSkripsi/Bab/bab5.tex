@@ -1,0 +1,284 @@
+\chapter{Implementasi dan Pengujian Perangkat Lunak}
+\label{chap:implementasidanpengujian}
+
+Bab ini terdiri atas tiga bagian, yaitu Implementasi Perangkat Lunak, Implementasi Basis Data dan Pengujian Perangkat Lunak. Bagian implementasi berisi penjelasan lingkungan pengembangan perangkat lunak. Sedangkan bagian pengujian berisi hasil pengujian terhadap perangkat lunak yang telah dibangun.
+
+\section{Implementasi Perangkat Lunak}
+\label{sec:implementasiperangkatlunak}
+
+Pada bagian ini akan dibahas hasil implementasi perangkat lunak yang telah dibangun. Subbab ini terdiri atas tiga bagian, yaitu lingkungan perangkat keras, lingkungan perangkat lunak, dan hasil implementasi perangkat lunak.
+
+\subsection{Lingkungan Implementasi Perangkat Keras}
+\label{sec:lingkunganimplementasiperangkatkeras}
+
+Dalam membangun perangkat lunak ini digunakan spesifikasi perangkat keras sebagai berikut:
+
+\begin{enumerate}
+\item[(a)] Processor: AMD A10-5750M 2.5GHz
+\item[(b)] RAM: 4 GB DDR3
+\item[(c)] Harddisk: 1TB
+\item[(d)] VGA: AMD Radeon HD 8650G 2GB
+\item[(e)] Koneksi Internet: WAN
+\end{enumerate}
+
+\subsection{Lingkungan Implementasi Perangkat Lunak}
+\label{sec:lingkunganimplementasiperangkatlunak}
+
+Dalam membangun perangkat lunak ini digunakan spesifikasi perangkat lunak sebagai berikut:
+
+\begin{enumerate}
+\item[(a)] Sistem Operasi: Windows 8.1 Pro 64-bit
+\item[(b)] Bahasa Pemrograman: PHP Version 5.6.3
+\item[(c)] Aplikasi: XAMPP v5.6.3
+\item[(d)] DBMS: MySQL
+\item[(e)] Aplikasi web browser: Google Chrome
+\item[(f)] Library: Google APIs Client Library untuk PHP
+\item[(g)] Javascript: Strapdown.js
+\item[(h)] Framework: Foundation 5
+\end{enumerate}
+
+\subsection{Hasil Implementasi Perangkat Lunak}
+\label{sec:hasilimplementasi}
+
+Kode program perangkat lunak ditulis berdasarkan perancangan yang telah dibahas pada Bab~\ref{chap:perancangan}. Hasil implementasi perangkat lunak menghasilkan kode program berbasis PHP. Kode program yang telah diimplementasi dapat dilihat pada Lapiran~\ref{kode_program}.
+
+\section{Implementasi Basis Data}
+\label{sec:implementasibasisdata}
+
+Implementasi basis data dalam sistem informasi riwayat mahasiswa, tahap pertama membuat sebuat basis data baru dan memberi nama sirm untuk basis data tersebut. Untuk kode dapat dilihat di bawah ini.
+\begin{lstlisting}
+CREATE DATABASE 'sirm' ;
+\end{lstlisting}
+
+Basis data sistem informasi riwayat mahasiswa menggunakan dua tabel basis data. Tabel-tabel tersebut terdiri dari :
+\begin{itemize}
+\item Tabel InfoMahasiswa, digunakan untuk menyimpan semua data mahasiswa yang dapat diakses oleh pengguna. Untuk kode dapat dilihat di bawah ini.
+
+\begin{lstlisting}
+  CREATE TABLE 'info_mahasiswa' (
+  'npm' varchar(10) NOT NULL,
+  'nama' varchar(60) NOT NULL,
+  'keterangan' text NOT NULL,
+  'pembaruan_terakhir' datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY ('npm'),
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+\end{lstlisting}
+
+\item Tabel Histori, digunakan untuk menyimpan semua data histori baik aksi pengguna dan riwayat mahasiswa. Untuk kode dapat dilihat di bawah ini.
+\begin{lstlisting}
+  CREATE TABLE 'histori' (
+  'id_histori' int(5) NOT NULL AUTO_INCREMENT,
+  'npm' varchar(10) NOT NULL,
+  'pengguna' varchar(60) NOT NULL,
+  'status' text NOT NULL,
+  'tanggal_pembaruan' datetime NOT NULL,
+  'keterangan' text NOT NULL,
+  PRIMARY KEY ('id_histori'),
+  KEY 'npm' ('npm'),
+  ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ;
+\end{lstlisting}
+\end{itemize}
+
+\section{Pengujian Perangkat Lunak}
+\label{sec:pengujianperangkatlunak}
+
+Pada bagian ini akan dibahas mengenai pengujian yang akan dilakukan terhadap perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian pengujian terdapat perubahan program pada bagian oauth.php, jadi dapat menjalankan pengujian dengan email yang diakhiri @student.unpar.ac.id dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id. Kode program untuk pengujian perangkat lunak dapat dilihat pada Lampiran~\ref{kode_program_pengujian}.
+
+\subsection{Lingkungan Pengujian Perangkat Keras}
+\label{sec:lingkunganpengujianperangkatkeras}
+
+Dalam pengujian perangkat lunak ini digunakan spesifikasi perangkat keras sebagai berikut:
+
+\begin{enumerate}
+\item[(a)] Processor: AMD A10-5750M 2.5GHz
+\item[(b)] RAM: 4 GB DDR3
+\item[(c)] Harddisk: 1TB
+\item[(d)] VGA: AMD Radeon HD 8650G 2GB
+\item[(e)] Koneksi Internet: WAN
+\end{enumerate}
+
+\subsection{Lingkungan Pengujian Perangkat Lunak}
+\label{sec:lingkunganpengujianperangkatlunak}
+
+Dalam pengujian perangkat lunak ini digunakan spesifikasi perangkat lunak sebagai berikut:
+
+\begin{enumerate}
+\item[(a)] Sistem Operasi: Windows 8.1 Pro 64-bit
+\item[(b)] Bahasa Pemrograman: PHP Version 5.6.3
+\item[(c)] Aplikasi: XAMPP v5.6.3
+\item[(d)] DBMS: MySQL
+\item[(e)] Aplikasi web browser: Google Chrome
+\item[(f)] Library: Google APIs Client Library untuk PHP
+\item[(g)] Javascript: Strapdown.js
+\item[(h)] Framework: Foundation 5
+\end{enumerate}
+
+\subsection{Pengujian Fungsional}
+\label{sec:pengujianfungsional}
+Pengujian fungsional menguji tampilan antar muka perangkat lunak beserta fungsi dasar. Berikut ini adalah daftar pengujian yang dilakukan:
+\begin{enumerate}[(1)]
+\item Fungsi login\\
+    Pengujian fungsi ini dilakukan untuk memastikan perangkat lunak terhubung ke server Google untuk melakukan otentikasi dan otorisasi serta memeriksa apakah email yang digunakan untuk login diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id" dikarenakan penulis tidak mempunyai akun dosen.
+    
+    Contoh kasus adalah melakukan login sebanyak dua kali, yang pertama menggunakan email yang diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id", dan yang kedua menggunakan email yang diakhiri selain "@unpar.ac.id" dan "@student.unpar.ac.id". Pengujian pertama pengguna membuka halaman index.php dapat dilihat pada Gambar \ref{fig:membukahalamanindex}. Lalu pengguna melakukan login menggunakan email "7310013@sudent.unpar.ac.id" dapat dilihat pada Gambar \ref{fig:logindenganstudent}. Lalu akan ada konfirmasi bahwa akun yang digunakan dikelola oleh student.unpar.ac.id dapat dilihat pada Gambar \ref{fig:konfirmasiemail}. Lalu pengguna akan diarahkan ke CAS (Central Authentication Service) UNPAR dan melakukan login kembali dapat dilihat pada Gambar \ref{fig:casunpar}. Lalu pengguna akan diminta untuk memberikan izin aksses dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izindaripihakpengguna}. Setelah pengguna memberikan izin akses maka akan dilakukan dengan fungsi memilih mahasiswa yang akan dibahas pada poin berikutnya. Sedangkan pengujian kedua pengguna melakukan login menggunakan email "bletack@gmail.com" dapat dilihat pada Gambar \ref{fig:logindengangmail}. Lalu pengguna akan mendapat {\it alert} karena email yang digunakan tidak sesuai dengan ketentuan dapat dilihat pada Gambar \ref{fig:alert}. Setelah pengguna menekan tombol ok pada {\it alert} maka pengguna akan dikembalikan ke halaman index.php. Hal ini menunjukkan fungsi login sudah berjalan dengan baik.
+
+\item Fungsi memilih mahasiswa\\
+	Pengujian fungsi ini dilakukan untuk memastikan pengguna dapat memilih mahasiswa. Pada halaman list.php terdapat tabel yang berisikan npm, nama, dan last update dan pengguna dapat memilih mahasiswa dengan menekan npm yang diinginkan. Contoh pengujian pengguna akan memilih mahasiswa dengan npm 2010730013 maka akan menghasilkan link yang mengarah ke $view.php?npm=2010730013$ dapat dilihat pada Gambar \ref{fig:memilihmahasiswa}. Hal ini menunjukkan fungsi memilih mahasiswa sudah berjalan dengan baik.
+	
+\item Fungsi melihat info mahasiswa\\
+	Pengujian fungsi ini dilakukan untuk memastikan pengguna dapat melihat informasi mahasiswa dari mahasiswa yang telah dipilih oleh pengguna. Contoh pengujian fungsi ini merupakan lanjutan dari fungsi memilih mahasiswa, dimana setelah pengguna memilih mahasiswa pada list.php maka sistem akan menampilkan informasi dari mahasiswa tersebut dapat dilihat pada Gambar \ref{fig:melihatinfomahasiswa}. Hal ini menunjukkan fungsi melihat info mahasiswa sudah berjalan dengan baik.
+	
+\item Fungsi mengedit info mahasiswa\\
+	Pengujian fungsi ini dilakukan untuk memastikan informasi mahasiswa dapat diedit. Contoh pengujian mengambil informasi dari mahasiswa yang telah dilihat informasinya pada fungsi melihat info mahasiswa. Dimana keterangan sebagai salah satu informasi mahasiswa yang ada akan ditampilkan dan pengguna dapat melakukan perubahan lalu menyimpan perubahan dengan menekan tombol "Simpan" dapat dilihat pada Gambar \ref{fig:mengeditinfomahasiswa}. Setelah menyimpan perubahan pengguna akan dibawa kembali ke halaman list.php. Hal ini menunjukkan fungsi mengedit info mahasiswa sudah berjalan dengan baik.
+	
+\item Fungsi melihat histori\\
+	Pengujian fungsi ini dilakukan untuk memastikan adanya histori dari mahasiswa yang dipilih dan dapat melihat versi keterangan yang pertama kali dibuat dan versi-versi berikutnya yang sudah dirubah. Contoh pengujian melihat histori dari mahasiswa yang memiliki npm 2010730013 dapat dilihat pada Gambar \ref{fig:melihathistori} dan juga melihat keterangan versi pertama berserta versi berikutnya dapat dilihat pada Gambar \ref{fig:keteranganversipertama} dan Gambar \ref{fig:keteranganversikedua}. Hal ini menunjukkan fungsi melihat histori sudah berjalan dengan baik.
+	
+\item Fungsi membuat entri baru\\
+	Pengujian fungsi ini dilakukan untuk memastikan pada saat membuat entri baru terdapat template markdown dan berhasil menyimpan entri baru tersebut. Contoh pengujian menambahkan entri baru untuk mahasiswa yang memiliki npm 2010730014, nama Nadia, dan keterangan sesuai template. Terdapat template markdown pada saat membuka halaman new.php dapat dilihat pada Gambar \ref{fig:templateentribaru}. Mengisi data npm 2010730014 dan nama Nadia dapat dilihat pada Gambar \ref{fig:membuatentribaru}. Setelah pengguna menekan tombol "Simpan" maka data yang telah dimasukan akan tersimpan dan pengguna akan dikembalikan ke halaman list.php. Pengguna dapat melihat entri baru dengan npm 2010730014 dan nama Nadia telah masuk kedalam tabel dapat dilihat pada Gambar \ref{fig:entribaruberhasil}. Hal ini menunjukkan fungsi membuat entri baru sudah berjalan dengan baik.
+	
+\item Antarmuka yang responsif\\
+    Pengujian antarmuka yang responsif dilakukan untuk memastikan tampilan antarmuka yang dibuat menggunakan Zurb Foundation berhasil. Contoh pengujian dilakukan dengan menggunakan mesin pencari yang telah dikecilkan ukurannya, lalu membuka index.php, list.php, dan new.php pada mesin pencari tersebut. Pengujian untuk index.php dapat dilihat pada Gambar \ref{fig:responsifindex}, untuk list.php dapat dilihat pada Gambar \ref{fig:responsiflist}, dan untuk new.php dapat dilihat pada Gambar \ref{fig:responsifnew}. Hal ini menunjukkan antarmuka yang responsif sudah berjalan dengan baik.
+\end{enumerate}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Gambar/pengujian1.png}
+\caption[Membuka Halaman index.php]{Membuka Halaman index.php} 
+\label{fig:membukahalamanindex}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian2.png}
+\caption[Login Dengan Email yang Diakhiri "@student.unpar.ac.id"]{Login Dengan
+Email yang Diakhiri "@student.unpar.ac.id"}
+\label{fig:logindenganstudent}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian3.png}
+\caption[Konfirmasi Email yang Dikelola oleh student.unpar.ac.id]{Konfirmasi
+Email yang Dikelola oleh student.unpar.ac.id}
+\label{fig:konfirmasiemail}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian4.png}
+\caption[CAS UNPAR]{CAS UNPAR} 
+\label{fig:casunpar}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.4]{Gambar/pengujian5.png}
+\caption[Izin Akses Dari Pihak Pengguna]{Izin Akses Dari Pihak Pengguna} 
+\label{fig:izindaripihakpengguna}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian6.png}
+\caption[Login Dengan Email yang Diakhiri "@gmail.com"]{Login Dengan Email yang
+Diakhiri "@gmail.com"}
+\label{fig:logindengangmail}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian7.png}
+\caption[Alert Email yang Digunakan Tidak Dapat Mengakses SIRM]{Alert Email yang
+Digunakan Tidak Dapat Mengakses SIRM}
+\label{fig:alert}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.45]{Gambar/pengujian8.png}
+\caption[Memilih Mahasiswa]{Memilih Mahasiswa} 
+\label{fig:memilihmahasiswa}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian9.png}
+\caption[Melihat Info Mahasiswa]{Melihat Info Mahasiswa} 
+\label{fig:melihatinfomahasiswa}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian10.png}
+\caption[Mengedit Info Mahasiswa]{Mengedit Info Mahasiswa} 
+\label{fig:mengeditinfomahasiswa}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian11.png}
+\caption[Melihat Histori]{Melihat Histori} 
+\label{fig:melihathistori}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian12.png}
+\caption[Keterangan Versi Pertama]{Keterangan Versi Pertama} 
+\label{fig:keteranganversipertama}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian13.png}
+\caption[Keterangan Versi Kedua]{Keterangan Versi Kedua} 
+\label{fig:keteranganversikedua}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian14.png}
+\caption[Template Entri Baru]{Template Entri Baru} 
+\label{fig:templateentribaru}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian15.png}
+\caption[Membuat Entri Baru]{Membuat Entri Baru} 
+\label{fig:membuatentribaru}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian16.png}
+\caption[Entri Baru Berhasil Dibuat]{Entri Baru Berhasil Dibuat} 
+\label{fig:entribaruberhasil}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian17.png}
+\caption[Antarmuka Responsif index.php]{Antarmuka Responsif index.php} 
+\label{fig:responsifindex}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian18.png}
+\caption[Antarmuka Responsif list.php]{Antarmuka Responsif list.php} 
+\label{fig:responsiflist}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.5]{Gambar/pengujian19.png}
+\caption[Antarmuka Responsif new.php]{Antarmuka Responsif new.php} 
+\label{fig:responsifnew}
+\end{figure}
+
+\subsection{Pengujian Eksperimental}
+\label{sec:pengujianeksperimantal}
+
+Pengujian eksperimental dilakukan langsung ke lima orang dosen. Kelima dosen menggunakan 
