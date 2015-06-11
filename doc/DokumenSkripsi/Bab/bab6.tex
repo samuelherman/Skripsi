@@ -7,35 +7,25 @@ jika ingin dikembangkan di kemudian hari.
 
 \section{Kesimpulan}
 \label{sec:kesimpulan}
-Kesimpulan yang didapat dari pembangunan perangkat lunak Sistem Inforamasi
-Riwayat Mahasiswa (SIRM) anatara lain :
+Kesimpulan yang didapat dari pembangunan perangkat lunak Sistem Perekam dan Berbagi Riwayat Mahasiswa (SPBRM) anatara lain :
 \begin{enumerate}[(1)]
-  \item Penggunaan Google Authentication berhasil mengautentikasi pengguna dan
-  berfungsi dengan baik pada perangkat lunak Sistem Informasi Riwayat Mahasiswa
-  (SIRM).
-  \item Penggunaan Markdown berhasil membuat format penulisan seragam
-  dan berfungsi dengan baik pada perangkat lunak Sistem Informasi Riwayat
-  Mahasiswa (SIRM).
-  \item Penggunaan StrapdownJS berhasil menampilkan teks dengan sintaks Markdown
-  ke halaman website dan berfungsi dengan baik pada perangkat lunak Sistem
-  Informasi Riwayat Mahasiswa (SIRM).
+  \item Autentikasi dan otorisasi akun dosen UNPAR dapat menggunakan Google OAuth. Perangkat lunak menggunakan Google OAuth pada fungsi login. 
+  \item Format penulisan yang seragam dapat dibuat dengan menggunakan Markdown. Perangkat lunak menggunakan Markdown untuk menuliskan riwayat mahasiswa pada fungsi mengedit info mahasiswa dan fungsi membuat entri baru.
+  \item Menampilkan teks dengan format Markdown ke HTML dapat menggunakan StrapdownJS. Perangkat lunak menggunakan StrapdownJS untuk menampilkan riwayat mahasiswa yang terdapat fungsi melihat info mahasiswa dan fungsi melihat versi ini pada histori.
   \item Penggunaan Zurb Foundation berhasil membuat tampilan antarmuka perangkat
-  lunak Sistem Informasi Riwayat Mahasiswa (SIRM) menjadi responsif, tampilan
-  antarmuka mengikuti lebar mesin pencari dan/atau layar komputer tanpa
-  melakukan permintaan tambahan ke server.
+  lunak Sistem Perekam dan Berbagi Riwayat Mahasiswa (SPBRM) menjadi responsif.
   \item Pada tahap pengujian dapat disimpulkan bahwa perangkat lunak Sistem
-  Informasi Riwayat Mahasiswa (SIRM) sudah berjalan dengan baik dan memberikan
+  Perekam dan Berbagi Riwayat Mahasiswa (SPBRM) sudah berjalan dengan baik dan memberikan
   {\it output} sesuai yang diharapkan pengguna.
 \end{enumerate}
 
 \section{Saran}
 \label{sec:saran}
-Saran yang dapat diberikan untuk perbaikan dan pengembangan Sistem Informasi
-Riwayat Mahasiswa (SIRM) antara lain :
+Saran yang dapat diberikan untuk perbaikan dan pengembangan Sistem Perekam dan Berbagi Riwayat Mahasiswa (SPBRM) antara lain :
 \begin{enumerate}[(1)]
-  \item Agar setiap pengguna dapat saling berinteraksi untuk pengembangan dapat
-  ditambahkan fitur-fitur seperti kirim pesan, {\it chat-room}, dan forum.
-  \item Pada fungsi histori untuk pengembangan dapat ditambahkan keterangan yang
+  \item Tampilan antarmuka masih kurang menarik terutama untuk tata letak tombol 'Simpan' pada edit.php dan new.php, untuk pengembangan dapat menggunakan navigasi dan {\it plugins} yang dimiliki Zurb Foundation.
+  \item Pada fungsi membuat entri baru, untuk pengembangan data npm terhubung dengan data nama. Jadi cukup dengan memasukkan npm seorang mahasiswa, lalu pada bagian nama otomatis mengeluarkan nama mahasiswa dengan npm tersebut.
+  \item Pada fungsi histori, untuk pengembangan dapat ditambahkan keterangan yang
   membandingkan versi baru dan versi lama. Jadi pengguna mengetahui bagian mana
   yang dihapus dan bagian mana yang ditambah atau dirubah.
 \end{enumerate}

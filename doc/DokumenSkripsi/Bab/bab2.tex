@@ -6,85 +6,37 @@ Bab ini terdiri atas empat bagian, yaitu Google OAuth, Markdown, StrapdownJS dan
 \section{Google OAuth \cite{Oauth:2013}}
 \label{sec:googleauthentication}
 
-API Google menggunakan protokol OAuth 2.0 untuk otentikasi dan otorisasi. OAuth 2.0 adalah protokol yang relatif sederhana. Untuk memulainya cukup dengan mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\footnotemark[1]. Maka aplikasi akan meminta suatu token akses dari Google Authorization Server, ekstrak token akses yang merupakan jawaban dari server, dan mengirim token akses ke Google API yang akan diakses.
+API Google menggunakan protokol OAuth 2.0 untuk autentikasi dan otorisasi. OAuth 2.0 adalah protokol yang relatif sederhana. Untuk memulainya cukup dengan mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\footnotemark[1]. Maka aplikasi akan meminta suatu token akses dari Google Authorization Server, ekstrak token akses yang merupakan jawaban dari server, dan mengirim token akses ke Google API yang akan diakses.
 
 \footnotetext[1]{https://console.developers.google.com/}
 \footnotetext[2]{https://developers.google.com/accounts/docs/OpenIDConnect}
 
-Sub bab berikut memberikan gambaran skenario otorisasi OAuth 2.0 yang merupakan dukungan dari Google. Rincian tentang cara menggunakan OAuth 2.0 untuk otentikasi (yaitu {\it sign-in}), dapat dilihat pada OpenID Connect\footnotemark[2].
+Sub bab berikut memberikan gambaran skenario otorisasi OAuth 2.0 yang merupakan dukungan dari Google. Rincian tentang cara menggunakan OAuth 2.0 untuk autentikasi (yaitu {\it sign-in}), dapat dilihat pada OpenID Connect\footnotemark[2].
 
 \subsection{Langkah Dasar}
 Semua aplikasi akan mengikuti pola dasar ketika menggakses Google API menggunakan Oauth 2.0. Terdapat empat langkah yang harus diikuti :
 
 \begin{enumerate}[(1)]
-\item
-Mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\\
-Berkunjung ke Google Developers Console untuk mendapatkan kepercayaan OAuth 2.0
-seperti klien id dan kerahasiaan klien yang keduanya dikenal oleh Google dan
-aplikasi yang dibuat. Set nilai-nilai yang bervariasi sesuai dengan jenis
-aplikasi apa yang sedang dibuat. Misalnya, sebuah aplikasi JavaScript tidak
-memerlukan sebuah rahasia, tapi apakah aplikasi layanan {\it web} memerlukannya.
-\item
-Memperoleh token akses dari Google Authorization Server\\
-Sebelum aplikasi dapat mengakses data privat dengan menggunakan Google API,
-terlebih dahulu diperlukan token akses untuk mengakses API tersebut. Satu token
-akses dapat memberikan berbagai tingkat akses ke beberapa API. Izin token akses
-merupakan parameter untuk variabel ruang lingkup yang mengontrol sumber daya dan
-operasi. Selama ada permintaan untuk token akses, maka aplikasi akan mengirimkan
-satu atau lebih nilai pada parameter ruang lingkup.
+\item Mendapatkan kepercayaan OAuth 2.0 dari Google Developers Console\\
+Berkunjung ke Google Developers Console, untuk mendapatkan kepercayaan OAuth 2.0 seperti klien id dan kerahasiaan klien yang keduanya hanya dikenal oleh Google dan aplikasi yang dibuat. Set nilai-nilai yang bervariasi sesuai dengan jenis aplikasi apa yang sedang dibuat. Misalnya, sebuah aplikasi JavaScript tidak membutuhkan data yang rahasia, tapi layanan aplikasi {\it web} tentu membutuhkannya.
+\item Memperoleh token akses dari Google Authorization Server\\
+Sebelum data pribadi dapat diakses aplikasi yang menggunakan Google API, terlebih dahulu diperlukan token akses untuk mengakses API tersebut. Berbagai tingkat akses untuk mengakses beberapa API, diberikan dengan melakukan pertukaran suatu token akses. Izin token akses merupakan parameter untuk variabel ruang lingkup yang mengontrol sumber daya dan operasi yang akan digunakan. Selama ada permintaan untuk token akses, maka aplikasi akan mengirimkan satu atau lebih nilai pada parameter ruang lingkup.
 
-Ada beberapa cara dan variasi untuk melakukan permintaan tersebut berdasarkan
-aplikasi yang dibangun. Contohnya aplikasi JavaScript mungkin meminta token
-akses menggunakan mesin pencari yang mengarah kembali ke Google, namun aplikasi
-yang dibangun dan diimplementasi pada perangkat tidak memiliki fitur mesin
-pencari maka akan menggunakan layanan {\it web}. Beberapa permintaan memerlukan
-tahap otentikasi dimana pengguna diharuskan login menggunakan akun Google mereka.
-Setelah login pengguna akan ditanya apakah pengguna akan memberi izin untuk
-aplikasi yang telah melakukan permintaan tersebut. Proses ini disebut izin dari
-pihak pengguna. Jika pengguna memberi izin, maka Google Authorization Server
-akan mengirimkan aplikasi tersebut sebuah token akses. Jika pengguna tidak
-memberi izin, maka server akan menunjukan respon yang menyatakan eror.
-\item
-Kirim token akses ke API\\
-Setelah aplikasi mendapat token akses, lalu aplikasi akan mengirimkan token
-akses ke Google API melalui otorisasi yang terletak pada header HTTP. Sangat
-mungkin untuk mengirimkan token sebagai parameter permintaan URI dalam tipe data
-{\it string}, namun langkah ini tidak direkomendasikan karena parameter URI akan
-berakhir pada {\it file log} yang tidak aman. Juga merupakan hal yang baik
-karena menghindari menciptakan nama parameter URI yang tidak perlu. Token akses hanya
-berlaku untuk set operasi dan sumber daya yang dijelaskan pada lingkup
-permintaan token. Sebagai contoh, jika token akses dikeluarkan untuk Google+
-API, hal tersebut tidak memberikan akses untuk Google Contact API. Namun token
-akses untuk Google+ API dapat dikirim beberapa kali untuk operasi yang serupa.
-\item
-Memperbaharui token akses jika diperlukan\\
-Token akses memiliki daya tahan yang terbatas. Jika aplikasi yang dibangun
-membutuhkan akses ke Google API melebihi masa aktif token akses, maka dapat
-memperbaharui token akses tersebut. Hal ini memungkinkan untuk memdapatkan token
-akses yang baru.
+Ada beberapa cara dan variasi untuk melakukan permintaan tersebut dan harus disesuaikan aplikasi yang dibangun. Contohnya aplikasi JavaScript, mesin pencari digunakan untuk mendapatkan token akses yang akan diarakan kembali ke Google, namun aplikasi yang dibangun dan diimplementasi pada perangkat tidak memiliki fitur mesin pencari maka akan menggunakan layanan {\it web}. Beberapa permintaan memerlukan tahap autentikasi dimana pengguna diharuskan login dengan menggunakan akun Google mereka. Setelah login pengguna akan ditanya apakah pengguna akan memberi izin untuk mengakses aplikasi yang telah melakukan permintaan tersebut. Proses ini disebut izin dari pihak pengguna. Jika pengguna memberi izin, maka Google Authorization Server akan mengirimkan aplikasi tersebut sebuah token akses. Jika pengguna tidak memberi izin, maka server akan menunjukan respon yang menyatakan eror.
+\item Kirim token akses ke API\\
+Setelah aplikasi mendapat token akses, lalu aplikasi akan mengirimkan token akses ke Google API melalui otorisasi yang terletak pada {\it header} HTTP. Sangat mungkin untuk mengirimkan token sebagai parameter permintaan URI dalam tipe data {\it string}, namun langkah ini tidak direkomendasikan karena parameter URI akan berakhir pada {\it file log} yang tidak aman. Juga merupakan hal yang baik karena menghindari menciptakan nama parameter URI yang tidak perlu. Token akses hanya berlaku untuk set operasi dan sumber daya yang dijelaskan pada lingkup permintaan token. Sebagai contoh, jika token akses dikeluarkan untuk Google+ API, hal tersebut tidak memberikan akses untuk Google Contact API. Namun token akses untuk Google+ API dapat dikirim beberapa kali untuk operasi yang serupa.
+\item Memperbaharui token akses jika diperlukan\\
+Token akses memiliki daya tahan yang terbatas. Jika aplikasi yang dibangun membutuhkan akses ke Google API melebihi masa aktif token akses, maka dapat memperbaharui token akses tersebut. Hal ini memungkinkan untuk mendapatkan token akses yang baru.
 \end{enumerate}
 
 \subsection{Skenario Google OAuth}
-Terdapat lima skenario yang dapat digunakan untuk Google OAuth yaitu
-Skenario Aplikasi {\it Web} Server, Skenario Aplikasi yang Terinstal, Skenario
-Aplikasi Sisi Klien (JavaScript), Skenario Aplikasi Pada Perangkat Dengan
-Masukan Yang Terbatas, dan Skenario Layanan Akun. Untuk penjelasan lebih lanjut
-dapat dilihat pada daftar di bawah ini.
+Terdapat lima skenario yang dapat digunakan untuk Google OAuth yaitu Skenario Aplikasi {\it Web} Server, Skenario Aplikasi yang Terinstal, Skenario Aplikasi Sisi Klien (JavaScript), Skenario Aplikasi Pada Perangkat Dengan Masukan yang Terbatas, dan Skenario Layanan Akun. Untuk penjelasan lebih lanjut dapat dilihat pada daftar di bawah ini.
 
 \begin{itemize}
 \item Skenario Aplikasi Layanan {\it Web}\\
-Google OAuth 2.0 mendukung aplikasi Layanan {\it Web} yang menggunakan bahasa
-dan kerangka kerja seperti PHP, Java, Python, Ruby, dan ASP.NET. Urutan
-otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL
-tersebut termasuk parameter permintaan yang menunjukkan jenis akses yang
-diminta. Google menangani otentikasi pengguna, pemilihan sesi, dan izin dari
-pihak pengguna. Hasilnya adalah sebuah kode otorisasi, dimana aplikasi dapat
-bertukar untuk token akses dan memperbaharui token akses.
+Google OAuth 2.0 mendukung aplikasi Layanan {\it Web} yang menggunakan bahasa dan kerangka kerja seperti PHP, Java, Python, Ruby, dan ASP.NET. Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL tersebut termasuk parameter permintaan yang menunjukkan jenis akses yang diminta. Google menangani autentikasi pengguna, pemilihan sesi, dan izin dari pihak pengguna. Hasilnya adalah sebuah kode otorisasi, dimana aplikasi dapat bertukar untuk token akses dan memperbaharui token akses.
 
-Aplikasi harus menyimpan pembaharuan token akses untuk penggunaan kedepannya dan
-menggunakan token akses untuk mengakses Google API. Setelah masa token akses
-berakhir, maka aplikasi akan memperbaharui token akses untuk mendapatkan yang
-baru. Untuk gambaran skenario dapat dilihat pada Gambar
+Aplikasi harus menyimpan pembaharuan token akses untuk penggunaan kedepannya dan menggunakan token akses untuk mengakses Google API. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token akses untuk mendapatkan token akses yang baru. Untuk gambaran skenario dapat dilihat pada Gambar
 \ref{fig:skenarioaplikasiwebserver}.
 
 \begin{figure}[p]
@@ -96,22 +48,9 @@ Web}}
 \end{figure}
 
 \item Skenario Aplikasi yang Terinstal\\
-Google OAuth 2.0 mendukung aplikasi yang diinstal pada perangkat seperti
-komputer, perangkat {\it mobile}, dan tablet. Ketika membuat klien id melalui
-Google Developers Console, menentukan aplikasi yang terinstal kemudian pilih
-Android, Chrome, iOS, atau "{\it Other}" sebagai jenis aplikasi. Hasil proses
-klien id dan kerahasiaan klien dalam beberapa kasus dimasukkan dalam kode sumber
-aplikasi. (Dalam konteks ini, kerahasiaan klien jelas tidak diperlakukan sebagai rahasia.)
+Google OAuth 2.0 mendukung aplikasi yang diinstal pada perangkat seperti komputer, perangkat {\it mobile}, dan tablet. Ketika membuat klien id melalui Google Developers Console, menentukan aplikasi yang terinstal kemudian pilih Android, Chrome, iOS, atau "{\it Other}" sebagai jenis aplikasi. Hasil proses klien id dan kerahasiaan klien dalam beberapa kasus dimasukkan dalam kode sumber aplikasi. (Dalam konteks ini, kerahasiaan klien jelas tidak diperlakukan sebagai rahasia.)
 
-Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL
-Google; URL termasuk parameter permintaan yang menunjukkan jenis akses yang
-diminta. Google menangani otentikasi pengguna, pemilihan sesi, dan izin
-pengguna. Hasilnya adalah sebuah kode otorisasi yang dapat bertukar untuk token
-akses dan memperbaharui token. Aplikasi harus menyimpan token yang diperbaharui
-untuk penggunaan masa depan dan menggunakan token akses untuk mengakses API
-Google. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui
-token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada
-Gambar \ref{fig:skenarioaplikasiyangterinstal}.
+Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL termasuk parameter permintaan yang menunjukkan jenis akses yang diminta. Google menangani autentikasi pengguna, pemilihan sesi, dan izin pengguna. Hasilnya adalah sebuah kode otorisasi yang dapat ditukar untuk mendapatkan token akses dan memperbaharui token. Aplikasi harus menyimpan token yang diperbaharui untuk penggunaan masa depan dan menggunakan token akses untuk mengakses API Google. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasiyangterinstal}.
 
 \begin{figure}[p]
 \centering
@@ -121,14 +60,7 @@ Gambar \ref{fig:skenarioaplikasiyangterinstal}.
 \end{figure}
 
 \item Skenario Aplikasi Sisi Klien (JavaScript)\\
-Google OAuth 2.0 mendukung aplikasi JavaScript yang berjalan di mesin pencari.
-Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL
-Google; URL termasuk parameter permintaan yang menunjukkan jenis akses yang
-diminta. Google menangani otentikasi pengguna, pemilihan sesi, dan izin
-pengguna. Hasilnya adalah token akses dimana klien harus memvalidasi sebelum
-memasukkannya ke dalam permintaan Google API. Ketika masa token berakhir,
-aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar
-\ref{fig:skenarioaplikasisisiklien}.
+Google OAuth 2.0 mendukung aplikasi JavaScript yang berjalan di mesin pencari. Urutan otorisasi dimulai ketika aplikasi mengarahkan mesin pencari ke URL Google; URL termasuk parameter permintaan yang menunjukkan jenis akses yang diminta. Google menangani autentikasi pengguna, pemilihan sesi, dan izin pengguna. Hasilnya adalah token akses dimana klien harus melakukan validasi sebelum memasukkannya ke dalam permintaan Google API. Ketika masa token berakhir, aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasisisiklien}.
 
 \begin{figure}[p]
 \centering
@@ -139,22 +71,9 @@ Sisi Klien (JavaScript)}
 \end{figure}
 
 \item Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas\\
-Google OAuth 2.0 mendukung aplikasi yang berjalan pada perangkat dengan masukan
-yang terbatas seperti konsol permainan, kamera video, dan printer. Urutan
-otorisasi dimulai dengan aplikasi membuat permintaan layanan {\it web} ke URL
-Google \ untuk kode otorisasi. Tanggapan berisi beberapa parameter, termasuk URL dan
-kode bahwa aplikasi menunjukkan kepada pengguna. Pengguna memperoleh URL dan kode dari
-perangkat, kemudian beralih ke perangkat terpisah atau komputer dengan kemampuan
-masukan yang lebih. Pengguna membuka mesin pencari, menavigasi ke URL tertentu,
-melakukan {\it log in}, dan memasukan kode.
+Google OAuth 2.0 mendukung aplikasi yang berjalan pada perangkat dengan masukan yang terbatas seperti konsol permainan, kamera video, dan printer. Urutan otorisasi dimulai dengan aplikasi membuat permintaan layanan {\it web} ke URL Google untuk kode otorisasi. Tanggapan berisi beberapa parameter, termasuk URL dan kode bahwa aplikasi menunjukkan kepada pengguna. Pengguna memperoleh URL dan kode dari perangkat, kemudian beralih ke perangkat terpisah atau komputer dengan kemampuan masukan yang lebih. Pengguna membuka mesin pencari, mengarahkan ke URL tertentu, melakukan {\it log in}, dan memasukan kode.
 
-Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu.
-Setelah pengguna menyetujui akses, respon dari server Google berisi token akses
-dan memperbaharui token. Aplikasi harus menyimpan token yang baru untuk
-penggunaan masa depan dan menggunakan token akses untuk mengakses Google API.
-Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk
-mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar
-\ref{fig:skenarioaplikasimasukanterbatas}.
+Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu. Setelah pengguna menyetujui akses, respon dari server Google berisi token akses dan memperbaharui token. Aplikasi harus menyimpan token yang baru untuk penggunaan masa depan dan menggunakan token akses untuk mengakses Google API. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasimasukanterbatas}.
 
 \begin{figure}[p]
 \centering
@@ -165,35 +84,13 @@ Terbatas]{Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}
 \end{figure}
 
 \item Skenario Layanan Akun\\
-Google API seperti Prediction API dan Google Cloud Storage dapat bertindak atas
-nama aplikasi yang dibuat tanpa mengakses informasi pengguna. Dalam situasi ini
-aplikasi perlu membuktikan identitasnya sendiri ke API, tapi tidak diperlukan
-izin dari pihak pengguna. Demikian pula, dalam skenario perusahaan, aplikasi
-dapat meminta akses didelegasikan ke beberapa sumber daya.
+Google API seperti Prediction API dan Google Cloud Storage dapat bertindak atas nama aplikasi yang dibuat tanpa mengakses informasi pengguna. Dalam situasi ini aplikasi perlu membuktikan identitasnya sendiri ke API, tapi tidak diperlukan izin dari pihak pengguna. Demikian pula, dalam skenario perusahaan, aplikasi dapat meminta akses yang didelegasikan ke beberapa sumber daya.
 
-Untuk jenis interaksi antara server memerlukan layanan akun, dimana akun
-tersebut terdapat pada aplikasi yang dibuat, bukan individu ke pengguna akhir.
-Aplikasi memanggil Google API atas nama layanan akun, dan izin dari pihak
-pengguna tidak diperlukan. (Dalam skenario tanpa layanan akun, aplikasi
-memanggil Google API atas nama pengguna akhir, dan izin dari pihak pengguna
-kadang-kadang diperlukan.)
+Untuk jenis interaksi antara server memerlukan layanan akun, dimana akun tersebut terdapat pada aplikasi yang dibuat, bukan individu ke pengguna akhir. Aplikasi memanggil Google API atas nama layanan akun, dan izin dari pihak pengguna tidak diperlukan. (Dalam skenario tanpa layanan akun, aplikasi memanggil Google API atas nama pengguna akhir, dan izin dari pihak pengguna kadang-kadang diperlukan.)
 
-Catatan: skenario layanan akun ini membutuhkan aplikasi untuk membuat dan tanda
-kriptografi JSON {\it Web Token} (JWTs). Sangat disarankan untuk menggunakan
-perpustakaan untuk melakukan tugas-tugas ini. Jika menulis kode ini tanpa
-menggunakan perpustakaan secara abstrak tanda penciptaan dan penandatanganan,
-mungkin membuat kesalahan yang akan memiliki dampak yang parah pada keamanan
-aplikasi yang dibangun.
+Catatan: skenario layanan akun ini membutuhkan aplikasi untuk membuat dan tanda kriptografi JSON {\it Web Token} (JWTs). Sangat disarankan untuk menggunakan perpustakaan untuk melakukan tugas-tugas ini. Jika menulis kode untuk tanda penciptaan dan penandatanganan secara abstrak tanpa menggunakan perpustakaan, mungkin akan membuat kesalahan yang memiliki dampak yang parah pada keamanan aplikasi yang dibangun.
 
-Kredensial ayanan akun, yang diperoleh dari Google Developers Console, termasuk
-alamat email yang dihasilkan yang unik, klien id, dan setidaknya satu pasang
-kunci publik / privat. Menggunakan klien id dan satu kunci privat untuk membuat
-JWT (JSON {\it Web Token}) ditandatangani dan membangun permintaan token akses
-dalam format yang sesuai. Aplikasi kemudian mengirimkan permintaan token ke
-Google OAuth 2.0 Authorization Server, yang mengembalikan token akses. Aplikasi
-menggunakan token untuk mengakses API Google. Ketika masa token berakhir,
-aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar
-\ref{fig:skenariolayananakun}.
+Mandat untuk layanan akun, yang diperoleh dari Google Developers Console, termasuk alamat email yang dihasilkan yang unik, klien id, dan setidaknya satu pasang kunci publik / privat. Menggunakan klien id dan satu kunci privat untuk membuat JWT (JSON {\it Web Token}) ditandatangani dan membangun permintaan token akses dalam format yang sesuai. Aplikasi kemudian mengirimkan permintaan token ke Google OAuth 2.0 Authorization Server, yang mengembalikan token akses. Aplikasi menggunakan token untuk mengakses API Google. Ketika masa token berakhir, aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenariolayananakun}.
 
 \begin{figure}[h]
 \centering
@@ -203,10 +100,8 @@ aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar
 \end{figure}
 \end{itemize}
 
-\subsection{Masa Habis Berlaku Token}
-Kode token harus ditulis untuk mengantisipasi kemungkinan bahwa token yang
-diberikan mungkin tidak lagi bekerja suatu saat. Token mungkin berhenti bekerja
-untuk beberapa alasan di bawah ini:
+\subsection{Masa Berlaku Token}
+Kode token harus ditulis untuk mengantisipasi kemungkinan bahwa token yang diberikan mungkin tidak lagi bekerja suatu saat. Token mungkin berhenti bekerja untuk beberapa alasan di bawah ini:
 
 \begin{itemize}
 \item
@@ -217,65 +112,39 @@ Token tidak digunakan selama enam bulan.
 Akun pengguna telah melampaui jumlah tertentu permintaan token.
 \end{itemize}
 
-Saat ini batas untuk setiap akun Google adalah 25 token. Jika pengguna akun
-telah memiliki 25 token, permintaan otentikasi untuk token ke-26 akan berhasil
-tapi token yang paling tua atau token ke-1 akan dibuat tidak berlaku tanpa
-sepengetahuan pengguna. Jika perlu untuk mengotorisasi beberapa program, mesin,
-atau perangkat, salah satu solusi adalah untuk membatasi jumlah klien dimana
-harus mengotorisasi per pengguna akun antara 15 atau 20. Jika Anda adalah admin
-Google Apps, Anda dapat membuat admin tambahan untuk mengizinkan beberapa klien.
+Saat ini batas untuk setiap akun Google adalah 25 token. Jika pengguna akun telah memiliki 25 token, permintaan autentikasi untuk token ke-26 akan berhasil tapi token yang paling tua atau token ke-1 akan dibuat tidak berlaku tanpa sepengetahuan pengguna. Jika perlu untuk melakukan otorisasi beberapa program, mesin, atau perangkat, salah satu solusi yang ditawarkan pihak Google adalah dengan membatasi jumlah klien, dimana satu pengguna harus melakukan otorisasi antara 15 hingga 20 akun. Jika anda adalah admin Google Apps, anda dapat membuat admin tambahan untuk mengizinkan beberapa klien.
 
 \subsection{Lingkup Otorisasi \cite{Scope:2013}}
-Lingkup disini merupakan sebuah {\it string} yang memungkinkan akses ke sumber
-daya tertentu, misalnya akses ke data pengguna. Dengan memasukan lingkup tertentu
-pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks
-yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak
-pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk
-aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata
-lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh
-pengguna untuk diakses.
+Lingkup disini merupakan sebuah {\it string} yang memungkinkan akses ke sumber daya tertentu, misalnya akses ke data pengguna. Dengan memasukan lingkup tertentu pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh pengguna untuk diakses.
 
-Sebuah aplikasi yang dibuat tanpa permintaan otentikasi (tidak ada lingkup yang
-diminta) hanya dapat mengakses data pengguna yang umum di Google+. Contoh, jika
-sebuah aplikasi mencari postingan publik, respon dari pencarian akan menampilkan
-id pengguna yang telah diposting secara publik dan aplikasi dapat mengakses nama
-dan URL foto pengguna yang dimana keduanya selalu diposting secara publik. Dapat
-juga mengakses tanggal ulang tahun atau jenis kelamin pengguna jika pengguna
-telah mempostinng secara publik. Untuk daftar lingkup otorisasi dapat dilihat
-pada daftar di bawah ini.
+Sebuah aplikasi yang dibuat tanpa permintaan autentikasi (tidak ada lingkup yang diminta) hanya dapat mengakses data pengguna yang umum di Google+. Contoh, jika sebuah aplikasi mencari postingan publik, respon dari pencarian akan menampilkan id pengguna yang telah diposting secara publik dan aplikasi dapat mengakses nama dan URL foto pengguna yang dimana keduanya selalu diposting secara publik. Dapat juga mengakses tanggal ulang tahun atau jenis kelamin pengguna jika pengguna telah mempostinng secara publik. Untuk daftar lingkup otorisasi dapat dilihat pada daftar di bawah ini.
 
 \begin{itemize}
 \item Lingkup Profil\\
 \begin{lstlisting}[basicstyle=\footnotesize]
 profile
 \end{lstlisting}
-Lingkup ini merupakan lingkup dasar dimana lingkup ini melakukan beberapa hal
-seperti berikut:
+Lingkup ini merupakan lingkup dasar dimana lingkup ini melakukan beberapa hal sebagai berikut:
 \begin{itemize}
 \item
-Meminta agar aplikasi diberikan akses ke informasi profil dasar bagi pengguna
-yang terotentikasi.
+Meminta agar aplikasi diberikan akses ke informasi profil dasar bagi pengguna yang terautentikasi.
 \item
-Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan
-mengganti id pengguna dengan "{\it me}" yang mewakilkan pengguna yang telah
-terotentikasi disetiap permintaan yang dilakukan.
+Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan mengganti id pengguna dengan "{\it me}" yang mewakilkan pengguna yang telah terautentikasi disetiap permintaan yang dilakukan.
 \item
 Memungkinkan aplikasi diakses melalui aplikasi android.
 \end{itemize}
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/plus.login
 \end{lstlisting}
-Lingkup login disarankan untuk aplikasi yang menyediakan akses ke fitur sosial.
-Lingkup ini secara implisit mencakup lingkup profil dan juga meminta aplikasi
+Lingkup login disarankan untuk aplikasi yang menyediakan akses ke fitur sosial. Lingkup ini secara implisit mencakup lingkup profil dan juga meminta aplikasi
 diberikan akses ke:
 \begin{itemize}
 \item
-Rentang usia pengguna yang telah terotentikasi.
+Rentang usia pengguna yang telah terautentikasi.
 \item
 Daftar teman yang telah diberikan akses oleh pengguna.
 \item
-Metode untuk membaca, menulis dan menghapus kegiatan app ke Google atas nama
-pengguna.
+Metode untuk membaca, menulis dan menghapus kegiatan app ke Google atas nama pengguna.
 \end{itemize}
 Lingkup ini juga memungkinkan lintas platform dengan pendaftaran tunggal.
 
@@ -286,16 +155,14 @@ email
 Lingkup ini meminta agar aplikasi diberikan akses ke:
 \begin{itemize}
 \item
-Alamat email Google dari pengguna. Mengakses alamat email dengan memanggil
-people.get yang akan mengeluarkan {\it array} email atau dengan memanggil
+Alamat email Google dari pengguna. Mengakses alamat email dengan memanggil people.get yang akan mengeluarkan {\it array} email atau dengan memanggil
 \begin{lstlisting}[basicstyle=\footnotesize]
 people.getOpenIdConnect
 \end{lstlisting}
 yang akan mengeluarkan email dengan format OIDC (OpenID Connect).
 \item
 Nama domain Google Apps jika ada yang dimiliki pengguna. Nama domain
-dikembalikan sebagai kepemilikan domain dari people.get atau properti hd dari
-getOpenIdConnect.
+dikembalikan sebagai kepemilikan domain dari people.get atau properti hd dari getOpenIdConnect.
 \item
 Lingkup email ini setara dan menggantikan lingkup di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
@@ -308,24 +175,18 @@ https://www.googleapis.com/auth/plus.profile.emails.read
 Lingkup ini meminta aplikasi agar diberikan akses ke:
 \begin{itemize}
 \item
-Alamat email Google pengguna yang telah diverifikasi di profil Google+.
-Mengakses email dengan memanggil people.get dan mengembailakan hasil email dalam
-{\it array}.
+Alamat email Google pengguna yang telah diverifikasi di profil Google+. Mengakses email dengan memanggil people.get dan mengembalikan hasil email dalam {\it array}.
 \item
-Nama domain yang telah didaftarkan di Google jika pengguna memiliki fitur
-tersebut.
+Nama domain yang telah didaftarkan di Google jika pengguna memiliki fitur tersebut.
 \end{itemize}
 
 \item Lingkup yang lain\\
 \begin{lstlisting}[basicstyle=\footnotesize]
 openid
 \end{lstlisting}
-Lingkup openid menginformasikan server otorisasi bahwa klien membuat permintaan
-OpenID Connect dan meminta akses ke id pengguna yang terotentikasi tersebut.
-Lingkup ini harus disertakan lingkup OpenId Connect.
+Lingkup openid menginformasikan server otorisasi bahwa klien membuat permintaan OpenID Connect dan meminta akses ke id pengguna yang terautentikasi tersebut. Lingkup ini harus disertakan lingkup OpenId Connect.
 
-Metode getOpenIdConnect mengembalikan profil pengguna dengan format OIDC
-mengikuti jalur permintaan HTTP:
+Metode getOpenIdConnect mengembalikan profil pengguna dengan format OIDC mengikuti jalur permintaan HTTP:
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/plus/v1/people/me/openIdConnect
 \end{lstlisting}
@@ -338,16 +199,13 @@ karena lingkup
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/plus.me
 \end{lstlisting}
-tidak dianjurkan sebagai lingkup login dikarenakan pengguna yang belum
-{\it upgrade} ke Google+ tidak akan mengembalikan nama atau alamat email
+tidak dianjurkan sebagai lingkup login dikarenakan pengguna yang belum {\it upgrade} ke Google+ tidak akan mengembalikan nama atau alamat email
 pengguna.
 
 Lingkup ini melakukan hal berikut:
 \begin{itemize}
 \item
-Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan
-mengganti id pengguna dengan "{\it me}" yang mewakilkan pengguna yang telah
-terotentikasi disetiap permintaan yang dilakukan.
+Memungkinkan aplikasi untuk mengetahui siapa pengguna yang dikonfimasi dengan mengganti id pengguna dengan "{\it me}" yang mewakilkan pengguna yang telah terautentikasi disetiap permintaan yang dilakukan.
 \end{itemize}
 
 \item Lingkup yang tidak dipakai lagi\\
@@ -355,30 +213,23 @@ terotentikasi disetiap permintaan yang dilakukan.
 https://www.googleapis.com/auth/userinfo.profile
 \end{lstlisting}
 
-Ganti dengan lingkup yang setara yaitu lingkup profil. Lingkup ini setara
-dengan lingkup profil dan meminta akses data yang sama. Catatan: lingkup ini
-tidak dipakai lagi namun tetap dipertahankan dan terus tersedia untuk
-kompatibilitas.
+Lingkup diatas sudah tidak dipakau lagi diganti dengan lingkup yang setara yaitu lingkup profil. Lingkup ini setara dengan lingkup profil dan meminta akses data yang sama. Catatan: lingkup ini tidak dipakai lagi namun tetap dipertahankan dan terus tersedia untuk kompatibilitas.
 
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/userinfo.email
 \end{lstlisting}
 
-Ganti dengan lingkup yang setara yaitu lingkup email. Lingkup ini meminta akses
-ke alamat email akun Google pengguna. Google menghasilkan token baru dengan
-lingkup ini untuk titik akhir people.get. Lingkup ini juga meminta akses dari
-pengguna ke titik akhir userinfo unutk kompatibilitas.
+Lingkup diatas sudah tidak dipakau lagi diganti dengan lingkup yang setara yaitu lingkup email. Lingkup ini meminta akses ke alamat email akun Google pengguna. Google menghasilkan token baru dengan lingkup ini untuk titik akhir people.get. Lingkup ini juga meminta akses dari pengguna ke titik akhir userinfo unutk kompatibilitas.
 
 Lihat juga lingkup terkait:
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/plus.profile.emails.read
 \end{lstlisting}
-Catatan: lingkup ini tidak dipakai lagi namun tetap dipertahankan dan terus
-tersedia untuk kompatibilitas.
+Catatan: lingkup ini tidak dipakai lagi namun tetap dipertahankan dan terus tersedia untuk kompatibilitas.
 \end{itemize}
 
 \subsection{API {\it Client Library} untuk PHP \cite{Lib:2015}}
-Google OAuth menggunakan API {\it Client Library} untuk diimplemetasikan ke dalam bahasa pemroggraman PHP. Sebelum itu ada beberapa langkah yang perlu diselesaikan sebelum menggunakan {\it library} ini. Beberapa langkat tersebut dapat dilihat di bawah ini.
+Google OAuth menggunakan API {\it Client Library} untuk diimplemetasikan ke dalam bahasa pemrograman PHP. Sebelum itu ada beberapa langkah yang perlu diselesaikan sebelum menggunakan {\it library} ini. Beberapa langkat tersebut dapat dilihat di bawah ini.
 
 \begin{itemize}
 \item Jika belum memiliki akun Google, maka harus melakukan pendaftaran terlebih dahulu.
@@ -386,93 +237,80 @@ Google OAuth menggunakan API {\it Client Library} untuk diimplemetasikan ke dala
 \item Melakukan instal {\it library}.
 \end{itemize}
 
-Diperlukan pemahaman dasar-dasar bagaimana autentikasi dan otorisasi yang ditangani oleh API. Semua panggilan API harus menggunakan izin akses. Banyak metode API yang membutuhkan izin akses, tetapi beberapa ada yang tidak membutuhkan izin akses. Beberapa metode API yang dapat digunakan untuk beberapa perilaku, tergantung pada akses yang digunakan adalah akses sederhana atau akses dengan izin. Berikut dua metode untuk menentukan jenis akses.
+Diperlukan pemahaman dasar-dasar untuk autentikasi dan otorisasi yang ditangani oleh API. Semua panggilan API harus menggunakan izin akses. Banyak metode API yang membutuhkan izin akses, tetapi beberapa ada yang tidak membutuhkan izin akses. Beberapa metode API yang dapat digunakan untuk berbagai kondisi, tergantung pada akses yang digunakan merupakan akses sederhana atau akses yang memerlukan izin. Berikut dua metode untuk menentukan jenis akses.
 
 \begin{itemize}
 \item Akses sederhana API (kunci API)\\
-Metode ini tidak dapat mengakses data pribadi pengguna. Aplikasi harus mengotentikasi sendiri sebagai aplikasi milik Google Developer Console {\it project}. Metode ini diperlukan untuk mengukur penggunaan proyek untuk tujuan akuntansi.
-Konsep penting untuk kunci API pada saat mengotentikasi aplikasi, gunakan kunci API untuk proyek Google Developer Console yang dimiliki. Setiap akses sederhana untuk memanggil aplikasi harus menyertakan kunci ini. Peringatan dalam menggunakan kunci API, jika seseorang memperoleh kunci yang anda miliki maka mereka bisa menggunakan untuk memakan kuota atau dikenakan tuduhan terhadap proyek anda.
+Metode ini tidak dapat digunakan untuk mengakses data pribadi pengguna. Aplikasi harus mengautentikasi sendiri sebagai aplikasi milik Google Developer Console {\it project}. Metode ini diperlukan untuk mengukur penggunaan proyek untuk tujuan akuntansi.
+Konsep penting untuk kunci API pada saat mengautentikasi aplikasi, gunakan kunci API untuk proyek Google Developer Console yang dimiliki. Setiap akses sederhana untuk memanggil aplikasi harus menyertakan kunci ini. Peringatan dalam menggunakan kunci API, jika seseorang memperoleh kunci yang anda miliki maka mereka bisa menggunakan untuk memakan kuota atau dikenakan tuduhan terhadap proyek anda.
 
 \item Akses otorisasi API (OAuth 2.0)\\
 Metode ini digunakan untuk mengakses data pribadi pengguna. Sebelum mengakses otorisasi API, pengguna yang memiliki akses ke data pribadi harus memberikan akses ke aplikasi yang digunakan. Oleh karena itu, aplikasi yang digunakan harus disahkan, pengguna harus memberikan akses untuk aplikasi tersebut. Semua ini dapat dicapai dengan OAuth 2.0 dan {\it library}.
 Konsep penting untuk OAuth 2.0 sebagai berikut.
-\begin{itemize}
-\item Ruang lingkup\\
-Setiap API mendefinisikan satu atau lebih lingkup yang menyatakan seperangkat operasi diizinkan. Sebagai contoh, sebuah API mungkin telah membaca saja dan baca tulis lingkkup. Ketika aplikasi meminta akses ke data pengguna, permintaan harus menyertakan satu atau lebih ruang lingkup. Pengguna perlu untuk menyetujui akses ruang lingkup yang diminta aplikasi anda.
-
-\item Pembaruan dan akses token\\
-Bila pengguna memberikan akses pada aplikasi, server otorisasi OAuth 2.0 menyediakan aplikasi dengan pembaruan dan akses token. Token ini hanya berlaku untuk ruang lingkup yang diminta. Aplikasi yang menggunakan token akses untuk mengotorisasi panggilan API. Token akses berakhir, tapi pembaruan token tidak. Aplikasi dapat menggunakan pembaruan token untuk mendapatkan token akses baru.
-Peringatan untuk menjauhkan pembaruan dan token akses pribadi. Jika seseorang memperoleh token anda, mereka bisa menggunakannya untuk mengakses data pribadi pengguna.
-
-\item ID klien dan rahasia klien\\
-ID klien dan rahasia klient merupakan sebuah string unik yang mengidentifikasi aplikasi yang digunakan dan digunakan untuk memperoleh token. Keduanya diciptakan untuk proyek Google Developers Console pada panel API Access yang terdapat pada Developer Console Google. Ada tiga jenis ID klien, jadi pastikan jenis yang digunakan sesuai dengan aplikasi yang akan digunakan. Berikut ketiga  jenis aplikasi.
-\begin{itemize}
-\item Web application client IDs
-\item Installed application client IDs
-\item Service Account client IDs
-\end{itemize}
-Peringatan untuk menjauhkan rehasia klien anda pribadi. Jika seseorang memperoleh rahasia klien anda, mereka bisa menggunakannya untuk mengkonsumsi kuota, dikenakan tuduhan terhadap proyek Google Developer Console, dan meminta akses ke data pengguna.
+    \begin{itemize}
+    \item Ruang lingkup\\
+    Setiap API mendefinisikan satu atau lebih lingkup yang menyatakan seperangkat operasi diizinkan. Sebagai contoh, sebuah API mungkin telah membaca saja atau mungkin telah membaca dan menulis lingkup. Ketika aplikasi meminta akses ke data pengguna, permintaan harus menyertakan satu atau lebih ruang lingkup. Pengguna perlu untuk menyetujui akses ruang lingkup yang diminta aplikasi anda.
+    
+    \item Pembaruan dan akses token\\
+    Bila pengguna memberikan akses pada aplikasi, server otorisasi OAuth 2.0 menyediakan aplikasi dengan pembaruan dan akses token. Token ini hanya berlaku untuk ruang lingkup yang diminta. Aplikasi yang menggunakan token akses untuk mengotorisasi panggilan API. Token akses berakhir, tapi pembaruan token tidak. Aplikasi dapat menggunakan pembaruan token untuk mendapatkan token akses baru.
+    Peringatan untuk menjauhkan pembaruan dan token akses pribadi. Jika seseorang memperoleh token anda, mereka bisa menggunakannya untuk mengakses data pribadi pengguna.
+    
+    \item ID klien dan rahasia klien\\
+    ID klien dan rahasia klien merupakan sebuah {\it string} unik yang mengidentifikasi aplikasi yang digunakan dan digunakan untuk memperoleh token. Keduanya diciptakan untuk proyek Google Developers Console pada panel API Access yang terdapat pada Developer Console Google. Ada tiga jenis ID klien, jadi pastikan jenis yang digunakan sesuai dengan aplikasi yang akan digunakan. Berikut ketiga  jenis aplikasi.
+    \begin{itemize}
+    \item Web application client IDs
+    \item Installed application client IDs
+    \item Service Account client IDs
+    \end{itemize}
+    Peringatan untuk menjauhkan rehasia klien anda pribadi. Jika seseorang memperoleh rahasia klien anda, mereka bisa menggunakannya untuk mengkonsumsi kuota, dikenakan tuduhan terhadap proyek Google Developer Console, dan meminta akses ke data pengguna.
+    \end{itemize}
 \end{itemize}
 
 Pada bagian terakhir ini menggambarkan bagaimana membangun suatu objek layanan API yang spesifik, membuat panggilan ke layanan, dan proses respon. Terdapat empat bagian untuk membangun dan memanggil layanan.
 
 \begin{itemize}
-\item Membangun objek klien objek\\
-Klient objek adalah wadah utama untuk kelas dan konfigurasi di {\it library}.
-\begin{verbatim}
+\item Membangun objek klien \\
+Objek klien adalah wadah utama untuk kelas dan konfigurasi di {\it library}.
+\begin{lstlisting}[basicstyle=\footnotesize]
 $client = new Google_Client();
 $client->setApplicationName("My Application");
 $client->setDeveloperKey("MY_SIMPLE_API_KEY");
-\end{verbatim}
+\end{lstlisting}
 
 \item Membangun layanan objek\\
-Layanan dipanggil melalui permintaan untuk layanan onjek tertentu. Ini diciptakan dengan membangun layanan objek, dan melewati sebuah contoh dari \verb+Google_Client+ untuk itu. \verb+Google_Client+ berisi IO, otentikasi dan kelas-kelas lain yang diperlukan oleh layanan berfungsi, dan layanan menginformasikan klien yang menggunakan ruang lingkup untuk memberikan default ketika otentikasi pengguna.
-\begin{verbatim}
+Layanan dipanggil melalui permintaan untuk membangun layanan objek tertentu. Ini diciptakan dengan membangun layanan objek, dan melewati sebuah contoh dari \verb+Google_Client+ untuk itu. \verb+Google_Client+ berisi IO, autentikasi dan kelas-kelas lain yang diperlukan oleh layanan berfungsi, dan layanan menginformasikan klien yang menggunakan ruang lingkup untuk memberikan default ketika autentikasi pengguna.
+\begin{lstlisting}[basicstyle=\footnotesize]
 $service = new Google_Service_Books($client);
-\end{verbatim}
+\end{lstlisting}
 
 \item Memanggil API\\
-Setiap API menyediakan sumber dan metode, biasanya dalam rantai. Ini dapat diakses dari objek layanan dalam bentuk \verb+$service->resource->method(args)+. Kebanyakan metode memerlukan beberapa argumen, maka menerima parameter akhir dari array yang berisi parameter opsional. Misalnya, dengan Google Books API, kita dapat membuat panggilan ke daftar volume pencocokan string tertentu, dan menambahkan parameter filter yang opsional.
-\begin{verbatim}
+Setiap API menyediakan sumber dan metode, biasanya terdapat di dalam rantai. Hal tersebut dapat diakses dari objek layanan dalam bentuk {\textdollar}service->resource->method(args). Kebanyakan metode memerlukan beberapa argumen, maka menerima parameter akhir dari {\it array} yang berisi parameter opsional. Misalnya, dengan Google Books API, kita dapat membuat panggilan ke daftar volume pencocokan {\it string} tertentu, dan menambahkan parameter filter yang opsional.
+\begin{lstlisting}[basicstyle=\footnotesize]
 $optParams = array('filter' => 'free-ebooks');
 $results = $service->volumes->listVolumes('Henry David Thoreau', $optParams);
-\end{verbatim}
+\end{lstlisting}
 
 \item Penanganan hasil\\
-Ada dua jenis utama dari respon yaitu item dan koleksi item. Masing-masing dapat diakses baik sebagai objek atau sebagai array. Koleksi penerapan antarmuka iterator sehingga dapat digunakan dalam konstruksi itu sendiri dan konstruksi lainnya.
-\begin{verbatim}
+Terdapat dua jenis respon utama yaitu item dan koleksi item. Masing-masing dapat diakses baik sebagai objek atau sebagai {\it array}. Koleksi penerapan antarmuka iterator sehingga dapat digunakan dalam konstruksi itu sendiri dan konstruksi lainnya.
+\begin{lstlisting}[basicstyle=\footnotesize]
 foreach ($results as $item) {
   echo $item['volumeInfo']['title'], "<br /> \n";
 }
-\end{verbatim}
+\end{lstlisting}
+\end{itemize}
 
 \section{Markdown}
 \label{sec:markdown}
 
 \subsection{Apa itu Markdown? \cite{Markguide:2015}}
-John Gruber pembuat Markdown, memperkenalkan Markdown sebagai alat konfersi
-sebuah teks untuk ditampilkan ke HTML untuk para penulis {\it website}. Markdown
-memungkinkan penulis mudah untuk membaca dan mudah untuk menulis sebuah teks
-biasa, lalu merubah teks tersebut secara struktural yang valid dengan XHTML atau
-HTML.
-Markdown memiliki beberapa sintaks yang sederhana sebagai peraturan dalam
-menulis, hal tersebut membuat mudah dalam konfersi ke HTML dengan banyak
-perangkat lunak yang mendukung. Untuk contoh, jika menulis \verb+**hello**+ pada
-Markdown dan konfersi ke HTML menggunakan teks editor yang mendukung, teks
-tersebut akan menjadi \verb+<strong>hello</hello>+ yang akan terlihat \textbf{hello}.
+John Gruber pembuat Markdown, memperkenalkan Markdown sebagai alat konfersi sebuah teks untuk ditampilkan ke HTML untuk para penulis {\it website}. Markdown memungkinkan penulis mudah untuk membaca dan mudah untuk menulis sebuah teks biasa, lalu merubah teks tersebut secara struktural yang valid dengan XHTML atau HTML. Markdown memiliki beberapa sintaks yang sederhana sebagai peraturan dalam menulis, hal tersebut membuat mudah dalam konfersi ke HTML dengan banyak perangkat lunak yang mendukung. Sebagai contoh, jika menulis \verb+**hello**+ pada Markdown dan konfersi ke HTML menggunakan teks editor yang mendukung, teks tersebut akan menjadi \verb+<strong>hello</hello>+ yang akan terlihat \textbf{hello}. 
 
 \subsection{Sintaks yang Berguna \cite{Markguide:2015}}
-Terdapat beberapa sintaks untuk penggunaan cetak tebal, cetak miring, judul sub
-bab, batas garis, paragraf, gambar, {\it link}, kode, kutipan, garis
-horisontal, dan daftar. Untuk penjelasan lebih lanjut dapat dilihat pada sub sub
-bab di bawah ini.
+Terdapat beberapa sintaks untuk penggunaan cetak tebal, cetak miring, judul sub bab, batas garis, paragraf, gambar, {\it link}, kode, kutipan, garis horisontal, dan daftar. Untuk penjelasan lebih lanjut dapat dilihat pada sub sub bab di bawah ini.
 
 \begin{itemize}
 \item Cetak Tebal dan Cetak Miring\\
-Markdown memperlakukan karakter bintang (*) sebagai penekanan. Teks yang
-dibungkus dengan satu karakter * maka hasil teks akan cetak miring, dan teks
-yang dibungkus dengan dua karakter * maka hasil teks akan cetak tebal. Berikut
-contoh penggunaan sintaks untuk cetak tebal dan cetak miring.
+Markdown memperlakukan karakter bintang (*) sebagai penekanan. Teks yang dibungkus dengan satu karakter * maka hasil teks akan cetak miring, dan teks yang dibungkus dengan dua karakter * maka hasil teks akan cetak tebal. Berikut contoh penggunaan sintaks untuk cetak tebal dan cetak miring.
 
 \begin{lstlisting}[basicstyle=\footnotesize]
 Alice melaporkan bahwa dirinya mengidap penyakit *Amyotrophic Lateral Sclerosis* sehingga mengganggu proses belajar.
@@ -480,55 +318,44 @@ Alice melaporkan bahwa dirinya mengidap penyakit *Amyotrophic Lateral Sclerosis*
 Bob datang terlambat di kelas algoritma, dan **menolak untuk keluar** saat diusir dosen kelas.
 \end{lstlisting}
 
-Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada
-HTML dapat dilihat pada Gambar \ref{fig:cmct}.
+Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:cmct}.
 
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p><em>hello</em> untuk cetak miring</p>
+<p>Alice melaporkan bahwa dirinya mengidap penyakit <em>Amyotrophic Lateral Sclerosis</em> sehingga mengganggu proses belajar.</p>
 
-<p><strong>hello</strong> untuk cetak tebal</p>
+<p>Bob datang terlambat di kelas algoritma, dan <strong>menolak untuk keluar</strong> saat diusir dosen kelas.</p>
 \end{lstlisting}
 
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{Gambar/cmct.png}
-\caption[Markdown Cetak Tebal dan Cetak Miring]{Markdown Cetak Tebal dan
-Cetak Miring}
+\includegraphics[scale=0.7]{Gambar/cmct.png}
+\caption[Markdown Cetak Tebal dan Cetak Miring]{Markdown Cetak Tebal dan Cetak Miring}
 \label{fig:cmct}
 \end{figure}
 
 \item Judul Bab\\
-\item Markdown memperlakukan karakter hash (\#) sebagai indikator dari bab. Gunakan
-beberapa karakter hash untuk bab. Selalu gunakan spasi antara karakter hash
-dengan teks yang akan digunakan. Jumlah \# yang digunakan akan menentukan ukuran
-judul bab. Berikut contoh penggunaan sintaks untuk judul bab.
+\item Markdown memperlakukan karakter hash (\#) sebagai indikator dari bab. Gunakan beberapa karakter hash untuk bab. Selalu gunakan spasi antara karakter hash dengan teks yang akan digunakan. Jumlah \# yang digunakan akan menentukan ukuran judul bab. Berikut contoh penggunaan sintaks untuk judul bab.
 \begin{lstlisting}[basicstyle=\footnotesize]
-# Judul Bab
-
-## Judul Sub Bab
-
-### Judul Sub Sub Bab
-
-#### Tingkat ke 4
-
-##### Tingkat ke 5
-
-###### Tingkat ke 6
+# Bab 1
+## Bab 1.1
+### Bab 1.1.1
+#### Bab 1.1.1.1
+##### Bab 1.1.1.1.1
+###### Bab 1.1.1.1.1.1
 \end{lstlisting}
-Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada
-HTML dapat dilihat pada Gambar \ref{fig:cmct}.
+Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:cmct}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<h1>Judul Bab</h1>
+<h1>Bab 1</h1>
 
-<h2>Judul Sub Bab</h2>
+<h2>Bab 1.1</h2>
 
-<h3>Judul Sub Sub Bab</h3>
+<h3>Bab 1.1.1</h3>
 
-<h4>Tingkat ke 4</h4>
+<h4>Bab 1.1.1.1</h4>
 
-<h5>Tingkat ke 5</h5>
+<h5>Bab 1.1.1.1.1</h5>
 
-<h6>Tingkat ke 6</h6>
+<h6>Bab 1.1.1.1.1.1</h6>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -538,19 +365,15 @@ HTML dapat dilihat pada Gambar \ref{fig:cmct}.
 \end{figure}
 
 \item Batas Baris\\
-Untuk menyisipkan satu baris baru dalam dokumen, mengakhiri baris dengan dua
-atau lebih spasi lalu tekan '{\it Enter}'. Berikut contoh penggunaan sintaks
-untuk batas baris.
+Untuk menyisipkan satu baris baru dalam dokumen, mengakhiri baris dengan dua spasi atau lebih lalu tekan '{\it Enter}'. Berikut contoh penggunaan sintaks untuk batas baris.
 \begin{lstlisting}[basicstyle=\footnotesize]
-Baris ini dengan   
-batas baris
+Bob melihat pengumuman   
+kelas PBO ditiadakan
 \end{lstlisting}
-Contoh di atas, setelah kata 'dengan' diakhiri dengan tiga spasi lalu tekan
-'Enter'. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
-hasil pada HTML dapat dilihat pada Gambar \ref{fig:dengan}.
+Contoh di atas, setelah kata 'pengumuman' diakhiri dengan tiga spasi lalu tekan '{\it Enter}'. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:dengan}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p>Baris ini dengan <br />
-batas baris</p>
+<p>Bob melihat pengumuman <br />
+kelas PBO ditiadakan</p>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -560,15 +383,13 @@ Dengan Tiga Spasi}
 \label{fig:dengan}
 \end{figure}
 \begin{lstlisting}[basicstyle=\footnotesize]
-Baris ini tanpa
-batas baris
+Alice menunggu
+kelas PBO
 \end{lstlisting}
-Contoh di atas, setelah kata 'tanpa' diakhiri tanpa spasi langsung tekan
-'Enter'. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
-hasil pada HTML dapat dilihat pada Gambar \ref{fig:tanpa}.
+Contoh di atas, setelah kata 'menunggu' diakhiri tanpa spasi langsung tekan'Enter'. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:tanpa}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p>Baris ini tanpa
-batas baris</p>
+<p>Alice menunggu
+kelas PBO</p>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -579,31 +400,27 @@ Tanpa Tiga Spasi}
 \end{figure}
 
 \item Paragraf\\
-Untuk menyisipkan paragraf baru, cukup menyisipkan satu baris kosong. Berikut
-contoh penggunaan sintaks untuk paragraf.
+Untuk menyisipkan paragraf baru, cukup menyisipkan satu baris kosong. Berikut contoh penggunaan sintaks untuk paragraf.
 \begin{lstlisting}[basicstyle=\footnotesize]
-Ini kalimat pertama. Ini kalimat berikutnya. Ini kalimat terakhir.
+Alice memberikan tugas yang telah dititipkan Bob. Bob merasa Alice baik terhadap dirinya. Maka Bob mengirim pesan ke Alice.
 
-Ini paragraf baru.
+Ternyata Alice mendapat hadiah dari tugas yang dititipkan oleh Bob.
 \end{lstlisting}
-Contoh diatas baris pertama adalah peragraf kesatu. Setelah itu ada satu baris
-kosong. Kalimat kedua merupakan paragraf kedua. Sintaks tersebut akan
-menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada
-Gambar \ref{fig:tanpa}.
+Contoh diatas baris pertama adalah peragraf kesatu. Setelah itu ada satu baris kosong. Kalimat kedua merupakan paragraf kedua. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:tanpa}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p>Ini kalimat pertama. Ini kalimat berikutnya. Ini kalimat terakhir.</p>
+<p>Alice memberikan tugas yang telah dititipkan Bob. Bob merasa Alice baik terhadap dirinya. Maka Bob mengirim pesan ke Alice.</p>
 
-<p>Ini paragraf baru.</p>
+<p>Ternyata Alice mendapat hadiah dari tugas yang dititipkan oleh Bob.</p>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{Gambar/para.png}
+\includegraphics[scale=0.7]{Gambar/para.png}
 \caption[Markdown Paragraf]{Markdown Paragraf}
 \label{fig:para}
 \end{figure}
 
 \item Gambar\\
-Untuk menyisipkan gambar pada dokumen Markdown, gunakan sintaks berikut
+Untuk menyisipkan gambar pada dokumen Markdown, menggunakan sintaks berikut
 \begin{lstlisting}[basicstyle=\footnotesize]
 ![teks](/url_gambar "judul_gambar")
 \end{lstlisting}
@@ -611,9 +428,7 @@ Contoh penggunaan sintaks gambar:
 \begin{lstlisting}[basicstyle=\footnotesize]
 ![logo](https://www.google.com/logos/doodles/2014/googles-16th-birthday-4613606054297600-hp.gif "Google")
 \end{lstlisting}
-Url gambar dapat diganti dengan path yang mengarah pada {\it file} gambar yang akan
-digunakan. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
-hasil pada HTML dapat dilihat pada Gambar \ref{fig:gambar}.
+Url gambar dapat diganti dengan path yang mengarah pada {\it file} gambar yang akan digunakan. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:gambar}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <p><img src="https://www.google.com/logos/doodles/2014/googles-16th-birthday-4613606054297600-hp.gif" alt="logo" title="Google" /></p>
 \end{lstlisting}
@@ -651,61 +466,49 @@ kutip belakang ('). Lampirkan kode yang ingin disisipkan dalam karakter kutip
 belakang. Untuk menyisipkan blok kode gunakan tiga kutip belakang ('''). Setiap
 baris kode harus diawali dengan empat spasi.
 \begin{lstlisting}[basicstyle=\footnotesize]
-Definisi dari 'initLabels()' dapat dilihat di bawah ini"
+Bob mendefinisikan fungsi penjumlahan()
 
 '''
-    function initLabels(){
-        function setLabels(elementId, messageId){
-            var label = document.querySelector('label[for=' + elementId + ']');
-            label.textContent = chrome.i18n.getMessage(messageId);
-        }
+    fungsi penjumlahan(){
+        A + 1 = C;
+        2 + B = D
     }
 '''
-
 Paragraf lain.
 \end{lstlisting}
-'initLabels()' akan menjadi kode pada satu baris kalimat. Sedangkan fungsi yang
-ada didalam ''' akan menjadi blok kode. Sintaks tersebut akan menghasilkan kode
-HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar
+'initLabels()' akan menjadi kode pada satu baris kalimat. Sedangkan fungsi yang ada didalam ''' akan menjadi blok kode. Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada Gambar
 \ref{fig:kode}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p>Definisi dari 'initLabels()' dapat dilihat di bawah ini"</p>
+<p>Bob mendefinisikan fungsi penjumlahan()</p>
 
 <p>'''
-    function initLabels(){
-        function setLabels(elementId, messageId){
-            var label = document.querySelector('label[for=' + elementId + ']');
-            label.textContent = chrome.i18n.getMessage(messageId);
-        }
+    fungsi penjumlahan(){
+        A + 1 = C;
+        2 + B = D
     }
 '''</p>
-
-<p>Paragraf lain.</p>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Gambar/kode.png}
+\includegraphics[scale=0.7]{Gambar/kode.png}
 \caption[Markdown Kode]{Markdown Kode}
 \label{fig:kode}
 \end{figure}
 
 \item Kutipan\\
-Untuk menyisipkan kutipan pada dokumen Markdown, gunakan tanda lebih besar (>)
-pada awal kupitan.
+Untuk menyisipkan kutipan pada dokumen Markdown, dapat menggunakan tanda lebih besar (>) pada awal kupitan.
 \begin{lstlisting}[basicstyle=\footnotesize]
-Ini merupakan kutipan **favorit** saya:
+Alice mempunyai *quote* favorit:
 
-> The weak can never forgive.
-> Forgiveness is the attribute of the strong.
+> Kalau kamu mau, kamu pasti bisa
 \end{lstlisting}
 Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
 hasil pada HTML dapat dilihat pada Gambar \ref{fig:kutipan}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<p>Ini merupakan kutipan <strong>favorit</strong> saya:</p>
+<p>Alice mempunyai <em>quote</em> favorit:</p>
 
 <blockquote>
-  <p>The weak can never forgive.
-Forgiveness is the attribute of the strong.</p>
+  <p>Kalau kamu mau, kamu pasti bisa</p>
 </blockquote>
 \end{lstlisting}
 \begin{figure}[H]
@@ -716,29 +519,28 @@ Forgiveness is the attribute of the strong.</p>
 \end{figure}
 
 \item Garis Horisontal\\
-Menyisipkan garis horisontal pada dokumen Markdown, gunakan tiga atau lebih
-tanda hubung (-) dalam baris baru. Maka akan muncul sebagai garis horisontal
-pada keluaran HTML.
+Menyisipkan garis horisontal pada dokumen Markdown, gunakan tiga atau lebih tanda hubung (-) dalam baris baru. Maka akan muncul sebagai garis horisontal pada keluaran HTML.
 \begin{lstlisting}[basicstyle=\footnotesize]
-# Bagian Satu
+# Pertemuan pertama kelas ASD
 
-The quick brown fox jumps over the lazy dog. The quick brpwn fox jump over the lazy dog.
+Bob dapat mengerti materi **Tree** dan **Hash** dengan cepat
 
 ---
 
-Last Edited on *25th Dec 2014*
+Dirubah pada tanggal *13 Januari 2015*
 \end{lstlisting}
 Pada contoh di atas --- akan menjadi garis horisontal. Sintaks tersebut akan
 menghasilkan kode HTML sebagai berikut. Untuk hasil pada HTML dapat dilihat pada
 Gambar \ref{fig:garis}.
 \begin{lstlisting}[basicstyle=\footnotesize]
-<h1>Bagian Satu</h1>
+<h1>Pertemuan pertama kelas ASD</h1>
 
-<p>The quick brown fox jumps over the lazy dog. The quick brpwn fox jump over the lazy dog.</p>
+<p>Bob dapat mengerti materi <strong>Tree</strong> dan <strong>Hash</strong> dengan cepat</p>
 
 <hr />
 
-<p>Last Edited on <em>25th Dec 2014</em></p>
+<p>Dirubah pada tanggal <em>13 Januari 2015</em></p>
+
 \end{lstlisting}
 \begin{figure}[H]
 \centering
@@ -748,40 +550,37 @@ Gambar \ref{fig:garis}.
 \end{figure}
 
 \item Daftar\\
-Terdapat dua macam daftar yang dapat dibuat. Dua macam daftar tersebut dapat
-dilihat dibawah ini.
+Terdapat dua macam daftar yang dapat dibuat. Dua macam daftar tersebut dapat dilihat dibawah ini.
 
 \begin{enumerate}[(1)]
 \item Daftar tidak berurutan\\
-Untuk membuat daftar tidak berurutan dapat menggunakan simbol bintang *, simbol
-tambah +, maupun tanda hubung - sebelum daftar item yang ingin dimasukkan. Untuk
-contoh penggunaan dapat dilihat di bawah ini.
+Untuk membuat daftar tidak berurutan dapat menggunakan simbol bintang *, simbol tambah +, maupun tanda hubung - sebelum daftar item yang ingin dimasukkan. Untuk contoh penggunaan dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-* Item
-* Item
-* Item
+* 13 Januari, Bob terlambat masuk kelas PBW
+* 14 Januari, Bob terlambat masuk kelas PBO
+* 15 Januari, Bob terlambat masuk kelas IMK
 
-+ Item
-+ Item
-+ Item
++ 16 Januari, Bob terlambat masuk kelas PBD
++ 17 Januari, Bob terlambat masuk kelas ASD
++ 18 Januari, Bob terlambat masuk kelas PBW ke 2
 
-- Item
-- Item
-- Item
+- 19 Januari, Bob terlambat masuk kelas IMK ke 2
+- 20 Januari, Bob terlambat masuk kelas ASD ke 2
+- 21 Januari, Bob terlambat masuk kelas PBO ke 2
 \end{lstlisting}
 Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
 hasil pada HTML dapat dilihat pada Gambar \ref{fig:daftartidakberurutan}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <ul>
-<li>Item</li>
-<li>Item</li>
-<li><p>Item</p></li>
-<li><p>Item</p></li>
-<li>Item</li>
-<li><p>Item</p></li>
-<li><p>Item</p></li>
-<li>Item</li>
-<li>Item</li>
+<li>13 Januari, Bob terlambat masuk kelas PBW</li>
+<li>14 Januari, Bob terlambat masuk kelas PBO</li>
+<li><p>15 Januari, Bob terlambat masuk kelas IMK</p></li>
+<li><p>16 Januari, Bob terlambat masuk kelas PBD</p></li>
+<li>17 Januari, Bob terlambat masuk kelas ASD</li>
+<li><p>18 Januari, Bob terlambat masuk kelas PBW ke 2</p></li>
+<li><p>19 Januari, Bob terlambat masuk kelas IMK ke 2</p></li>
+<li>20 Januari, Bob terlambat masuk kelas ASD ke 2</li>
+<li>21 Januari, Bob terlambat masuk kelas PBO ke 2</li>
 </ul>
 \end{lstlisting}
 \begin{figure}[H]
@@ -794,22 +593,22 @@ hasil pada HTML dapat dilihat pada Gambar \ref{fig:daftartidakberurutan}.
 Untuk membuat daftar berurutan dapat menggunakan nomor sebelum daftar item yang
 ingin dimasukkan. Untuk contoh penggunaan dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-1. Item 1
-2. Item 2
-3. Item 3
+1. Bob aktif di dalam kelas PBWL 
+2. Alice datang terlambat pada kelas PBWL
+3. Carol mendapat nilai tertinggi untuk tugas akhir PBWL
 \end{lstlisting}
 Sintaks tersebut akan menghasilkan kode HTML sebagai berikut. Untuk
 hasil pada HTML dapat dilihat pada Gambar \ref{fig:dafarberurutan}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <ol>
-<li>Item 1</li>
-<li>Item 2</li>
-<li>Item 3</li>
+<li>Bob aktif di dalam kelas PBWL </li>
+<li>Alice datang terlambat pada kelas PBWL</li>
+<li>Carol mendapat nilai tertinggi untuk tugas akhir PBWL</li>
 </ol>
 \end{lstlisting}
 \begin{figure}[H]
 \centering
-\includegraphics[scale=1]{Gambar/dafarberurutan.png}
+\includegraphics[scale=1]{Gambar/daftarberurutan.png}
 \caption[Markdown Daftar Berurutan]{Markdown Daftar Berurutan}
 \label{fig:dafarberurutan}
 \end{figure}
@@ -817,24 +616,16 @@ hasil pada HTML dapat dilihat pada Gambar \ref{fig:dafarberurutan}.
 \end{itemize}
 
 \subsection{GitHub Flavored Markdown \cite{Markdown:2015}}
-GitHub menggunakan "GitHub Flavored Markdown" atau disingkat menjadi GFM. GFM
-berbeda dengan Standar Markdwon (SM) dalam beberapa bagian yang cukup signifikan
-dan ada beberapa sintaks tambahan. Beberapa hal yang berbeda dari SM dapat
-dilihat di bawah ini.
+GitHub menggunakan "GitHub Flavored Markdown" atau disingkat menjadi GFM. GFM berbeda dengan Standar Markdwon (SM) dalam beberapa bagian yang cukup signifikan dan ada beberapa sintaks tambahan. Beberapa hal yang berbeda dari SM dapat dilihat di bawah ini.
 
 \begin{itemize}
 \item Beberapa Garis Bawah Pada Kalimat\\
-Pada Markdown kata yang berada dianatara garis bawah akan dirubah menjadi cetak
-miring, namun pada GFM garis bawah tidak memiliki pasangan maka garis
-bawah tersebut diabaikan sehingga akan tetap tampil sebagai karakter garis
-bawah.
+Pada Markdown kata yang berada dianatara garis bawah akan dirubah menjadi cetak miring, namun pada GFM garis bawah tidak memiliki pasangan maka garis bawah tersebut diabaikan sehingga akan tetap tampil sebagai karakter garis bawah.
 \begin{lstlisting}[basicstyle=\footnotesize]
-wow_great_stuff
-do_this_and_do_that_and_another_thing.
+Bob_mempunyai_perangkat_canggih
+terlihat_dari_apa_yang_dia_gunakan.
 \end{lstlisting}
-Hal tersebut memungkinkan untuk merender kode dan nama dengan benar. Untuk
-menekankan sebagian kata dapat menggunakan tanda bintang (*). Untuk hasil pada
-HTML dapat dilihat pada Gambar \ref{fig:gb}.
+Hal tersebut memungkinkan untuk merender kode dan nama dengan benar. Untuk menekankan sebagian kata dapat menggunakan tanda bintang (*). Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:gb}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{Gambar/garisbawah.png}
@@ -843,14 +634,11 @@ HTML dapat dilihat pada Gambar \ref{fig:gb}.
 \end{figure}
 
 \item Taut Otomatis URL\\
-GFM membuat standar untuk taut otomatis URL. Tanpa mengatur teks untuk link
-sebuah URL, cukup menyisipkan URL dan URL tersebut akan menjadi taut otomatis
-yang mengarah ke URL tersebut.
+GFM membuat standar untuk taut otomatis URL. Tanpa mengatur teks untuk link sebuah URL, cukup menyisipkan URL dan URL tersebut akan menjadi taut otomatis yang mengarah ke URL tersebut.
 \begin{lstlisting}[basicstyle=\footnotesize]
-http://example.com
+http://www.unpar.ac.id
 \end{lstlisting}
-Link di atas kan menjadi taut secara otomatis ke URL tersebut. Untuk hasil pada
-HTML dapat dilihat pada Gambar \ref{fig:gfml}.
+Link di atas kan menjadi taut secara otomatis ke URL tersebut. Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:gfml}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=1]{Gambar/gfml.png}
@@ -859,11 +647,9 @@ HTML dapat dilihat pada Gambar \ref{fig:gfml}.
 \end{figure}
 
 \item Tanda Coret\\
-GFM menambahkan sintaks untuk membuat teks dicoret, yang dihilangkan dari SM.
-Untuk membuat teks dicoret gunakan dua karakter tilde (~) antara kata yang akan
-dicoret.
+GFM menambahkan sintaks untuk membuat teks dicoret, yang dihilangkan dari SM. Untuk membuat teks dicoret gunakan dua karakter tilde (~) antara kata yang akan dicoret.
 \begin{lstlisting}[basicstyle=\footnotesize]
-~~Mistaken text.~~
+~~Dibuka kelas ASD pada masa SP.~~
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:tc}.
 \begin{figure}[H]
@@ -874,16 +660,16 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:tc}.
 \end{figure}
 
 \item Blok Kode\\
-SM mengkonfersi blok kode dengan diawali empat spasi untuk setiap baris yang
-berada dalam blok kode. GFM juga mendukung blok kode namun cukup membungkus kode
-dengan tiga kutip belakang (''') tanpa harus memperhatikan empat spasi untuk
-awalan kode.
+SM mengkonfersi blok kode dengan diawali empat spasi untuk setiap baris yang berada dalam blok kode. GFM juga mendukung blok kode namun cukup membungkus kode dengan tiga kutip belakang (''') tanpa harus memperhatikan empat spasi untuk awalan kode.
 \begin{lstlisting}[basicstyle=\footnotesize]
-Here's an example:
+Berikut kode **Java**
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
+public class HelloWorld
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
 }
 ```
 \end{lstlisting}
@@ -896,33 +682,32 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:blokkode}.
 \end{figure}
 
 \item Penandaan Sintaks\\
-Blok kode dapat dilanjutkan dengan menambah sintaks. Dalam blok yang ditandai
-tambahkan sebuah indetifikasi bahasa apa yang digunakan. Misalnya penandaan kode
-untuk sintaks Ruby.
+Blok kode dapat dilanjutkan dengan menambah sintaks. Dalam blok yang ditandai tambahkan sebuah indetifikasi bahasa apa yang digunakan. Misalnya penandaan kode untuk sintaks Java.
 \begin{lstlisting}[basicstyle=\footnotesize]
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
+```java
+public class HelloWorld
+{
+	public static void main(String[] args) {
+		System.out.println("Hello World!");
+	}
+}
 ```
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:ruby}.
 \begin{figure}[H]
 \centering
-\includegraphics[scale=0.6]{Gambar/ruby.png}
+\includegraphics[scale=0.6]{Gambar/java.png}
 \caption[GFM Penandaan Sintaks]{GFM Penandaan Sintaks}
 \label{fig:ruby}
 \end{figure}
 
 \item Tabel\\
-Dapat membuat tabel dengan menyusun daftar kata dan membagi dengan tanda hubung
-(-)untuk baris pertama. Kemudian memisahkan kolom dengan pipa |. Untuk contoh
-dapat diliahat di bawah ini.
+Dapat membuat tabel dengan menyusun daftar kata dan membagi dengan tanda hubung (-)untuk baris pertama. Kemudian memisahkan kolom dengan pipa |. Untuk contoh dapat diliahat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
+No  | Nama
+--- | ---
+1   | Bob
+2   | Alice
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t1}.
 \begin{figure}[H]
@@ -932,13 +717,12 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t1}.
 \label{fig:t1}
 \end{figure}
 
-Untuk tujuan estetika, dapat juga menambahkan pipa pada setiap ujung tabel.
-Untuk contoh dapat dilihat di bawah ini.
+Untuk tujuan estetika, dapat juga menambahkan pipa pada setiap ujung tabel. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-| First Header  | Second Header |
-| ------------- | ------------- |
-| Content Cell  | Content Cell  |
-| Content Cell  | Content Cell  |
+| No  | Nama   |
+| --- | ------ |
+|  1  |  Bob   |
+|  2  |  Alice |
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t2}.
 \begin{figure}[H]
@@ -950,10 +734,10 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t2}.
 
 Untuk membagi judul tabel dan isi tabel dapat menggunakan tanda hubung (-) yang tidak perlu disesuaikan dengan panjang judul tabel maupun isi tabel. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-| Name | Description          |
+| Nama | Mata Kuliah yang Diambil  |
 | ------------- | ----------- |
-| Help      | Display the help window.|
-| Close     | Closes a window     |
+| Alice      | RPL|
+| Bob     | PBWL     |
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t3}.
 \begin{figure}[H]
@@ -965,10 +749,10 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t3}.
 
 Pada sintask tabel juga dapat memasukan berbagai sintaks Markdown kedalam tabel seperti link, cetak tebal, cetak miring atau teks yang dicoret. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-| Name | Description          |
+| Nama | Deskripsi          |
 | ------------- | ----------- |
-| Help      | ~~Display the~~ help window.|
-| Close     | _Closes_ a window     |
+| Alice      | ~~Terlambat~~ di setiap kelas.|
+| Bob     | Seharusnya Bob _menjemput_ Alice     |
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t4}.
 \begin{figure}[H]
@@ -981,11 +765,11 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t4}.
 Dengan memasukan tanda titik dua pada baris header. Dapat menentukan baris kiri,
 baris tengah, maupun baris kanan. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
-| Left-Aligned  | Center Aligned  | Right Aligned |
-| :------------ |:---------------:| -----:|
-| col 3 is      | some wordy text | $1600 |
-| col 2 is      | centered        |   $12 |
-| zebra stripes | are neat        |    $1 |
+| Rata Kiri  | Rata Tengah  | Rata Kanan |
+| :--------- |:------------:| ----------:|
+| Google     | Bob          | PBO        |
+| Mozilla    | Carol        | PBW        |
+| Opera      | Alice        | PBD        |
 \end{lstlisting}
 Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t5}.
 \begin{figure}[H]
@@ -999,15 +783,9 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t5}.
 \section{StrapdownJS \cite{Strapdownjs:2014}}
 \label{sec:stapdownjs}
 
-Strapdown.js membuat lebih sederhana untuk membuat dokumen Markdown yang elegan.
-Tidak diperlukan kompilasi dari sisi server. Gunakan strapdown.js untuk
-mendokumentasikan proyek dengan cepat, membuat tutorial, membuat halaman utama
-sebuah {\it website}. Contoh {\it website} yang menggunakan strapdown.js adalah
-http://strapdownjs.com/.
+Strapdown.js merupakan sebuah teknologi untuk membuat dokumen Markdown menjadi lebih sederhana namun tetap elegan. Penggunaannya tidak diperlukan kompilasi dari sisi server. Gunakan strapdown.js untuk mendokumentasikan proyek dengan cepat, membuat tutorial, membuat halaman utama sebuah {\it website}. Contoh {\it website} yang menggunakan strapdown.js adalah http://strapdownjs.com/.
 
-Untuk penggunaan StrapdownJS gunakan skrip strapdown.js dengan cara langsung
-mengarahkan ke {\it website} maupun menggunakan {\it path} yang mengarakan
-dimana {\it file} strapdown.js berada.
+Untuk penggunaan StrapdownJS gunakan skrip strapdown.js dengan cara langsung mengarahkan ke {\it website} maupun menggunakan {\it path} yang mengarakan dimana {\it file} strapdown.js berada.
 \begin{itemize}
 \item Cara pertama:\\
 \begin{lstlisting}[basicstyle=\footnotesize]
@@ -1021,8 +799,7 @@ dimana {\it file} strapdown.js berada.
 
 Peringatan untuk cara kedua harus terlebih dahulu mengunduh {\it file} strapdown.js.
 
-Lalu buat {\it tag} <xml> untuk membuat area untuk menulis dengan sintaks
-Markdown.
+Lalu buat {\it tag} <xml> untuk membuat area untuk menulis dengan sintaks Markdown.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <xmp theme="united" style="display:none;">
 
@@ -1069,17 +846,10 @@ Safari, IE 8/9, Firefox, Chrome)
 \section{Zurb Foundation \cite{Zurb:2015}}
 \label{sec:zurbfoundation}
 
-Zurb Foundation merupakan alat bantu dalam membuat aplikasi baru maupun membuat
-{\it website} yang responsif, tampilan antarmuka mengikuti lebar mesin pencari dan/atau layar komputer tanpa melakukan permintaan tambahan ke server. Jutaan desainer dan teknisi menggunakan Foundation
-sebagai bagian dari alur kerja mereka. Zurb Foundation adalah {\it framework}
-pertama yang memperkenalkan konsep responsif, semantik, mobile dan parsial. Zurb
-Foundation juga kompatibel dengan kebanyakan mesin pencari dan perangkat. Maka
-dari itu Zurb Foundation merupakan pilihan profesional bagi para desainer dan teknisi.
+Zurb Foundation merupakan alat bantu dalam membuat aplikasi baru maupun membuat {\it website} yang responsif, tampilan antarmuka mengikuti lebar mesin pencari dan/atau layar komputer tanpa melakukan permintaan tambahan ke server. Jutaan desainer dan teknisi menggunakan Foundation sebagai bagian dari alur kerja mereka. Zurb Foundation adalah {\it framework} pertama yang memperkenalkan konsep responsif, semantik, mobile dan parsial. Zurb Foundation juga kompatibel dengan kebanyakan mesin pencari dan perangkat. Maka dari itu Zurb Foundation merupakan pilihan profesional bagi para desainer dan teknisi.
 
 \subsection{Kompatibilitas}
-Zurb Foundation dirancang dan diuji pada berbagai {\it browser} dan perangkat. Daftar
-pengujian pada berbagai {\it browser} dan perangkat dapat dilihat pada Tabel
-\ref{tab:kompatibilitas}.
+Zurb Foundation dirancang dan diuji pada berbagai {\it browser} dan perangkat. Daftar pengujian pada berbagai {\it browser} dan perangkat dapat dilihat pada Tabel \ref{tab:kompatibilitas}.
 
 %\newcommand{\Checkmark}{\ding{51}}%
 %\newcommand{\XSolidBrush}{\ding{55}}%
@@ -1126,17 +896,11 @@ Surface & \Checkmark & \Checkmark & \Checkmark\\
 \footnotetext[1]{http://foundation.zurb.com/docs/compatibility.html}
 
 \subsection{Apa Saja yang Dapat Dibuat dengan Foundation?}
-Foundation memiliki banyak komponen dan struktur untuk membantu membangun sebuah
-situs responsif. Untuk komponen Foundation dapat melihat beberapa gambar dibawah
-ini :
+Foundation memiliki banyak komponen dan struktur untuk membantu membangun sebuah situs responsif. Untuk komponen Foundation dapat melihat beberapa gambar dibawah ini:
 
 \begin{enumerate}[(1)]
 \item {\it Grid}\\
-{\it Grid} bekerja pada hampir semua perangkat dan memiliki dukungan untuk menjadi
-satu kesatuan, sumber pemesanan, {\it offset} dan perangkat presentasi. Hal
-tersebut sedikit mudah dengan waktu yang singkat dapat menciptakan tata letak yang
-kompleks seperti ini. Untuk contoh {\it grid} dapat dilihat pada Gambar
-\ref{fig:grid}.
+{\it Grid} bekerja pada hampir semua perangkat dan memiliki dukungan untuk menjadi satu kesatuan, sumber pemesanan, {\it offset} dan perangkat presentasi. Hal tersebut sedikit mudah dengan waktu yang singkat dapat menciptakan tata letak yang kompleks seperti ini. Untuk contoh {\it grid} dapat dilihat pada Gambar \ref{fig:grid}.
 
 \begin{figure}[H]
 \centering
@@ -1147,16 +911,7 @@ kompleks seperti ini. Untuk contoh {\it grid} dapat dilihat pada Gambar
 
 \begin{itemize}
 \item {\it Grid} Utama\\
-Mulailah membuat elemen dengan kelas secara berturu-turut. Ini akan membuat
-blok horisontal yang berisi kolom vertikal. Kemudian tambahkan beberapa div
-dengan kelas kolom pada baris tersebut. Dapat menggunakan {\it column} atau
-{\it columns} karena hanya berbeda tata bahasa. Tentukan lebar dari setiap
-kolom dengan menggunakan kelas {\it small}-\#, {\it medium}-\#, dan
-{\it large}-\#.
-Foundation merupakan yang pertama dalam mengembangkan kode untuk layar kecil
-dan untuk perangkat dengan layar lebih besar akan mendapat bagian dengan gaya yang
-sama. Berikut kode HTML untuk membuat grid utama dan dapat dilihat hasilnya
-pada Gambar \ref{fig:gridutama}.
+Mulailah membuat elemen dengan kelas secara berturu-turut. Ini akan membuat blok horisontal yang berisi kolom vertikal. Kemudian tambahkan beberapa div dengan kelas kolom pada baris tersebut. Dapat menggunakan {\it column} atau {\it columns} karena hanya berbeda tata bahasa. Tentukan lebar dari setiap kolom dengan menggunakan kelas {\it small}-\#, {\it medium}-\#, dan {\it large}-\#. Foundation merupakan yang pertama dalam mengembangkan kode untuk layar kecil dan untuk perangkat dengan layar lebih besar akan mendapat bagian dengan gaya yang sama. Berikut kode HTML untuk membuat grid utama dan dapat dilihat hasilnya pada Gambar \ref{fig:gridutama}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- no. 1 -->
 <div class="row">
@@ -1204,9 +959,7 @@ pada Gambar \ref{fig:gridutama}.
 \label{fig:gridutama}
 \end{figure}
 \item {\it Grid} Kecil\\
-Menampilkan {\it grid} kecil ke layar besar lebih mudah dibandingkan memaksa
-menampilkan {\it grid} besar ke layar kecil. Berikut kode HTML untuk membuat
-{\it grid} kecil dan dapat dilihat hasilnya pada Gambar \ref{fig:gridkecil}.
+Menampilkan {\it grid} kecil ke layar besar lebih mudah dibandingkan menampilkan {\it grid} besar ke layar kecil. Berikut kode HTML untuk membuat {\it grid} kecil dan dapat dilihat hasilnya pada Gambar \ref{fig:gridkecil}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- no. 1 -->
 <div class="row">
@@ -1226,10 +979,7 @@ menampilkan {\it grid} besar ke layar kecil. Berikut kode HTML untuk membuat
 \label{fig:gridkecil}
 \end{figure}
 \item {\it Grid} Menengah\\
-Layar berukuran sedang akan mendapatkan bagian dari gaya yang kecil, kecuali
-ditentukan tata letak yang berbeda dengan menggunakan {\it grid} menengah.
-Berikut kode HTML untuk membuat {\it grid} menengah dan dapat dilihat
-hasilnya pada Gambar \ref{fig:gridmenengah}.
+Layar berukuran sedang akan mendapatkan bagian dari gaya yang kecil, kecuali ditentukan tata letak yang berbeda dengan menggunakan {\it grid} menengah. Berikut kode HTML untuk membuat {\it grid} menengah dan dapat dilihat hasilnya pada Gambar \ref{fig:gridmenengah}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- no. 1 -->
 <div class="row">
@@ -1250,8 +1000,7 @@ hasilnya pada Gambar \ref{fig:gridmenengah}.
 \end{figure}
 
 \item {\it Grid} Tingkat Lanjut\\
-Dapat membuat {\it grid} bersarang dengan menggunakan kode HTML berikut. Untuk
-hasilnya dapat dilihat pada Gambar \ref{fig:gridadv}.
+Dapat membuat {\it grid} bersarang dengan menggunakan kode HTML berikut. Untuk hasilnya dapat dilihat pada Gambar \ref{fig:gridadv}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <div class="row">
 <div class="small-8 columns">8
@@ -1277,8 +1026,7 @@ hasilnya dapat dilihat pada Gambar \ref{fig:gridadv}.
 
 \item {\it Grid} Dengan Offset\\
 Memindahkan blok hingga 11 kolom ke kanan dengan menggunakan kelas
-{\it large-offset}-1 dan {\it small-offset}-3. Berikut contoh penggunaan pada
-kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridoffset}.
+{\it large-offset}-1 dan {\it small-offset}-3. Berikut contoh penggunaan pada kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridoffset}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- no. 1 -->
 <div class="row">
@@ -1309,10 +1057,7 @@ kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridoffset}.
 \end{figure}
 \item {\it Grid} Dengan Baris yang Tidak Lengkap\\
 Untuk mengatasi perbedaan pada beberapa mesin pencari, Foundation akan
-memindahkan kolom terakhir berturut-turut ke kanan sehingga sejajar dengan
-tepi. Jika jumlah kolom tidak mencapai 12 maka pada kolom terakhir perlu
-ditandai dengan kelas {\it end}. Berikut contoh penggunaan pada
-kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridtidaklengkap}.
+memindahkan kolom terakhir berturut-turut ke kanan sehingga sejajar dengan tepi. Jika jumlah kolom tidak mencapai 12 maka pada kolom terakhir perlu ditandai dengan kelas {\it end}. Berikut contoh penggunaan pada kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridtidaklengkap}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- no. 1 -->
 <div class="row">
@@ -1330,18 +1075,12 @@ kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridtidaklengkap}.
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Gambar/gridtidaklengkap.png}
-\caption[{\it Grid} Dengan Baris yang Tidak Lengkap]{{\it Grid} Dengan Baris
-yang Tidak Lengkap}
+\caption[{\it Grid} Dengan Baris yang Tidak Lengkap]{{\it Grid} Dengan Baris yang Tidak Lengkap}
 \label{fig:gridtidaklengkap}
 \end{figure}
 
 item {\it Grid} Dengan Baris yang Mengempis/Tidak Mengempis\\
-Kelas ini memungkinkan untuk menghapus jarak antara kolom. Ada saat tidak
-setiap kueri memiliki sifat {\it collapsed} atau {\it uncollapsed}, cukup
-menambahkan kelas yang mengatur hal tersebut. Misal tidak menunjukkan jarak
-antara kolom pada kolom ukuran kecil dan menambahkan jarak antara komlom pada
-kolom ukuran menengah. Berikut contoh penggunaan pada kode HTML dan dapat
-dilihat hasilnya pada Gambar \ref{fig:gridmengempis}.
+Kelas ini memungkinkan untuk menghapus jarak antara kolom. Ada kondisi dimana tidak setiap kueri memiliki sifat {\it collapsed} atau {\it uncollapsed}, cukup menambahkan kelas yang mengatur hal tersebut. Misal tidak menunjukkan jarak antara kolom pada kolom ukuran kecil dan menambahkan jarak antara komlom pada kolom ukuran menengah. Berikut contoh penggunaan pada kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:gridmengempis}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <div class="row medium-uncollapse large-collapse">
 <div class="small-6 columns">
@@ -1355,8 +1094,7 @@ Removes gutter at large media query
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Gambar/gridmengempis.png}
-\caption[{\it Grid} Dengan Baris yang Mengempis/Tidak Mengempis]{{\it Grid}
-Dengan Baris yang Mengempis/Tidak Mengempis}
+\caption[{\it Grid} Dengan Baris yang Mengempis/Tidak Mengempis]{{\it Grid} Dengan Baris yang Mengempis/Tidak Mengempis}
 \label{fig:gridmengempis}
 \end{figure}
 
@@ -1383,8 +1121,7 @@ Dengan menambahkan kelas {\it small-centered} pada kolom tersebut dapat membuat 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.6]{Gambar/gridkolomberpusat.png}
-\caption[{\it Grid} Dengan Kolom yang Berpusat]{{\it Grid} Dengan Kolom yang
-Berpusat}
+\caption[{\it Grid} Dengan Kolom yang Berpusat]{{\it Grid} Dengan Kolom yang Berpusat}
 \label{fig:gridkolomberpusat}
 \end{figure}
 
@@ -1426,11 +1163,7 @@ Dengan menggunakan kelas {\it push} dan {\it pull} memungkinkan untuk memindahka
 \end{itemize}
 
 \item Tombol\\
-Mengklik tombol dengan material yang bagus merupakan hal yang mengagumkan.
-Mengklik tombol juga menghubungkan pengguna dengan berbagai aksi. Ada beberapa
-gaya tombol yang ringan untuk ukuran, presentasi, dan warna untuk menyesuaikan
-tombol Anda sendiri semudah menambahkan kelas. Untuk contoh macam-macam tombol
-dapat dilihat pada Gambar \ref{fig:button}.
+Mengklik tombol dengan material yang bagus merupakan hal yang mengagumkan. Mengklik tombol juga menghubungkan pengguna dengan berbagai aksi. Ada beberapa gaya tombol yang ringan untuk ukuran, presentasi, dan warna untuk menyesuaikan tombol Anda sendiri semudah menambahkan kelas. Untuk contoh macam-macam tombol dapat dilihat pada Gambar \ref{fig:button}.
 
 \begin{figure}[H]
 \centering
@@ -1453,9 +1186,7 @@ dilihat hasilnya pada Gambar \ref{fig:tomboldasar}.
 \label{fig:tomboldasar}
 \end{figure}
 \item Mengubah Ukuran Tombol\\
-Terdapat kelas tambahan untuk merubah bentuk dan ukuran tombol, berikut kode
-HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar
-\ref{fig:ukurantombol}.
+Terdapat kelas tambahan untuk merubah bentuk dan ukuran tombol, berikut kode HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar \ref{fig:ukurantombol}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- Kelas untuk merubah ukuran -->
 1. <a href="#" class="button tiny">Tiny Button</a>
@@ -1475,9 +1206,7 @@ HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar
 \label{fig:ukurantombol}
 \end{figure}
 \item Warna Tombol\\
-Terdapat kelas tambahan untuk merubah warna tombol, berikut kode
-HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar
-\ref{fig:warnatombol}.
+Terdapat kelas tambahan untuk merubah warna tombol, berikut kode HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar \ref{fig:warnatombol}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!-- Kelas untuk merubah warna -->
 1. <a href="#" class="button">Default Button</a>
@@ -1494,11 +1223,7 @@ HTML yang dapat digunakan dan dapat dilihat hasilnya pada Gambar
 \label{fig:warnatombol}
 \end{figure}
 \item Aksesbilitas\\
-Gunakan kode HTML dibawah ini untuk membuat tombol lebih mudah diakses. Dapat
-menggunakan atribut aria-label='submit form' untuk memberikan petunjuk jika
-tidak ada keterangan pada tombol. Jika tombol tidak memiliki <a href="">
-maka cukup menambahkan tabindex="0" pada div atau span untuk membuat tombol
-tersebut dapat difokuskan.
+Gunakan kode HTML dibawah ini untuk membuat tombol lebih mudah diakses. Dapat menggunakan atribut aria-label='submit form' untuk memberikan petunjuk jika tidak ada keterangan pada tombol. Jika tombol tidak memiliki <a href=""> maka cukup menambahkan tabindex="0" pada div atau span untuk membuat tombol tersebut dapat difokuskan.
 \begin{lstlisting}[basicstyle=\footnotesize]
 1. <a role="button" href="#" class="button">Default Button</a>
 2. <a role="button" aria-label="submit form" href="#" class="button">Submit</a>
@@ -1513,9 +1238,7 @@ tersebut dapat difokuskan.
 \end{itemize}
 
 \item Tabel\\
-Dapat membuat tabel dengan menggunakan markup yang minim. Berikut contoh
-penggunaan tabel pada kode HTML dan dapat dilihat hasilnya pada Gambar
-\ref{fig:tabel}.
+Dapat membuat tabel dengan menggunakan markup yang minim. Berikut contoh penggunaan tabel pada kode HTML dan dapat dilihat hasilnya pada Gambar \ref{fig:tabel}.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <table>
   <thead>
@@ -1555,27 +1278,20 @@ penggunaan tabel pada kode HTML dan dapat dilihat hasilnya pada Gambar
 \label{fig:tabel}
 \end{figure}
 \item Navigasi\\
-Orang yang mengakses harus bisa berkeliling melihat menu-menu yang ada. Gaya
-navigasi pada Foundation meliputi : bar bagian atas yang kuat dengan menu
-dropdown; tombol; bar pencari; ikon bar yang keren; implementasi kanvas yang
-lepas dari keluhan; dan sekelompok navigasi lainnya. Untuk contoh macam-macam
-navigasi dapat dilihat pada Gambar \ref{fig:navi}.
-\begin{figure}[H]
+Orang yang mengakses harus bisa berkeliling melihat menu-menu yang ada. Gaya navigasi pada Foundation meliputi : bar bagian atas yang kuat dengan menu dropdown; tombol; bar pencari; ikon bar yang keren; implementasi kanvas yang lepas dari keluhan; dan sekelompok navigasi lainnya. Untuk contoh macam-macam navigasi dapat dilihat pada Gambar \ref{fig:navi}.
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.7]{Gambar/navigation.png}
+\includegraphics[scale=0.9]{Gambar/navigation.png}
 \caption[Contoh Navigasi Zurb Foundation]{Contoh Navigasi Zurb Foundation}
 \label{fig:navi}
 \end{figure}
 
 \item {\it Plugins}\\
-Sudah meliputi banyak {\it plugin} JavaScript yang ditulis untuk modal dasar
-{\it pop-up}; menambat formulir validasi yang diperlukan; membuat {\it tab}
-konten; tanda peringatan; dan masih banyak lagi. Untuk contoh macam-macam {\it
-plugin} dapat dilihat pada Gambar \ref{fig:plugin}.
+Sudah meliputi banyak {\it plugin} JavaScript yang ditulis untuk modal dasar {\it pop-up}; menambat formulir validasi yang diperlukan; membuat {\it tab} konten; tanda peringatan; dan masih banyak lagi. Untuk contoh macam-macam {\it plugin} dapat dilihat pada Gambar \ref{fig:plugin}.
 
-\begin{figure}[H]
+\begin{figure}[ht]
 \centering
-\includegraphics[scale=0.7]{Gambar/plugin.png}
+\includegraphics[scale=0.9]{Gambar/plugin.png}
 \caption[Contoh Plugins Zurb Foundation]{Contoh Plugins Zurb Foundation}
 \label{fig:plugin}
 \end{figure}

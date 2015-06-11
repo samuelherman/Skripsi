@@ -16,7 +16,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Welcome</title>
+		<title>SPBRM | Welcome</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 		
@@ -24,7 +24,7 @@
 	</head>
 	<body>
 		<div class="row">
-			<h1>WELCOME to SIRM <h4>(Sistem Informasi Riwayat Mahasiswa)</h4></h1>
+			<h1>WELCOME to SPBRM <h4>(Sistem Perekam dan Berbagi Riwayat Mahasiswa)</h4></h1>
 			<hr/>
 			
 			<?php
@@ -75,12 +75,12 @@
 \end{lstlisting}
 
 \begin{lstlisting}[language=php,basicstyle=\tiny,caption=oauth.php]
-<!doctype html>
+<<!doctype html>
 <html class="no-js" lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Oauth</title>
+		<title>SPBRM | Oauth</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -134,7 +134,7 @@
 			}
 			else
 			{
-				echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM. Email yang dapat digunakan untuk mengakses SIRM adalah email yang diakhiri @unpar.ac.id atau @student.unpar.ac.id.');window.location.href='index.php?logout';</script>";
+				echo "<script>alert('Email yang digunakan tidak dapat mengakses SPBRM. Email yang dapat digunakan untuk mengakses SPBRM adalah email yang diakhiri @unpar.ac.id.');window.location.href='index.php?logout';</script>";
 				exit;
 			}
 		?>
@@ -149,7 +149,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | List</title>
+		<title>SPBRM | List</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -175,7 +175,7 @@
 					die("Database tidak bisa dibuka");
 				}
 					
-				if(! mysql_select_db("sirm", $id_mysql))
+				if(! mysql_select_db("spbrm", $id_mysql))
 				{
 					die("Database tidak bisa dipilih");
 				}
@@ -217,7 +217,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | View</title>
+		<title>SPBRM | View</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -244,7 +244,7 @@
 				die("Database tidak bisa dibuka");
 			}
 				
-			if(! mysql_select_db("sirm", $id_mysql))
+			if(! mysql_select_db("spbrm", $id_mysql))
 			{
 				die("Database tidak bisa dipilih");
 			}
@@ -288,7 +288,7 @@ echo $row['keterangan'];
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Edit</title>
+		<title>SPBRM | Edit</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -304,7 +304,7 @@ echo $row['keterangan'];
 			die("Database tidak bisa dibuka");
 		}
 			
-		if(! mysql_select_db("sirm", $id_mysql))
+		if(! mysql_select_db("spbrm", $id_mysql))
 		{
 			die("Database tidak bisa dipilih");
 		}
@@ -363,6 +363,9 @@ echo $row['keterangan'];
 					<textarea style="height: 300px;" placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
 				</div>
 			</div>
+			<div class="row">
+				<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
+			</div>
 		</form>
 		<?php
 		}
@@ -377,7 +380,7 @@ echo $row['keterangan'];
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | History</title>
+		<title>SPBRM | History</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -392,7 +395,7 @@ echo $row['keterangan'];
 				die("Database tidak bisa dibuka");
 			}
 				
-			if(! mysql_select_db("sirm", $id_mysql))
+			if(! mysql_select_db("spbrm", $id_mysql))
 			{
 				die("Database tidak bisa dipilih");
 			}
@@ -449,7 +452,7 @@ echo $row['keterangan'];
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Past</title>
+		<title>SPBRM | Past</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -474,7 +477,7 @@ echo $row['keterangan'];
 					die("Database tidak bisa dibuka");
 				}
 					
-				if(! mysql_select_db("sirm", $id_mysql))
+				if(! mysql_select_db("spbrm", $id_mysql))
 				{
 					die("Database tidak bisa dipilih");
 				}
@@ -504,7 +507,7 @@ echo $row['keterangan'];
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | New</title>
+		<title>SPBRM | New</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -521,7 +524,7 @@ echo $row['keterangan'];
 				die("Database tidak bisa dibuka");
 			}
 				
-			if(! mysql_select_db("sirm", $id_mysql))
+			if(! mysql_select_db("spbrm", $id_mysql))
 			{
 				die("Database tidak bisa dipilih");
 			}
@@ -590,16 +593,19 @@ echo $row['keterangan'];
 				</div>
 				<div class="row">
 					<div class="small-12 columns">
-						<textarea style="height: 300px;" name="keterangan">
+<textarea style="height: 300px;" name="keterangan">
 # Umum
 
 Isilah deskripsi umum mahasiswa disini.
 
 # Catatan
 
-* 9 Oktober 2014, pertama kali dibuat
-						</textarea>
+* 8 Juni 2015, pertama kali dibuat
+</textarea>
 					</div>
+				</div>
+				<div class="row">
+					<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
 				</div>
 			</form>
 		<?php

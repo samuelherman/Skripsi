@@ -4,18 +4,18 @@
 \section{Latar Belakang}
 \label{sec:latarbelakang}
 
-Di tahun 2014 terdapat 14 dosen di Falkutas Teknologi Informasi dan Sains \cite{Ftis:2014} yang memiliki tugas untuk mengajar, menjadi dosen wali, dan menjadi dosen pembimbing bagi mahasiswa yang sedang menyusun skripsi. Sedangkan mahasiswa yang berinteraksi dengan dosen pada saat pembelajaran di kelas, perwalian, maupun bimbingan skripsi belum tentu sama. Maka dari itu jumlah dosen dan jumlah mahasiswa menjadi pemasalahan. Permasalahan tersebut disebabkan karena minimnya jumlah dosen yang diharuskan berinteraksi dengan banyak mahasiswa. Minimnya jumlah dosen mengakibatkan seorang dosen kesulitan dalam mengingat perkembangan setiap mahasiswa serta sejarah riwayat setiap mahasiswa, terutama terkaitnya interaksi dengan dosen lain.
+Di tahun 2014 terdapat 14 dosen Teknik Informatika di Falkutas Teknologi Informasi dan Sains \cite{Ftis:2014} yang memiliki tugas untuk mengajar, menjadi dosen wali, dan menjadi dosen pembimbing bagi mahasiswa yang sedang menyusun skripsi. Sedangkan mahasiswa yang berinteraksi dengan dosen pada saat pembelajaran di kelas, perwalian, maupun bimbingan skripsi belum tentu sama. Maka dari itu jumlah dosen dan jumlah mahasiswa menjadi pemasalahan. Permasalahan tersebut disebabkan karena minimnya jumlah dosen yang diharuskan berinteraksi dengan banyak mahasiswa. Minimnya jumlah dosen mengakibatkan seorang dosen kesulitan dalam mengingat perkembangan setiap mahasiswa serta sejarah riwayat setiap mahasiswa, terutama terkaitnya interaksi dengan dosen lain.
 
 Berdasarkan jabaran masalah diatas, maka solusi untuk membantu para dosen adalah membuat sebuah sistem yang dapat mencatat dan membagikan riwayat mahasiswa. Dimana sistem hanya dapat diakses oleh dosen dengan menggunakan akun dosen yang diberikan oleh pihak UNPAR. Dalam sistem ini dosen dapat melakukan beberapa aksi. Pertama, dosen dapat melihat data mahasiswa yang telah terdaftar di basis data. Kedua, dosen dapat melihat data informasi mahasiswa yang ingin dilihat. Ketiga, dosen dapat mengubah data informasi mahasiswa. Keempat, dosen dapat melihat histori yang dimiliki setiap mahasiswa (untuk aksi melihat, mengedit, membuat entri baru yang dilakukan dosen) dan dapat melihat setiap versi data informasi mahasiswa mulai dari pertama kali dibuat sampai yang terakhir. Kelima, dosen dapat membuat entri baru untuk mahasiswa yang belum tercatat pada basis data. 
 
-Untuk membangun sistem tersebut digunakan empat teknologi antara lain; Google OAuth, Markdown Syntax, StrapdownJS, Zurb Foundation. Google OAuth akan digunakan untuk fungsi login dalam mengautentikasi dan mengotorisasi pengguna yang menggunakan akun dosen UNPAR. Markdown Syntax akan digunakan untuk membuat informasi mahasiswa dengan format penulisan yang mudah dibaca dan ditulis oleh dosen sehingga penulisan pada sistem akan seragam. StrapdownJS akan digunakan pada sistem untuk mengkonversi format penulisan yang dibuat menggunakan Markdown Syntax menjadi tampilan HTML. Zurb Foundation akan digunakan untuk membuat tampilan antar muka menjadi responsif.
+Berdasarkan penjabaran solusi untuk menangani masalah, maka dari itu untuk membangun sistem usulan tersebut digunakan empat teknologi antara lain; Google OAuth, Markdown Syntax, StrapdownJS, Zurb Foundation. Google OAuth akan digunakan untuk fungsi login dalam mengautentikasi dan mengotorisasi pengguna yang menggunakan akun dosen UNPAR. Pengguna yang menggunakan akun selain akun dosen UNPAR tidak dapat mengakses sistem. Markdown Syntax akan digunakan untuk membuat informasi riwayat mahasiswa dengan format penulisan yang mudah dibaca dan ditulis oleh dosen sehingga penulisan pada sistem akan seragam. StrapdownJS akan digunakan pada sistem untuk mengkonversi format penulisan yang dibuat menggunakan Markdown Syntax menjadi tampilan HTML. Zurb Foundation akan digunakan untuk membuat tampilan antar muka menjadi responsif.
 
 \section{Rumusan Masalah}
 Berdasarkan latar belakang maka dapat dirumuskan permasalahan sebagai berikut:
 \begin{itemize}
 	\item Bagaimana mengautentikasi akun dosen UNPAR?
 	\item Bagaimana membuat format untuk penulisan teks yang dapat digunakan oleh semua dosen?
-	\item Bagaimana menampilkan teks dengan format yang telah dibuat ke halaman website?
+	\item Bagaimana menampilkan teks dengan format yang telah dibuat ke halaman {\it website}?
 	\item Bagaimana merancang antarmuka sistem menggunakan Zurb Foundation?
 \end{itemize}
 
@@ -25,7 +25,7 @@ ingin dicapai melalui penelitian ini adalah:
 \begin{itemize}
 	\item Mengautentikasi akun dosen UNPAR.
 	\item Membuat format untuk penulisan teks yang dapat digunakan oleh semua dosen.
-	\item Menampilkan teks dengan format yang telah dibuat ke halaman website.
+	\item Menampilkan teks dengan format yang telah dibuat ke halaman {\it website}.
 	\item Merancang antarmuka sistem menggunakan Zurb Foundation.
 \end{itemize}
 
@@ -49,6 +49,7 @@ Metodologi yang digunakan untuk menyusun penelitian:
 	\item Melakukan implementasi untuk perangkat lunak yang
 	telah dirancang ke dalam {\it script} PHP.
 	\item Melakukan pengujian perangkat lunak yang telah diimplementasikan.
+	\item Melakukan pengambilan kesimpulan berdasarkan analisis dan pengujian yang telah dilakukan.
 \end{itemize}
 
 \section{Sistematika Pembahasan}

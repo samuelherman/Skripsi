@@ -45,9 +45,9 @@ Kode program perangkat lunak ditulis berdasarkan perancangan yang telah dibahas 
 \section{Implementasi Basis Data}
 \label{sec:implementasibasisdata}
 
-Implementasi basis data dalam sistem informasi riwayat mahasiswa, tahap pertama membuat sebuat basis data baru dan memberi nama sirm untuk basis data tersebut. Untuk kode dapat dilihat di bawah ini.
+Implementasi basis data dalam sistem informasi riwayat mahasiswa, tahap pertama membuat sebuat basis data baru dan memberi nama SPBRM untuk basis data tersebut. Untuk kode dapat dilihat di bawah ini.
 \begin{lstlisting}
-CREATE DATABASE 'sirm' ;
+CREATE DATABASE 'SPBRM' ;
 \end{lstlisting}
 
 Basis data sistem informasi riwayat mahasiswa menggunakan dua tabel basis data. Tabel-tabel tersebut terdiri dari :
@@ -82,7 +82,7 @@ Basis data sistem informasi riwayat mahasiswa menggunakan dua tabel basis data. 
 \section{Pengujian Perangkat Lunak}
 \label{sec:pengujianperangkatlunak}
 
-Pada bagian ini akan dibahas mengenai pengujian yang akan dilakukan terhadap perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian pengujian terdapat perubahan program pada bagian oauth.php, jadi dapat menjalankan pengujian dengan email yang diakhiri @student.unpar.ac.id dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id. Kode program untuk pengujian perangkat lunak dapat dilihat pada Lampiran~\ref{kode_program_pengujian}.
+Pada bagian ini akan dibahas mengenai pengujian yang akan dilakukan terhadap perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian pengujian untuk pengujian fungsional terdapat perubahan program pada bagian oauth.php, jadi dapat menjalankan pengujian dengan email yang diakhiri @student.unpar.ac.id dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id. Kode program untuk pengujian fungsional perangkat lunak dapat dilihat pada Lampiran \ref{kode_program_pengujian}.
 
 \subsection{Lingkungan Pengujian Perangkat Keras}
 \label{sec:lingkunganpengujianperangkatkeras}
@@ -135,7 +135,7 @@ Pengujian fungsional menguji tampilan antar muka perangkat lunak beserta fungsi 
 	Pengujian fungsi ini dilakukan untuk memastikan adanya histori dari mahasiswa yang dipilih dan dapat melihat versi keterangan yang pertama kali dibuat dan versi-versi berikutnya yang sudah dirubah. Contoh pengujian melihat histori dari mahasiswa yang memiliki npm 2010730013 dapat dilihat pada Gambar \ref{fig:melihathistori} dan juga melihat keterangan versi pertama berserta versi berikutnya dapat dilihat pada Gambar \ref{fig:keteranganversipertama} dan Gambar \ref{fig:keteranganversikedua}. Hal ini menunjukkan fungsi melihat histori sudah berjalan dengan baik.
 	
 \item Fungsi membuat entri baru\\
-	Pengujian fungsi ini dilakukan untuk memastikan pada saat membuat entri baru terdapat template markdown dan berhasil menyimpan entri baru tersebut. Contoh pengujian menambahkan entri baru untuk mahasiswa yang memiliki npm 2010730014, nama Nadia, dan keterangan sesuai template. Terdapat template markdown pada saat membuka halaman new.php dapat dilihat pada Gambar \ref{fig:templateentribaru}. Mengisi data npm 2010730014 dan nama Nadia dapat dilihat pada Gambar \ref{fig:membuatentribaru}. Setelah pengguna menekan tombol "Simpan" maka data yang telah dimasukan akan tersimpan dan pengguna akan dikembalikan ke halaman list.php. Pengguna dapat melihat entri baru dengan npm 2010730014 dan nama Nadia telah masuk kedalam tabel dapat dilihat pada Gambar \ref{fig:entribaruberhasil}. Hal ini menunjukkan fungsi membuat entri baru sudah berjalan dengan baik.
+	Pengujian fungsi ini dilakukan untuk memastikan pada saat membuat entri baru terdapat format penulisan yang telah dibuat dengan Markdown dan berhasil menyimpan entri baru tersebut. Contoh pengujian menambahkan entri baru untuk mahasiswa yang memiliki npm 2010730014, nama Nadia, dan keterangan sesuai template. Terdapat template markdown pada saat membuka halaman new.php dapat dilihat pada Gambar \ref{fig:templateentribaru}. Mengisi data npm 2010730014 dan nama Nadia dapat dilihat pada Gambar \ref{fig:membuatentribaru}. Setelah pengguna menekan tombol "Simpan" maka data yang telah dimasukan akan tersimpan dan pengguna akan dikembalikan ke halaman list.php. Pengguna dapat melihat entri baru dengan npm 2010730014 dan nama Nadia telah masuk kedalam tabel dapat dilihat pada Gambar \ref{fig:entribaruberhasil}. Hal ini menunjukkan fungsi membuat entri baru sudah berjalan dengan baik.
 	
 \item Antarmuka yang responsif\\
     Pengujian antarmuka yang responsif dilakukan untuk memastikan tampilan antarmuka yang dibuat menggunakan Zurb Foundation berhasil. Contoh pengujian dilakukan dengan menggunakan mesin pencari yang telah dikecilkan ukurannya, lalu membuka index.php, list.php, dan new.php pada mesin pencari tersebut. Pengujian untuk index.php dapat dilihat pada Gambar \ref{fig:responsifindex}, untuk list.php dapat dilihat pada Gambar \ref{fig:responsiflist}, dan untuk new.php dapat dilihat pada Gambar \ref{fig:responsifnew}. Hal ini menunjukkan antarmuka yang responsif sudah berjalan dengan baik.
@@ -189,8 +189,8 @@ Diakhiri "@gmail.com"}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{Gambar/pengujian7.png}
-\caption[Alert Email yang Digunakan Tidak Dapat Mengakses SIRM]{Alert Email yang
-Digunakan Tidak Dapat Mengakses SIRM}
+\caption[Alert Email yang Digunakan Tidak Dapat Mengakses SPBRM]{Alert Email yang
+Digunakan Tidak Dapat Mengakses SPBRM}
 \label{fig:alert}
 \end{figure}
 
@@ -281,4 +281,79 @@ Digunakan Tidak Dapat Mengakses SIRM}
 \subsection{Pengujian Eksperimental}
 \label{sec:pengujianeksperimantal}
 
-Pengujian eksperimental dilakukan langsung ke lima orang dosen. Kelima dosen menggunakan 
+Pengujian eksperimental dilakukan langsung ke lima orang dosen FTIS. Kelima dosen menguji dengan cara mencoba semua fitur yang dimiliki SPBRM. Kelima dosen juga menjalankan SPBRM dengan memasukan data riwayat mahasiswa yang sebenarnya. Setelah melakukan pengujian diakhiri dengan kuesioner, kuesioner dapat dilihat pada Lampiran \ref{kuesionerpengujianeksperimental}. Berikut data hasil kuesioner pengujian eksperimental, dapat dillihat pada Tabel \ref{kuesionerpertama}-\ref{kuesionerkelima}.
+
+\begin{table}[H]
+\centering
+\caption{Tabel Jawaban Pertanyaan Pertama Kuesioner Pengujian Eksperimental}
+\label{kuesionerpertama}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & \checkmark & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & & \checkmark & & & \\ \hline
+4 & \checkmark &        &        &              &                     \\ \hline
+5 &               & \checkmark &        &              &                     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Tabel Jawaban Pertanyaan Kedua Kuesioner Pengujian Eksperimental}
+\label{kuesionerkedua}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & & \checkmark & & \\ \hline
+3 & & & & \checkmark & \\ \hline
+4 & \checkmark &        &        &              &                     \\ \hline
+5 &               & \checkmark &        &              &                     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Tabel Jawaban Pertanyaan Ketiga Kuesioner Pengujian Eksperimental}
+\label{kuesionerketiga}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & & & \checkmark & & \\ \hline
+4 & \checkmark &        &        &              &                     \\ \hline
+5 &               & \checkmark &        &              &                     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Tabel Jawaban Pertanyaan Keempat Kuesioner Pengujian Eksperimental}
+\label{kuesionerkeempat}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & \checkmark & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & \checkmark & & & & \\ \hline
+4 & \checkmark &        &        &              &                     \\ \hline
+5 &               & \checkmark &        &              &                     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Tabel Jawaban Pertanyaan Kelima Kuesioner Pengujian Eksperimental}
+\label{kuesionerkelima}
+\begin{tabular}{|l|l|l|l|l|l|}
+\hline
+No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & \checkmark & & \\ \hline
+2 & & & \checkmark & & \\ \hline
+3 & \checkmark & & & & \\ \hline
+4 & \checkmark &        &        &              &                     \\ \hline
+5 &               & \checkmark &        &              &                     \\ \hline
+\end{tabular}
+\end{table}
