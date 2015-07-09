@@ -15,7 +15,7 @@ versi ini dan entri baru.
 
 \subsection{Tampilan Halaman Awal}
 Perancangan tampilan {\it web} untuk halaman utama dapat dilihat pada
-Gambar~\ref{fig:pilihmahasiswa}.
+Gambar~\ref{fig:halamanawal}.
 
 \begin{figure}[ht]
 \centering
@@ -27,9 +27,9 @@ Gambar~\ref{fig:pilihmahasiswa}.
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan judul yang merupakan keterangan dari perangkat lunak.
+Bagian ini merupakan judul halaman awal perangkat lunak dan terdapat keterangan dari SPBRM.
 \item
-Bagian ini merupakan teks yang dapat diklik untuk melakukan login.
+Bagian ini merupakan {\it link} berupa teks yang dapat diklik untuk melakukan login dengan menggunakan akun Google.
 \end{enumerate}
 
 \subsection{Tampilan {\it Web} Pilih Mahasiswa}
@@ -38,7 +38,7 @@ Gambar~\ref{fig:pilihmahasiswa}.
 
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=0.9]{Gambar/pilihmahasiswa.png}
+\includegraphics[scale=0.8]{Gambar/pilihmahasiswa.png}
 \caption[Desain Antarmuka Pilih Mahasiswa]{Desain Antarmuka Pilih Mahasiswa}
 \label{fig:pilihmahasiswa}
 \end{figure}
@@ -48,17 +48,41 @@ Keterangan :
 \item
 Bagian ini merupakan judul dari halaman untuk memilih mahasiswa.
 \item
+Bagian ini merupakan area untuk memasukan npm yang ingin dicari oleh pengguna.
+\item
+Bagian ini merupakan tombol untuk melakukan aksi cari npm, add maupun logout.
+\item
+Bagian ini merupakan tempat menampilkan data mahasiswa dalam bentuk tabel. NPM dapat diklik oleh pengguna untuk memilih mahasiswa.
+\end{enumerate}
+
+\subsection{Tampilan {\it Web} Cari Mahasiswa}
+Perancangan tampilan {\it web} untuk pilih mahasiswa dapat dilihat pada
+Gambar~\ref{fig:carimahasiswa}.
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.8]{Gambar/carimahasiswa.png}
+\caption[Desain Antarmuka Cari Mahasiswa]{Desain Antarmuka Cari Mahasiswa}
+\label{fig:carimahasiswa}
+\end{figure}
+
+Keterangan :
+\begin{enumerate}[(1)]
+\item
+Bagian ini merupakan judul dari halaman untuk mencari mahasiswa.
+\item
+Bagian ini merupakan area untuk memasukan npm yang ingin dicari oleh pengguna.
+\item
 Bagian ini merupakan tombol untuk melakukan aksi add atau logout.
 \item
-Bagian ini merupakan tempat menampilkan data mahasiswa dalam bentuk tabel. NPM
-dapat diklik untuk memilih mahasiswa.
+Bagian ini merupakan tempat menampilkan data mahasiswa yang dicari oleh pengguna dalam bentuk tabel. NPM dapat diklik oleh pengguna untuk memilih mahasiswa.
 \end{enumerate}
 
 \subsection{Tampilan {\it Web} Info Mahasiswa}
 Perancangan tampilan {\it web} untuk info mahasiswa dapat dilihat pada Gambar~\ref{fig:infomahasiswa}.
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=0.9]{Gambar/infomahasiswa.png}
+\includegraphics[scale=0.8]{Gambar/infomahasiswa.png}
 \caption[Desain Antarmuka Info Mahasiswa]{Desain Antarmuka Info Mahasiswa}
 \label{fig:infomahasiswa}
 \end{figure}
@@ -66,37 +90,84 @@ Perancangan tampilan {\it web} untuk info mahasiswa dapat dilihat pada Gambar~\r
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan teks yang menampilkan keterangan dan juga pengguna yang sedang menggunakan Sistem Infomasi Riwayat Mahasiswa.
+Bagian ini merupakan judul dari halaman info mahasiswa yang menampilkan keterangan pengguna yang sedang mengakses atau melihat info mahasiswa tersebut.
 \item
-Bagian ini merupakan tombol untuk melakukan aksi edit, lihat histori, pindah
-ke menu utama, dan logout.
+Bagian ini merupakan tombol untuk melakukan aksi pindah ke menu utama, mengedit, membuat catatan masalah baru, lihat daftar masalah, lihat histori dan logout.
 \item
-Bagian ini merupakan tempat menampilkan info mahasiswa yang berasal dari database.
+Bagian ini merupakan tempat menampilkan info mahasiswa berupa npm, nama, deskripsi umum dan catatan yang berasal dari {\it databasse}.
 \end{enumerate}
 
-\subsection{Tampilan {\it Web} Edit Mahasiswa}
-Perancangan tampilan {\it web} untuk edit mahasiswa dapat dilihat pada Gambar~\ref{fig:editmahasiswa}.
+\subsection{Tampilan {\it Web} Edit Info Mahasiswa}
+Perancangan tampilan {\it web} untuk edit info mahasiswa dapat dilihat pada Gambar~\ref{fig:editmahasiswa}.
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=0.9]{Gambar/editmahasiswa.png}
-\caption[Desain Antarmuka Edit Mahasiswa]{Desain Antarmuka Edit Mahasiswa}
+\includegraphics[scale=0.8]{Gambar/editmahasiswa.png}
+\caption[Desain Antarmuka Edit Info Mahasiswa]{Desain Antarmuka Edit Info Mahasiswa}
 \label{fig:editmahasiswa}
 \end{figure}
 
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan teks yang menampilkan keterangan dan juga pengguna yang
-sedang menggunakan Sistem Infomasi Riwayat Mahasiswa.
+Bagian ini merupakan judul dari halaman edit info mahasiswa yang menampilkan keterangan pengguna yang sedang mengedit info mahasiswa tersebut.
 \item
-Bagian ini merupakan teks yang menampilkan NPM dan nama mahasiswa yang telah
-dipilih untuk diedit.
+Bagian ini merupakan teks yang menampilkan NPM dan nama mahasiswa yang telah dipilih oleh pengguna untuk diedit infonya.
 \item
-Bagian ini merupakan tombol untuk melakukan aksi kembali, simpan untuk perubahan
-yang telah dilakukan, pindah ke menu utama, dan logout.
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke info mahasiswa, simpan untuk perubahan yang telah dilakukan, pindah ke menu utama, dan logout.
 \item
-Bagian ini merupakan tempat menampilkan catatan mahasiswa yang berasal dari
-database dan dapat diedit (ditulis dengan format markdown).
+Bagian ini merupakan teks yang merupakan bagian untuk mengedit deskripsi umum.
+\item
+Bagian ini merupakan tempat yang menampilkan deskripsi umum seorang mahasiswa yang telah dipilih oleh pengguna. Deskripsi umum yang ditampilkan pada bagian ini berasal dari {\it database} dan pengguna dapat melakukan perubahan pada deskripsi umum di bagian ini.
+\item
+Bagian ini merupakan teks yang merupakan bagian untuk mengedit catatan.
+\item
+Bagian ini merupakan tempat yang menampilkan catatan seorang mahasiswa yang telah dipilih oleh pengguna. Catatan yang ditampilkan pada bagian ini berasal dari {\it database} dan pengguna dapat melakukan perubahan pada catatan di bagian ini.
+\end{enumerate}
+
+\subsection{Tampilan {\it Web} Tambah Masalah Baru}
+Perancangan tampilan {\it web} untuk info mahasiswa dapat dilihat pada Gambar~\ref{fig:masalahbaru}.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.8]{Gambar/masalahbaru.png}
+\caption[Desain Antarmuka Tambah Masalah Baru]{Desain Antarmuka Tambah Masalah Baru}
+\label{fig:masalahbaru}
+\end{figure}
+
+Keterangan :
+\begin{enumerate}[(1)]
+\item
+Bagian ini merupakan judul dari halaman tambah masalah baru yang menampilkan keterangan pengguna yang sedang menambah catatan masalah baru.
+\item
+Bagian ini merupakan teks yang menampilkan NPM dan nama mahasiswa yang telah dipilih oleh pengguna untuk ditambah catatan masalah.
+\item
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke info mahasiswa, edit, pindah ke menu utama, dan logout.
+\item
+Bagian ini merupakan teks yang merupakan bagian masalah bersangkutan dengan siapa / mata kuliah apa.
+\item
+Bagian ini merupakan tempat untuk memasukkan pihak yang bersangkutan oleh pengguna. Pihak yang bersangkutan dapat diisi dengan nama dosen atau nama mata kuliah.
+\item
+Bagian ini merupakan teks yang merupakan bagian masalahnya.
+\item
+Bagian ini merupakan tempat untuk memasukkan penjelasan atau rincian masalah yang dimiliki mahasiswa tersebut oleh pengguna.
+\end{enumerate}
+
+\subsection{Tampilan {\it Web} Lihat Daftar Masalah}
+Perancangan tampilan {\it web} untuk info mahasiswa dapat dilihat pada Gambar~\ref{fig:lihatmasalah}.
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.9]{Gambar/lihatmasalah.png}
+\caption[Desain Antarmuka Lihat Daftar Masalah]{Desain Antarmuka Lihat Daftar Masalah}
+\label{fig:lihatmasalah}
+\end{figure}
+
+Keterangan :
+\begin{enumerate}[(1)]
+\item
+Bagian ini merupakan judul dari halaman lihat daftar masalah yang menampilkan keterangan npm dan nama dari mahasiswa yang dipilih oleh pengguna.
+\item
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke info mahasiswa, pindah ke menu utama, dan logout.
+\item
+Bagian ini merupakan tempat menampilkan daftar masalah dari mahasiswa yang dipilih oleh pengguna. Daftar masalah tersebut berasal dari {\it database}.
 \end{enumerate}
 
 \subsection{Tampilan {\it Web} Lihat Histori}
@@ -111,13 +182,13 @@ Perancangan tampilan {\it web} untuk lihat histori dapat dilihat pada Gambar~\re
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan tombol untuk melakukan aksi kembali, pindah ke menu utama,
-dan logout.
+Bagian ini merupakan teks yang menampilkan keterangan NPM dan nama mahasiswa yang telah dipilih untuk dilihat historinya.
 \item
-Bagian ini merupakan teks yang menampilkan keterangan NPM dan nama mahasiswa
-yang telah dipilih untuk dilihat historinya.
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke info mahasiswa, pindah ke menu utama, dan logout.
 \item
-Bagian ini merupakan daftar histori dari mahasiswa yang telah dipilih.
+Bagian ini merupakan daftar histori dari mahasiswa yang telah dipilih. Daftar histori tersebut berasal dari {\it database}.
+\item
+Bagian ini merupakan {\it link} yang dapat digunakan pengguna untuk mengakses keterangan versi dari awal sampai yang terakhir.
 \end{enumerate}
 
 \subsection{Tampilan {\it Web} Lihat Versi Ini}
@@ -125,7 +196,7 @@ Perancangan tampilan {\it web} untuk lihat versi ini dapat dilihat pada
 Gambar~\ref{fig:lihatversiini}.
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=0.9]{Gambar/lihatversiini.png}
+\includegraphics[scale=0.8]{Gambar/lihatversiini.png}
 \caption[Desain Antarmuka Lihat Versi Ini]{Desain Antarmuka Lihat Versi Ini}
 \label{fig:lihatversiini}
 \end{figure}
@@ -133,9 +204,9 @@ Gambar~\ref{fig:lihatversiini}.
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan tombol untuk melakukan aksi kembali dan logout.	
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke lihat histori dan logout.	
 \item
-Bagian ini merupakan daftar histori dari mahasiswa yang telah dipilih.
+Bagian ini tempat menampilkan info dari mahasiswa yang telah dipilih. Info yang ditampilkan adalah deskripsi umum dan catatan. Info mahasiswa tersebut berasal dari {\it database}.
 \end{enumerate}
 
 \subsection{Tampilan {\it Web} Entri Baru}
@@ -143,22 +214,24 @@ Perancangan tampilan {\it web} untuk entri baru dapat dilihat pada Gambar~\ref{f
 \begin{figure}[ht]
 \centering
 \includegraphics[scale=0.9]{Gambar/entribaru.png}
-\caption[Desain Antarmuka Entri Baru]{Desain Antarmuka Pilih Entri Baru}
+\caption[Desain Antarmuka Entri Baru]{Desain Antarmuka Entri Baru}
 \label{fig:entribaru}
 \end{figure}
 
 Keterangan :
 \begin{enumerate}[(1)]
 \item
-Bagian ini merupakan teks yang menampilkan keterangan dan juga pengguna yang
-sedang menggunakan Sistem Infomasi Riwayat Mahasiswa.
+Bagian ini merupakan judul dari halaman entri baru yang menampilkan keterangan pengguna yang sedang menambah entri baru.
 \item
-Bagian ini merupakan tombol untuk melakukan aksi kembali ke pilih mahasiswa,
-simpan, menu utama, dan logout.
+Bagian ini merupakan tombol untuk melakukan aksi kembali ke pilih mahasiswa, simpan, pindah ke menu utama, dan logout.
 \item
-Bagian ini merupakan form yang terdiri dari area untuk memasukkan NPM mahasiswa,
-nama mahasiswa, dan keterangan mahasiswa yang akan ditambah dengan format yang
-telah disediakan (ditulis dengan format markdown).
+Bagian ini merupakan teks dan tempat untuk memasukkan npm seorang mahasiswa.
+\item
+Bagian ini merupakan teks dan tempat untuk memasukkan nama seorang mahasiswa.
+\item
+Bagian ini merupakan teks dan tempat untuk memasukkan deskripsi umum seorang mahasiswa.
+\item
+Bagian ini merupakan teks dan tempat untuk memasukkan catatan seorang mahasiswa.
 \end{enumerate}
 
 \section{Perancangan Modul}
@@ -175,7 +248,7 @@ Modul login yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \centering
 \caption[Tabel Modul Login]{Modul Login}
 \label{tab:modullogin}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & index.php\\
 \hline
@@ -185,8 +258,7 @@ Output & -\\
 \hline
 Tabel yang diakses & -\\
 \hline
-Deskripsi & Pengguna memasukkan {\it username} dan {\it password} kemudian
-sistem akan melakukan autentikasi menggunakan Google Oauth.\\
+Deskripsi & Pengguna memasukkan {\it username} dan {\it password} dari akun dosen (@unpar.ac.id) kemudian sistem akan melakukan autentikasi dan otorisasi menggunakan Google Oauth.\\
 \hline
 \end{tabular}
 \end{table}
@@ -199,7 +271,7 @@ Tabel \ref{tab:modulpilihmahasiswa}.
 \centering
 \caption[Tabel Modul Pilih Mahasiswa]{Modul Pilih Mahasiswa}
 \label{tab:modulpilihmahasiswa}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & list.php\\
 \hline
@@ -209,8 +281,29 @@ Output & Tabel mahasiswa\\
 \hline
 Tabel yang diakses & InfoMahasiswa\\
 \hline
-Deskripsi & Pengguna memilih npm yang ingin dicari sebagai input yang akan
-diteruskan ke modul info mahasiswa dan pengguna juga dapat membaut entri baru.\\
+Deskripsi & Pengguna memilih npm yang terdapat pada tabel untuk mahasiswa yang ingin dicari, kemudian dengan menekan npm yang terdapat pada tabel sebagai masukkan yang akan diteruskan ke modul info mahasiswa dan pengguna juga dapat membaut entri baru dengan menekan tombol ''{\it Add}''.\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Modul Cari Mahasiswa}
+Modul cari mahasiswa yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel \ref{tab:modulcarimahasiswa}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Modul Cari Mahasiswa]{Modul Cari Mahasiswa}
+\label{tab:modulcarimahasiswa}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+Nama Modul & search.php\\
+\hline
+Input & npm\\
+\hline
+Output & Tabel mahasiswa\\
+\hline
+Tabel yang diakses & InfoMahasiswa\\
+\hline
+Deskripsi & Pengguna mencari npm yang ingin dicari dengan memasukkan npm pada tempat yang disediakan untuk memasukkan npm. Kemudian pengguna menekan tombol "Cari NPM" dan pengguna akan mendapatkan daftar mahasiswa sesuai dengan npm yang dimasukkan sebelumnya. Pengguna dapat menekan npm yang terdapat pada tabel sebagai masukkan yang akan diteruskan ke modul info mahasiswa dan pengguna juga dapat membaut entri baru dengan menekan tombol ''{\it Add}''.\\
 \hline
 \end{tabular}
 \end{table}
@@ -223,7 +316,7 @@ Tabel \ref{tab:modulinfomahasiswa}.
 \centering
 \caption[Tabel Modul Info Mahasiswa]{Modul Info Mahasiswa}
 \label{tab:modulinfomahasiswa}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & view.php\\
 \hline
@@ -233,9 +326,7 @@ Output & Info mahasiswa\\
 \hline
 Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
-Deskripsi & Pengguna mendapatkan laporan barupa info mahasiswa yang telah
-dipilih sebelumnya pada modul pilih mahasiswa. Pengguna dapat merubah info
-mahasiswa yang ada dan dapat melihat histori setiap mahasiswa.\\
+Deskripsi & Pengguna mendapatkan laporan barupa info mahasiswa yang telah dipilih sebelumnya pada modul pilih mahasiswa. Pengguna dapat melakukan enam aksi pada modul ini. Pertama, kembali ke halaman utama dengan menekan tombol "Menu Utama". Kedua, dapat merubah info mahasiswa yang ada dengan menekan tombol "{\it Edit}". Ketiga, dapat menambah catatan masalah baru dengan menekan tombol "Masalah Baru". Keempat, dapat melihat daftar masalah yang dimiliki mahasiswa tersebut dengan menekan tombol "Lihat Masalah". Kelima, dapat melihat histori mahasiswa tersebut dengan menekan tombol "Lihat Histori". Keenam, dapat keluar dari sistem dengan menekan tombol "{\it Logout}"\\
 \hline
 \end{tabular}
 \end{table}
@@ -248,20 +339,61 @@ pada Tabel \ref{tab:moduleditmahasiswa}.
 \centering
 \caption[Tabel Modul {\it Edit} Mahasiswa]{Modul {\it Edit} Mahasiswa}
 \label{tab:moduleditmahasiswa}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & edit.php\\
 \hline
-Input & teks dalam format markdown\\
+Input & teks\\
 \hline
 Output & -\\
 \hline
 Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
-Deskripsi & Pengguna memasukkan atau merubah keterangan mahasiswa pada teks area
-yang telah disediakan menggunakan teks dengan sintaks Markdown lalu
-pengguna menyimpan untuk menaruh perubahan yang dilakukan. Pengguna dapat
-kembali ke modul info mahasiswa tanpa melakukan perubahan.\\
+Deskripsi & Pengguna memasukkan atau merubah keterangan mahasiswa pada teks area lalu pengguna menyimpan dengan menekan tombol "Simpan" untuk menaruh perubahan yang dilakukan. Pengguna dapat kembali ke modul info mahasiswa tanpa melakukan perubahan dengan menekan tombol "Kembali".\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Modul Menambah Masalah Baru}
+Modul menambah masalah baru yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel \ref{tab:modulmasalahbaru}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Modul Menambah Masalah Baru]{Modul Menambah Masalah Baru}
+\label{tab:modulmasalahbaru}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+Nama Modul & newproblem.php\\
+\hline
+Input & teks\\
+\hline
+Output & -\\
+\hline
+Tabel yang diakses & Masalah dan Histori\\
+\hline
+Deskripsi & Pengguna memasukkan pihak yang bersangkutan dan masalah yang dimiliki mahasiswa pada teks area yang telah disediakan lalu pengguna menyimpan catatan masalah tersebut dengan menekan tombol "Simpan". Pengguna dapat kembali ke modul info mahasiswa tanpa menambah catatan masalah dengan menekan tombol "Kembali".\\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection{Modul Lihat Daftar Masalah}
+Modul lihat daftar masalah yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel \ref{tab:modullihatmasalah}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Modul Lihat Daftar Masalah]{Modul Lihat Daftar Masalah}
+\label{tab:modullihatmasalah}
+\begin{tabular}{|c|p{10cm}|}
+\hline
+Nama Modul & problem.php\\
+\hline
+Input & -\\
+\hline
+Output & Daftar masalah mahasiswa\\
+\hline
+Tabel yang diakses & Masalah\\
+\hline
+Deskripsi & Pengguna mendapatkan laporan berupa daftar masalah yang dimiliki seorang mahasiswa. Daftar masalah yang dapat dilihat antara lain pihak yang bersangkutan dengan masalah dan rincian / penjelasan masalah tersebut. Pengguna dapat kembali ke modul info mahasiswa dengan menekan tombol "Kembali".\\
 \hline
 \end{tabular}
 \end{table}
@@ -274,7 +406,7 @@ Tabel \ref{tab:modullihathistori}.
 \centering
 \caption[Tabel Modul Lihat Histori]{Modul Lihat Histori}
 \label{tab:modullihathistori}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & history.php\\
 \hline
@@ -284,8 +416,7 @@ Output & Daftar histori mahasiswa\\
 \hline
 Tabel yang diakses & Histori\\
 \hline
-Deskripsi & Pengguna mendapatkan laporan berupa daftar hostori yang dimiliki
-setiap mahasiswa.\\
+Deskripsi & Pengguna mendapatkan laporan berupa daftar histori yang dimiliki setiap mahasiswa. Histori yang dapat dilihat antara lain aksi yang dilakukan pengguna baik aksi membuat entri, melihat dan mengedit. Kemudian berbagai versi keterangan yang dapat dilihat, mulai dari veri pertama kali dibuat hingga versi saat ini. Pengguna dapat kembali ke modul info mahasiswa dengan menekan tombol "Kembali".\\
 \hline
 \end{tabular}
 \end{table}
@@ -298,7 +429,7 @@ Modul entri baru yang dilakukan oleh pengguna (dosen) dapat dilihat pada Tabel
 \centering
 \caption[Tabel Modul Entri Baru]{Modul Entri Baru} 
 \label{tab:modulentribaru}
-\begin{tabular}{|c|p{7cm}|}
+\begin{tabular}{|c|p{10cm}|}
 \hline
 Nama Modul & new.php\\
 \hline
@@ -308,10 +439,7 @@ Output & -\\
 \hline
 Tabel yang diakses & InfoMahasiswa dan Histori\\
 \hline
-Deskripsi & Pengguna memasukkan npm, nama, dan keterangan mahasiswa pada teks
-area yang telah disediakan menggunakan teks dengan sintaks Markdown lalu
-pengguna menyimpan untuk membuat entri baru tersebut. Pengguna dapat kembali ke
-modul pilih mahasiswa tanpa melakukan perubahan.\\
+Deskripsi & Pengguna memasukkan npm, nama, deskripsi umum dan catatan mahasiswa pada teks area yang telah disediakan. Lalu pengguna menyimpan data-data yang telah dimasukkan dengan menekan tombol "Simpan" untuk membuat entri baru tersebut. Pengguna dapat kembali ke modul pilih mahasiswa tanpa melakukan perubahan dengan menekan tombol "Kembali".\\
 \hline
 \end{tabular}
 \end{table}
@@ -323,12 +451,12 @@ Berdasarkan ERD pada sub sub bab 3.6.3, maka dapat dihasilkan perancangan diagra
 
 \begin{figure}[ht]
 \centering
-\includegraphics[scale=1]{Gambar/diagramrelasional.png}
+\includegraphics[scale=0.9]{Gambar/diagramrelasional.png}
 \caption[Diagram Relasional]{Diagram Relasional} 
 \label{fig:diagramrelasional}
 \end{figure}
 
-\section{Perancangan Tabel Sistem Informasi Riwayat Mahasiswa}
+\section{Perancangan Tabel Sistem Perekam dan Berbagi Riwayat Mahasiswa}
 \label{sec:perancangantabel}
 
 \subsection{Perancangan Tabel Info Mahasiswa}
@@ -380,6 +508,32 @@ keterangan & text & - & no & no & -\\
 \hline
 \end{tabular}
 \end{table}
+
+\subsection{Perancangan Tabel Masalah}
+Untuk rancangan tabel masalah dapat dilihat pada Tabel
+\ref{tab:rancangantabelmasalah}.
+
+\begin{table}[ht]
+\caption[Tabel Rancangan Tabel Masalah]{Rancangan Tabel Masalah}
+\label{tab:rancangantabelmasalah}
+\centering
+\begin{tabular}{|l|l|p{1.2cm}|p{1.2cm}|p{1.2cm}|l|}
+\hline
+Atribut & Tipe Data & Ukuran & Primary Key & Foreign Key & Keterangan\\
+\hline
+id\_masalah & int & 5 & yes & no & AUTO\_INCREMENT\\
+\hline
+npm & varchar & 10 & no & yes & -\\
+\hline
+masalah\_dengan & varchar & 25 & no & no & -\\
+\hline
+masalah & text & - & no & no & -\\
+\hline
+tanggal & datetime & - & no & no & -\\
+\hline
+\end{tabular}
+\end{table}
+
 
 %\section{Diagram Sekuens}
 %\label{sec:diagramsekuens}

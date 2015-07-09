@@ -1,97 +1,150 @@
 \chapter{Analisis}
 \label{chap:analisis}
 
-Bab ini terdiri atas enam bagian, yaitu Analisis Kebutuhan Pengguna, Analisis Google OAuth, Analisis Markdown, Analisis StrapdownJS, Analisis Zurb dan Analisis Berorientasi Objek. Bagian Analisis Kebutuhan Pengguna berisi penjelasan analisis kebutuhan pengguna yang akan dijadikan pedoman. Bagian Analisis Google OAuth berisi penjelasan analisis Google OAuth yang akan digunakan pada penelitian ini. Bagian Analisis Markdown berisi penjelasan analisis Markdown yang akan digunakan pada penelitian ini Bagian Analisis StrapdownJS berisi penjelasan analisis StrapdownJS yang akan digunakan pada penelitian ini. Bagian Analisis Zurb Foundation berisi penjelasan analisis Zurb Foundation yang akan digunakan pada penelitian ini. Sedangkan bagian Analisis Kebutuhan Perangkat Lunak berisi {\it use case} diagram, skenario, {\it entity relationship} diagram, dan data {\it flow} diagra perangkat lunak yang akan dibangun.
+Bab ini terdiri atas enam bagian, yaitu Analisis Kebutuhan Pengguna, Analisis Google OAuth, Analisis Markdown, Analisis StrapdownJS, Analisis Zurb dan Analisis Kebutuhan Perangkat Lunak. Bagian Analisis Kebutuhan Pengguna berisi penjelasan analisis kebutuhan pengguna yang akan dijadikan pedoman. Bagian Analisis Google OAuth berisi penjelasan analisis Google OAuth yang akan digunakan pada penelitian ini. Bagian Analisis Markdown berisi penjelasan analisis Markdown yang akan digunakan pada penelitian ini Bagian Analisis StrapdownJS berisi penjelasan analisis StrapdownJS yang akan digunakan pada penelitian ini. Bagian Analisis Zurb Foundation berisi penjelasan analisis Zurb Foundation yang akan digunakan pada penelitian ini. Sedangkan bagian Analisis Kebutuhan Perangkat Lunak berisi {\it use case} diagram, skenario, {\it entity relationship} diagram, dan data {\it flow} diagra perangkat lunak yang akan dibangun.
 
 \section{Analisis Kebutuhan Pengguna}
 \label{sec:analisiskebutuhanpengguna}
-Kegiatan pengumpulan data merupakan salah satu tahap yang berperan penting dalam sebuah penelitian. Pada penelitian ini digunakan teknik pengumpulan data berupa kuesioner. Kuesioner yang disebarkan sebanyak 6 kuesioner dan yang menjadi responden adalah dosen Teknik Informatika dari Falkutas Teknik Informasi dan Sains. Untuk kuesioner kebutuhan pengguna dapat dilihat pada Lampiran \ref{surveikebutuhanpengguna}. Hasil kuesioner dari 6 orang dosen tersebut menghasilkan data yang dapat dilihat pada Tabel \ref{surveipertama}-\ref{surveikedelapan}. Berikut keterangan nama dosen :
+Kegiatan pengumpulan data merupakan salah satu tahap yang berperan penting dalam sebuah penelitian. Pada penelitian ini digunakan teknik pengumpulan data berupa wawancara dan kuesioner. Wawancara dilakukan secara langsung ke 6 dosen Teknik Informatika. Untuk data dari hasil wawancara yang terdapat pada Lampiran \ref{wawancara} dapat dilihat di bawah ini.
+
 \begin{itemize}
-\item PAS = Pascal Alfadian, SKom., MSc.
-\item RDL = Rosa De Lima Endang Padmowati, Dra., MKom.
-\item VSM = Dr. Veronica Sri Moertini, Ir., MT.
-\item CAN = Chandra Wijaya, SKom., MT.
-\item VAN = Vania Natali, S.Kom.
-\item LNV = Lionov, SKom., M.Sc.
+\item Rata-rata dosen Teknik Informatika UNPAR memiliki 25-50 anak wali.
+\item Masalah yang dialami pada saat menjadi dosen wali antara lain :
+    \begin{itemize}
+    \item Administrasi mengenai syarat tanda tangan pada saat perwalian.
+    \item Mahasiswa tidak memiliki sangsi jika tidak datang perwalian.
+    \item Tidak mengingat semua riwayat mahasiswa.
+    \item Ada persoalan tapi tidak cerita.
+    \item Ada mahasiswa yang tidak hadir pada waktu perwalian.
+    \item Harus mengingat {\it track record} masalah.
+    \item Sulit menghubungi mahasiswa.
+    \item Ada mahasiswa yang menitipkan perwalian ke teman atau kontak via email atau whatsapp sehingga kurang intensif.
+    \end{itemize}
+\item Perwalian yang dilakukan sudah optimal
+    \begin{itemize}
+    \item Satu orang dosen menjawab sudah tercapai.
+    \item Sisanya masih merasa belum.
+    \end{itemize}
+\item Dibuatkan sebuah perangkat lunak yang membantu dalam mencatat dan membagikan riwayat mahasiswa dan semua dosen menjawab setuju.
+\item Fitur yang diharapkan :
+    \begin{itemize}
+    \item Mendukung faktor efisien.
+    \item Kebebasan dalam mencatat apa pun.
+    \item Komentar positif dan komentar negatif dipisahkan.
+    \item Catatan khusus dosen wali.
+    \item Mudah diakses.
+    \item Form mengakses masalah mahasiswa.
+    \item Form daftar kehadiran kelas.
+    \end{itemize}
 \end{itemize}
 
-\begin{table}[p]
+Berikut analisis yang dihasilkan dari wawancara kebutuhan pengguna :
+\begin{itemize}
+\item Penelitian ini akan membantu dosen dalam menghadapi masalah pada saat menjadi dosen wali. Masalah yang akan dibantu antara lain; tidak mengingat semua riwayat mahasiswa, ada persoalan tetapi tidak cerita, harus mengingat {\it track record} masalah. Karena masalah-masalah tersebut sesuai dengan ide yang diusulkan untuk membuat sebuah perangkat lunak yang membantu dalam mencatat dan membagikan riwayat mahasiswa. Sedangkan untuk masalah seperti administrasi mengenai syarat tanda tangan pada saat perwalian, mahasiswa tidak memiliki sangsi jika tidak datang perwalian, ada mahasiswa yang tidak hadir pada waktu perwalian, sulit menghubungi mahasiswa, dan ada mahasiswa yang perwalian menitipkan ke teman atau kontak via email atau whatsapp sehingga kurang intensif. Alangkah lebih baik untuk mengatasi masalah tersebut, langsung diselesaikan oleh pihak jurusan, apakah masih diperlukan tanda tangan pada saat perwalian, apakah akan diberikan sangsi untuk mahasiswa yang tidak melakukan perwalian, apakah mahasiswa wajib menghadap dosen wali pada saat perwalian sehingga intensif.
+\item Penelitian ini juga bertujuan untuk membuat proses perwalian yang dilakukan oleh seorang dosen wali menjadi optimal karena sebagian besar dosen wali masih merasa proses perwalian yang dilakukannya belum optimal. Karena ide usulan untuk membuat sebuah perangkat lunak yang membantu dalam mencatat dan membagikan riwayat mahasiswa, akan mempermudah untuk mengetahui pendapat dosen lain mengenai seorang mahasiswa tanpa perlu mendatangi dosen lain untuk membicarakan hal tersebut. Kemudian dosen wali yang memiliki keterbatasan waktu dapat mengakses informasi anak walinya dengan cepat. Dosen wali juga akan mengetahui masalah yang dimiliki anak walinya tanpa perlu menunggu anak walinya menceritakan kepadanya.
+\item Para dosen setuju untuk dibuatkan sebuah perangkat lunak yang membantu dalam mencatat dan membagikan riwayat mahasiswa karena hal tersebut merupakan ide yang baik, menarik, merasa akan tertolong dan terbantu sekali apalagi dijaga oleh setiap dosen wali agar selalu {\it uptodate}.
+\item Fitur yang akan diimplementasi pada perangkat lunak yang akan dibangun sesuai dengan fitur yang diharapkan dosen adalah mendukung faktor efisien, kebebasan dalam mencatat apa pun, komentar positif dan komentar negatif dipisah, mudah diakses, dan form mengakses masalah mahasiswa. Mendukung faktor efisien akan diimplementasikan dengan menampilkan deskripsi umum, catatan, daftar masalah dan daftar histori. Kebebasan dalam mencatat apa pun akan diimplementasikan dengan menyediakan form untuk memasukkan data informasi mahasiswa, kemudian pengguna dapat mengisikan data-data deskripsi umum, catatan dan masalah pada tempatnya. Komentar positif dan komentar negatif akan diimplementasikan dengan membuat deskripsi umum dan catatan sebagai komentar positif yang terpisah dari masalah sebagai komentar negatif. Mudah diakses diimplementasikan dengan semua dosen mendapatkan semua informasi yang dimiliki setiap mahasiswa. Form mengakses masalah diimplementasikan dengan membuatkan sebuah form masalah untuk membuat laporan sebuah masalah yang dimiliki seorang mahasiswa. Untuk fitur catatan khusus dosen wali tidak akan diimplementasikan pada perangkat lunak karena perangkat lunak yang akan dibangun akan mencatatat dan membagikan setiap riwayat mahasiswa ke setiap dosen. Untuk fitur form daftar kehadiran kelas tidak akan diimplementasikan pada perangkat lunak karena perangkat lunak yang akan dibangun bertujuan untuk membantu seorang dosen wali untuk mengetahui deskripsi umum, catatan dan masalah yang dimiliki anak walinya.
+\end{itemize}
+
+Kuesioner yang disebarkan sebanyak 10 kuesioner dan yang menjadi responden adalah dosen Teknik Informatika dari Fakultas Teknik Informasi dan Sains. Untuk kuesioner kebutuhan pengguna dapat dilihat pada Lampiran \ref{surveikebutuhanpengguna}. Hasil kuesioner dari 10 orang dosen tersebut menghasilkan data yang dapat dilihat pada Tabel \ref{surveipertama}-\ref{surveikedelapan}.
+
+\begin{table}[ht]
 \centering
 \caption{Tabel Jawaban Pertanyaan Pertama, Sisi Humanis}
 \label{surveipertama}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & \checkmark &        &              &                     \\ \hline
-RDL   &               & \checkmark &        &              &                     \\ \hline
-VSM   &               &        & \checkmark &              &                     \\ \hline
-CAN   & \checkmark &        &        &              &                     \\ \hline
-VAN   &               & \checkmark &        &              &                     \\ \hline
-LNV   &               & \checkmark &        &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & \checkmark & & & & \\ \hline
+4 & \checkmark & & & & \\ \hline
+5 & & \checkmark & & & \\ \hline
+6 & & \checkmark & & & \\ \hline
+7 & \checkmark & & & & \\ \hline
+8 & & & \checkmark & & \\ \hline
+9 & & \checkmark & & & \\ \hline
+10 & & \checkmark & & & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[ht]
 \centering
 \caption{Tabel Jawaban Pertanyaan Kedua, Konsultasi Dengan Dosen Lain}
 \label{surveikedua}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   & & \checkmark &        &              &                     \\ \hline
-RDL   &               & & \checkmark &              &                     \\ \hline
-VSM   &               & & \checkmark &              &                     \\ \hline
-CAN   & & \checkmark &        &              &                     \\ \hline
-VAN   & & \checkmark &        &              &                     \\ \hline
-LNV   &               & & \checkmark &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & & \checkmark & & & \\ \hline
+4 & & & \checkmark & & \\ \hline
+5 & & \checkmark & & & \\ \hline
+6 & \checkmark & & & & \\ \hline
+7 & & \checkmark & & & \\ \hline
+8 & & & \checkmark & & \\ \hline
+9 & & & \checkmark & & \\ \hline
+10 & & & \checkmark & & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[ht]
 \centering
 \caption{Tabel Jawaban Pertanyaan Ketiga, Konsultasi Dengan Mahasiswa Lain}
 \label{surveiketiga}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & & \checkmark &              &                     \\ \hline
-RDL   &               & & \checkmark &              &                     \\ \hline
-VSM   &               & & \checkmark &              &                     \\ \hline
-CAN   & & \checkmark &        &              &                     \\ \hline
-VAN   &               & & \checkmark &              &                     \\ \hline
-LNV   &               & &        & \checkmark &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & \checkmark & & \\ \hline
+2 & & & \checkmark & & \\ \hline
+3 & & & & \checkmark & \\ \hline
+4 & & & \checkmark & & \\ \hline
+5 & & \checkmark & & & \\ \hline
+6 & & & & \checkmark & \\ \hline
+7 & & \checkmark & & & \\ \hline
+8 & & & \checkmark & & \\ \hline
+9 & & & & \checkmark & \\ \hline
+10 & & & \checkmark & & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[ht]
 \centering
 \caption{Tabel Jawaban Pertanyaan Keempat, Disiplin Menerapkan Aturan}
 \label{surveikeempat}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & & \checkmark &              &                     \\ \hline
-RDL   &               & \checkmark &        &              &                     \\ \hline
-VSM   &               & \checkmark & &              &                     \\ \hline
-CAN   & & \checkmark &        &              &                     \\ \hline
-VAN   &               & \checkmark &        &              &                     \\ \hline
-LNV   & \checkmark & &        &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & \checkmark & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & & \checkmark & & & \\ \hline
+4 & \checkmark & & & & \\ \hline
+5 & & & \checkmark & & \\ \hline
+6 & & \checkmark & & & \\ \hline
+7 & & \checkmark & & & \\ \hline
+8 & & \checkmark & & & \\ \hline
+9 & \checkmark & & & & \\ \hline
+10 & & \checkmark & & & \\ \hline
 \end{tabular}
 \end{table}
 
-\begin{table}[p]
+\begin{table}[ht]
 \centering
 \caption{Tabel Jawaban Pertanyaan Kelima, Penilaian Sayalah yang Paling Baik}
 \label{surveikelima}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & &        & \checkmark &                     \\ \hline
-RDL   &               & &        & \checkmark &                     \\ \hline
-VSM   &               &        & \checkmark &              &                     \\ \hline
-CAN   & &        & \checkmark &              &                     \\ \hline
-VAN   &               & &        &              & \checkmark \\ \hline
-LNV   &               & \checkmark &        &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & & & \checkmark & \\ \hline
+2 & & & & & \checkmark \\ \hline
+3 & & & \checkmark & & \\ \hline
+4 & & & \checkmark & & \\ \hline
+5 & & & & \checkmark & \\ \hline
+6 & & & \checkmark & & \\ \hline
+7 & & & \checkmark & & \\ \hline
+8 & & & \checkmark & & \\ \hline
+9 & & \checkmark & & & \\ \hline
+10 & & & \checkmark & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -101,13 +154,17 @@ LNV   &               & \checkmark &        &              &                    
 \label{surveikeenam}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   & \checkmark & &        &              &                     \\ \hline
-RDL   & \checkmark & &        &              &                     \\ \hline
-VSM   &               & \checkmark & &              &                     \\ \hline
-CAN   & \checkmark &        &        &              &                     \\ \hline
-VAN   &               & \checkmark &        &              &                     \\ \hline
-LNV   & \checkmark & &        &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & \checkmark & & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & \checkmark & & & & \\ \hline
+4 & \checkmark & & & & \\ \hline
+5 & & \checkmark & & & \\ \hline
+6 & & \checkmark & & & \\ \hline
+7 & \checkmark & & & & \\ \hline
+8 & & \checkmark & & & \\ \hline
+9 & \checkmark & & & & \\ \hline
+10 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -117,13 +174,17 @@ LNV   & \checkmark & &        &              &                     \\ \hline
 \label{surveiketujuh}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & \checkmark &        &              &                     \\ \hline
-RDL   & \checkmark & &        &              &                     \\ \hline
-VSM   &               &        & \checkmark &              &                     \\ \hline
-CAN   & \checkmark &        &        &              &                     \\ \hline
-VAN   &               & \checkmark &        &              &                     \\ \hline
-LNV   &               & & \checkmark &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & & \checkmark & & & \\ \hline
+4 & \checkmark & & & & \\ \hline
+5 & & \checkmark & & & \\ \hline
+6 & & \checkmark & & & \\ \hline
+7 & \checkmark & & & & \\ \hline
+8 & & & \checkmark & & \\ \hline
+9 & & & \checkmark & & \\ \hline
+10 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -133,28 +194,36 @@ LNV   &               & & \checkmark &              &                     \\ \hl
 \label{surveikedelapan}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
-Dosen & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
-PAS   &               & \checkmark &        &              &                     \\ \hline
-RDL   &               & &        & \checkmark &                     \\ \hline
-VSM   &               & \checkmark & &              &                     \\ \hline
-CAN   & &        &        & \checkmark &                     \\ \hline
-VAN   &               & \checkmark &        & &                     \\ \hline
-LNV   & \checkmark & &        &              &                     \\ \hline
+Responden & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuju \\ \hline
+1 & & \checkmark & & & \\ \hline
+2 & & \checkmark & & & \\ \hline
+3 & \checkmark & & & & \\ \hline
+4 & & & \checkmark & & \\ \hline
+5 & & & \checkmark & & \\ \hline
+6 & \checkmark & & & & \\ \hline
+7 & & & & \checkmark & \\ \hline
+8 & & \checkmark & & & \\ \hline
+9 & \checkmark & & & & \\ \hline
+10 & & & & \checkmark & \\ \hline
 \end{tabular}
 \end{table}
 
-Bagi beberapa dosen setuju mempertimbangkan sisi humanis seorang mahasiswa diluar prestasi akademis dalam memutuskan sesuatu terhadap seorang mahasiswa, misalnya sering terlambat masuk kelas dan sering terlambat mengumpulkan tugas. Maka dari itu pada perangkat lunak yang akan dibangun, dosen dapat memasukkan sisi humanis seorang mahasiswa yang diketahui oleh dosen tersebut. Untuk dosen muda seperti PAS, CAN, dan VAN setuju untuk berkonsultasi dengan rekan dosen dalam memutuskan sesuatu terhadap seorang mahasiswa. Karena dosen muda lebih yakin dan percaya jika melakukan konsultasi dengan dosen senior. Maka dari itu pada perangkat lunak yang akan dibangun, semua riwayat mahasiswa akan dibagikan ke setiap dosen.
-
-Berkonsultasi dengan mahasiswa lain dalam memutuskan sesuatu terhadap seorang mahasiswa, empat dari enam dosen memilih netral untuk aspek ini. Maka dari itu pada penelitian ini tidak menangani aspek konsultasi dengan mahasiswa lain. Beberapa dosen setuju untuk disiplin menerapkan aturan yang barlaku dalam memutuskan sesuatu terhadap seorang mahasiswa. Setelah melihat riwayat mahasiswa pada perangkat lunak yang akan dibangun. Dosen dapat mengambil keputusan sesuai dengan aturan yang berlaku misalnya dalam memberikan toleransi terhadap seorang mahasiswa.
-
-Menurut LNV, penilaian yang diberikannya terhadap seorang mahasiswa adalah yang paling baik. Karena LNV sangat setuju untuk disiplin menerapkan aturan yang berlaku. Namun bagi beberapa dosen belum yakin bahwa penilaian yang diberikannya terhadap seorang mahasiswa adalah yang paling baik. Maka dari itu perangkat lunak yang akan dibangun menjadi sebuah wadah dalam bertukar pendapat, sehingga setiap dosen dapat memberikan penilaian yang terbaik bagi seorang mahasiswa. Beberapa dosen sangat setuju untuk menggunakan akun dosen (@unpar.ac.id) dalam menggunakan sistem yang berhubungan dengan mahasiswa. Maka dari itu untuk mengakses perangkat lunak yang akan dibangun pengguna akan menggunakan akun dosen.
-
-Beberapa dosen setuju untuk membuat format penulisan yang mempermudah untuk menulis dan membaca catatan seorang mahasiswa. Maka dari itu pada perangkat lunak yang akan dibangun, akan dibuatkan sebuah format penulisan agar penulisan kedepannya seragam. Sebagian dosen menggunakan perangkat yang disediakan UNPAR dalam menggunakan sistem yang berhubungan dengan mahasiswa. Sebagian dosen yang lain menggunakan perangkat pribadi dalam menggunakan sistem yang berhubungan dengan mahasiswa. Maka dari itu perangkat lunak yang akan dibangun, akan menjamin tampilan antarmuka yang responsif. Agar setiap pengguna tetap merasa nyaman dengan tampilan antarmuka perangkat lunak yang akan dibangun, baik menggunakan perangkat yang disediakan UNPAR maupun menggunakan perangkat pribadi.
+Berikut analisis data yang dihasilkan dari kuesioner kebutuhan pengguna :
+\begin{itemize}
+\item Sebagian besar responden setuju mempertimbangkan sisi humanis seorang mahasiswa diluar prestasi akademis dalam memutuskan sesuatu terhadap seorang mahasiswa, hal tersebut menunjukkan adanya kebutuhan akan sebuah pendukung (baik perangkat lunak maupun bukan). Misalnya bagi dosen untuk menghitung nilai ''belas kasihan'' pada kasus seperti nilai 79 berharap jadi A yang mempertimbangkan aspek sering terlambat masuk kelas dan sering terlambat mengumpulkan tugas. Maka dari itu pada perangkat lunak yang akan dibangun, dosen dapat memasukkan sisi humanis seorang mahasiswa yang diketahui oleh dosen tersebut.
+\item Setengah dari responden setuju untuk berkonsultasi dengan rekan dosen dalam memutuskan sesuatu terhadap seorang mahasiswa. Hal tersebut menunjukkan adanya kebutuhan dosen untuk berkomunikasi dengan dosen lain sebelum memutuskan sesuatu. Misalnya seorang mahasiswa sering tidak masuk pada suatu kelas karena alasan sakit, maka seorang dosen dapat menanyakan ke dosen lain apakah mahasiswa tersebut sering izin sakit tidak di kelas lain. Maka dari itu pada perangkat lunak yang akan dibangun, semua riwayat mahasiswa akan dibagikan ke setiap dosen.
+\item Sebagian besar responden merasa netral untuk mencari informasi dari mahasiswa lain dalam memutuskan sesuatu terhadap seorang mahasiswa, tetapi responden yang menyatakan tidak setuju lebih banyak dari responden yang menyatakan setuju. Maka dari itu pada penelitian ini tidak menangani aspek dalam mencari informasi dari mahasiswa lain.
+\item Sebagian besar setuju untuk disiplin menerapkan aturan yang barlaku dalam memutuskan sesuatu terhadap seorang mahasiswa. Hal tersebut menunjukkan bahwa dosen teknik infomatika disiplin dalam menerapkan aturan. Jadi setelah melihat riwayat mahasiswa yang terdapat pada perangkat lunak yang akan dibangun. Dosen dapat mengambil keputusan sesuai dengan aturan yang berlaku, misalnya dalam memberikan toleransi terhadap seorang mahasiswa yang terlambat mengumpulkan tugas.
+\item Sebagian besar responden merasa netral dalam aspek penilaian sayalah yang paling baik. Namun responden yang menyatakan tidak setuju lebih banyak dari responden yang menyatakan setuju. Hal tersebut menunjukkan adanya kebutuhan dosen untuk membantu dalam memberikan penilaian yang baik bagi seorang mahasiswa. Misalnya dengan mengetahui penilaian seorang mahasiswa dari dosen lain jadi seorang dosen dapat menyimpulkan sebuah penilaian yang terbaik bagi mahasiswa tersebut. Maka dari itu perangkat lunak yang akan dibangun menjadi sebuah wadah dalam bertukar pendapat mengenai seorang mahasiswa, sehingga setiap dosen dapat memberikan penilaian yang terbaik bagi seorang mahasiswa.
+\item Semua responden setuju untuk menggunakan akun dosen (@unpar.ac.id) dalam menggunakan sistem yang berhubungan dengan mahasiswa. Hal tersebut menunjukkan dosen terbiasa dengan menggunakan akun dosen untuk memfasilitasi mahasiswa. Maka dari itu pengguna akan menggunakan akun dosen untuk mengakses perangkat lunak yang akan dibangun.
+\item Sebagian besar responden setuju untuk membuat format penulisan yang mempermudah untuk menulis dan membaca catatan seorang mahasiswa. Selain mempermudah juga hal ini akan berguna agar penulisan di dalam perangkat lunak menjadi seragam kedepannya. Hal tersebut menunjukkan adanya kebutuhan untuk membuat sebuah format penulisan dalam membuat sebuah catatan seorang mahasiswa. Maka dari itu pada perangkat lunak yang akan dibangun, akan dibuatkan sebuah format penulisan yang mudah ditulis dan mudah dibaca sehingga menghasilkan penulisan yang seragam untuk kedepannya.
+\item Sebagian responden menggunakan perangkat yang disediakan UNPAR dalam menggunakan sistem yang berhubungan dengan mahasiswa. Sebagian responden yang lain menggunakan perangkat pribadi dalam menggunakan sistem yang berhubungan dengan mahasiswa. Hal tersebut menunjukkan adanya kebutuhan pengguna, agar tampilan antarmuka perangkat lunak dapat mengikuti lebar layar perangkat yang digunakan dosen. Maka dari itu perangkat lunak yang akan dibangun, akan menjamin tampilan antarmuka yang responsif. Agar setiap pengguna tetap merasa nyaman dengan tampilan antarmuka perangkat lunak yang akan dibangun, baik menggunakan perangkat yang disediakan UNPAR maupun menggunakan perangkat pribadi.
+\end{itemize}
 
 \section{Analisis Google OAuth}
 \label{sec:analisisGoogleOAuth}
 
-Pada penelitian ini untuk autentikasi dan otentikasi pada fitur login akan menggunakan teknologi Google OAuth 2.0. Penggunaan teknologi ini dikarenakan pengguna akan menggunakan akun dosen yang diberikan oleh UNPAR (@unpar.ac.id) untuk melakukan login. Dimana akun yang dimiliki dosen tersebut berada dalam naungan Google. Maka dari itu teknologi ini cocok digunakan untuk mengoutentikasi dan mengotorisasi akun dosen. Untuk langkah-langkah penggunaan OAuth 2.0 dapat dilihat pada sub bab berikutnya.
+Pada penelitian ini untuk autentikasi dan otentikasi pada fitur {\it login} akan menggunakan teknologi Google OAuth 2.0. Penggunaan teknologi ini dikarenakan pengguna akan menggunakan akun dosen yang diberikan oleh UNPAR (@unpar.ac.id) untuk melakukan {\it login}. Dimana akun yang dimiliki dosen tersebut berada dalam naungan Google. Maka dari itu teknologi ini cocok digunakan untuk mengautentikasi dan mengotorisasi akun dosen. Untuk langkah-langkah penggunaan OAuth 2.0 dapat dilihat pada sub bab berikutnya.
 
 \subsection{Langkah Dasar Penggunaan OAuth 2.0}
 Berdasarkan langkah dasar yang terdapat pada bab 2, maka terdapat empat langkah yang akan diikuti untuk menggunakan OAuth 2.0 pada penelitian ini. Empat langkah yang harus terpenuhi:
@@ -182,7 +251,7 @@ Client secret:
 Agar lebih jelas dapat dilihat pada Gambar \ref{fig:clientid}.
     \end{enumerate}
 \item Memperoleh token akses dari Google Authorization Server\\
-Izin dari pihak pengguna digunakan untuk memperoleh token akses. Jadi pada saat pengguna melakukan login, pengguna diharuskan login menggunakan akun Google miliknya sendiri. Setelah login pengguna akan ditanya dan diminta memberi respon untuk memberi izin atau tidak pada aplikasi yang telah melakukan permintaan tersebut. Untuk gambar izin dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izinpengguna}.
+Izin dari pihak pengguna digunakan untuk memperoleh token akses. Jadi pada saat pengguna melakukan {\it login}, pengguna diharuskan {\it login} menggunakan akun Google miliknya sendiri. Setelah {\it login} pengguna akan ditanya dan diminta memberi respon untuk memberi izin atau tidak pada aplikasi yang telah melakukan permintaan tersebut. Untuk gambar izin dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izinpengguna}.
 \item Kirim token ke API\\
 Setelah mendapatkan token akses untuk mengirimkan permintaan ke API maka diperlukan ruang lingkup. Berdasarkan sub bab 2.1.4, jika token akses dikeluarkan untuk Google+ API maka token akses tersebut tidak berlaku untuk mengakses Google Contact API. Ruang lingkup yang akan digunakan pada penelitan ini adalah:
 \begin{lstlisting}[basicstyle=\footnotesize]
@@ -253,7 +322,7 @@ karena token akses hanya digunakan selama penelitian ini berlangsung.
 \end{figure}
 
 \subsection{Skenario Aplikasi}
-Berdasarkan landasan teori skenario yang ada pada Sub Bab~\ref{sec:googleauthentication} dan berdasarkan perangkat lunak yang akan dibangun, maka skenario yang akan digunakan pada penelitian ini adalah skenario aplikasi web server. Aplikasi SPBRM akan melakukan permintaan token ke Server Google. Dosen sebagai pengguna akan melakukan login dan memberikan izin. Server Google akan memberikan balasan berupa kode otorisasi. Kemudian aplikasi akan menukarkan kode tersebut untuk mendapatkan token akses. Server Google memberikan token akses sebagai respon penukaran kode otorisasi dengan token akses. Setelah aplikasi mendapatkan token akses, maka apliksi dapat memanggil Google API dengan menggukan token akses. Untuk skenario aplikasi SPBRM dapat dilihat pada Gambar \ref{fig:skenarioaplikasiSPBRM}.
+Berdasarkan landasan teori skenario yang ada pada Sub Bab~\ref{sec:googleauthentication} dan berdasarkan perangkat lunak yang akan dibangun, maka skenario yang akan digunakan pada penelitian ini adalah skenario aplikasi web server. Aplikasi SPBRM akan melakukan permintaan token ke Server Google. Dosen sebagai pengguna akan melakukan {\it login} dan memberikan izin. Server Google akan memberikan balasan berupa kode otorisasi. Kemudian aplikasi akan menukarkan kode tersebut untuk mendapatkan token akses. Server Google memberikan token akses sebagai respon penukaran kode otorisasi dengan token akses. Setelah aplikasi mendapatkan token akses, maka apliksi dapat memanggil Google API dengan menggukan token akses. Untuk skenario aplikasi SPBRM dapat dilihat pada Gambar \ref{fig:skenarioaplikasiSPBRM}.
 
 \subsection{Penggunaan API {\it Client Library} untuk PHP}
 Pada penelitian ini digunakan API {\it Client Library} untuk PHP. {\it Library} terlebih dahulu diunduh dan disimpan sesuai tempat perangkat lunak disimpan. Karena dibuat untuk klien dan menggunakan OAuth maka setiap modul yang menggunakan teknologi tersebut harus memanggil Client.php dan Oauth2.php. Untuk kode dapat dilihat di bawah ini.
@@ -281,7 +350,7 @@ $client->setScopes(array('https://www.googleapis.com/auth/plus.login','email'));
 
 \section{Analisis Markdown}
 \label{sec:analisisMarkdown}
-Sintaks Markdown yang akan digunakan sesuai dengan landasan teori pada Sub Bab \ref{sec:markdown} adalah GFM. GFM digunakan pada penelitian ini karena memiliki beberapa perbedaan yang signifikan dengan SM dan juga GFM memiliki beberapa fungsi tambahan. Selain itu Markdown cukup mudah untuk dipahami dan digunakan oleh dosen, karena sintaks Markdown menggunakan teks biasa. Sintaks Markdown akan digunakan pada bagian keterangan mahasiswa agar seragam dalam format penulisannya karena pengguna setuju menggunakan format penulisan yang mempermudah untuk menulis dan membaca. Format penulisan akan disiapkan dengan menggunakan sintaks Markdown untuk pengguna pada bagian membuat entri baru. Keterangan mahasiswa yang akan ditampilkan antara lain; NPM, nama, deskripsi umum, catatan. Maka dari itu sintaks Markdown yang akan digunakan adalah Cetak Tebal dan Cetak Miring, Judul Bab, Batas Baris, Paragraf, {\it Link}, dan Daftar.
+Sintaks Markdown yang akan digunakan pada perangkat lunak yang akan dibangun. Sesuai dengan landasan teori pada Sub Bab \ref{sec:markdown}, Markdown yang akan digunakan adalah GFM. GFM digunakan pada penelitian ini karena memiliki beberapa perbedaan yang signifikan dengan SM dan juga GFM memiliki beberapa fungsi tambahan. Selain itu Markdown cukup mudah untuk dipahami dan digunakan oleh pengguna, karena sintaks Markdown menggunakan teks biasa. Sintaks Markdown akan digunakan pada bagian keterangan mahasiswa agar seragam dalam format penulisannya karena pengguna setuju menggunakan format penulisan yang mempermudah untuk menulis dan membaca. Format penulisan akan disiapkan dengan menggunakan sintaks Markdown untuk pengguna pada bagian membuat entri baru. Keterangan mahasiswa yang akan ditampilkan antara lain; NPM, nama, deskripsi umum, catatan. Maka dari itu sintaks Markdown yang akan digunakan adalah Cetak Tebal dan Cetak Miring, Judul Bab, Batas Baris, Paragraf, {\it Link}, dan Daftar.
 
 \begin{itemize}
 \item Sintaks Cetak Tebal dan Cetak Miring\\
@@ -415,7 +484,7 @@ Samuel adalah seorang mahasiswa yang periang namun terkadang sulit diatur. Dia a
 
 \section{Analisis StrapdownJS}
 \label{sec:analisisStrapdownJS}
-StrapdownJS digunakan untuk menampilkan sintaks Markdown ke halaman HTML. StrapdownJS pada penelitian ini berfungsi sebagai konversi teks yang telah dibuat menggunakan sintaks Markdown menjadi tampilan HTML. Pada penelitan ini strapdown.js terlebih dahulu diunduh dan untuk menggunakannya dengan {\it path} seperti di bawah ini.
+StrapdownJS pada penelitian ini digunakan untuk menampilkan keterangan mahasiswa yang telah dibuat dengan sintaks Markdown ke halaman HTML. StrapdownJS pada penelitian ini berfungsi sebagai konversi teks yang telah dibuat menggunakan sintaks Markdown menjadi tampilan HTML. Pada penelitan ini strapdown.js terlebih dahulu diunduh, kemudian disimpan pada lokasi yang sama dengan lokasi perangkat lunak dan menggunakan {\it path} seperti di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
 <script src="js/0.2/strapdown.js"></script>
 \end{lstlisting}
@@ -471,7 +540,7 @@ Untuk baris 22 sampai baris 40 pada skrip view.php akan diambil dari database.
 \section{Analisis Zurb Foundation}
 \label{sec:analisisZurbFoundation}
 Zurb Foundation digunakan untuk membuat tampilan antarmuka aplikasi yang akan
-dibangun menjadi responsif. Karena sebagian pengguna menggunakan perangkat yang disediakan UNPAR dan sebagian pengguna menggunakan perangkat sendiri, maka dari itu pada penelitian ini tampilan antarmuka dibuat agar antarmuka sesuai dengan setiap kemungkinan lebar mesin pencari dan/atau layar komputer yang digunakan pengguna. Sesuai landasan teori pada Sub Bab~\ref{sec:zurbfoundation}, pada aplikasi ini menggunakan dua bagian yaitu {\it Grid} dan Tombol. {\it Grid} digunakan untuk mengatur pembagian tata letak sehingga terlihat rapih baik lebar mesin pencari dan/atau layar komputer besar maupun kecil. Tombol digunakan untuk merubah tombol yang biasa menjadi lebih enak untuk dilihat. Berikut sintaks penggunaan {\it Grid} dan Tombol pada list.php. Untuk gambar dapat dilihat pada Gambar \ref{fig:contohzurb} dan Gambar \ref{fig:contohzurb1}.
+dibangun menjadi responsif. Karena sebagian pengguna menggunakan perangkat yang disediakan UNPAR dan sebagian pengguna menggunakan perangkat sendiri, maka dari itu untuk menjamin tampilan yang responsif untuk pengguna sehingga pada penelitian ini tampilan antarmuka dibuat agar antarmuka sesuai dengan setiap kemungkinan lebar mesin pencari dan/atau layar komputer yang digunakan pengguna. Sesuai landasan teori pada sub bab~\ref{sec:zurbfoundation}, pada aplikasi ini menggunakan dua bagian yaitu {\it Grid} dan Tombol. {\it Grid} digunakan untuk mengatur pembagian tata letak sehingga terlihat rapih baik lebar mesin pencari dan/atau layar komputer besar maupun kecil. Tombol digunakan untuk merubah tombol yang biasa menjadi lebih enak untuk dilihat. Berikut sintaks penggunaan {\it Grid} dan Tombol pada list.php. Untuk {\it grid} pada view.php dan past.php menggunakan kelas {\it small-11 small-centered columns} agar pada untuk menampilkan keterangan mahasiswa tetap responsif. Dengan menggunakan kelas tersebut, ketika layar mesin pencari dan/atau layar komputer ukuran maksimal, tampilan antarmuka mengikuti ukuran layar tersebut. Namun ketika pengguna mengecilkan lebar layar mesin pencari dan/atau layar komputer, maka antarmuka tetap menyesuaikan dengan lebar layar. Untuk tombol pada penelitian ini menggunakan kelas {\it button} dan {\it button secondary}. Pertama, kelas {\it button} digunakan untuk tombol ''Simpan''. Kedua, kelas {\it secondary button} digunakan untuk semua tombol selain tombol ''Simpan''. Untuk gambar dapat tampilan antarmuka list.php dilihat pada Gambar \ref{fig:contohzurb} untuk lebar maksimal dan Gambar \ref{fig:contohzurb1} untuk lebar yang dikecilkan.
 
 \begin{lstlisting}[basicstyle=\footnotesize]
 <!doctype html>
@@ -574,25 +643,24 @@ yang dapat dilakukan pengguna dan kegiatan yang dilakukan sistem. Berikut adalah
 deskripsi dari {\it use case} pada Gambar \ref{fig:usecase}.
 
 \begin{itemize}
-\item Login\\
-{\it Use case} ini memungkinkan pengguna untuk login via Google OAuth.
+\item {\it Login}\\
+{\it Use case} ini memungkinkan pengguna untuk {\it login} menggunakan akun dosen dan dibantu untuk autentikasi dan otorisasi menggunakan Google OAuth.
 \item Pilih Mahasiswa\\
-{\it Use case} ini memungkinkan pengguna untuk memilih mahasiswa yang ingin dilihat
-infonya. Selain itu pengguna juga bisa nemenkan tombol "{\it Add}" untuk
-membuat entri baru.
+{\it Use case} ini memungkinkan pengguna untuk memilih mahasiswa yang ingin dilihat informasinya. Selain itu pengguna juga bisa nemenkan tombol "{\it Add}" untuk membuat entri baru.
+\item Cari Mahasiswa\\
+{\it Use case} ini memungkinkan pengguna untuk mencari mahasiswa yang ingin dicari untuk mendapatkan informasi mahasiswa tersebut.
 \item Melihat Info Mahasiswa\\
-{\it Use case} ini memungkinkan pengguna untuk melihat info mahasiswa. Selain itu
-pengguna bisa menekan tombol "{\it Edit}" untuk mengedit info mahasiswa dan
-pengguna juga bisa menekan tombol "Lihat Histori" untuk melihat histori.
-\item {\it Edit} Mahasiswa\\
-{\it Use case} ini memungkinkan pengguna untuk mengubah info mahasiswa yang
-sudah ada.
+{\it Use case} ini memungkinkan pengguna untuk melihat informasi mahasiswa. Selain itu pengguna bisa menekan tombol "{\it Edit}" untuk mengedit informasi mahasiswa yang diketahuinya dan pengguna juga bisa menekan tombol "Lihat Histori" untuk melihat histori.
+\item {\it Edit} Info Mahasiswa\\
+{\it Use case} ini memungkinkan pengguna untuk mengubah informasi mahasiswa yang sebelumnya sedang dilihat oleh pengguna.
+\item Menambah Masalah Baru\\
+{\it Use case} ini memungkinkan pengguna untuk menambah catatan masalah baru seorang mahasiswa yang sebelumnya sedang dilihat oleh pengguna.
+\item Lihat Daftar Masalah\\
+{\it Use case} ini memungkinkan pengguna untuk melihat daftar masalah yang dimiliki oleh seorang mahasiswa.
 \item Lihat Histori\\
-{\it Use case} ini memungkinkan pengguna untuk melihat histori untuk setiap perubahan
-dan aksi yang dilakukan pengguna. Selain itu pengguna juga dapat melihat keterangan dari versi awal hingga versi saat ini.
+{\it Use case} ini memungkinkan pengguna untuk melihat histori untuk setiap perubahan terhadap data seorang mahasiswa dan aksi yang dilakukan pengguna baik melihat, mengedit, maupun membuat entri. Selain itu pengguna juga dapat melihat keterangan dari versi awal (pertama kali dibuat) hingga versi saat ini.
 \item Membuat Entri Baru\\
-{\it Use case} ini memungkinkan pengguna untuk membuat entri baru dengan memasukan 
-{\it input} data pada {\it form} yang telah disediakan.
+{\it Use case} ini memungkinkan pengguna untuk membuat entri baru dengan memasukan {\it input} data pada {\it form} yang telah disediakan.
 \end{itemize}
 
 \subsection{Skenario}
@@ -600,35 +668,32 @@ dan aksi yang dilakukan pengguna. Selain itu pengguna juga dapat melihat keteran
 Skenario untuk menjelaskan {\it use case} yang terpadat pada Gambar \ref{fig:usecase}
 dapat dilihat pada daftar di bawah ini.
 \begin{itemize}
-\item Untuk {\it use case} Login, skenarionya dapat dilihat pada Tabel
-\ref{tab:skenariologin}.
+\item Untuk {\it use case} {\it login}, skenarionya dapat dilihat pada Tabel \ref{tab:skenariologin}.
 
 \begin{table}[ht]
 \centering
-\caption[Tabel Skenario Login]{Skenario Login}
+\caption[Tabel Skenario {\it Login}]{Skenario {\it Login}}
 \label{tab:skenariologin}
 \begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
-Nama & \multicolumn{5}{p{8cm}|}{Login} \\ \hline
+Nama & \multicolumn{5}{p{8cm}|}{{\it Login}} \\ \hline
 Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Melakukan login via Google OAuth} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Masih berada pada login.php} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Melakukan {\it login} dengan menggunakan akun dosen, kemudian diautentikasi dan diotorisasi dengan menggunakan Google OAuth.} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Masih berada pada index.php} \\ \hline
 Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Sudah berada pada list.php}
 \\ \hline
 \multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
 \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
 \\ \cline{2-6}
-& 1 & \multicolumn{2}{p{4cm}|}{Pengguna melakukan login} &
-\multicolumn{2}{p{4cm}|}{Server akan mengirimkan pertanyaan untuk izin} \\
+& 1 & \multicolumn{2}{p{4cm}|}{Pengguna melakukan {\it login} dengan akun dosen} &
+\multicolumn{2}{p{4cm}|}{Server akan mengirimkan pertanyaan untuk izin dari pihak pengguna} \\
 \cline{2-6} & 2 & \multicolumn{2}{p{4cm}|}{Pengguna memberikan izin} &
-\multicolumn{2}{p{4cm}|}{Aplilasi mendapatkan otorisasi kode} \\ \hline
-Eksepsi & \multicolumn{5}{p{8cm}|}{Pengguna harus memiliki email yang diakhiri
-@unpar.ac.id dan username bukan angka semua} \\ \hline
+\multicolumn{2}{p{4cm}|}{Aplikasi mendapatkan otorisasi kode sebagai tanda pengguna diperbolehkan mengakses aplikasi} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{Pengguna harus memiliki email yang diakhiri @unpar.ac.id dan username bukan angka semua} \\ \hline
 \end{tabular}
 \end{table}
 
-\item Untuk {\it use case} Pilih Mahasiswa, skenarionya dapat dilihat pada Tabel
-\ref{tab:skenariopilih}.
+\item Untuk {\it use case} Pilih Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenariopilih}.
 
 \begin{table}[ht]
 \centering
@@ -638,24 +703,45 @@ Eksepsi & \multicolumn{5}{p{8cm}|}{Pengguna harus memiliki email yang diakhiri
 \hline
 Nama & \multicolumn{5}{p{8cm}|}{Pilih Mahasiswa} \\ \hline
 Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Pengguna dapat memilih dan mencari
-mahasiswa bedasarkan NPM} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Sebuah form dengan tabel yang berisi
-data mahasiswa} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Pengguna dapat memilih mahasiswa bedasarkan NPM} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Sebuah form dengan tabel yang berisi data mahasiswa (npm, nama, dan tanggal perubahan terakhir)} \\ \hline
 Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Salah satu mahasiswa terpilih} \\ \hline
 \multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
 \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
 \\ \cline{2-6}
-& 1 & \multicolumn{2}{p{4cm}|}{Pengguna mencari mahasiswa berdasarkan NPM} &
-\multicolumn{2}{p{4cm}|}{Sistem seleksi mahasiswa berdasarkan NPM} \\ \cline{2-6}
+& 1 & \multicolumn{2}{p{4cm}|}{Pengguna memilih mahasiswa berdasarkan NPM} &
+\multicolumn{2}{p{4cm}|}{Sistem menampilkan daftar mahasiswa yang terekam pada {\it database}} \\ \cline{2-6}
 & 2 & \multicolumn{2}{p{4cm}|}{Pengguna mengklik NPM mahasiswa yang dipilih} &
-\multicolumn{2}{p{4cm}|}{Pindah ke halaman infomahasiswa.php} \\ \hline
+\multicolumn{2}{p{4cm}|}{Pindah ke halaman view.php sesuai dengan npm yang diklik pengguna} \\ \hline
 Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \end{tabular}
 \end{table}
 
-\item Untuk {\it use case} Melihat Info Mahasiswa, skenarionya dapat dilihat pada
-Tabel \ref{tab:skenarioinfo}.
+\item Untuk {\it use case} Cari Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenariocari}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Skenario Cari Mahasiswa]{Skenario Cari Mahasiswa}
+\label{tab:skenariocari}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Cari Mahasiswa} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Pengguna dapat mencari mahasiswa bedasarkan NPM} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Sebuah form dengan tabel yang berisi data mahasiswa} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Daftar mahasiswa terpilih sesuai dengan npm yang dicari} \\ \hline
+\multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
+\multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
+\\ \cline{2-6}
+& 1 & \multicolumn{2}{p{4cm}|}{Pengguna mencari mahasiswa berdasarkan NPM} &
+\multicolumn{2}{p{4cm}|}{Sistem melakukan seleksi daftar mahasiswa berdasarkan NPM yang dicari} \\ \cline{2-6}
+& 2 & \multicolumn{2}{p{4cm}|}{Pengguna mengklik NPM mahasiswa yang dipilih} &
+\multicolumn{2}{p{4cm}|}{Pindah ke halaman view.php sesuai dengan npm yang diklik pengguna} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+\end{tabular}
+\end{table}
+
+\item Untuk {\it use case} Melihat Info Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenarioinfo}.
 
 \begin{table}[ht]
 \centering
@@ -668,9 +754,8 @@ Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
 Deskripsi & \multicolumn{5}{p{8cm}|}{Melihat info mahasiswa yang telah dipilih
 pada list.php} \\ \hline Kondisi Awal &
 \multicolumn{5}{p{8cm}|}{Menampilkan info yang dimiliki mahasiswa} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Jika pengguna mengklik "{\it Edit}"
-maka pindah ke editmahasiswa.php. Jika pengguna mengklik "Lihat Histori" maka
-pindah ke lihathistori.php} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Jika pengguna mengklik "{\it Edit}" maka pindah ke edit.php, jika pengguna mengklik "Tambah Masalah" maka pindah ke newproblem.php, jika pengguna mengklik "Lihat Masalah" maka pindah ke problem.php, jika pengguna mengklik "Lihat Histori" maka
+pindah ke history.php, jika pengguna mengklik "Logout" maka pengguna akan keluar dari sistem} \\ \hline
 \multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
 \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
 \\ \cline{2-6}
@@ -680,8 +765,7 @@ Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \end{tabular}
 \end{table}
 
-\item Untuk {\it use case} Edit Mahasiswa, skenarionya dapat dilihat pada Tabel
-\ref{tab:skenarioedit}.
+\item Untuk {\it use case} Edit Mahasiswa, skenarionya dapat dilihat pada Tabel \ref{tab:skenarioedit}.
 
 \begin{table}[ht]
 \centering
@@ -691,11 +775,9 @@ Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 \hline
 Nama & \multicolumn{5}{p{8cm}|}{Edit Mahasiswa} \\ \hline
 Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
-Deskripsi & \multicolumn{5}{p{8cm}|}{Mengedit info mahasiswa yang sudah ada di
-database} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form dengan data yang sudah
-ada pada database} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Form dengan data yang telah diedit} \\
+Deskripsi & \multicolumn{5}{p{8cm}|}{Mengedit info mahasiswa yang sudah ada di {\it database}} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form dengan data yang sudah ada pada {\it database}} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Form dengan data yang telah diedit akan direkam} \\
 \hline
 \multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
 \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
@@ -706,6 +788,54 @@ Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Form dengan data yang telah diedit} \\
 \multicolumn{2}{p{4cm}|}{Sistem akan merekan perubahan ke dalam database} \\
 \hline
 Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+\end{tabular}
+\end{table}
+
+\item Untuk {\it use case} Menambah Masalah Baru, skenarionya dapat dilihat pada Tabel \ref{tab:skenariomasalahbaru}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Skenario Menambah Masalah Baru]{Skenario Menambah Masalah Baru}
+\label{tab:skenariomasalahbaru}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Menambah Masalah Baru} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Membuat catatan masalah baru seorang mahasiswa} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form untuk memasukkan data masalah yang dimiliki mahasiswa} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Form dengan data yang telah diisi akan direkam} \\
+\hline
+\multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
+\multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
+\\ \cline{2-6}
+& 1 & \multicolumn{2}{p{4cm}|}{Pengguna mengisi data masalah} &
+\multicolumn{2}{p{4cm}|}{Sistem menampilkan form masalah} \\ \cline{2-6}
+& 2 & \multicolumn{2}{p{4cm}|}{Pengguna menyimpan data masalah} &
+\multicolumn{2}{p{4cm}|}{Sistem akan merekam data masalah ke dalam database} \\
+\hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+\end{tabular}
+\end{table}
+
+\item Untuk {\it use case} Lihat Daftar Masalah, skenarionya dapat dilihat pada Tabel \ref{tab:skenariolihatmasalah}.
+
+\begin{table}[ht]
+\centering
+\caption[Tabel Skenario Lihat Daftar Masalah]{Skenario Lihat Daftar Masalah}
+\label{tab:skenariolihatmasalah}
+\begin{tabular}{|p{1.4cm}|p{0.4cm}|p{2cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+Nama & \multicolumn{5}{p{8cm}|}{Lihat Daftar Masalah} \\ \hline
+Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
+Deskripsi & \multicolumn{5}{p{8cm}|}{Melihat daftar masalah yang dimiliki seorang mahasiswa} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan daftar masalah seorang mahasiswa} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Terus bertambah sesuai catatan masalah yang ditambah} \\ \hline
+\multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
+\multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
+\\ \cline{2-6}
+& 1 & \multicolumn{2}{p{4cm}|}{Pengguna melihat daftar masalah} &
+\multicolumn{2}{p{4cm}|}{Sistem akan menampilkan daftar masalah} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{Mahasiswa yang tidak memiliki masalah akan diberi keterangan tidak memiliki masalah} \\ \hline
 \end{tabular}
 \end{table}
 
@@ -747,20 +877,18 @@ Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
 Nama & \multicolumn{5}{p{8cm}|}{Membuat Entri Baru} \\ \hline
 Aktor & \multicolumn{5}{p{8cm}|}{Pengguna} \\ \hline
 Deskripsi & \multicolumn{5}{p{8cm}|}{Membuat entri baru yang belum ada pada
-database} \\ \hline
-Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form untuk menambah entri
-baru} \\ \hline
-Kondisi Akhir & \multicolumn{5}{p{8cm}|}{Input pada form akan dimasukan kedalam
-database} \\ \hline
+{\it database}} \\ \hline
+Kondisi Awal & \multicolumn{5}{p{8cm}|}{Menampilkan form untuk menambah entri baru} \\ \hline
+Kondisi Akhir & \multicolumn{5}{p{8cm}|}{{\it Input} pada form akan dimasukan kedalam {\it database}} \\ \hline
 \multirow{3}{*}{\parbox{1.4cm}{Skenario Utama}} & No &
 \multicolumn{2}{p{4cm}|}{Aksi Aktor} & \multicolumn{2}{p{4cm}|}{Reaksi Sistem}
 \\ \cline{2-6}
 & 1 & \multicolumn{2}{p{4cm}|}{Pengguna mengisi form entri baru} &
 \multicolumn{2}{p{4cm}|}{Sistem menampilkan form entri baru} \\ \cline{2-6}
-& 2 & \multicolumn{2}{p{4cm}|}{Pengguna menyimpan inputan dari form entri baru}
-& \multicolumn{2}{p{4cm}|}{Sistem akan merekam inputan pengguna ke dalam
-database} \\ \hline
-Eksepsi & \multicolumn{5}{p{8cm}|}{-} \\ \hline
+& 2 & \multicolumn{2}{p{4cm}|}{Pengguna menyimpan masukkan dari form entri baru}
+& \multicolumn{2}{p{4cm}|}{Sistem akan merekam masukkan pengguna ke dalam
+{\it database}} \\ \hline
+Eksepsi & \multicolumn{5}{p{8cm}|}{Jika data yang dimasukkan sudah ada di {\it database}, maka sistem akan menampilkan keterangan bahwa data telah terdaftar} \\ \hline
 \end{tabular}
 \end{table}
 \end{itemize}
@@ -776,19 +904,14 @@ dilihat pada Gambar \ref{fig:erd}.
 \label{fig:erd}
 \end{figure}
 
-Pada ERD Sistem Perekam dan Berbagi Riwayat Mahasiswa terdapat dua entitas yaitu info
-mahasiswa dan histori. Entitas info mahasiswa dengan relasi memiliki terbuhung
-dengan entitas histori.
+Pada ERD Sistem Perekam dan Berbagi Riwayat Mahasiswa terdapat tiga entitas yaitu info mahasiswa, masalah dan histori. Entitas info mahasiswa dengan relasi memiliki terbuhung dengan entitas histori. Entitas info mahasiswa dengan relasi memiliki terbuhung dengan entitas masalah. Entitas info mahasiswa untuk menampung data npm, nama, keterangan terakhir, dan waktu keterangan tersebut dibuat atau dirubah. Entitas masalah untuk menampung data masalah dan yang bersangkutan dengan masalah tersebut. Entitas histori untuk menampung data email pengguna, status (membuat entri, melihat, atau mengedit), keterangan yang disimpan agar dapat diliat versi dari pertama kali dibuat hingga versi saat ini, dan tanggal dari keterangan tersebut. 
 
 \subsection{Data {\it Flow} Diagram}
-Data {\it Flow} Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa digambarkan dalam dua
-level, yaitu Data {\it Context} Diagram / Data {\it Flow} Diagram Level 0, Data
-{\it Flow} Diagram Level 1.
+Data {\it Flow} Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa digambarkan dalam dua level, yaitu Data {\it Context} Diagram / Data {\it Flow} Diagram Level 0 dan Data {\it Flow} Diagram Level 1.
 
 \begin{enumerate}[(1)]
-  \item Data {\it Context} Diagram\\
-  Data {\it Context} Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa dapat dilihat pada
-  Gambar \ref{fig:dcd}.
+\item Data {\it Context} Diagram\\
+Data {\it Context} Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa dapat dilihat pada Gambar \ref{fig:dcd}.
   
 \begin{figure}[p]
 \centering
@@ -804,7 +927,7 @@ level, yaitu Data {\it Context} Diagram / Data {\it Flow} Diagram Level 0, Data
   
 \begin{figure}[p]
 \centering
-\includegraphics[scale=0.5]{Gambar/dfdl1.png}
+\includegraphics[scale=0.49]{Gambar/dfdl1.png}
 \caption[Data {\it Flow} Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa]{Data {\it Flow}
 Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa}
 \label{fig:dfdl1}
@@ -812,45 +935,51 @@ Diagram Sistem Perekam dan Berbagi Riwayat Mahasiswa}
 
 Untuk spesifikasi proses dapat dilihat di bawah ini.
 \begin{itemize}
-  \item No dan Nama Proses : P1 Login\\
-  Deskripsi : Proses akses ke perangkat lunak\\
-  Data Input : Email, password\\
-  Data Output : Login valid\\
-  Proses : Mengecek email yang digunakan diakhiri @unpar.ac.id atau tidak. Jika
-  ya maka sistem akan mengarakahkan ke halaman utama akan tetapi jika tidak maka
-  sistem akan menampilkan pesan login gagal.
-  \item No dan Nama Proses : P2 Pilih Mahasiswa\\
-  Deskripsi : Proses memilih mahasiswa\\
-  Data Input : Data mahasiswa\\
-  Data Output : Tabel daftar mahasiswa\\
-  Proses : pengguna memilih mahasiswa yang ingin dipilih dari tabel daftar
-  mahasiswa.
-  \item No dan Nama Proses : P3 Melihat Info Mahasiswa\\
-  Deskripsi : Proses melihat info mahasiswa\\
-  Data Input : Data informasi mahasiswa\\
-  Data Output : Data histori\\
-  Proses : pengguna mendapatkan info mahasiswa dari mahasiswa yang telah
-  pengguna pilih pada proses 2. Proses ini dicatat pada histori sebagai aksi
-  melihat.
-  \item No dan Nama Proses : P4 Edit Mahasiswa\\
-  Deskripsi : Proses mengedit info mahasiswa\\
-  Data Input : Keterangan mahasiswa terbaru\\
-  Data Output : Data informasi mahasiswa dan data histori\\
-  Proses : pengguna memperbaharui keterangan yang dimiliki mahasiswa yang telah
-  pengguna pilih pada proses 2. Proses ini dicatat pada histori sebagai aksi
-  mengedit.
-  \item No dan Nama Proses : P5 Lihat Histori\\
-  Deskripsi : Proses melihat histori\\
-  Data Input : Aksi pengguna dan keterangan\\
-  Data Output : Daftar histori\\
-  Proses : pengguna mendapatkan histori dari mahasiswa yang telah pengguna
-  pilih pada proses 2. Pengguna juga dapat melihat informasi mahasiswa versi
-  sebelumnya.
-  \item No dan Nama Proses : P6 Membuat Entri Baru\\
-  Deskripsi : Proses membuat entri baru\\
-  Data Input : NPM, Nama, Keterangan\\
-  Data Output : Data informasi mahasiswa dan data histori\\
-  Proses : pengguna memasukan data NPM, Nama, Keterangan untuk entri baru lalu
-  menyimpannya. Proses ini dicatat pada histori sebagai aksi membuat entri baru.
+\item No dan Nama Proses : P1 {\it Login}\\
+Deskripsi : Proses akses ke perangkat lunak dengan menggunakan akun dosen (@unpar.ac.id).\\
+Data Input : Email, password\\
+Data Output : {\it login} valid\\
+Proses : Mengecek email yang digunakan oleh pengguna diakhiri @unpar.ac.id atau tidak. Jika ya maka sistem akan mengarakahkan ke halaman dimana pengguna harus memberi izin untuk mengakses sistem. Setelah pengguna memberi izin maka sistem akan mengarahkan ke halaman utama akan tetapi jika tidak maka sistem akan menampilkan pesan {\it login} gagal.
+\item No dan Nama Proses : P2 Pilih Mahasiswa\\
+Deskripsi : Proses memilih mahasiswa\\
+Data Input : NPM yang terdapat pada tabel daftar mahasiswa di halaman utama\\
+Data Output : Data mahasiswa berupa tabel daftar mahasiswa\\
+Proses : Pengguna memilih mahasiswa yang ingin dipilih dari tabel daftar mahasiswa.
+\item No dan Nama Proses : P3 Cari Mahasiswa\\
+Deskripsi : Proses mencari mahasiswa\\
+Data Input : NPM pada teks area untuk mencari mahasiswa\\
+Data Output : Data mahasiswa berupa tabel daftar mahasiswa sesuai npm yang dicari\\
+Proses : pengguna mencari mahasiswa yang ingin dicari berdasarkan npm dan memilih mahasiswa tersebut dari tabel hasil pencarian.
+\item No dan Nama Proses : P4 Melihat Info Mahasiswa\\
+Deskripsi : Proses melihat informasi mahasiswa\\
+Data Input : NPM, nama, deskripsi umum, catatan\\
+Data Output : Data informasi mahasiswa, data histori\\
+Proses : pengguna mendapatkan info mahasiswa dari mahasiswa yang telah pengguna pilih pada proses 2 atau cari pada proses 3. Proses ini dicatat pada histori sebagai aksi melihat.
+\item No dan Nama Proses : P5 Edit Info Mahasiswa\\
+Deskripsi : Proses mengedit informasi mahasiswa\\
+Data Input : Deskripsi umum, catatan\\
+Data Output : Deskripsi umum, catatan, data histori\\
+Proses : pengguna memperbaharui informasi yang dimiliki mahasiswa yang telah pengguna pilih pada proses 2 atau cari pada proses 3. Proses ini dicatat pada histori sebagai aksi mengedit.
+\item No dan Nama Proses : P6 Menambah Masalah Baru\\
+Deskripsi : Proses menambah catatan masalah baru\\
+Data Input : Masalah dengan siapa, masalah\\
+Data Output : Masalah dengan siapa, masalah, data histori\\
+Proses : pengguna menambah catatan masalah baru mahasiswa yang telah pengguna pilih pada proses 2 atau cari pada proses 3. Proses ini dicatat pada histori sebagai aksi menambah catatan masalah.
+\item No dan Nama Proses : P7 Lihat Daftar Masalah\\
+Deskripsi : Proses melihat daftar masalah\\
+Data Input : Data masalah\\
+Data Output : Data masalah\\
+Proses : pengguna mendapatkan daftar masalah dari mahasiswa yang telah pengguna pilih pada proses 2 atau cari pada proses 3.
+\item No dan Nama Proses : P8 Lihat Histori\\
+Deskripsi : Proses melihat histori\\
+Data Input : Data histori\\
+Data Output : Data histori\\
+Proses : pengguna mendapatkan histori dari mahasiswa yang telah pengguna
+pilih pada proses 2 atau cari pada proses 3. Pengguna juga dapat melihat informasi mahasiswa versi sebelumnya.
+\item No dan Nama Proses : P9 Membuat Entri Baru\\
+Deskripsi : Proses membuat entri baru\\
+Data Input : NPM, nama, deskripsi umum, catatan\\
+Data Output : NPM, nama, deskripsi umum, catatan, data histori\\
+Proses : pengguna memasukan data NPM, Nama, Deskripsi umum dan Catatan untuk entri baru lalu menyimpannya. Proses ini dicatat pada histori sebagai aksi membuat entri baru.
 \end{itemize}  
 \end{enumerate}
