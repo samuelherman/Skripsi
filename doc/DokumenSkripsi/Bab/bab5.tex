@@ -344,7 +344,7 @@ Digunakan Tidak Dapat Mengakses SPBRM}
 \subsection{Pengujian Eksperimental}
 \label{sec:pengujianeksperimantal}
 
-Pengujian eksperimental dilakukan langsung ke empat orang dosen Teknik Informatika. Keempat dosen menguji dengan cara mencoba semua fitur yang terdapat pada SPBRM. Keempat dosen juga menjalankan SPBRM dengan memasukan data riwayat mahasiswa yang sebenarnya. Setelah melakukan pengujian diakhiri dengan kuesioner, untuk kuesioner pengujian eksperimental dapat dilihat pada Lampiran \ref{kuesionerpengujianeksperimental}. Untuk kuesioner dibuat menggunakan Google Form. Berikut data hasil kuesioner pengujian eksperimental, dapat dillihat pada Tabel \ref{kuesionerpertama}-\ref{kuesionerkelima}.
+Pengujian eksperimental dilakukan langsung ke empat orang dosen Teknik Informatika. Keempat dosen menguji dengan cara mencoba semua fitur yang terdapat pada SPBRM. Keempat dosen juga menjalankan SPBRM dengan memasukan data riwayat mahasiswa yang sebenarnya. Setelah melakukan pengujian diakhiri dengan kuesioner, untuk kuesioner pengujian eksperimental dapat dilihat pada Lampiran \ref{kuesionerpengujianeksperimental}. Untuk kuesioner dibuat menggunakan Google Form. Berikut data hasil kuesioner pengujian eksperimental, dapat dillihat pada Tabel \ref{kuesionerpertama}, \ref{kuesionerkedua}, \ref{kuesionerketiga}, \ref{kuesionerkeempat}, dan \ref{kuesionerkelima}.
 
 \begin{table}[H]
 \centering
@@ -386,7 +386,7 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 1 & & \checkmark & & & \\ \hline
 2 & \checkmark & & & & \\ \hline
 3 & & & & \checkmark & \\ \hline
-4 & & & \checkmark & & \\ \hline
+4 & & \checkmark & & & \\ \hline
 %5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
@@ -421,63 +421,249 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 \end{tabular}
 \end{table}
 
-Data kuesioner pengujian eksperimental akan diolah dengan menggunakan skala likert. Untuk skor jawaban kuesioner yang digunakan dapat dilihat pada Tabel \ref{skorkuesioner}. Kemudian harus membuat interval dan interpretasi persen untuk mengetahui hasil penilaian. Interval dan interpretasi persen dibuat dengan menggunakan rumus di bawah ini. $$I = 100 / \textrm{Jumlah skor}$$ Berdasarkan tabel skor untuk jawaban kuesioner, maka I yang didapat seperti perhitungan di bawah ini. $$I = 100 / 5 = 20$$ Jadi kriteria interpretasi skornya berdasarkan interval sebagai berikut.
+\newcommand{\slice}[4]{
+  \pgfmathparse{0.5*#1+0.5*#2}
+  \let\midangle\pgfmathresult
 
-\begin{itemize}
-\item 0\% sampai 19,99\% = Sangat Tidak Setuju
-\item 20\% sampai 39,99\% = Tidak Setuju
-\item 40\% sampai 59,99\% = Netral
-\item 60\% sampai 79,99\% = Setuju
-\item 80\% sampai 100\% = Sangat Setuju
-\end{itemize}
+  % slice
+  \draw[thick,fill=black!10] (0,0) -- (#1:1) arc (#1:#2:1) -- cycle;
 
-Untuk hasil penilaian responden dapat dilihat pada Tabel \ref{hasilpenilaian}. Kemudiah harus diketahui skor tertinggi yang didapat dari mengalikan skor sangat setuju dengan jumlah responden dan skor terendah yang didapat dari mengalikan skor sangat tidak setuju dengan jumlah responden. $$\textrm{Skor tertinggi = 5 * 4 = 20} \quad \textrm{dan} \quad \textrm{Skor terendah} = 1 * 4 = 4$$ Tahap terahir, untuk mendapatkan interpretasi skor pengamatan dengan menggunakan rumus di bawah ini. $$\textrm{Index \%} = (\textrm{Total skor} / \textrm{Skor tertinggi}) * 100\%$$ Untuk hasil interpretasi skor pengamatan setiap pertanyaan kuesioner dapat dilihat pada Tabel \ref{hasilinterpretasi}.
+  % outer label
+  \node[label=\midangle:#4] at (\midangle:1) {};
 
-\begin{table}[H]
+  % inner label
+  \pgfmathparse{min((#2-#1-10)/110*(-0.3),0)}
+  \let\temp\pgfmathresult
+  \pgfmathparse{max(\temp,-0.5) + 0.8}
+  \let\innerpos\pgfmathresult
+  \node at (\midangle:\innerpos) {#3};
+}
+
+\begin{figure}
 \centering
-\caption{Tabel Skor Untuk Jawaban Kuesioner}
-\label{skorkuesioner}
-\begin{tabular}{|l|l|}
-\hline
-Jawaban & Skor \\ \hline
-Sangat Setuju & 5 \\ \hline
-Setuju & 4 \\ \hline
-Netral & 3 \\ \hline
-Tidak Setuju & 2 \\ \hline
-Sangat Tidak Setuju & 1 \\ \hline
-\end{tabular}
-\end{table}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Jumlah data},
+        symbolic x coords={Pertanyaan pertama},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Pertanyaan pertama, 1)};
 
-\begin{table}[H]
+        \addplot
+             coordinates {(Pertanyaan pertama, 3)};
+
+        \addplot
+             coordinates {(Pertanyaan pertama, 0)};
+
+        \addplot
+             coordinates {(Pertanyaan pertama, 0)};
+        
+        \addplot
+             coordinates {(Pertanyaan pertama, 0)};
+
+        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Data Kuesioner Pertanyaan Pertama]{Diagram Data Kuesioner Pertanyaan Pertama}
+\label{fig:diagramdatakuesionerpertama}
+\end{figure}
+
+\begin{figure}
 \centering
-\caption{Tabel Hasil Penilaian Responden}
-\label{hasilpenilaian}
-\begin{tabular}{|l|l|l|l|l|l|}
-\hline
-\multirow{2}{*}{Responden} & \multicolumn{5}{l|}{No Pertanyaan} \\ \cline{2-6} 
-                           & 1     & 2     & 3    & 4    & 5    \\ \hline
-1                          & 4     & 3     & 4    & 4    & 4    \\ \hline
-2                          & 5     & 5     & 5    & 5    & 5    \\ \hline
-3                          & 4     & 4     & 2    & 2    & 2    \\ \hline
-4                          & 4     & 4     & 4    & 3    & 3    \\ \hline
-Total                      & 17    & 16    & 15   & 14   & 14   \\ \hline
-%Total Skor                 & \multicolumn{5}{l|}{76}            \\ \hline
-\end{tabular}
-\end{table}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Jumlah data},
+        symbolic x coords={Pertanyaan kedua},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Pertanyaan kedua, 1)};
 
-\begin{table}[H]
+        \addplot
+             coordinates {(Pertanyaan kedua, 2)};
+
+        \addplot
+             coordinates {(Pertanyaan kedua, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan kedua, 0)};
+        
+        \addplot
+             coordinates {(Pertanyaan kedua, 0)};
+
+        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Data Kuesioner Pertanyaan Kedua]{Diagram Data Kuesioner Pertanyaan Kedua}
+\label{fig:diagramdatakuesionerkedua}
+\end{figure}
+
+\begin{figure}[p]
 \centering
-\caption{Tabel Hasil Interpretasi Skor Pengamatan}
-\label{hasilinterpretasi}
-\begin{tabular}{|l|l|l|l|}
-\hline
-Pertanyaan & Total skor & Index \% & Kategori\\ \hline
-1 & 17 & 85\% & Sangat Setuju\\ \hline
-2 & 16 & 80\% & Sangat Setuju\\ \hline
-3 & 15 & 75\% & Setuju\\ \hline
-4 & 14 & 70\% & Setuju\\ \hline
-5 & 14 & 70\% & Setuju\\ \hline
-\end{tabular}
-\end{table}
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Jumlah data},
+        symbolic x coords={Pertanyaan ketiga},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Pertanyaan ketiga, 1)};
 
-Dapat disimpulkan responden sangat setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa. Lalu responden sangat setuju bahwa SPBRM dapat dioperasikan dengan mudah. Lalu responden setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Lalu responden setuju bahwa bekerja dengan SPBRM menjadi lebih efektif dalam mengelola riwayat mahasiswa. Dan yang terakhir responden setuju bahwa bekerja dengan SPBRM menjadi lebih efisien dalam mengelola riwayat mahasiswa.
+        \addplot
+             coordinates {(Pertanyaan ketiga, 2)};
+
+        \addplot
+             coordinates {(Pertanyaan ketiga, 0)};
+
+        \addplot
+             coordinates {(Pertanyaan ketiga, 1)};
+        
+        \addplot
+             coordinates {(Pertanyaan ketiga, 0)};
+
+        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Data Kuesioner Pertanyaan Ketiga]{Diagram Data Kuesioner Pertanyaan Ketiga}
+\label{fig:diagramdatakuesionerketiga}
+\end{figure}
+
+\begin{figure}
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Jumlah data},
+        symbolic x coords={Pertanyaan keempat},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Pertanyaan keempat, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan keempat, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan keempat, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan keempat, 1)};
+        
+        \addplot
+             coordinates {(Pertanyaan keempat, 0)};
+
+        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Data Kuesioner Pertanyaan Keempat]{Diagram Data Kuesioner Pertanyaan Keempat}
+\label{fig:diagramdatakuesionerkeempat}
+\end{figure}
+
+\begin{figure}[p]
+\centering
+\begin{tikzpicture}
+    \begin{axis}[
+        width  = 0.85*\textwidth,
+        height = 8cm,
+        major x tick style = transparent,
+        ybar=2*\pgflinewidth,
+        bar width=14pt,
+        ymajorgrids = true,
+        ylabel = {Jumlah data},
+        symbolic x coords={Pertanyaan kelima},
+        xtick = data,
+        scaled y ticks = false,
+        enlarge x limits=0.25,
+        ymin=0,
+        legend cell align=left,
+        legend style={
+                at={(1,1.05)},
+                anchor=south east,
+                column sep=1ex
+        }
+    ]
+        \addplot
+            coordinates {(Pertanyaan kelima, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan kelima, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan kelima, 1)};
+
+        \addplot
+             coordinates {(Pertanyaan kelima, 1)};
+        
+        \addplot
+             coordinates {(Pertanyaan kelima, 0)};
+
+        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
+    \end{axis}
+\end{tikzpicture}
+\caption[Diagram Data Kuesioner Pertanyaan Kelima]{Diagram Data Kuesioner Pertanyaan Kelima}
+\label{fig:diagramdatakuesionerkelima}
+\end{figure}
+
+Berdasarkan Gambar \ref{fig:diagramdatakuesionerpertama}, membuktikan penguji setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkedua}, membuktikan penguji setuju bahwa SPBRM mudah untuk digunakan. Berdasarkan Gambar \ref{fig:diagramdatakuesionerketiga}, membuktikan penguji setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna benar-benar paham untuk mengelola riwayat mahasiswa menggunakan SPBRM. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkeempat}, membuktikan penguji setuju bahwa bekerja dengan SPBRM menjadi lebih efektif dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab netral dan tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna yang bekerja dengan SPBRM dapat merasa efektif. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkelima}, membuktikan penguji setuju bahwa bekerja dengan SPBRM menjadi lebih efisien dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab netral dan tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna yang bekerja dengan SPBRM dapat merasa efisien.
+
+%Dapat disimpulkan responden sangat setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa. Lalu responden sangat setuju bahwa SPBRM dapat dioperasikan dengan mudah. Lalu responden setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Lalu responden setuju bahwa bekerja dengan SPBRM menjadi lebih efektif dalam mengelola riwayat mahasiswa. Dan yang terakhir responden setuju bahwa bekerja dengan SPBRM menjadi lebih efisien dalam mengelola riwayat mahasiswa.
