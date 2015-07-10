@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SPBRM | List</title>
+		<title>SPBRM | Search</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -20,6 +20,7 @@
 					</div>
 					<li><input class="button secondary" type='submit' name='submit' value='Cari NPM'></li>
 					<li><a href="new.php" class="button secondary">Add</a></li>
+					<li><a href="list.php" class="button secondary">Menu Utama</a></li>
 					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
 				</ul>
 			</form>
@@ -28,6 +29,15 @@
 
 		<div class="row">
 			<?php
+				$button = $_GET ['submit'];
+				$search = $_GET ['search']; 
+				
+				if (strlen($search) <= 10){
+					$new_search = $search."%";
+				}else{
+					$new_search = $search;
+				}
+		
 				include_once "configDatabase.php";
 
 				if(! $id_mysql)
@@ -40,10 +50,11 @@
 					die("Database tidak bisa dipilih");
 				}
 			
-				$hasil = mysql_query("SELECT * FROM info_mahasiswa", $id_mysql);
+				$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm LIKE '$new_search'", $id_mysql);
 				
 				if(! $hasil)
 				{
+					echo "NPM tidak ditemukan.";
 					die("Permintaan gagal");
 				}
 

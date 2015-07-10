@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Oauth</title>
+		<title>SPBRM | Oauth</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -42,7 +42,7 @@
 			function is_valid_email($email)
 			{
 				$result = 'valid email';
-				if(!preg_match("^[a-zA-Z0-9_.+-]+@unpar.ac.id+$^", $email) && !preg_match("^[a-zA-Z0-9_.+-]+@student.unpar.ac.id+$^", $email))
+				if(!preg_match("^[a-zA-Z0-9_.+-]+@unpar.ac.id+$^", $email))
 				{
 					$result = 'invalid email';
 				}
@@ -57,7 +57,7 @@
 			}
 			else
 			{
-				echo "<script>alert('Email yang digunakan tidak dapat mengakses SIRM. Email yang dapat digunakan untuk mengakses SIRM adalah email yang diakhiri @unpar.ac.id atau @student.unpar.ac.id.');window.location.href='index.php?logout';</script>";
+				echo "<script>alert('Email yang digunakan tidak dapat mengakses SPBRM. Email yang dapat digunakan untuk mengakses SPBRM adalah email yang diakhiri @unpar.ac.id.');window.location.href='index.php?logout';</script>";
 				exit;
 			}
 		?>

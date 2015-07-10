@@ -99,7 +99,7 @@ Basis data sistem perekam dan berbagi riwayat mahasiswa menggunakan tiga tabel b
 \section{Pengujian Perangkat Lunak}
 \label{sec:pengujianperangkatlunak}
 
-Pada bagian ini akan dibahas mengenai pengujian yang akan dilakukan terhadap perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian pengujian untuk pengujian fungsional terdapat perubahan program pada bagian oauth.php, jadi dapat menjalankan pengujian dengan email yang diakhiri @student.unpar.ac.id dikarenakan penulis tidak memiliki email yang diakhiri @unpar.ac.id. Kode program untuk pengujian fungsional perangkat lunak dapat dilihat pada Lampiran \ref{kode_program_pengujian}.
+Pada bagian ini akan dibahas mengenai pengujian yang akan dilakukan terhadap perangkat lunak. Pengujian tersebut terdiri dari dua bagian yaitu pengujian fungsional dan pengujian eksperimental. Pengujian fungsional bertujuan untuk memastikan bahwa seluruh fungsi yang dibangun pada perangkat lunak berjalan sesuai dengan yang direncanakan. Sedangkan pengujian eksperimental bertujuan untuk mengujikan perangkat lunak langsung ke pengguna. Pada bagian pengujian untuk pengujian fungsional terdapat perubahan program pada bagian oauth.php, jadi dapat menjalankan pengujian dengan {\it email} yang diakhiri @student.unpar.ac.id dikarenakan penulis tidak memiliki {\it email} yang diakhiri @unpar.ac.id. Kode program untuk pengujian fungsional perangkat lunak dapat dilihat pada Lampiran \ref{kode_program_pengujian}.
 
 \subsection{Lingkungan Pengujian Perangkat Keras}
 \label{sec:lingkunganpengujianperangkatkeras}
@@ -135,9 +135,9 @@ Dalam pengujian perangkat lunak ini digunakan spesifikasi perangkat lunak sebaga
 Pengujian fungsional menguji tampilan antar muka perangkat lunak beserta fungsi dasar. Berikut ini adalah daftar pengujian yang dilakukan:
 \begin{enumerate}[(1)]
 \item Fungsi login\\
-    Pengujian fungsi ini dilakukan untuk memastikan perangkat lunak terhubung ke server Google untuk melakukan otentikasi dan otorisasi serta memeriksa apakah email yang digunakan untuk login diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id" dikarenakan penulis tidak mempunyai akun dosen.
+    Pengujian fungsi ini dilakukan untuk memastikan perangkat lunak terhubung ke server Google untuk melakukan otentikasi dan otorisasi serta memeriksa apakah {\it email} yang digunakan untuk login diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id" dikarenakan penulis tidak mempunyai akun dosen.
     
-    Contoh kasus adalah melakukan login sebanyak dua kali, yang pertama menggunakan email yang diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id", dan yang kedua menggunakan email yang diakhiri selain "@unpar.ac.id" dan "@student.unpar.ac.id". Pengujian pertama, pengguna membuka halaman index.php dapat dilihat pada Gambar \ref{fig:membukahalamanindex}. Lalu pengguna melakukan login menggunakan email "7310013@sudent.unpar.ac.id" dapat dilihat pada Gambar \ref{fig:logindenganstudent}. Lalu akan ada konfirmasi bahwa akun yang digunakan dikelola oleh student.unpar.ac.id dapat dilihat pada Gambar \ref{fig:konfirmasiemail}. Lalu pengguna akan diarahkan ke CAS (Central Authentication Service) UNPAR dan melakukan login kembali dapat dilihat pada Gambar \ref{fig:casunpar}. Lalu pengguna akan diminta untuk memberikan izin aksses dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izindaripihakpengguna}. Setelah pengguna memberikan izin akses maka akan dilakukan dengan fungsi memilih mahasiswa yang akan dibahas pada poin berikutnya. Sedangkan pengujian kedua, pengguna melakukan login menggunakan email "bletack@gmail.com" dapat dilihat pada Gambar \ref{fig:logindengangmail}. Lalu pengguna akan mendapat {\it alert} karena email yang digunakan tidak sesuai dengan ketentuan dapat dilihat pada Gambar \ref{fig:alert}. Setelah pengguna menekan tombol ok pada {\it alert} maka pengguna akan dikembalikan ke halaman index.php. Hal ini menunjukkan fungsi login sudah berjalan dengan baik.
+    Contoh kasus adalah melakukan login sebanyak dua kali, yang pertama menggunakan {\it email} yang diakhiri "@unpar.ac.id" atau "@student.unpar.ac.id", dan yang kedua menggunakan {\it email} yang diakhiri selain "@unpar.ac.id" dan "@student.unpar.ac.id". Pengujian pertama, pengguna membuka halaman index.php dapat dilihat pada Gambar \ref{fig:membukahalamanindex}. Lalu pengguna melakukan login menggunakan {\it email} "7310013@sudent.unpar.ac.id" dapat dilihat pada Gambar \ref{fig:logindenganstudent}. Lalu akan ada konfirmasi bahwa akun yang digunakan dikelola oleh student.unpar.ac.id dapat dilihat pada Gambar \ref{fig:konfirmasiemail}. Lalu pengguna akan diarahkan ke CAS (Central Authentication Service) UNPAR dan melakukan login kembali dapat dilihat pada Gambar \ref{fig:casunpar}. Lalu pengguna akan diminta untuk memberikan izin aksses dari pihak pengguna dapat dilihat pada Gambar \ref{fig:izindaripihakpengguna}. Setelah pengguna memberikan izin akses maka akan dilakukan dengan fungsi memilih mahasiswa yang akan dibahas pada poin berikutnya. Sedangkan pengujian kedua, pengguna melakukan login menggunakan {\it email} "bletack@gmail.com" dapat dilihat pada Gambar \ref{fig:logindengangmail}. Lalu pengguna akan mendapat {\it alert} karena {\it email} yang digunakan tidak sesuai dengan ketentuan dapat dilihat pada Gambar \ref{fig:alert}. Setelah pengguna menekan tombol ok pada {\it alert} maka pengguna akan dikembalikan ke halaman index.php. Hal ini menunjukkan fungsi login sudah berjalan dengan baik.
 
 \item Fungsi memilih mahasiswa\\
 	Pengujian fungsi ini dilakukan untuk memastikan pengguna dapat memilih mahasiswa. Pada halaman list.php terdapat tabel yang berisikan npm, nama, dan last update dan pengguna dapat memilih mahasiswa dengan menekan npm yang diinginkan. Contoh pengujian pengguna akan memilih mahasiswa dengan npm 2010730013 maka akan menghasilkan link yang mengarah ke $view.php?npm=2010730013$ dapat dilihat pada Gambar \ref{fig:memilihmahasiswa}. Hal ini menunjukkan fungsi memilih mahasiswa sudah berjalan dengan baik.
@@ -179,16 +179,14 @@ Pengujian fungsional menguji tampilan antar muka perangkat lunak beserta fungsi 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.44]{Gambar/pengujian2.png}
-\caption[Login Dengan Email yang Diakhiri "@student.unpar.ac.id"]{Login Dengan
-Email yang Diakhiri "@student.unpar.ac.id"}
+\caption[Login Dengan {\it Email} yang Diakhiri "@student.unpar.ac.id"]{Login Dengan {\it Email} yang Diakhiri "@student.unpar.ac.id"}
 \label{fig:logindenganstudent}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.44]{Gambar/pengujian3.png}
-\caption[Konfirmasi Email yang Dikelola oleh student.unpar.ac.id]{Konfirmasi
-Email yang Dikelola oleh student.unpar.ac.id}
+\caption[Konfirmasi {\it Email} yang Dikelola oleh student.unpar.ac.id]{Konfirmasi {\it Email} yang Dikelola oleh student.unpar.ac.id}
 \label{fig:konfirmasiemail}
 \end{figure}
 
@@ -209,16 +207,14 @@ Email yang Dikelola oleh student.unpar.ac.id}
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.44]{Gambar/pengujian6.png}
-\caption[Login Dengan Email yang Diakhiri "@gmail.com"]{Login Dengan Email yang
-Diakhiri "@gmail.com"}
+\caption[Login Dengan {\it Email} yang Diakhiri "@gmail.com"]{Login Dengan {\it Email} yang Diakhiri "@gmail.com"}
 \label{fig:logindengangmail}
 \end{figure}
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.44]{Gambar/pengujian7.png}
-\caption[Alert Email yang Digunakan Tidak Dapat Mengakses SPBRM]{Alert Email yang
-Digunakan Tidak Dapat Mengakses SPBRM}
+\caption[Alert {\it Email} yang Digunakan Tidak Dapat Mengakses SPBRM]{Alert {\it Email} yang Digunakan Tidak Dapat Mengakses SPBRM}
 \label{fig:alert}
 \end{figure}
 
@@ -357,7 +353,6 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 2 & \checkmark & & & & \\ \hline
 3 & & \checkmark & & & \\ \hline
 4 & & \checkmark & & & \\ \hline
-%5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -372,7 +367,6 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 2 & \checkmark & & & & \\ \hline
 3 & & \checkmark & & & \\ \hline
 4 & & \checkmark & & & \\ \hline
-%5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -387,7 +381,6 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 2 & \checkmark & & & & \\ \hline
 3 & & & & \checkmark & \\ \hline
 4 & & \checkmark & & & \\ \hline
-%5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -402,7 +395,6 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 2 & \checkmark & & & & \\ \hline
 3 & & & & \checkmark & \\ \hline
 4 & & & \checkmark & & \\ \hline
-%5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -417,7 +409,6 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
 2 & \checkmark & & & & \\ \hline
 3 & & & & \checkmark & \\ \hline
 4 & & & \checkmark & & \\ \hline
-%5 & \checkmark & & & & \\ \hline
 \end{tabular}
 \end{table}
 
@@ -447,10 +438,11 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
         height = 8cm,
         major x tick style = transparent,
         ybar=2*\pgflinewidth,
-        bar width=14pt,
+        bar width=7pt,
         ymajorgrids = true,
         ylabel = {Jumlah data},
-        symbolic x coords={Pertanyaan pertama},
+        xlabel = {Pertanyaan},
+        symbolic x coords={Pertama, Kedua, Ketiga, Keempat, Kelima},
         xtick = data,
         scaled y ticks = false,
         enlarge x limits=0.25,
@@ -463,207 +455,31 @@ No Penguji & Sangat Setuju & Setuju & Netral & Tidak Setuju & Sangat Tidak Setuj
         }
     ]
         \addplot
-            coordinates {(Pertanyaan pertama, 1)};
+            coordinates {(Pertama, 1)(Kedua, 1)(Ketiga, 1)(Keempat, 1)(Kelima, 1)};
 
         \addplot
-             coordinates {(Pertanyaan pertama, 3)};
+             coordinates {(Pertama, 3)(Kedua, 2)(Ketiga, 2)(Keempat, 1)(Kelima, 1)};
 
         \addplot
-             coordinates {(Pertanyaan pertama, 0)};
+             coordinates {(Pertama, 0)(Kedua, 1)(Ketiga, 0)(Keempat, 1)(Kelima, 1)};
 
         \addplot
-             coordinates {(Pertanyaan pertama, 0)};
+             coordinates {(Pertama, 0)(Kedua, 0)(Ketiga, 1)(Keempat, 1)(Kelima, 1)};
         
         \addplot
-             coordinates {(Pertanyaan pertama, 0)};
+             coordinates {(Pertama, 0)(Kedua, 0)(Ketiga, 0)(Keempat, 0)(Kelima, 0)};
 
         \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
     \end{axis}
 \end{tikzpicture}
-\caption[Diagram Data Kuesioner Pertanyaan Pertama]{Diagram Data Kuesioner Pertanyaan Pertama}
-\label{fig:diagramdatakuesionerpertama}
+\caption[Diagram Data Kuesioner]{Diagram Data Kuesioner}
+\label{fig:diagramdatakuesioner}
 \end{figure}
 
-\begin{figure}
-\centering
-\begin{tikzpicture}
-    \begin{axis}[
-        width  = 0.85*\textwidth,
-        height = 8cm,
-        major x tick style = transparent,
-        ybar=2*\pgflinewidth,
-        bar width=14pt,
-        ymajorgrids = true,
-        ylabel = {Jumlah data},
-        symbolic x coords={Pertanyaan kedua},
-        xtick = data,
-        scaled y ticks = false,
-        enlarge x limits=0.25,
-        ymin=0,
-        legend cell align=left,
-        legend style={
-                at={(1,1.05)},
-                anchor=south east,
-                column sep=1ex
-        }
-    ]
-        \addplot
-            coordinates {(Pertanyaan kedua, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan kedua, 2)};
-
-        \addplot
-             coordinates {(Pertanyaan kedua, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan kedua, 0)};
-        
-        \addplot
-             coordinates {(Pertanyaan kedua, 0)};
-
-        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
-    \end{axis}
-\end{tikzpicture}
-\caption[Diagram Data Kuesioner Pertanyaan Kedua]{Diagram Data Kuesioner Pertanyaan Kedua}
-\label{fig:diagramdatakuesionerkedua}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-\begin{tikzpicture}
-    \begin{axis}[
-        width  = 0.85*\textwidth,
-        height = 8cm,
-        major x tick style = transparent,
-        ybar=2*\pgflinewidth,
-        bar width=14pt,
-        ymajorgrids = true,
-        ylabel = {Jumlah data},
-        symbolic x coords={Pertanyaan ketiga},
-        xtick = data,
-        scaled y ticks = false,
-        enlarge x limits=0.25,
-        ymin=0,
-        legend cell align=left,
-        legend style={
-                at={(1,1.05)},
-                anchor=south east,
-                column sep=1ex
-        }
-    ]
-        \addplot
-            coordinates {(Pertanyaan ketiga, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan ketiga, 2)};
-
-        \addplot
-             coordinates {(Pertanyaan ketiga, 0)};
-
-        \addplot
-             coordinates {(Pertanyaan ketiga, 1)};
-        
-        \addplot
-             coordinates {(Pertanyaan ketiga, 0)};
-
-        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
-    \end{axis}
-\end{tikzpicture}
-\caption[Diagram Data Kuesioner Pertanyaan Ketiga]{Diagram Data Kuesioner Pertanyaan Ketiga}
-\label{fig:diagramdatakuesionerketiga}
-\end{figure}
-
-\begin{figure}
-\centering
-\begin{tikzpicture}
-    \begin{axis}[
-        width  = 0.85*\textwidth,
-        height = 8cm,
-        major x tick style = transparent,
-        ybar=2*\pgflinewidth,
-        bar width=14pt,
-        ymajorgrids = true,
-        ylabel = {Jumlah data},
-        symbolic x coords={Pertanyaan keempat},
-        xtick = data,
-        scaled y ticks = false,
-        enlarge x limits=0.25,
-        ymin=0,
-        legend cell align=left,
-        legend style={
-                at={(1,1.05)},
-                anchor=south east,
-                column sep=1ex
-        }
-    ]
-        \addplot
-            coordinates {(Pertanyaan keempat, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan keempat, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan keempat, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan keempat, 1)};
-        
-        \addplot
-             coordinates {(Pertanyaan keempat, 0)};
-
-        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
-    \end{axis}
-\end{tikzpicture}
-\caption[Diagram Data Kuesioner Pertanyaan Keempat]{Diagram Data Kuesioner Pertanyaan Keempat}
-\label{fig:diagramdatakuesionerkeempat}
-\end{figure}
-
-\begin{figure}[p]
-\centering
-\begin{tikzpicture}
-    \begin{axis}[
-        width  = 0.85*\textwidth,
-        height = 8cm,
-        major x tick style = transparent,
-        ybar=2*\pgflinewidth,
-        bar width=14pt,
-        ymajorgrids = true,
-        ylabel = {Jumlah data},
-        symbolic x coords={Pertanyaan kelima},
-        xtick = data,
-        scaled y ticks = false,
-        enlarge x limits=0.25,
-        ymin=0,
-        legend cell align=left,
-        legend style={
-                at={(1,1.05)},
-                anchor=south east,
-                column sep=1ex
-        }
-    ]
-        \addplot
-            coordinates {(Pertanyaan kelima, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan kelima, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan kelima, 1)};
-
-        \addplot
-             coordinates {(Pertanyaan kelima, 1)};
-        
-        \addplot
-             coordinates {(Pertanyaan kelima, 0)};
-
-        \legend{Sangat Setuju,Setuju,Netral,Tidak Setuju,Sangat Tidak Setuju}
-    \end{axis}
-\end{tikzpicture}
-\caption[Diagram Data Kuesioner Pertanyaan Kelima]{Diagram Data Kuesioner Pertanyaan Kelima}
-\label{fig:diagramdatakuesionerkelima}
-\end{figure}
-
-Berdasarkan Gambar \ref{fig:diagramdatakuesionerpertama}, membuktikan penguji setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkedua}, membuktikan penguji setuju bahwa SPBRM mudah untuk digunakan. Berdasarkan Gambar \ref{fig:diagramdatakuesionerketiga}, membuktikan penguji setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna benar-benar paham untuk mengelola riwayat mahasiswa menggunakan SPBRM. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkeempat}, membuktikan penguji setuju bahwa bekerja dengan SPBRM menjadi lebih efektif dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab netral dan tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna yang bekerja dengan SPBRM dapat merasa efektif. Berdasarkan Gambar \ref{fig:diagramdatakuesionerkelima}, membuktikan penguji setuju bahwa bekerja dengan SPBRM menjadi lebih efisien dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab netral dan tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna yang bekerja dengan SPBRM dapat merasa efisien.
-
-%Dapat disimpulkan responden sangat setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa. Lalu responden sangat setuju bahwa SPBRM dapat dioperasikan dengan mudah. Lalu responden setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Lalu responden setuju bahwa bekerja dengan SPBRM menjadi lebih efektif dalam mengelola riwayat mahasiswa. Dan yang terakhir responden setuju bahwa bekerja dengan SPBRM menjadi lebih efisien dalam mengelola riwayat mahasiswa.
+Berdasarkan Gambar \ref{fig:diagramdatakuesioner}, membuktikan beberapa hal sebagai berikut.
+\begin{itemize}
+\item Penguji setuju bahwa SPBRM membantu dalam mengingat setiap riwayat mahasiswa.
+\item Penguji setuju bahwa SPBRM mudah untuk digunakan.
+\item Penguji setuju bahwa SPBRM membantu pemahaman dalam mengelola riwayat mahasiswa. Namun terdapat responden yang menjawab tidak setuju, hal ini menjadi masukkan untuk pengembangan perangkat lunak. Sehingga semua pengguna benar-benar paham untuk mengelola riwayat mahasiswa menggunakan SPBRM.
+\item Keempat penguji memberikan jawaban yang berbeda-beda untuk pertanyaan bekerja dengan SPBRM menjadi efektif dan efisien, sehingga menunjukkan adanya kebutuhan untuk meningkatkan aspek efektif dan efisien. Hal ini menjadi masukkan untuk pengembangan perangkat lunak sehingga semua pengguna yang bekerja dengan SPBRM dapat merasa efektif dan efisien.
+\end{itemize}

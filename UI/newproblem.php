@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SPBRM | Edit</title>
+		<title>SPBRM | New Problem</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -34,20 +34,17 @@
 		while($row = mysql_fetch_array($hasil))
 		{
 			$carinama = $row['nama'];
-			$cariketerangan = $row['keterangan'];
-			$caricatatan = $row['catatan'];
 		}
 
 		if(isset($_POST['submit']))
 		{
-			$keteranganbaru = "";
-			$keteranganbaru = $_POST['keteranganbaru'];
-			$catatanbaru = $_POST['catatanbaru'];
+			$masalahdengan = $_POST['masalahdengan'];
+			$masalahbaru = $_POST['masalahbaru'];
 
-			$sql1 = "UPDATE info_mahasiswa SET keterangan='$keteranganbaru', catatan='$catatanbaru', pembaruan_terakhir=now() WHERE npm='$npm'";
-			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan, catatan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'mengedit', now(), '". mysql_real_escape_string($keteranganbaru)  ."', '". mysql_real_escape_string($catatanbaru)  ."')";
+			$sql1 = "INSERT INTO masalah (npm, masalah_dengan, masalah) VALUES ('$npm', '$masalahdengan', '$masalahbaru')";
+			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan, catatan) VALUES ('$npm', '".$_SESSION['email']."', 'menambah catatan masalah', now(), '', '')";
 			
-			if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
+			if (mysql_query($sql1) & mysql_query($sql2) == TRUE) 
 			{
 				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 			} 
@@ -61,11 +58,11 @@
 		{
 		?>
 		<div class="row">
-			<h3>Anda mengedit catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.<br/>
+			<h3>Anda menambah catatan masalah mahasiswa ini sebagai <?php echo $_SESSION['email']?>.<br/>
 			NPM <?php echo $npm; ?> Nama <?php echo $carinama; ?>
 			</h3>
 		</div>
-		<form method="post" action="edit.php?npm=<?php echo $npm?>">
+		<form method="post" action="newproblem.php?npm=<?php echo $npm?>">
 			<div class="row">
 				<ul class="button-group">
 					<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
@@ -77,10 +74,10 @@
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
-					<h4>Deskripsi Umum</h4>
-					<textarea style="height: 300px;" placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
-					<h4>Catatan</h4>
-					<textarea style="height: 300px;" placeholder="<?php echo $caricatatan; ?>" name="catatanbaru"><?php echo $caricatatan; ?></textarea>
+					<h4>Masalah dengan siapa / mata kuliah apa</h4>
+					<textarea  placeholder="Nama dosen atau nama mata kuliah yang bersangkutan" name="masalahdengan"></textarea>
+					<h4>Masalah</h4>
+					<textarea style="height: 200px;" placeholder="Isilah dengan masalah yang dimiliki mahasiswa ini" name="masalahbaru"></textarea>
 				</div>
 			</div>
 			<!--<div class="row">

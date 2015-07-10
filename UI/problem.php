@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SPBRM | History</title>
+		<title>SPBRM | Problem</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 	</head>
@@ -38,7 +38,7 @@
 
 		?> 
 		<div class="row">
-		<h3>Daftar histori yang dimiliki NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
+		<h3>Daftar masalah yang dimiliki NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
 			<ul class="button-group">
 				<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
 				<li><a href="list.php" class="button secondary">Menu Utama</a></li>
@@ -51,16 +51,27 @@
 			<hr/>
 			<ul class="disc">
 				<?php
-					$hasil = mysql_query("SELECT * FROM histori WHERE npm='$npm' ORDER BY id_histori DESC", $id_mysql);
+					$hasil = mysql_query("SELECT * FROM masalah WHERE npm='$npm' ORDER BY id_masalah DESC", $id_mysql);
 			
 					if(! $hasil)
 					{
 						die("Permintaan gagal");
 					}
 					
-					while($row = mysql_fetch_array($hasil))
+					//while($row = mysql_fetch_array($hasil))
+					//{
+					//	echo "<li>" . $row['tanggal'] . " " . $row['masalah_dengan'] . " " . $row['masalah'] . "</li>";
+					//}
+					if(mysql_num_rows($hasil) > 0)
 					{
-						echo "<li>" . $row['tanggal_pembaruan'] . " " . $row['pengguna'] . " " . $row['status'] . " " . $row['npm'] . " " . ($row['keterangan'] != "" ? '<a href="past.php?id= '. $row['id_histori'] .'">[lihat versi ini]</a>' : "") . "</li>";
+					   while($row = mysql_fetch_array($hasil))
+					    {
+							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ".</li>";
+						}
+					}
+					else
+					{
+					  echo "Mahasiswa ini tidak memiliki masalah.";
 					}
 				?>
 			</ul>

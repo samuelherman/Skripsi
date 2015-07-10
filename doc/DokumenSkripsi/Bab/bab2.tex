@@ -90,7 +90,7 @@ Untuk jenis interaksi antara server memerlukan layanan akun, dimana akun tersebu
 
 Catatan: skenario layanan akun ini membutuhkan aplikasi untuk membuat dan tanda kriptografi JSON {\it Web Token} (JWTs). Sangat disarankan untuk menggunakan perpustakaan untuk melakukan tugas-tugas ini. Jika menulis kode untuk tanda penciptaan dan penandatanganan secara abstrak tanpa menggunakan perpustakaan, mungkin akan membuat kesalahan yang memiliki dampak yang parah pada keamanan aplikasi yang dibangun.
 
-Mandat untuk layanan akun, yang diperoleh dari Google Developers Console, termasuk alamat email yang dihasilkan yang unik, klien id, dan setidaknya satu pasang kunci publik / privat. Menggunakan klien id dan satu kunci privat untuk membuat JWT (JSON {\it Web Token}) ditandatangani dan membangun permintaan token akses dalam format yang sesuai. Aplikasi kemudian mengirimkan permintaan token ke Google OAuth 2.0 Authorization Server, yang mengembalikan token akses. Aplikasi menggunakan token untuk mengakses API Google. Ketika masa token berakhir, aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenariolayananakun}.
+Mandat untuk layanan akun, yang diperoleh dari Google Developers Console, termasuk alamat {\it email} yang dihasilkan yang unik, klien id, dan setidaknya satu pasang kunci publik / privat. Menggunakan klien id dan satu kunci privat untuk membuat JWT (JSON {\it Web Token}) ditandatangani dan membangun permintaan token akses dalam format yang sesuai. Aplikasi kemudian mengirimkan permintaan token ke Google OAuth 2.0 Authorization Server, yang mengembalikan token akses. Aplikasi menggunakan token untuk mengakses API Google. Ketika masa token berakhir, aplikasi mengulangi proses. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenariolayananakun}.
 
 \begin{figure}[h]
 \centering
@@ -148,23 +148,23 @@ Metode untuk membaca, menulis dan menghapus kegiatan app ke Google atas nama pen
 \end{itemize}
 Lingkup ini juga memungkinkan lintas platform dengan pendaftaran tunggal.
 
-\item Lingkup Email\\
+\item Lingkup {\it Email}\\
 \begin{lstlisting}[basicstyle=\footnotesize]
 email
 \end{lstlisting}
 Lingkup ini meminta agar aplikasi diberikan akses ke:
 \begin{itemize}
 \item
-Alamat email Google dari pengguna. Mengakses alamat email dengan memanggil people.get yang akan mengeluarkan {\it array} email atau dengan memanggil
+Alamat {\it email} Google dari pengguna. Mengakses alamat {\it email} dengan memanggil people.get yang akan mengeluarkan {\it array email} atau dengan memanggil
 \begin{lstlisting}[basicstyle=\footnotesize]
 people.getOpenIdConnect
 \end{lstlisting}
-yang akan mengeluarkan email dengan format OIDC (OpenID Connect).
+yang akan mengeluarkan {\it email} dengan format OIDC (OpenID Connect).
 \item
 Nama domain Google Apps jika ada yang dimiliki pengguna. Nama domain
 dikembalikan sebagai kepemilikan domain dari people.get atau properti hd dari getOpenIdConnect.
 \item
-Lingkup email ini setara dan menggantikan lingkup di bawah ini.
+Lingkup {\it email} ini setara dan menggantikan lingkup di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/userinfo.email
 \end{lstlisting}
@@ -175,7 +175,7 @@ https://www.googleapis.com/auth/plus.profile.emails.read
 Lingkup ini meminta aplikasi agar diberikan akses ke:
 \begin{itemize}
 \item
-Alamat email Google pengguna yang telah diverifikasi di profil Google+. Mengakses email dengan memanggil people.get dan mengembalikan hasil email dalam {\it array}.
+Alamat {\it email} Google pengguna yang telah diverifikasi di profil Google+. Mengakses {\it email} dengan memanggil people.get dan mengembalikan hasil {\it email} dalam {\it array}.
 \item
 Nama domain yang telah didaftarkan di Google jika pengguna memiliki fitur tersebut.
 \end{itemize}
@@ -199,7 +199,7 @@ karena lingkup
 \begin{lstlisting}[basicstyle=\footnotesize]
 https://www.googleapis.com/auth/plus.me
 \end{lstlisting}
-tidak dianjurkan sebagai lingkup login dikarenakan pengguna yang belum {\it upgrade} ke Google+ tidak akan mengembalikan nama atau alamat email
+tidak dianjurkan sebagai lingkup login dikarenakan pengguna yang belum {\it upgrade} ke Google+ tidak akan mengembalikan nama atau alamat {\it email}
 pengguna.
 
 Lingkup ini melakukan hal berikut:
@@ -219,7 +219,7 @@ Lingkup diatas sudah tidak dipakau lagi diganti dengan lingkup yang setara yaitu
 https://www.googleapis.com/auth/userinfo.email
 \end{lstlisting}
 
-Lingkup diatas sudah tidak dipakau lagi diganti dengan lingkup yang setara yaitu lingkup email. Lingkup ini meminta akses ke alamat email akun Google pengguna. Google menghasilkan token baru dengan lingkup ini untuk titik akhir people.get. Lingkup ini juga meminta akses dari pengguna ke titik akhir userinfo unutk kompatibilitas.
+Lingkup diatas sudah tidak dipakau lagi diganti dengan lingkup yang setara yaitu lingkup {\it email}. Lingkup ini meminta akses ke alamat {\it email} akun Google pengguna. Google menghasilkan token baru dengan lingkup ini untuk titik akhir people.get. Lingkup ini juga meminta akses dari pengguna ke titik akhir userinfo unutk kompatibilitas.
 
 Lihat juga lingkup terkait:
 \begin{lstlisting}[basicstyle=\footnotesize]

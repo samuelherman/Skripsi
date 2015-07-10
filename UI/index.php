@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>SIRM | Welcome</title>
+		<title>SPBRM | Welcome</title>
 		<link rel="stylesheet" href="css/foundation.css" />
 		<script src="js/vendor/modernizr.js"></script>
 		
@@ -11,7 +11,7 @@
 	</head>
 	<body>
 		<div class="row">
-			<h1>WELCOME to SIRM <h4>(Sistem Informasi Riwayat Mahasiswa)</h4></h1>
+			<h1>WELCOME to SPBRM <h4>(Sistem Perekam dan Berbagi Riwayat Mahasiswa)</h4></h1>
 			<hr/>
 			
 			<?php

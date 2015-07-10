@@ -158,11 +158,17 @@
 			session_start();
 		?>
 		<div class="row">
-			<h3>Pilih NPM yang ingin dicari / tambah baru.</h3>
-			<ul class="button-group">
-				<li><a href="new.php" class="button secondary">Add</a></li>
-				<li><a href="index.php?logout" class="button secondary">Logout</a></li>
-			</ul>
+			<h3>Masukkan dan pilih NPM yang ingin dicari / tambah baru.</h3>
+			<form action='search.php' method='GET'>
+				<ul class="button-group">
+					<div class='large-12 columns'>
+					<li><input type='text' name='search' placeholder='Masukkan NPM yang ingin dicari'></li>
+					</div>
+					<li><input class="button secondary" type='submit' name='submit' value='Cari NPM'></li>
+					<li><a href="new.php" class="button secondary">Add</a></li>
+					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
+				</ul>
+			</form>
 			<hr/>
 		</div>
 
@@ -211,6 +217,91 @@
 </html>
 \end{lstlisting}
 
+\begin{lstlisting}[language=php,basicstyle=\tiny,caption=search.php]
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SPBRM | Search</title>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<script src="js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+		<?php
+			session_start();
+		?>
+		<div class="row">
+			<h3>Masukkan dan pilih NPM yang ingin dicari / tambah baru.</h3>
+			<form action='search.php' method='GET'>
+				<ul class="button-group">
+					<div class='large-12 columns'>
+					<li><input type='text' name='search' placeholder='Masukkan NPM yang ingin dicari'></li>
+					</div>
+					<li><input class="button secondary" type='submit' name='submit' value='Cari NPM'></li>
+					<li><a href="new.php" class="button secondary">Add</a></li>
+					<li><a href="list.php" class="button secondary">Menu Utama</a></li>
+					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
+				</ul>
+			</form>
+			<hr/>
+		</div>
+
+		<div class="row">
+			<?php
+				$button = $_GET ['submit'];
+				$search = $_GET ['search']; 
+				
+				if (strlen($search) <= 10){
+					$new_search = $search."%";
+				}else{
+					$new_search = $search;
+				}
+		
+				include_once "configDatabase.php";
+
+				if(! $id_mysql)
+				{
+					die("Database tidak bisa dibuka");
+				}
+					
+				if(! mysql_select_db("spbrm", $id_mysql))
+				{
+					die("Database tidak bisa dipilih");
+				}
+			
+				$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm LIKE '$new_search'", $id_mysql);
+				
+				if(! $hasil)
+				{
+					echo "NPM tidak ditemukan.";
+					die("Permintaan gagal");
+				}
+
+				echo "<table>
+				<thead>
+				<tr>
+				<th width='250'>NPM</th>
+				<th width='500'>Nama</th>
+				<th width='250'>Last Update</th>
+				</tr>
+				</thead>";
+
+				while($row = mysql_fetch_array($hasil))
+				{
+				echo "<tr>";
+				echo "<td><a href='view.php?npm=". $row['npm'] ."'>" . $row['npm'] . "</a></td>";
+				echo "<td>" . $row['nama'] . "</td>";
+				echo "<td>" . $row['pembaruan_terakhir'] . "</td>";
+				echo "</tr>";
+				}
+				echo "</table>";
+			?> 
+		</div>
+	</body>
+</html>
+\end{lstlisting}
+
 \begin{lstlisting}[language=php,basicstyle=\tiny,caption=view.php]
 <!doctype html>
 <html class="no-js" lang="en">
@@ -227,12 +318,15 @@
 			$npm = $_GET["npm"];
 		?>
 		<div class="row">
+			<!--<div class="small-11 small-centered columns">-->
 			<div class="small-11 small-centered columns">
 				<h3>Anda melihat catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
 				<ul class="button-group">
-					<li><a href="edit.php?npm=<?php echo $npm?>" class="button secondary">Edit</a></li>
-					<li><a href="history.php?npm=<?php echo $npm?>" class="button secondary">Lihat Histori</a></li>
 					<li><a href="list.php" class="button secondary">Menu Utama</a></li>
+					<li><a href="edit.php?npm=<?php echo $npm?>" class="button secondary">Edit</a></li>
+					<li><a href="newproblem.php?npm=<?php echo $npm?>" class="button secondary">Masalah Baru</a></li>
+					<li><a href="problem.php?npm=<?php echo $npm?>" class="button secondary">Lihat Masalah</a></li>
+					<li><a href="history.php?npm=<?php echo $npm?>" class="button secondary">Lihat Histori</a></li>
 					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
 				</ul>
 			<hr/>
@@ -269,11 +363,25 @@
 		?>
 			</div>
 		</div>
+		<?php
+			$str = $row['catatan'];
+			$arr = explode("\n", $str);
+			//var_dump($arr);
+		?>
 <xmp style="display:none;">
 <?php
-echo $row['keterangan'];
+echo '# Deskripsi Umum'; echo "\n";
+
+echo $row['keterangan']; echo "\n";
+
+echo '# Catatan'; echo "\n";
+
+for($i=0; $i<sizeof($arr);$i++){
+echo "* ".$arr[$i]; 
+}echo "\n";
 ?>
 </xmp>
+
 		<?php
 			}
 		?>
@@ -320,15 +428,17 @@ echo $row['keterangan'];
 		{
 			$carinama = $row['nama'];
 			$cariketerangan = $row['keterangan'];
+			$caricatatan = $row['catatan'];
 		}
 
 		if(isset($_POST['submit']))
 		{
 			$keteranganbaru = "";
 			$keteranganbaru = $_POST['keteranganbaru'];
+			$catatanbaru = $_POST['catatanbaru'];
 
-			$sql1 = "UPDATE info_mahasiswa SET keterangan='$keteranganbaru', pembaruan_terakhir=now() WHERE npm='$npm'";
-			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'mengedit', now(), '". mysql_real_escape_string($keteranganbaru)  ."')";
+			$sql1 = "UPDATE info_mahasiswa SET keterangan='$keteranganbaru', catatan='$catatanbaru', pembaruan_terakhir=now() WHERE npm='$npm'";
+			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan, catatan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'mengedit', now(), '". mysql_real_escape_string($keteranganbaru)  ."', '". mysql_real_escape_string($catatanbaru)  ."')";
 			
 			if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
 			{
@@ -360,16 +470,197 @@ echo $row['keterangan'];
 			</div>
 			<div class="row">
 				<div class="small-12 columns">
+					<h4>Deskripsi Umum</h4>
 					<textarea style="height: 300px;" placeholder="<?php echo $cariketerangan; ?>" name="keteranganbaru"><?php echo $cariketerangan; ?></textarea>
+					<h4>Catatan</h4>
+					<textarea style="height: 300px;" placeholder="<?php echo $caricatatan; ?>" name="catatanbaru"><?php echo $caricatatan; ?></textarea>
 				</div>
 			</div>
-			<div class="row">
+			<!--<div class="row">
 				<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
-			</div>
+			</div>-->
 		</form>
 		<?php
 		}
 		?>
+	</body>
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=php,basicstyle=\tiny,caption=newproblem.php]
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SPBRM | New Problem</title>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<script src="js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+		<?php
+		session_start();
+		$npm = $_GET['npm'];
+		
+		include_once "configDatabase.php";
+
+		if(! $id_mysql)
+		{
+			die("Database tidak bisa dibuka");
+		}
+			
+		if(! mysql_select_db("spbrm", $id_mysql))
+		{
+			die("Database tidak bisa dipilih");
+		}
+			
+		$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+		
+		if(! $hasil)
+		{
+			die("Permintaan gagal");
+		}
+		
+		while($row = mysql_fetch_array($hasil))
+		{
+			$carinama = $row['nama'];
+		}
+
+		if(isset($_POST['submit']))
+		{
+			$masalahdengan = $_POST['masalahdengan'];
+			$masalahbaru = $_POST['masalahbaru'];
+
+			$sql1 = "INSERT INTO masalah (npm, masalah_dengan, masalah) VALUES ('$npm', '$masalahdengan', '$masalahbaru')";
+			$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan, catatan) VALUES ('$npm', '".$_SESSION['email']."', 'menambah catatan masalah', now(), '', '')";
+			
+			if (mysql_query($sql1) & mysql_query($sql2) == TRUE) 
+			{
+				echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
+			} 
+			else
+			{
+				echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
+				echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
+			}
+		}
+		else
+		{
+		?>
+		<div class="row">
+			<h3>Anda menambah catatan masalah mahasiswa ini sebagai <?php echo $_SESSION['email']?>.<br/>
+			NPM <?php echo $npm; ?> Nama <?php echo $carinama; ?>
+			</h3>
+		</div>
+		<form method="post" action="newproblem.php?npm=<?php echo $npm?>">
+			<div class="row">
+				<ul class="button-group">
+					<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
+					<li><input class="button" type="submit" name="submit" value="Simpan"></li>
+					<li><a href="list.php" class="button secondary">Menu Utama</a></li>
+					<li><a href="index.php?logout" class="button secondary">Logout</a></li>
+				</ul>
+				<hr/>
+			</div>
+			<div class="row">
+				<div class="small-12 columns">
+					<h4>Masalah dengan siapa / mata kuliah apa</h4>
+					<textarea  placeholder="Nama dosen atau nama mata kuliah yang bersangkutan" name="masalahdengan"></textarea>
+					<h4>Masalah</h4>
+					<textarea style="height: 200px;" placeholder="Isilah dengan masalah yang dimiliki mahasiswa ini" name="masalahbaru"></textarea>
+				</div>
+			</div>
+			<!--<div class="row">
+				<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
+			</div>-->
+		</form>
+		<?php
+		}
+		?>
+	</body>
+</html>
+\end{lstlisting}
+
+\begin{lstlisting}[language=php,basicstyle=\tiny,caption=problem.php]
+<!doctype html>
+<html class="no-js" lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>SPBRM | Problem</title>
+		<link rel="stylesheet" href="css/foundation.css" />
+		<script src="js/vendor/modernizr.js"></script>
+	</head>
+	<body>
+		<?php
+			$npm = $_GET["npm"];
+			
+			include_once "configDatabase.php";
+				
+			if(! $id_mysql)
+			{
+				die("Database tidak bisa dibuka");
+			}
+				
+			if(! mysql_select_db("spbrm", $id_mysql))
+			{
+				die("Database tidak bisa dipilih");
+			}
+			
+			$hasil = mysql_query("SELECT * FROM info_mahasiswa WHERE npm='$npm'", $id_mysql);
+			
+			if(! $hasil)
+			{
+				die("Permintaan gagal");
+			}
+
+			while($row = mysql_fetch_array($hasil))
+			{
+				$carinpm = $row['npm'];
+				$carinama = $row['nama'];
+			}
+
+		?> 
+		<div class="row">
+		<h3>Daftar masalah yang dimiliki NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
+			<ul class="button-group">
+				<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
+				<li><a href="list.php" class="button secondary">Menu Utama</a></li>
+				<li><a href="index.php?logout" class="button secondary">Logout</a></li>
+			</ul>
+			
+		</div>
+		<div class="row">
+			
+			<hr/>
+			<ul class="disc">
+				<?php
+					$hasil = mysql_query("SELECT * FROM masalah WHERE npm='$npm' ORDER BY id_masalah DESC", $id_mysql);
+			
+					if(! $hasil)
+					{
+						die("Permintaan gagal");
+					}
+					
+					//while($row = mysql_fetch_array($hasil))
+					//{
+					//	echo "<li>" . $row['tanggal'] . " " . $row['masalah_dengan'] . " " . $row['masalah'] . "</li>";
+					//}
+					if(mysql_num_rows($hasil) > 0)
+					{
+					   while($row = mysql_fetch_array($hasil))
+					    {
+							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ".</li>";
+						}
+					}
+					else
+					{
+					  echo "Mahasiswa ini tidak memiliki masalah.";
+					}
+				?>
+			</ul>
+			</h3>
+		</div>
 	</body>
 </html>
 \end{lstlisting}
@@ -415,6 +706,7 @@ echo $row['keterangan'];
 
 		?> 
 		<div class="row">
+		<h3>Daftar histori yang dimiliki NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
 			<ul class="button-group">
 				<li><a href="view.php?npm=<?php echo $npm?>" class="button secondary">Kembali</a></li>
 				<li><a href="list.php" class="button secondary">Menu Utama</a></li>
@@ -423,7 +715,7 @@ echo $row['keterangan'];
 			
 		</div>
 		<div class="row">
-			<h3>NPM <?php echo $carinpm; ?> Nama <?php echo $carinama; ?>
+			
 			<hr/>
 			<ul class="disc">
 				<?php
@@ -482,15 +774,28 @@ echo $row['keterangan'];
 					die("Database tidak bisa dipilih");
 				}
 				
-				$cari = mysql_query("SELECT keterangan FROM histori WHERE id_histori='$id'", $id_mysql);
+				$cari = mysql_query("SELECT keterangan, catatan FROM histori WHERE id_histori='$id'", $id_mysql);
 				while($row = mysql_fetch_array($cari))
 				{
 			?>
 			</div>
 		</div>
+		<?php
+			$str = $row['catatan'];
+			$arr = explode("\n", $str);
+			//var_dump($arr);
+		?>
 <xmp style="display:none;">
 <?php
-echo $row['keterangan'];
+echo '# Deskripsi Umum'; echo "\n";
+
+echo $row['keterangan']; echo "\n";
+
+echo '# Catatan'; echo "\n";
+
+for($i=0; $i<sizeof($arr);$i++){
+echo "* ".$arr[$i]; 
+}echo "\n";
 ?>
 </xmp>
 			<?php
@@ -529,11 +834,13 @@ echo $row['keterangan'];
 				die("Database tidak bisa dipilih");
 			}
 			
-			$npm = $nama = $keterangan = "";
+			$npm = $nama = $keterangan = $catatan = "";
 			
 			$npm = $_POST['npm'];
 			$nama = $_POST['nama'];
-			$keterangan = $_POST['keterangan']; 
+			$keterangan = $_POST['keterangan'];
+			$catatan = $_POST['catatan']; 
+
 
 			$cek = "SELECT npm from info_mahasiswa where npm='". mysql_real_escape_string($npm)  ."'";
 			$found = mysql_query($cek) or die(mysql_error());
@@ -543,16 +850,16 @@ echo $row['keterangan'];
 			}
 			else
 			{
-				$sql1 = "INSERT INTO info_mahasiswa (npm, nama, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '". mysql_real_escape_string($nama)  ."', '". mysql_real_escape_string($keterangan)  ."')";
-				$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'membuat entri', now(), '". mysql_real_escape_string($keterangan)  ."')";
+				$sql1 = "INSERT INTO info_mahasiswa (npm, nama, keterangan, catatan) VALUES ('$npm', '$nama', '$keterangan', '$catatan')";
+				$sql2 = "INSERT INTO histori (npm, pengguna, status, tanggal_pembaruan, keterangan, catatan) VALUES ('". mysql_real_escape_string($npm)  ."', '".$_SESSION['email']."', 'membuat entri', now(), '". mysql_real_escape_string($keterangan)  ."', '". mysql_real_escape_string($catatan)  ."')";
 				
-				if (mysql_query($sql1) & mysql_query($sql2) === TRUE) 
+				if (mysql_query($sql1)& mysql_query($sql2)== TRUE) 
 				{
 					echo '<META HTTP-EQUIV="Refresh" CONTENT="1; URL=list.php">';
 				}
 				else
 				{
-					echo "Error: " . $sql1 . "<br>" . $id_mysql->error;
+					echo "Error: " .$sql1. "<br>" .$id_mysql->error;
 					echo "Error: " . $sql2 . "<br>" . $id_mysql->error;
 				}
 			}
@@ -593,19 +900,13 @@ echo $row['keterangan'];
 				</div>
 				<div class="row">
 					<div class="small-12 columns">
-<textarea style="height: 300px;" name="keterangan">
-# Umum
-
-Isilah deskripsi umum mahasiswa disini.
-
-# Catatan
-
-* 8 Juni 2015, pertama kali dibuat
+<h4>Deskripsi Umum</h4>
+<textarea style="height: 300px;" name="keterangan" placeholder="Isilah dengan deskripsi umum">
+</textarea>
+<h4>Catatan</h4>
+<textarea style="height: 300px;" name="catatan" placeholder="Isilah dengan catatan mahasiswa">
 </textarea>
 					</div>
-				</div>
-				<div class="row">
-					<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
 				</div>
 			</form>
 		<?php
