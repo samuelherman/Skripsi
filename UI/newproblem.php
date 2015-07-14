@@ -80,9 +80,6 @@
 					<textarea style="height: 200px;" placeholder="Isilah dengan masalah yang dimiliki mahasiswa ini" name="masalahbaru"></textarea>
 				</div>
 			</div>
-			<!--<div class="row">
-				<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
-			</div>-->
 		</form>
 		<?php
 		}

@@ -58,15 +58,11 @@
 						die("Permintaan gagal");
 					}
 					
-					//while($row = mysql_fetch_array($hasil))
-					//{
-					//	echo "<li>" . $row['tanggal'] . " " . $row['masalah_dengan'] . " " . $row['masalah'] . "</li>";
-					//}
 					if(mysql_num_rows($hasil) > 0)
 					{
 					   while($row = mysql_fetch_array($hasil))
 					    {
-							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ".</li>";
+							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ". (Catatan masalah ini dibuat oleh " . $row['pengguna'] . ")</li>";
 						}
 					}
 					else

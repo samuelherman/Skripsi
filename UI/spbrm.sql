@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 10, 2015 at 04:58 PM
+-- Generation Time: Jul 14, 2015 at 11:55 AM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `histori` (
   `tanggal_pembaruan` datetime NOT NULL,
   `keterangan` text NOT NULL,
   `catatan` text NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `histori`
@@ -79,7 +79,11 @@ INSERT INTO `histori` (`id_histori`, `npm`, `pengguna`, `status`, `tanggal_pemba
 (36, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-09 12:41:53', '', ''),
 (37, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-09 12:42:17', '', ''),
 (38, '2010730001', '7310013@student.unpar.ac.id', 'melihat', '2015-07-09 12:43:07', '', ''),
-(39, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-09 12:45:12', '', '');
+(39, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-09 12:45:12', '', ''),
+(40, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-13 22:27:05', '', ''),
+(41, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-13 22:57:27', '', ''),
+(42, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-13 22:57:30', '', ''),
+(43, '2010730013', '7310013@student.unpar.ac.id', 'melihat', '2015-07-13 23:24:38', '', '');
 
 -- --------------------------------------------------------
 
@@ -114,6 +118,7 @@ INSERT INTO `info_mahasiswa` (`npm`, `nama`, `keterangan`, `catatan`, `pembaruan
 CREATE TABLE IF NOT EXISTS `masalah` (
 `id_masalah` int(5) NOT NULL,
   `npm` varchar(10) NOT NULL,
+  `pengguna` varchar(60) NOT NULL,
   `masalah_dengan` varchar(25) NOT NULL,
   `masalah` text NOT NULL,
   `tanggal` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
@@ -123,11 +128,11 @@ CREATE TABLE IF NOT EXISTS `masalah` (
 -- Dumping data for table `masalah`
 --
 
-INSERT INTO `masalah` (`id_masalah`, `npm`, `masalah_dengan`, `masalah`, `tanggal`) VALUES
-(1, '2010730013', 'Pascal', 'Terlambat datang 1 menit', '2015-07-09 10:37:55'),
-(2, '2010730014', 'chandra', 'tidak masuk kelas 2x', '2015-07-09 10:53:24'),
-(3, '2010730013', 'Skripsi 2', 'Belum mengembalikan kartu bimbingan.', '2015-07-09 11:04:06'),
-(4, '2010730013', 'BPM', 'Jarang masuk kelas dan tugas sama seperti tugas kelompok lain', '2015-07-09 12:40:58');
+INSERT INTO `masalah` (`id_masalah`, `npm`, `pengguna`, `masalah_dengan`, `masalah`, `tanggal`) VALUES
+(1, '2010730013', '7310013@student.unpar.ac.id', 'Pascal', 'Terlambat datang 1 menit', '2015-07-09 10:37:55'),
+(2, '2010730014', '7310013@student.unpar.ac.id', 'chandra', 'tidak masuk kelas 2x', '2015-07-09 10:53:24'),
+(3, '2010730013', '7310013@student.unpar.ac.id', 'Skripsi 2', 'Belum mengembalikan kartu bimbingan.', '2015-07-09 11:04:06'),
+(4, '2010730013', '7310013@student.unpar.ac.id', 'BPM', 'Jarang masuk kelas dan tugas sama seperti tugas kelompok lain', '2015-07-09 12:40:58');
 
 --
 -- Indexes for dumped tables
@@ -159,7 +164,7 @@ ALTER TABLE `masalah`
 -- AUTO_INCREMENT for table `histori`
 --
 ALTER TABLE `histori`
-MODIFY `id_histori` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=40;
+MODIFY `id_histori` int(5) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `masalah`
 --

@@ -13,7 +13,6 @@
 			$npm = $_GET["npm"];
 		?>
 		<div class="row">
-			<!--<div class="small-11 small-centered columns">-->
 			<div class="small-11 small-centered columns">
 				<h3>Anda melihat catatan mahasiswa ini sebagai <?php echo $_SESSION['email']?>.</h3>
 				<ul class="button-group">
@@ -61,7 +60,6 @@
 		<?php
 			$str = $row['catatan'];
 			$arr = explode("\n", $str);
-			//var_dump($arr);
 		?>
 <xmp style="display:none;">
 <?php

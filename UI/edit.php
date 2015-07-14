@@ -83,9 +83,6 @@
 					<textarea style="height: 300px;" placeholder="<?php echo $caricatatan; ?>" name="catatanbaru"><?php echo $caricatatan; ?></textarea>
 				</div>
 			</div>
-			<!--<div class="row">
-				<p>Format penulisan menggunakan Markdown, untuk sintaks Markdown dapat dilihat <a href='https://help.github.com/articles/github-flavored-markdown/' target="_blank">disini</a>.</p>
-			</div>-->
 		</form>
 		<?php
 		}

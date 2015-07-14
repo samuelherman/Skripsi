@@ -42,7 +42,7 @@
 			function is_valid_email($email)
 			{
 				$result = 'valid email';
-				if(!preg_match("^[a-zA-Z0-9_.+-]+@unpar.ac.id+$^", $email))
+				if((!preg_match("^[a-zA-Z0-9_.+-]+@unpar.ac.id+$^", $email))&&(!preg_match("^[a-zA-Z0-9_.+-]+@student.unpar.ac.id+$^", $email)))
 				{
 					$result = 'invalid email';
 				}
