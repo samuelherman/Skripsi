@@ -30,7 +30,7 @@ Token akses memiliki daya tahan yang terbatas. Jika aplikasi yang dibangun membu
 \end{enumerate}
 
 \subsection{Skenario Google OAuth}
-Terdapat lima skenario yang dapat digunakan untuk Google OAuth yaitu Skenario Aplikasi {\it Web} Server, Skenario Aplikasi yang Terinstal, Skenario Aplikasi Sisi Klien (JavaScript), Skenario Aplikasi Pada Perangkat Dengan Masukan yang Terbatas, dan Skenario Layanan Akun. Untuk penjelasan lebih lanjut dapat dilihat pada daftar di bawah ini.
+Terdapat lima skenario yang dapat digunakan untuk Google OAuth yaitu Skenario Aplikasi {\it Web} Server, Skenario Aplikasi yang Terinstal, Skenario Aplikasi Sisi Klien (JavaScript), Skenario Aplikasi Pada Perangkat Dengan masukkan yang Terbatas, dan Skenario Layanan Akun. Untuk penjelasan lebih lanjut dapat dilihat pada daftar di bawah ini.
 
 \begin{itemize}
 \item Skenario Aplikasi Layanan {\it Web}\\
@@ -70,17 +70,17 @@ Sisi Klien (JavaScript)}
 \label{fig:skenarioaplikasisisiklien}
 \end{figure}
 
-\item Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas\\
-Google OAuth 2.0 mendukung aplikasi yang berjalan pada perangkat dengan masukan yang terbatas seperti konsol permainan, kamera video, dan printer. Urutan otorisasi dimulai dengan aplikasi membuat permintaan layanan {\it web} ke URL Google untuk kode otorisasi. Tanggapan berisi beberapa parameter, termasuk URL dan kode bahwa aplikasi menunjukkan kepada pengguna. Pengguna memperoleh URL dan kode dari perangkat, kemudian beralih ke perangkat terpisah atau komputer dengan kemampuan masukan yang lebih. Pengguna membuka mesin pencari, mengarahkan ke URL tertentu, melakukan {\it log in}, dan memasukan kode.
+\item Skenario Aplikasi Pada Perangkat Dengan masukkan Yang Terbatas\\
+Google OAuth 2.0 mendukung aplikasi yang berjalan pada perangkat dengan masukkan yang terbatas seperti konsol permainan, kamera video, dan printer. Urutan otorisasi dimulai dengan aplikasi membuat permintaan layanan {\it web} ke URL Google untuk kode otorisasi. Tanggapan berisi beberapa parameter, termasuk URL dan kode bahwa aplikasi menunjukkan kepada pengguna. Pengguna memperoleh URL dan kode dari perangkat, kemudian beralih ke perangkat terpisah atau komputer dengan kemampuan masukkan yang lebih. Pengguna membuka mesin pencari, mengarahkan ke URL tertentu, melakukan {\it log in}, dan memasukkan kode.
 
-Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu. Setelah pengguna menyetujui akses, respon dari server Google berisi token akses dan memperbaharui token. Aplikasi harus menyimpan token yang baru untuk penggunaan masa depan dan menggunakan token akses untuk mengakses Google API. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasimasukanterbatas}.
+Sementara itu, aplikasi jajak pendapat dari URL Google pada interval tertentu. Setelah pengguna menyetujui akses, respon dari server Google berisi token akses dan memperbaharui token. Aplikasi harus menyimpan token yang baru untuk penggunaan masa depan dan menggunakan token akses untuk mengakses Google API. Setelah masa token akses berakhir, maka aplikasi akan memperbaharui token untuk mendapatkan yang baru. Untuk gambar skenario dapat dilihat pada Gambar \ref{fig:skenarioaplikasimasukkanterbatas}.
 
 \begin{figure}[p]
 \centering
 \includegraphics[scale=1]{Gambar/skenario3.png}
-\caption[Skenario Aplikasi Pada Perangkat Dengan Masukan Yang
-Terbatas]{Skenario Aplikasi Pada Perangkat Dengan Masukan Yang Terbatas}
-\label{fig:skenarioaplikasimasukanterbatas}
+\caption[Skenario Aplikasi Pada Perangkat Dengan masukkan Yang
+Terbatas]{Skenario Aplikasi Pada Perangkat Dengan masukkan Yang Terbatas}
+\label{fig:skenarioaplikasimasukkanterbatas}
 \end{figure}
 
 \item Skenario Layanan Akun\\
@@ -115,7 +115,7 @@ Akun pengguna telah melampaui jumlah tertentu permintaan token.
 Saat ini batas untuk setiap akun Google adalah 25 token. Jika pengguna akun telah memiliki 25 token, permintaan autentikasi untuk token ke-26 akan berhasil tapi token yang paling tua atau token ke-1 akan dibuat tidak berlaku tanpa sepengetahuan pengguna. Jika perlu untuk melakukan otorisasi beberapa program, mesin, atau perangkat, salah satu solusi yang ditawarkan pihak Google adalah dengan membatasi jumlah klien, dimana satu pengguna harus melakukan otorisasi antara 15 hingga 20 akun. Jika anda adalah admin Google Apps, anda dapat membuat admin tambahan untuk mengizinkan beberapa klien.
 
 \subsection{Lingkup Otorisasi \cite{Scope:2013}}
-Lingkup disini merupakan sebuah {\it string} yang memungkinkan akses ke sumber daya tertentu, misalnya akses ke data pengguna. Dengan memasukan lingkup tertentu pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh pengguna untuk diakses.
+Lingkup disini merupakan sebuah {\it string} yang memungkinkan akses ke sumber daya tertentu, misalnya akses ke data pengguna. Dengan memasukkan lingkup tertentu pada saat permintaan otorisasi, kemudian mendapatkan izin sesuai dengan teks yang akan ditampilkan ke pengguna. Setelah mendapat persetujuan dari pihak pengguna untuk izin atas lingkup tersebut, maka Google mengirimkan token untuk aplikasi yang mengidentifikasi untuk memberikan otorisasi khusus. Dengan kata lain, lingkup dan token menentukan apa saja data pengguna yang diberi izin oleh pengguna untuk diakses.
 
 Sebuah aplikasi yang dibuat tanpa permintaan autentikasi (tidak ada lingkup yang diminta) hanya dapat mengakses data pengguna yang umum di Google+. Contoh, jika sebuah aplikasi mencari postingan publik, respon dari pencarian akan menampilkan id pengguna yang telah diposting secara publik dan aplikasi dapat mengakses nama dan URL foto pengguna yang dimana keduanya selalu diposting secara publik. Dapat juga mengakses tanggal ulang tahun atau jenis kelamin pengguna jika pengguna telah mempostinng secara publik. Untuk daftar lingkup otorisasi dapat dilihat pada daftar di bawah ini.
 
@@ -747,7 +747,7 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t3}.
 \label{fig:t3}
 \end{figure}
 
-Pada sintask tabel juga dapat memasukan berbagai sintaks Markdown kedalam tabel seperti link, cetak tebal, cetak miring atau teks yang dicoret. Untuk contoh dapat dilihat di bawah ini.
+Pada sintask tabel juga dapat memasukkan berbagai sintaks Markdown kedalam tabel seperti link, cetak tebal, cetak miring atau teks yang dicoret. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
 | Nama | Deskripsi          |
 | ------------- | ----------- |
@@ -762,7 +762,7 @@ Untuk hasil pada HTML dapat dilihat pada Gambar \ref{fig:t4}.
 \label{fig:t4}
 \end{figure}
 
-Dengan memasukan tanda titik dua pada baris header. Dapat menentukan baris kiri,
+Dengan memasukkan tanda titik dua pada baris header. Dapat menentukan baris kiri,
 baris tengah, maupun baris kanan. Untuk contoh dapat dilihat di bawah ini.
 \begin{lstlisting}[basicstyle=\footnotesize]
 | Rata Kiri  | Rata Tengah  | Rata Kanan |

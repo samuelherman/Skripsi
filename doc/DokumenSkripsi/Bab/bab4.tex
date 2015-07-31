@@ -48,7 +48,7 @@ Keterangan :
 \item
 Bagian ini merupakan judul dari halaman untuk memilih mahasiswa.
 \item
-Bagian ini merupakan area untuk memasukan npm yang ingin dicari oleh pengguna.
+Bagian ini merupakan area untuk memasukkan npm yang ingin dicari oleh pengguna.
 \item
 Bagian ini merupakan tombol untuk melakukan aksi cari npm, add maupun logout.
 \item
@@ -71,7 +71,7 @@ Keterangan :
 \item
 Bagian ini merupakan judul dari halaman untuk mencari mahasiswa.
 \item
-Bagian ini merupakan area untuk memasukan npm yang ingin dicari oleh pengguna.
+Bagian ini merupakan area untuk memasukkan npm yang ingin dicari oleh pengguna.
 \item
 Bagian ini merupakan tombol untuk melakukan aksi add atau logout.
 \item
@@ -203,6 +203,8 @@ Gambar~\ref{fig:lihatversiini}.
 
 Keterangan :
 \begin{enumerate}[(1)]
+\item
+Bagian ini merupakan teks yang menampilkan keterangan pengguna yang membuat versi ini.
 \item
 Bagian ini merupakan tombol untuk melakukan aksi kembali ke lihat histori dan logout.	
 \item
@@ -477,6 +479,8 @@ nama & varchar & 60 & no & no & -\\
 \hline
 keterangan & text & - & no & no & -\\
 \hline
+catatan & text & - & no & no & -\\
+\hline
 pembaruan\_terakhir & datetime & - & no & no & -\\
 \hline
 \end{tabular}
@@ -506,6 +510,8 @@ tanggal\_pembaruan & datetime & - & no & no & -\\
 \hline
 keterangan & text & - & no & no & -\\
 \hline
+catatan & text & - & no & no & -\\
+\hline
 \end{tabular}
 \end{table}
 
@@ -524,6 +530,8 @@ Atribut & Tipe Data & Ukuran & Primary Key & Foreign Key & Keterangan\\
 id\_masalah & int & 5 & yes & no & AUTO\_INCREMENT\\
 \hline
 npm & varchar & 10 & no & yes & -\\
+\hline
+pengguna & varchar & 60 & no & no & -\\
 \hline
 masalah\_dengan & varchar & 25 & no & no & -\\
 \hline

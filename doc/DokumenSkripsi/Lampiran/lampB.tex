@@ -366,7 +366,6 @@
 		<?php
 			$str = $row['catatan'];
 			$arr = explode("\n", $str);
-			//var_dump($arr);
 		?>
 <xmp style="display:none;">
 <?php
@@ -642,15 +641,11 @@ echo "* ".$arr[$i];
 						die("Permintaan gagal");
 					}
 					
-					//while($row = mysql_fetch_array($hasil))
-					//{
-					//	echo "<li>" . $row['tanggal'] . " " . $row['masalah_dengan'] . " " . $row['masalah'] . "</li>";
-					//}
 					if(mysql_num_rows($hasil) > 0)
 					{
 					   while($row = mysql_fetch_array($hasil))
 					    {
-							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ".</li>";
+							echo "<li>" . $row['tanggal'] . " Memiliki masalah dengan/pada kelas " . $row['masalah_dengan'] . ", masalahnya adalah " . $row['masalah'] . ". (Catatan masalah ini dibuat oleh " . $row['pengguna'] . ")</li>";
 						}
 					}
 					else
@@ -753,27 +748,40 @@ echo "* ".$arr[$i];
 		session_start();
 		$id = $_GET["id"];
 		?>
+		<?php
+			include_once "configDatabase.php";
+				
+			if(! $id_mysql)
+			{
+				die("Database tidak bisa dibuka");
+			}
+				
+			if(! mysql_select_db("spbrm", $id_mysql))
+			{
+				die("Database tidak bisa dipilih");
+			}
+			
+			$hasil = mysql_query("SELECT pengguna FROM histori WHERE id_histori='$id'", $id_mysql);
+		
+			if(! $hasil)
+			{
+				die("Permintaan gagal");
+			}
+			
+			while($row = mysql_fetch_array($hasil))
+			{
+				$caripengguna = $row['pengguna'];
+			}
+		?>
 		<div class="row">
 			<div class="small-11 small-centered columns">
+			<h3>Versi ini dibuat oleh <?php echo $caripengguna; ?>.</h3>
 			<ul class="button-group">
 				<li><a href="javascript:history.back(1)" class="button secondary">Kembali</a></li>
 				<li><a href="index.php?logout" class="button secondary">Logout</a></li>
 			</ul>
 			<hr/>
 			<?php
-
-				include_once "configDatabase.php";
-				
-				if(! $id_mysql)
-				{
-					die("Database tidak bisa dibuka");
-				}
-					
-				if(! mysql_select_db("spbrm", $id_mysql))
-				{
-					die("Database tidak bisa dipilih");
-				}
-				
 				$cari = mysql_query("SELECT keterangan, catatan FROM histori WHERE id_histori='$id'", $id_mysql);
 				while($row = mysql_fetch_array($cari))
 				{
@@ -783,7 +791,6 @@ echo "* ".$arr[$i];
 		<?php
 			$str = $row['catatan'];
 			$arr = explode("\n", $str);
-			//var_dump($arr);
 		?>
 <xmp style="display:none;">
 <?php
